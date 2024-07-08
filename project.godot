@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Maple Leaf"
-run/main_scene="res://RunGame.tscn"
+run/main_scene="res://Scenes/RunGame.tscn"
 config/icon="res://icon.png"
 
 [gui]
