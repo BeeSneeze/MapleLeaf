@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Board.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Board.cs" type="Script" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="BoardNode" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

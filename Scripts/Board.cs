@@ -10,6 +10,7 @@ public class Board : Node2D
 	// private string b = "text";
 
 	const int MaxSize = 8;
+	Tile[,] TileMatrix = new Tile[8,8];
 
 	public override void _Ready()
 	{
@@ -26,12 +27,19 @@ public class Board : Node2D
 			for(int y = 0; y < MaxSize; y++)
 			{
 				Tile tile = (Tile)scene.Instance();
-				tile.X = x*106-371;
-				tile.Y = y*106-371;
+				tile.X = x*94-94*4+47;
+				tile.Y = y*94-94*4+47;
+
+				TileMatrix[x,y] = tile;
 
 				AddChild(tile);
 			}
 		}
+
+		TileMatrix[1,2].SetTerrain("Mountains");
+		TileMatrix[1,3].SetTerrain("Mountains");
+		TileMatrix[6,2].SetTerrain("Mountains");
+		TileMatrix[6,3].SetTerrain("Mountains");
 		
 
 		
