@@ -40,6 +40,7 @@ public class Board : Node2D
 		TileMatrix[1,3].SetTerrain("Mountains");
 		TileMatrix[6,2].SetTerrain("Mountains");
 		TileMatrix[6,3].SetTerrain("Mountains");
+		TileMatrix[2,1].SetCharacter(110);
 		
 
 		
