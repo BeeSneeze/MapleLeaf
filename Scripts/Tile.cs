@@ -7,8 +7,8 @@ public class Tile : Node2D
 	public int Y = 0;
 
 	private string Terrain;
-	private string Character;
-	private int CharID;
+	public string Character;
+	public int CharID {get; private set;}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,14 +33,16 @@ public class Tile : Node2D
 
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
 
-		if(InInt % 100 == 10)
+		// Character IDs: 0 = Nothing, 1-9 = friendly characters, 10-49 = enemy characters, 50+ = misc.
+		switch(InInt % 100)
 		{
-			AnimSpr.Animation = "RatTutorial";
+			case 0:
+				AnimSpr.Animation = "None";
+			break;
+			case 10:
+				AnimSpr.Animation = "RatTutorial";
+			break;
 		}
-
-		
-
-
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
