@@ -4,10 +4,6 @@ using System;
 
 public class Board : Node2D
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
-
 	const int MaxSize = 8;
 	Tile[,] TileMatrix = new Tile[8,8];
 
@@ -24,7 +20,7 @@ public class Board : Node2D
 			for(int y = 0; y < MaxSize; y++)
 			{
 				Tile tile = (Tile)scene.Instance();
-				tile.X = x*94-94*4+47;
+				tile.X = x*94-94*4+47; // 90x90 pixel boxes + 4 pixel margin between
 				tile.Y = y*94-94*4+47;
 
 				TileMatrix[x,y] = tile;
@@ -38,8 +34,6 @@ public class Board : Node2D
 		TileMatrix[6,2].SetTerrain("Mountains");
 		TileMatrix[6,3].SetTerrain("Mountains");
 		
-		//_sprite2D = new Sprite2D(); // Create a new Sprite2D.
-		//AddChild(_sprite2D); // Add it as a child of this node.
 	}
 
 	// Swaps characters between two tiles, useful for movement
@@ -59,7 +53,7 @@ public class Board : Node2D
 		{
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.W)
 			{
-				TileMatrix[2,2].SetCharacter(110);
+				TileMatrix[2,2].SetCharacter(103);
 			}
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.A)
 			{
@@ -67,11 +61,11 @@ public class Board : Node2D
 			}
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.S)
 			{
-				TileMatrix[2,3].SetCharacter(110);
+				TileMatrix[2,3].SetCharacter(102);
 			}
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.D)
 			{
-				TileMatrix[2,4].SetCharacter(110);
+				TileMatrix[2,4].SetCharacter(101);
 			}
 		}
 	}

@@ -39,6 +39,15 @@ public class Tile : Node2D
 			case 0:
 				AnimSpr.Animation = "None";
 			break;
+			case 1:
+				AnimSpr.Animation = "Soldier";
+			break;
+			case 2:
+				AnimSpr.Animation = "Sniper";
+			break;
+			case 3:
+				AnimSpr.Animation = "Support";
+			break;
 			case 10:
 				AnimSpr.Animation = "RatTutorial";
 			break;

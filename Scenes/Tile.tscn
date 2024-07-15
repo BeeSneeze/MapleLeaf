@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Rat2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Rat1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/RatNormal.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Soldier.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sniper.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Support.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -21,6 +24,21 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "RatTutorial",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Sniper",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Soldier",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Support",
 "speed": 5.0
 } ]
 
