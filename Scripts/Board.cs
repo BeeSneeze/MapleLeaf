@@ -35,6 +35,10 @@ public class Board : Node2D
 		Cell[2,2].SetTerrain("Mountains");
 		Cell[2,3].SetTerrain("Mountains");
 
+		Cell[3,3].SetCharacter(104);
+		Cell[3,4].SetCharacter(204);
+		Cell[3,5].SetCharacter(304);
+
 		ActionMatrix[3,3] = true;
 		ActionMatrix[2,3] = true;
 		ActionMatrix[4,3] = true;
@@ -43,10 +47,8 @@ public class Board : Node2D
 		ActionMatrix[3,5] = true;
 		ActionMatrix[3,6] = true;
 
-		//RotCounter(ActionMatrix);
+		RotCounter(ActionMatrix);
 		//RotClock(ActionMatrix);
-
-		int citynum = 104;
 
 		for(int x = 0; x < MaxSize; x++)
 		{
@@ -54,8 +56,7 @@ public class Board : Node2D
 			{
 				if(ActionMatrix[x,y])
 				{
-					Cell[x,y].SetCharacter(citynum);
-					citynum += 100;
+					Cell[x,y].SetMarker("Attack");
 				}
 			}
 		}

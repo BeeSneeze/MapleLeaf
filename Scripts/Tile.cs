@@ -57,6 +57,13 @@ public class Tile : Node2D
 		}
 	}
 
+	public void SetMarker(string InString)
+	{
+		// Change the animated sprite
+		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Marker");
+		AnimSpr.Animation = InString;
+	}
+
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
 //  {
