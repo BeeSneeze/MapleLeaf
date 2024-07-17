@@ -5,7 +5,7 @@ using System;
 public class Board : Node2D
 {
 	const int MaxSize = 8;
-	Tile[,] TileMatrix = new Tile[8,8];
+	Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
 
 	public override void _Ready()
 	{
@@ -23,37 +23,39 @@ public class Board : Node2D
 				tile.X = x*94-94*4+47; // 90x90 pixel boxes + 4 pixel margin between
 				tile.Y = y*94-94*4+47;
 
-				TileMatrix[x,y] = tile;
+				Cell[x,y] = tile;
 
 				AddChild(tile);
 			}
 		}
 
-		TileMatrix[1,2].SetTerrain("Mountains");
-		TileMatrix[1,3].SetTerrain("Mountains");
-		TileMatrix[6,2].SetTerrain("Mountains");
-		TileMatrix[6,3].SetTerrain("Mountains");
+		Cell[2,0].SetTerrain("Mountains");
+		Cell[2,1].SetTerrain("Mountains");
+		Cell[2,2].SetTerrain("Mountains");
+		Cell[2,3].SetTerrain("Mountains");
+
+		Cell[5,5].SetCharacter(104);
+		Cell[2,6].SetCharacter(204);
+		Cell[7,1].SetCharacter(304);
 		
 	}
 
 	// Swaps characters between two tiles, useful for movement
 	public void SwapTiles(int X1, int Y1, int X2, int Y2)
 	{
-		int CharID1 = TileMatrix[X1,Y1].CharID;
-		int CharID2 = TileMatrix[X2,Y2].CharID;
-		TileMatrix[X1,Y1].SetCharacter(CharID2);
-		TileMatrix[X2,Y2].SetCharacter(CharID1);
+		int CharID1 = Cell[X1,Y1].CharID;
+		int CharID2 = Cell[X2,Y2].CharID;
+		Cell[X1,Y1].SetCharacter(CharID2);
+		Cell[X2,Y2].SetCharacter(CharID1);
 	}
-
-
-
+	
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey eventKey)
 		{
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.W)
 			{
-				TileMatrix[2,2].SetCharacter(103);
+				Cell[2,2].SetCharacter(103);
 			}
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.A)
 			{
@@ -61,16 +63,14 @@ public class Board : Node2D
 			}
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.S)
 			{
-				TileMatrix[2,3].SetCharacter(102);
+				Cell[2,3].SetCharacter(102);
 			}
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.D)
 			{
-				TileMatrix[2,4].SetCharacter(101);
+				Cell[2,4].SetCharacter(101);
 			}
 		}
 	}
-	
-	//Tile[] TileMatrix = new Tile[8];
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
 //  public override void _Process(float delta)
