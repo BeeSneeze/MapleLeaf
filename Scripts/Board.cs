@@ -6,6 +6,7 @@ public class Board : Node2D
 {
 	const int MaxSize = 8;
 	Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
+	bool[,] ActionMatrix = new bool[8,8]; // Matrix saying which tiles are affected by an action
 
 	public override void _Ready()
 	{
@@ -34,10 +35,61 @@ public class Board : Node2D
 		Cell[2,2].SetTerrain("Mountains");
 		Cell[2,3].SetTerrain("Mountains");
 
-		Cell[5,5].SetCharacter(104);
-		Cell[2,6].SetCharacter(204);
-		Cell[7,1].SetCharacter(304);
+		ActionMatrix[3,3] = true;
+		ActionMatrix[2,3] = true;
+		ActionMatrix[4,3] = true;
+		ActionMatrix[3,2] = true;
+		ActionMatrix[3,4] = true;
+		ActionMatrix[3,5] = true;
+		ActionMatrix[3,6] = true;
+
+		//RotCounter(ActionMatrix);
+		//RotClock(ActionMatrix);
+
+		int citynum = 104;
+
+		for(int x = 0; x < MaxSize; x++)
+		{
+			for(int y = 0; y < MaxSize; y++)
+			{
+				if(ActionMatrix[x,y])
+				{
+					Cell[x,y].SetCharacter(citynum);
+					citynum += 100;
+				}
+			}
+		}
 		
+	}
+
+	// Rotate a matrix counter clock-wise
+	public void RotCounter(bool[,] InMat)
+	{
+		bool[,] OldMat = (bool[,])InMat.Clone();
+		int MatSize = InMat.GetLength(0)-1;
+
+		for(int x = 0; x < MaxSize; x++)
+		{
+			for(int y = 0; y < MaxSize; y++)
+			{
+				InMat[x,y] = OldMat[MatSize-y,x];
+			}
+		}
+	}
+
+	// Rotate a matrix clockwise
+	public void RotClock(bool[,] InMat)
+	{
+		bool[,] OldMat = (bool[,])InMat.Clone();
+		int MatSize = InMat.GetLength(0)-1;
+
+		for(int x = 0; x < MaxSize; x++)
+		{
+			for(int y = 0; y < MaxSize; y++)
+			{
+				InMat[x,y] = OldMat[y,MatSize-x];
+			}
+		}
 	}
 
 	// Swaps characters between two tiles, useful for movement
