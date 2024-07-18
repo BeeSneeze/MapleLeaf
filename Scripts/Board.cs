@@ -35,24 +35,21 @@ public class Board : Node2D
 		Cell[2,2].SetTerrain("Mountains");
 		Cell[2,3].SetTerrain("Mountains");
 
-		Cell[3,3].SetCharacter(104);
-		Cell[3,4].SetCharacter(204);
+		Cell[7,1].SetCharacter(104);
+		Cell[1,0].SetCharacter(204);
 		Cell[3,5].SetCharacter(304);
 
-		bool[,] PatchTest = new bool[5,5];
+		bool[,] PatchTest = new bool[15,15];
 
-		Cell[2,3].SetCharacter(101);
-		PatchTest[1,0] = true;
-		PatchTest[2,0] = true;
-		PatchTest[3,0] = true;
-		PatchTest[2,1] = true;
+		Cell[2,4].SetCharacter(101);
+		PatchTest[6,5] = true;
+		PatchTest[7,5] = true;
+		PatchTest[8,5] = true;
+		PatchTest[7,6] = true;
 
-		RotClock(PatchTest);
-		RotClock(PatchTest);
-		
+		RotCounter(PatchTest);
 
-
-		Patch(PatchTest, ActionMatrix, new Vector2(2,3));
+		Patch(PatchTest, ActionMatrix, new Vector2(2,4));
 
 		for(int x = 0; x < MaxSize; x++)
 		{

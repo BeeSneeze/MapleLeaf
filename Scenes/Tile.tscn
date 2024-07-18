@@ -9,8 +9,8 @@
 [ext_resource path="res://Assets/Sniper.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Support.png" type="Texture" id=8]
 [ext_resource path="res://Assets/City.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Attack1.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Attack2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Markers/Attack2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Markers/Attack1.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -52,7 +52,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Attack",
 "speed": 2.0
