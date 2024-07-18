@@ -39,16 +39,20 @@ public class Board : Node2D
 		Cell[3,4].SetCharacter(204);
 		Cell[3,5].SetCharacter(304);
 
-		ActionMatrix[3,3] = true;
-		ActionMatrix[2,3] = true;
-		ActionMatrix[4,3] = true;
-		ActionMatrix[3,2] = true;
-		ActionMatrix[3,4] = true;
-		ActionMatrix[3,5] = true;
-		ActionMatrix[3,6] = true;
+		bool[,] PatchTest = new bool[5,5];
 
-		RotCounter(ActionMatrix);
-		//RotClock(ActionMatrix);
+		Cell[2,3].SetCharacter(101);
+		PatchTest[1,0] = true;
+		PatchTest[2,0] = true;
+		PatchTest[3,0] = true;
+		PatchTest[2,1] = true;
+
+		RotClock(PatchTest);
+		RotClock(PatchTest);
+		
+
+
+		Patch(PatchTest, ActionMatrix, new Vector2(2,3));
 
 		for(int x = 0; x < MaxSize; x++)
 		{
@@ -63,17 +67,46 @@ public class Board : Node2D
 		
 	}
 
+	// Places a matrix inside of a bigger matrix
+	// Both are assumed to be square, the input matrix is assumed to have odd dimensions
+	// By default, the input matrix is only additive. Turn on replace to allow for removal via input matrix
+	public void Patch(bool[,] InMat, bool[,] OutMat, Vector2 CPos, bool Replace = false)
+	{
+		int CIndex = (InMat.GetLength(0) - 1)/2;
+		GD.Print(CIndex);
+		
+		int OffsetX = (int)CPos.x-CIndex;
+		int OffsetY = (int)CPos.y-CIndex;
+
+		for(int x = 0; x < InMat.GetLength(0); x++)
+		{
+			for(int y = 0; y < InMat.GetLength(0); y++)
+			{
+				bool BoxTestX = x+OffsetX >= 0 && x+OffsetX < OutMat.GetLength(0);
+				bool BoxTestY = y+OffsetY >= 0 && y+OffsetY < OutMat.GetLength(1);
+
+				if(BoxTestX && BoxTestY)
+				{
+					if(InMat[x,y] || Replace)
+					{
+						OutMat[x+OffsetX, y+OffsetY] = InMat[x,y];
+					}
+				}
+			}
+		}
+	}
+
 	// Rotate a matrix counter clock-wise
 	public void RotCounter(bool[,] InMat)
 	{
 		bool[,] OldMat = (bool[,])InMat.Clone();
-		int MatSize = InMat.GetLength(0)-1;
+		int MatSize = InMat.GetLength(0);
 
-		for(int x = 0; x < MaxSize; x++)
+		for(int x = 0; x < MatSize; x++)
 		{
-			for(int y = 0; y < MaxSize; y++)
+			for(int y = 0; y < MatSize; y++)
 			{
-				InMat[x,y] = OldMat[MatSize-y,x];
+				InMat[x,y] = OldMat[MatSize-1-y,x];
 			}
 		}
 	}
@@ -82,13 +115,15 @@ public class Board : Node2D
 	public void RotClock(bool[,] InMat)
 	{
 		bool[,] OldMat = (bool[,])InMat.Clone();
-		int MatSize = InMat.GetLength(0)-1;
+		int MatSize = InMat.GetLength(0);
 
-		for(int x = 0; x < MaxSize; x++)
+		GD.Print(MatSize);
+
+		for(int x = 0; x < MatSize; x++)
 		{
-			for(int y = 0; y < MaxSize; y++)
+			for(int y = 0; y < MatSize; y++)
 			{
-				InMat[x,y] = OldMat[y,MatSize-x];
+				InMat[x,y] = OldMat[y,MatSize-1-x];
 			}
 		}
 	}
