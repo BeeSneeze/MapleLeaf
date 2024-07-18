@@ -5,3 +5,4 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Node2D" parent="." instance=ExtResource( 1 )]
+scale = Vector2( 0.8, 0.8 )

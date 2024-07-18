@@ -39,14 +39,18 @@ public class Board : Node2D
 		Cell[1,0].SetCharacter(204);
 		Cell[3,5].SetCharacter(304);
 
+		Cell[3,6].SetCharacter(110);
+		Cell[6,1].SetCharacter(210);
+
 		bool[,] PatchTest = new bool[15,15];
 
-		Cell[2,4].SetCharacter(101);
+		Cell[2,4].SetCharacter(103);
 		PatchTest[6,5] = true;
 		PatchTest[7,5] = true;
 		PatchTest[8,5] = true;
 		PatchTest[7,6] = true;
 
+		RotCounter(PatchTest);
 		RotCounter(PatchTest);
 
 		Patch(PatchTest, ActionMatrix, new Vector2(2,4));
@@ -62,6 +66,18 @@ public class Board : Node2D
 			}
 		}
 		
+	}
+
+	// Remove all of the markers
+	public void ClearMarkers()
+	{
+		for(int x = 0; x < MaxSize; x++)
+		{
+			for(int y = 0; y < MaxSize; y++)
+			{
+				Cell[x,y].SetMarker("None");
+			}
+		}
 	}
 
 	// Places a matrix inside of a bigger matrix

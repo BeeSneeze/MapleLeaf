@@ -7,4 +7,5 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+z_index = -100
 texture = ExtResource( 1 )
