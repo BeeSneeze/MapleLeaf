@@ -24,6 +24,12 @@ public class Tile : Node2D
 		var img = (Texture)GD.Load("res://Assets/Visuals/Terrain/" + InString + ".png");
 		Sprite spr = (Sprite)GetNode("Terrain");
 		spr.SetTexture(img);
+		if(InString == "Mountains")
+		{
+			AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
+			AnimSpr.Animation = "Mountain";
+		}
+
 	}
 
 	public void SetCharacter(int InInt)
