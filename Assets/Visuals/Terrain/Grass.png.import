@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mountains.png-55a2833b09b70f66711c991ba0505193.stex"
+path="res://.import/Grass.png-1b9b328b41d7cdc7fabe6c9ee1c7fc78.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Terrain/Mountains.png"
-dest_files=[ "res://.import/Mountains.png-55a2833b09b70f66711c991ba0505193.stex" ]
+source_file="res://Assets/Visuals/Terrain/Grass.png"
+dest_files=[ "res://.import/Grass.png-1b9b328b41d7cdc7fabe6c9ee1c7fc78.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Sniper.png-9c0c46ca63c13dbc9c615ba2599a37a5.stex"
+path="res://.import/City.png-8261e98ab5a02e29d91d9a49cc770a41.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Sniper.png"
-dest_files=[ "res://.import/Sniper.png-9c0c46ca63c13dbc9c615ba2599a37a5.stex" ]
+source_file="res://Assets/Visuals/Characters/City.png"
+dest_files=[ "res://.import/City.png-8261e98ab5a02e29d91d9a49cc770a41.stex" ]
 
 [params]
 

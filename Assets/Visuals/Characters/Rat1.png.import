@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Soldier.png-f24b39230f7ce3ab8561ca8696a99e96.stex"
+path="res://.import/Rat1.png-b06811481b217d14307cdb9b5f63057d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Soldier.png"
-dest_files=[ "res://.import/Soldier.png-f24b39230f7ce3ab8561ca8696a99e96.stex" ]
+source_file="res://Assets/Visuals/Characters/Rat1.png"
+dest_files=[ "res://.import/Rat1.png-b06811481b217d14307cdb9b5f63057d.stex" ]
 
 [params]
 

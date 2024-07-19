@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Board.png-130422e7ba2c18dd66a17903b8b5afc2.stex"
+path="res://.import/Rat2.png-f84d3578b31a36a6ce8e8dd24e3386da.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Board.png"
-dest_files=[ "res://.import/Board.png-130422e7ba2c18dd66a17903b8b5afc2.stex" ]
+source_file="res://Assets/Visuals/Characters/Rat2.png"
+dest_files=[ "res://.import/Rat2.png-f84d3578b31a36a6ce8e8dd24e3386da.stex" ]
 
 [params]
 

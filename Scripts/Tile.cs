@@ -21,7 +21,7 @@ public class Tile : Node2D
 	public void SetTerrain(string InString)
 	{
 		Terrain = InString;
-		var img = (Texture)GD.Load("res://Assets/Terrain/" + InString + ".png");
+		var img = (Texture)GD.Load("res://Assets/Visuals/Terrain/" + InString + ".png");
 		Sprite spr = (Sprite)GetNode("Terrain");
 		spr.SetTexture(img);
 	}

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Attack2.png-e9345127e2401872393c1ea7709982b3.stex"
+path="res://.import/Sniper.png-ca3b1e28ee10f33b87019ea23e680b99.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Markers/Attack2.png"
-dest_files=[ "res://.import/Attack2.png-e9345127e2401872393c1ea7709982b3.stex" ]
+source_file="res://Assets/Visuals/Characters/Sniper.png"
+dest_files=[ "res://.import/Sniper.png-ca3b1e28ee10f33b87019ea23e680b99.stex" ]
 
 [params]
 

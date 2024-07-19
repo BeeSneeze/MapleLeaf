@@ -21,8 +21,8 @@ public class Board : Node2D
 			for(int y = 0; y < MaxSize; y++)
 			{
 				Tile tile = (Tile)scene.Instance();
-				tile.X = x*94-94*4+47; // 90x90 pixel boxes + 4 pixel margin between
-				tile.Y = y*94-94*4+47;
+				tile.X = x*74-74*4+35+2; // 70x70 pixel boxes + 4 pixel margin between
+				tile.Y = y*74-74*4+35+2;
 
 				Cell[x,y] = tile;
 
@@ -51,7 +51,7 @@ public class Board : Node2D
 		PatchTest[7,6] = true;
 
 		RotCounter(PatchTest);
-		RotCounter(PatchTest);
+		//RotCounter(PatchTest);
 
 		Patch(PatchTest, ActionMatrix, new Vector2(2,4));
 
