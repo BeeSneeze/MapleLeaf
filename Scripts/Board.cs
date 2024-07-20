@@ -45,13 +45,11 @@ public class Board : Node2D
 		Cell[3,4].SetCharacter(410);
 		Cell[2,7].SetCharacter(510);
 
-		bool[,] PatchTest = new bool[15,15];
+		GameManager GM = (GameManager)GetParent();
+
+		bool[,] PatchTest = GM.LoadMatrix("Full", 1);
 
 		Cell[2,4].SetCharacter(103);
-		PatchTest[6,5] = true;
-		PatchTest[7,5] = true;
-		PatchTest[8,5] = true;
-		PatchTest[7,6] = true;
 
 		RotCounter(PatchTest);
 		//RotCounter(PatchTest);
@@ -89,7 +87,6 @@ public class Board : Node2D
 	public void Patch(bool[,] InMat, bool[,] OutMat, Vector2 CPos, bool Replace = false)
 	{
 		int CIndex = (InMat.GetLength(0) - 1)/2;
-		GD.Print(CIndex);
 		
 		int OffsetX = (int)CPos.x-CIndex;
 		int OffsetY = (int)CPos.y-CIndex;
@@ -132,8 +129,6 @@ public class Board : Node2D
 	{
 		bool[,] OldMat = (bool[,])InMat.Clone();
 		int MatSize = InMat.GetLength(0);
-
-		GD.Print(MatSize);
 
 		for(int x = 0; x < MatSize; x++)
 		{
