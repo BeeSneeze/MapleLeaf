@@ -41,6 +41,9 @@ public class Board : Node2D
 
 		Cell[3,6].SetCharacter(110);
 		Cell[6,1].SetCharacter(210);
+		Cell[1,1].SetCharacter(310);
+		Cell[3,4].SetCharacter(410);
+		Cell[2,7].SetCharacter(510);
 
 		bool[,] PatchTest = new bool[15,15];
 

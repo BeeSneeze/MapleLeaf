@@ -61,7 +61,7 @@ animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Attack",
-"speed": 2.0
+"speed": 1.2
 }, {
 "frames": [  ],
 "loop": true,
@@ -85,3 +85,4 @@ playing = true
 z_index = 10
 frames = SubResource( 2 )
 animation = "None"
+playing = true
