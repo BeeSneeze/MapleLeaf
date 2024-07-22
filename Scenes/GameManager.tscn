@@ -11,13 +11,13 @@ script = ExtResource( 1 )
 position = Vector2( 800, 450 )
 
 [node name="CardsSoldier" parent="." instance=ExtResource( 3 )]
-position = Vector2( 75, 200 )
+position = Vector2( 90, 200 )
 
 [node name="CardsSniper" parent="." instance=ExtResource( 3 )]
-position = Vector2( 75, 450 )
+position = Vector2( 90, 450 )
 
 [node name="CardsSupport" parent="." instance=ExtResource( 3 )]
-position = Vector2( 75, 700 )
+position = Vector2( 90, 700 )
 
 [node name="CardsRat" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1200, 450 )

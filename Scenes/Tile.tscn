@@ -38,7 +38,7 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "RatTutorial",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
