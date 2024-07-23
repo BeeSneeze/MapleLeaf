@@ -44,21 +44,27 @@ public class Tile : Node2D
 		{
 			case 0:
 				AnimSpr.Animation = "None";
+				AnimSpr.ZIndex = 0;
 			break;
 			case 1:
 				AnimSpr.Animation = "Soldier";
+				AnimSpr.ZIndex = 20;
 			break;
 			case 2:
 				AnimSpr.Animation = "Sniper";
+				AnimSpr.ZIndex = 20;
 			break;
 			case 3:
 				AnimSpr.Animation = "Support";
+				AnimSpr.ZIndex = 20;
 			break;
 			case 4:
 				AnimSpr.Animation = "City";
+				AnimSpr.ZIndex = 0;
 			break;
 			case 10:
 				AnimSpr.Animation = "RatTutorial";
+				AnimSpr.ZIndex = 0;
 			break;
 		}
 	}
