@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Visuals/CardBig.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Markers/Attack1.png" type="Texture" id=2]
+[ext_resource path="res://Themes/Card.tres" type="Theme" id=3]
 
 [node name="Card" type="Sprite"]
 texture = ExtResource( 1 )
@@ -10,14 +11,31 @@ texture = ExtResource( 1 )
 position = Vector2( 0, -75 )
 texture = ExtResource( 2 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="Label" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -212.0
-margin_top = -172.0
-margin_right = -20.0
-margin_bottom = -137.0
-text = "RELEASE THE GEESE"
+margin_left = -221.0
+margin_top = -169.0
+margin_right = -11.0
+margin_bottom = -134.0
+theme = ExtResource( 3 )
+text = "The Swarm"
+align = 1
+valign = 1
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -215.0
+margin_top = -170.0
+margin_right = -18.0
+margin_bottom = -32.0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource( 3 )
+text = "With the power of friendship, we can overcome anything!"
+scroll_active = false
