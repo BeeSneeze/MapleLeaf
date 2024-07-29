@@ -10,8 +10,6 @@ public class Board : Node2D
 
 	public override void _Ready()
 	{
-		//Translate(new Vector2(GetWindow().size.x/2,GetWindow().size.y/2));
-		//Translate(new Vector2(800,450));
 
 		// Spawn all the tile objects
 		var scene = GD.Load<PackedScene>("res://Scenes/Tile.tscn");

@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Visuals/CardBig.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/TheSwarm.png" type="Texture" id=2]
 [ext_resource path="res://Themes/Card.tres" type="Theme" id=3]
+[ext_resource path="res://Scripts/Card.cs" type="Script" id=4]
 
 [node name="Card" type="Sprite"]
 texture = ExtResource( 1 )
+script = ExtResource( 4 )
 
 [node name="Picture" type="Sprite" parent="."]
 position = Vector2( 0, -63 )
 texture = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -221.0
@@ -26,7 +28,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="FlavorText" type="RichTextLabel" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
