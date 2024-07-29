@@ -47,7 +47,7 @@ public class Board : Node2D
 
 		GameManager GM = (GameManager)GetParent();
 
-		bool[,] PatchTest = GM.LoadMatrix("Full", 1);
+		bool[,] PatchTest = GM.LoadMatrix("Manhattan", 2);
 
 		Cell[2,4].SetCharacter(103);
 
