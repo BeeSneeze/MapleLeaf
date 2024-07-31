@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardBig.png-4efeb89c53069c6144639affe7574861.stex"
+path="res://.import/TheSwarm.png-333f3f65f1799cb6cab2c8bd2e02d225.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Visuals/CardBig.png"
-dest_files=[ "res://.import/CardBig.png-4efeb89c53069c6144639affe7574861.stex" ]
+source_file="res://Assets/Visuals/Cards/TheSwarm.png"
+dest_files=[ "res://.import/TheSwarm.png-333f3f65f1799cb6cab2c8bd2e02d225.stex" ]
 
 [params]
 

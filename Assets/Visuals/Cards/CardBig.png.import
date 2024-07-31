@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CardImage.png-b76e79f03554eae342262d32d0d37c36.stex"
+path="res://.import/CardBig.png-71e254bea8a9003715dedb81519b4ab9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Visuals/CardImage.png"
-dest_files=[ "res://.import/CardImage.png-b76e79f03554eae342262d32d0d37c36.stex" ]
+source_file="res://Assets/Visuals/Cards/CardBig.png"
+dest_files=[ "res://.import/CardBig.png-71e254bea8a9003715dedb81519b4ab9.stex" ]
 
 [params]
 

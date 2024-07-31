@@ -3,12 +3,13 @@
 [ext_resource path="res://Themes/Icm3-Regular.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=2]
-size = 20
+size = 18
 use_mipmaps = true
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
+outline_size = 2
 use_mipmaps = true
 font_data = ExtResource( 1 )
 
