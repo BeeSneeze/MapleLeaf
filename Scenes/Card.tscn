@@ -18,9 +18,9 @@ texture = ExtResource( 2 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -221.0
-margin_top = -169.0
+margin_top = -166.0
 margin_right = -11.0
-margin_bottom = -132.0
+margin_bottom = -131.0
 theme = ExtResource( 3 )
 text = "The Swarm"
 align = 1
@@ -41,7 +41,7 @@ margin_bottom = -51.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center]With the power of friendship, we can accomplish anything!
+bbcode_text = "[center][i]With the power of friendship, we can accomplish anything![/i]
 [u]Spawn three rats[/u]"
 text = "With the power of friendship, we can accomplish anything!
 Spawn three rats"

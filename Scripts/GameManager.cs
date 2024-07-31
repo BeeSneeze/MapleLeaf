@@ -53,8 +53,6 @@ public class GameManager : Node2D
 
 		}
 
-		GD.Print(Contents);
-
 		return OutMat;
 	}
 }

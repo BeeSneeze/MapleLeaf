@@ -18,6 +18,15 @@ public class Card : Sprite
 	public override void _Ready()
 	{
 		// Load JSON stuff from the name
+
+		// Load the card picture
+		Sprite Image = (Sprite)GetNode("Picture");
+		var img = (Texture)GD.Load("res://Assets/Visuals/Cards/" + CardName + ".png");
+		Image.SetTexture(img);
+
+		// Set the title of the card to the name
+		Label Title = (Label)GetNode("Title");
+		Title.Text = CardName;
 	}
 
 	public void PlayCard()

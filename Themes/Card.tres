@@ -1,21 +1,29 @@
-[gd_resource type="Theme" load_steps=4 format=2]
+[gd_resource type="Theme" load_steps=7 format=2]
 
-[ext_resource path="res://Themes/Icm3-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Themes/honchokomono-normal-regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Themes/Keep Cheese.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Themes/honchokomono-italic-regular.otf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+use_mipmaps = true
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 18
+size = 22
 use_mipmaps = true
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=1]
-size = 28
+size = 30
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [resource]
 default_font = SubResource( 1 )
 Label/colors/font_color = Color( 1, 1, 1, 1 )
-RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
+RichTextLabel/colors/default_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+RichTextLabel/fonts/italics_font = SubResource( 3 )
 RichTextLabel/fonts/normal_font = SubResource( 2 )

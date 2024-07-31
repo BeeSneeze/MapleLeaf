@@ -21,7 +21,13 @@ public class CardManager : Node2D
 			Cards.Add(NewCard);
 			NewCard.Translate(new Vector2(x*100,0));
 
+			NewCard.CardName = "TheSwarm";
 			NewCard.BigMode(x==0);
+
+			if(x==2)
+			{
+				NewCard.CardName = "Binoculars";
+			}
 			
 			AddChild(NewCard);
 		}
