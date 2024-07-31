@@ -10,6 +10,9 @@ public class Tile : Node2D
 	public string Character;
 	public int CharID {get; private set;}
 
+	public int MaxHP;
+	public int HP;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{	
