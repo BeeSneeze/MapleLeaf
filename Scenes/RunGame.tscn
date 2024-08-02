@@ -1,13 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Scenes/LevelManager.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/Visuals/Background.png" type="Texture" id=2]
 
 [node name="Game Run" type="Node2D"]
-
-[node name="Background" type="Sprite" parent="."]
-position = Vector2( 800, 450 )
-z_index = -1000
-texture = ExtResource( 2 )
 
 [node name="Level Manager" parent="." instance=ExtResource( 1 )]

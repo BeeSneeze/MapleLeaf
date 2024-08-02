@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/CardManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Visuals/Background.png" type="Texture" id=4]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 800, 450 )
+z_index = -1000
+texture = ExtResource( 4 )
 
 [node name="Board" parent="." instance=ExtResource( 2 )]
 position = Vector2( 800, 450 )
