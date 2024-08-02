@@ -18,6 +18,7 @@ public class Card : Sprite
 	public override void _Ready()
 	{
 		// Load JSON stuff from the name
+		Range = 2;
 
 		// Load the card picture
 		Sprite Image = (Sprite)GetNode("Picture");
@@ -27,6 +28,10 @@ public class Card : Sprite
 		// Set the title of the card to the name
 		Label Title = (Label)GetNode("Title");
 		Title.Text = CardName;
+
+		// Set the range of the card
+		Label RLabel = (Label)GetNode("Range");
+		RLabel.Text = Range.ToString();
 	}
 
 	public void PlayCard()
