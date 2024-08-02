@@ -19,6 +19,8 @@ public class Card : Sprite
 	{
 		// Load JSON stuff from the name
 		Range = 2;
+		TargetType = "Multi"; // Single, Multi, Area
+		FlavorText = "With the power of friendship, we can accomplish anything![u]Spawn three rats";
 
 		// Load the card picture
 		Sprite Image = (Sprite)GetNode("Picture");

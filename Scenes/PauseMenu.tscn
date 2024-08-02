@@ -1,3 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://Assets/Visuals/Cards/The Swarm.png" type="Texture" id=1]
+
+[node name="Pause Menu" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 800, 450 )
+z_index = -100
+texture = ExtResource( 1 )
