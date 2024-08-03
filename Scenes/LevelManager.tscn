@@ -18,3 +18,4 @@ visible = false
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource( 5 )]
+visible = false
