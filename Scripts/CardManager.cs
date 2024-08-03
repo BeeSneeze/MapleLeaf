@@ -22,7 +22,6 @@ public class CardManager : Node2D
 			NewCard.Translate(new Vector2(x*100,0));
 
 			NewCard.CardName = "The Swarm";
-			NewCard.BigMode(x==0);
 
 			if(x==2)
 			{
@@ -30,7 +29,13 @@ public class CardManager : Node2D
 			}
 			
 			AddChild(NewCard);
+			NewCard.BigMode(false);
 		}
+	}
+
+	public void BigMode(bool InBool)
+	{
+		GD.Print("MANAGER BIGMODE");
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

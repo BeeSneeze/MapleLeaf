@@ -7,6 +7,8 @@ public class Card : Sprite
 	public string CardName;
 	public int OwnerID;
 
+	private bool Big = false;
+
 	// Card specifics
 	private string MatrixName;
 	private int Range;
@@ -43,6 +45,10 @@ public class Card : Sprite
 
 	public void BigMode(bool InBool)
 	{
+		CardManager CM = (CardManager)GetParent();
+
+		CM.BigMode(InBool);
+
 		if(InBool)
 		{
 			GD.Print("Card Went BigMode");
@@ -61,11 +67,14 @@ public class Card : Sprite
 		
 	}
 
-	
+	public void RightClick()
+	{
+		Big = !Big;
+		BigMode(Big);
+	}
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+	public void LeftClick()
+	{
+		PlayCard();
+	}
 }
