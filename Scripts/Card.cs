@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Card : Sprite
 {
@@ -10,20 +11,14 @@ public class Card : Sprite
 	private bool Big = false;
 
 	// Card specifics
-	private string MatrixName;
-	private int Range;
-	private string TargetType;
-	private string FlavorText;
-
+	public string MatrixName;
+	public int Range;
+	public string TargetType;
+	public string FlavorText;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		// Load JSON stuff from the name
-		Range = 2;
-		TargetType = "Multi"; // Single, Multi, Area
-		FlavorText = "With the power of friendship, we can accomplish anything![u]Spawn three rats";
-
 		// Load the card picture
 		Sprite Image = (Sprite)GetNode("Picture");
 		var img = (Texture)GD.Load("res://Assets/Visuals/Cards/" + CardName + ".png");
