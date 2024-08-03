@@ -13,10 +13,9 @@ public class CardManager : Node2D
 
 	private bool Big = false;
 
-	List<CardType> AllCardsList;
+	Dictionary<string,CardType> AllCardsDict; // Dict containing info about all the cards in a Cardtype struct
 
 	struct CardType{
-		public string Name;
 		public string MatrixName;
 		public string Range;
 		public string TargetType;
@@ -26,12 +25,10 @@ public class CardManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-
 		File Reader = new File();
 		Reader.Open("res://Assets/Cards.JSON", File.ModeFlags.Read);
 		string Contents = Reader.GetAsText();
-		GD.Print(Contents);
-		AllCardsList = JsonConvert.DeserializeObject<List<CardType>>(Contents);
+		AllCardsDict = JsonConvert.DeserializeObject<Dictionary<string,CardType>>(Contents);
 		Reader.Close();
 
 		var scene = GD.Load<PackedScene>("res://Scenes/Card.tscn");
@@ -49,28 +46,17 @@ public class CardManager : Node2D
 			if(x==3)
 				NewCard.CardName = "Duck!";
 
+			CardType CardInfo =  AllCardsDict[NewCard.CardName];
 
-			foreach(CardType CardInfo in AllCardsList)
-			{
-				if(NewCard.CardName == CardInfo.Name)
-				{
-					NewCard.MatrixName = CardInfo.MatrixName;
-					NewCard.Range = int.Parse(CardInfo.Range);
-					NewCard.TargetType = CardInfo.TargetType;
-					NewCard.FlavorText = CardInfo.FlavorText;
-				}
-
-			}
+			NewCard.MatrixName = CardInfo.MatrixName;
+			NewCard.Range = int.Parse(CardInfo.Range);
+			NewCard.TargetType = CardInfo.TargetType;
+			NewCard.FlavorText = CardInfo.FlavorText;
 
 			// INITIATE STUFF HERE
 
 			Cards.Add(NewCard);
 			NewCard.Translate(new Vector2(x*100,0));
-
-			
-			
-			
-			
 			AddChild(NewCard);
 			NewCard.BigMode(false);
 		}

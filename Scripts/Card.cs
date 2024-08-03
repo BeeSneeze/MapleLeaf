@@ -46,7 +46,6 @@ public class Card : Sprite
 
 		if(InBool)
 		{
-			GD.Print("Card Went BigMode");
 			Scale = new Vector2(1.0f, 1.0f);
 			ZIndex = 101;
 			Control N2D = (Control)GetNode("FlavorText");

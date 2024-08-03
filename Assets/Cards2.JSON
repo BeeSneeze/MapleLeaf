@@ -13,19 +13,5 @@
         "Range": "5",
         "TargetType": "Multi",
         "FlavorText":  "Duck and roll!"
-    },
-    "GOOSE!":
-    {
-        "MatrixName": "Manhattan",
-        "Range": "5",
-        "TargetType": "Multi",
-        "FlavorText":  "Duck and roll!"
-    },
-    "Binoculars":
-    {
-        "MatrixName": "Manhattan",
-        "Range": "5",
-        "TargetType": "Multi",
-        "FlavorText":  "Duck and roll!"
     }
 }
