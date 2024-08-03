@@ -56,6 +56,8 @@ public class Card : Sprite
 			ZIndex = 101;
 			Control N2D = (Control)GetNode("FlavorText");
 			N2D.RectScale = new Vector2(1.0f, 1.0f);
+
+			//this.GetParent().MoveChild(this, 3); // Trying to order the cards so you can't click a card behind the focused one
 		}
 		else
 		{

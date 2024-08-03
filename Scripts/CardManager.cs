@@ -10,6 +10,8 @@ public class CardManager : Node2D
 
 	public List<Card> Cards = new List<Card>();
 
+	private bool Big = false;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -22,10 +24,19 @@ public class CardManager : Node2D
 			NewCard.Translate(new Vector2(x*100,0));
 
 			NewCard.CardName = "The Swarm";
+			
+			if(x==1)
+			{
+				NewCard.CardName = "GOOSE!";
+			}
 
 			if(x==2)
 			{
 				NewCard.CardName = "Binoculars";
+			}
+			if(x==3)
+			{
+				NewCard.CardName = "Duck!";
 			}
 			
 			AddChild(NewCard);
@@ -36,6 +47,7 @@ public class CardManager : Node2D
 	public void BigMode(bool InBool)
 	{
 		GD.Print("MANAGER BIGMODE");
+		Big = InBool;
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
