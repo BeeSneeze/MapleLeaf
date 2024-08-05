@@ -15,16 +15,8 @@ public class CardManager : Node2D
 
 	Dictionary<string,CardType> AllCardsDict; // Dict containing info about all the cards in a Cardtype struct
 
-	struct CardType{
-		public string MatrixName;
-		public string Range;
-		public string TargetType;
-		public string AbilityText;
-		public string FlavorText;
-		public List<string> AbilityList;
-		public List<string> SecondaryList;
-	};
-
+	// Used to contain information about a given card. Also has the same analogue in Card.cs
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -39,6 +31,8 @@ public class CardManager : Node2D
 		for(int x = 0; x < 4; x++)
 		{
 			Card NewCard = (Card)scene.Instance();
+
+			NewCard.CardName = "The Swarm";
 
 			if(x==0)
 				NewCard.CardName = "The Swarm";

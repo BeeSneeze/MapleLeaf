@@ -15,8 +15,8 @@ public class Card : Sprite
 	public int Range;
 	public string TargetType;
 	public string FlavorText;
-	public List<string> AbilityList;
-	public List<string> SecondaryList;
+	public List<Ability> AbilityList;
+	public List<Ability> SecondaryList;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -38,9 +38,9 @@ public class Card : Sprite
 	public void PlayCard()
 	{
 		GD.Print("Card Played: " + CardName);
-		foreach(string Ability in AbilityList)
+		foreach(Ability A in AbilityList)
 		{
-			GD.Print(Ability);
+			GD.Print(A.Name);
 		}
 	}
 

@@ -7,8 +7,10 @@
         "TargetType": "Multi",
         "AbilityText":  "Spawn three rats",
         "FlavorText":  "With the power of friendship, we can accomplish anything!",
-        "AbilityList":  ["Damage1","Push1"],
-        "SecondaryList":  ["DrawCard"]
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "2"}],
+        "SecondaryList":  [{"Name":"Damage", "Effect": "1"}]
     },
     "Duck!":
     {
@@ -17,8 +19,10 @@
         "TargetType": "Multi",
         "AbilityText":  "Create a Roll card in any ally hand",
         "FlavorText":  "Duck and roll!",
-        "AbilityList":  ["Damage1","Push1"],
-        "SecondaryList":  ["DrawCard"]
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "2"}],
+        "SecondaryList":  [{"Name":"Damage", "Effect": "1"}]
     },
     "GOOSE!":
     {
@@ -27,8 +31,10 @@
         "TargetType": "Multi",
         "AbilityText":  "Two ducks",
         "FlavorText":  "RELEASE THE GEESE",
-        "AbilityList":  ["Damage1","Push1"],
-        "SecondaryList":  ["DrawCard"]
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "2"}],
+        "SecondaryList":  [{"Name":"Damage", "Effect": "1"}]
     },
     "Binoculars":
     {
@@ -37,7 +43,9 @@
         "TargetType": "Multi",
         "AbilityText":  "Spy on a card?",
         "FlavorText":  "Four eyes are better than two",
-        "AbilityList":  ["Damage1","Push1"],
-        "SecondaryList":  ["DrawCard"]
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "2"}],
+        "SecondaryList":  [{"Name":"Damage", "Effect": "1"}]
     }
 }
