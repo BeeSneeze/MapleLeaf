@@ -6,12 +6,36 @@ public class GameManager : Node2D
 	// Declare member variables here. Examples:
 	// private int a = 2;
 	// private string b = "text";
+	private Board Board;
+	public bool[,] CurrentMatrix;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		Board = (Board)GetNode("Board");
+		CurrentMatrix = LoadMatrix("Cone", 2);
+
+		Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
 	}
+
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event is InputEventKey eventKey)
+		{
+			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.A)
+			{
+				RotCounter(CurrentMatrix);
+				Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
+			}
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.D)
+			{
+				RotClock(CurrentMatrix);
+				Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
+			}
+		}	
+	}
+
+
 
 	public bool[,] LoadMatrix(string MatrixName, int range)
 	{
@@ -54,5 +78,36 @@ public class GameManager : Node2D
 		}
 
 		return OutMat;
+	}
+
+
+	// Rotate a matrix counter clock-wise
+	public void RotCounter(bool[,] InMat)
+	{
+		bool[,] OldMat = (bool[,])InMat.Clone();
+		int MatSize = InMat.GetLength(0);
+
+		for(int x = 0; x < MatSize; x++)
+		{
+			for(int y = 0; y < MatSize; y++)
+			{
+				InMat[x,y] = OldMat[MatSize-1-y,x];
+			}
+		}
+	}
+
+	// Rotate a matrix clockwise
+	public void RotClock(bool[,] InMat)
+	{
+		bool[,] OldMat = (bool[,])InMat.Clone();
+		int MatSize = InMat.GetLength(0);
+
+		for(int x = 0; x < MatSize; x++)
+		{
+			for(int y = 0; y < MatSize; y++)
+			{
+				InMat[x,y] = OldMat[y,MatSize-1-x];
+			}
+		}
 	}
 }

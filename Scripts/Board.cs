@@ -10,7 +10,6 @@ public class Board : Node2D
 
 	public override void _Ready()
 	{
-
 		// Spawn all the tile objects
 		var scene = GD.Load<PackedScene>("res://Scenes/Tile.tscn");
 
@@ -43,17 +42,13 @@ public class Board : Node2D
 		Cell[3,4].SetCharacter(410);
 		Cell[2,7].SetCharacter(510);
 
-		GameManager GM = (GameManager)GetParent();
-
-		bool[,] PatchTest = GM.LoadMatrix("Manhattan", 2);
-
 		Cell[2,4].SetCharacter(103);
+	}
 
-		RotCounter(PatchTest);
-		//RotCounter(PatchTest);
-
-		Patch(PatchTest, ActionMatrix, new Vector2(2,4));
-
+	public void ShowMatrix(bool[,] InMat, Vector2 Center)
+	{
+		ClearMarkers();
+		Patch(InMat, ActionMatrix, Center);
 		for(int x = 0; x < MaxSize; x++)
 		{
 			for(int y = 0; y < MaxSize; y++)
@@ -64,12 +59,12 @@ public class Board : Node2D
 				}
 			}
 		}
-		
 	}
 
 	// Remove all of the markers
 	public void ClearMarkers()
 	{
+		ActionMatrix = new bool[8,8];
 		for(int x = 0; x < MaxSize; x++)
 		{
 			for(int y = 0; y < MaxSize; y++)
@@ -107,36 +102,6 @@ public class Board : Node2D
 		}
 	}
 
-	// Rotate a matrix counter clock-wise
-	public void RotCounter(bool[,] InMat)
-	{
-		bool[,] OldMat = (bool[,])InMat.Clone();
-		int MatSize = InMat.GetLength(0);
-
-		for(int x = 0; x < MatSize; x++)
-		{
-			for(int y = 0; y < MatSize; y++)
-			{
-				InMat[x,y] = OldMat[MatSize-1-y,x];
-			}
-		}
-	}
-
-	// Rotate a matrix clockwise
-	public void RotClock(bool[,] InMat)
-	{
-		bool[,] OldMat = (bool[,])InMat.Clone();
-		int MatSize = InMat.GetLength(0);
-
-		for(int x = 0; x < MatSize; x++)
-		{
-			for(int y = 0; y < MatSize; y++)
-			{
-				InMat[x,y] = OldMat[y,MatSize-1-x];
-			}
-		}
-	}
-
 	// Swaps characters between two tiles, useful for movement
 	public void SwapTiles(int X1, int Y1, int X2, int Y2)
 	{
@@ -145,27 +110,5 @@ public class Board : Node2D
 		Cell[X1,Y1].SetCharacter(CharID2);
 		Cell[X2,Y2].SetCharacter(CharID1);
 	}
-	
-	public override void _UnhandledInput(InputEvent @event)
-	{
-		if (@event is InputEventKey eventKey)
-		{
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.W)
-			{
-				Cell[2,2].SetCharacter(103);
-			}
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.A)
-			{
-				SwapTiles(2,2,5,5);
-			}
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.S)
-			{
-				Cell[2,3].SetCharacter(102);
-			}
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.D)
-			{
-				Cell[2,4].SetCharacter(101);
-			}
-		}
-	}
+
 }
