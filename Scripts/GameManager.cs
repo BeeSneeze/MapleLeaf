@@ -18,6 +18,8 @@ public class GameManager : Node2D
 		Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
 	}
 
+
+	// Rotating matrices using the A and D buttons
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey eventKey)

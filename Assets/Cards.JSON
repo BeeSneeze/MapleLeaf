@@ -5,27 +5,39 @@
         "MatrixName": "Full",
         "Range": "7",
         "TargetType": "Multi",
-        "FlavorText":  "With the power of friendship, we can accomplish anything!"
+        "AbilityText":  "Spawn three rats",
+        "FlavorText":  "With the power of friendship, we can accomplish anything!",
+        "AbilityList":  ["Damage1","Push1"],
+        "SecondaryList":  ["DrawCard"]
     },
     "Duck!":
     {
         "MatrixName": "Manhattan",
-        "Range": "5",
+        "Range": "3",
         "TargetType": "Multi",
-        "FlavorText":  "Duck and roll!"
+        "AbilityText":  "Create a Roll card in any ally hand",
+        "FlavorText":  "Duck and roll!",
+        "AbilityList":  ["Damage1","Push1"],
+        "SecondaryList":  ["DrawCard"]
     },
     "GOOSE!":
     {
         "MatrixName": "Manhattan",
         "Range": "5",
         "TargetType": "Multi",
-        "FlavorText":  "Duck and roll!"
+        "AbilityText":  "Two ducks",
+        "FlavorText":  "RELEASE THE GEESE",
+        "AbilityList":  ["Damage1","Push1"],
+        "SecondaryList":  ["DrawCard"]
     },
     "Binoculars":
     {
         "MatrixName": "Manhattan",
-        "Range": "5",
+        "Range": "6",
         "TargetType": "Multi",
-        "FlavorText":  "Duck and roll!"
+        "AbilityText":  "Spy on a card?",
+        "FlavorText":  "Four eyes are better than two",
+        "AbilityList":  ["Damage1","Push1"],
+        "SecondaryList":  ["DrawCard"]
     }
 }

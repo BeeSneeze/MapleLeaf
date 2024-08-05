@@ -19,7 +19,10 @@ public class CardManager : Node2D
 		public string MatrixName;
 		public string Range;
 		public string TargetType;
+		public string AbilityText;
 		public string FlavorText;
+		public List<string> AbilityList;
+		public List<string> SecondaryList;
 	};
 
 	// Called when the node enters the scene tree for the first time.
@@ -52,6 +55,8 @@ public class CardManager : Node2D
 			NewCard.Range = int.Parse(CardInfo.Range);
 			NewCard.TargetType = CardInfo.TargetType;
 			NewCard.FlavorText = CardInfo.FlavorText;
+			NewCard.AbilityList = CardInfo.AbilityList;
+			NewCard.SecondaryList = CardInfo.SecondaryList;
 
 			// INITIATE STUFF HERE
 
