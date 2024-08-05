@@ -15,8 +15,6 @@ public class CardManager : Node2D
 
 	Dictionary<string,CardType> AllCardsDict; // Dict containing info about all the cards in a Cardtype struct
 
-	// Used to contain information about a given card. Also has the same analogue in Card.cs
-	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
