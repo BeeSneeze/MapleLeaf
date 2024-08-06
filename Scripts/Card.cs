@@ -10,17 +10,21 @@ public class Card : Sprite
 
 	private bool Big = false;
 
+	private GameManager GM;
+
 	// Card specifics
-	public string MatrixName;
-	public int Range;
-	public string TargetType;
-	public string FlavorText;
-	public List<Ability> AbilityList;
-	public List<Ability> SecondaryList;
+	public string MatrixName {get; private set;}
+	public int Range {get; private set;}
+	public string TargetType {get; private set;}
+	public string FlavorText {get; private set;}
+	public List<Ability> AbilityList {get; private set;}
+	public List<Ability> SecondaryList {get; private set;}
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GM = (GameManager)GetParent().GetParent();
+
 		// Load the card picture
 		Sprite Image = (Sprite)GetNode("Picture");
 		var img = (Texture)GD.Load("res://Assets/Visuals/Cards/" + CardName + ".png");
@@ -35,13 +39,21 @@ public class Card : Sprite
 		RLabel.Text = Range.ToString();
 	}
 
+
+	// Loads all the information about the card. This is the only way to edit from outside
+	public void LoadInfo(CardType CardInfo)
+	{
+		MatrixName = CardInfo.MatrixName;
+		Range = int.Parse(CardInfo.Range);
+		TargetType = CardInfo.TargetType;
+		FlavorText = CardInfo.FlavorText;
+		AbilityList = CardInfo.AbilityList;
+		SecondaryList = CardInfo.SecondaryList;
+	}
+
 	public void PlayCard()
 	{
-		GD.Print("Card Played: " + CardName);
-		foreach(Ability A in AbilityList)
-		{
-			GD.Print(A.Name);
-		}
+		GM.ExecutePlay(this);
 	}
 
 	public void BigMode(bool InBool)

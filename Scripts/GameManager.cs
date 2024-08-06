@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class GameManager : Node2D
 {
@@ -38,6 +39,13 @@ public class GameManager : Node2D
 	}
 
 
+
+
+	public void ExecutePlay(Card Card)
+	{
+		GD.Print(Card.CardName);
+		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
+	}
 
 	public bool[,] LoadMatrix(string MatrixName, int range)
 	{

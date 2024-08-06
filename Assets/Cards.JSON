@@ -3,7 +3,7 @@
     "The Swarm":
     {   
         "MatrixName": "Full",
-        "Range": "7",
+        "Range": "1",
         "TargetType": "Multi",
         "AbilityText":  "Spawn three rats",
         "FlavorText":  "With the power of friendship, we can accomplish anything!",
@@ -15,7 +15,7 @@
     "Duck!":
     {
         "MatrixName": "Manhattan",
-        "Range": "3",
+        "Range": "1",
         "TargetType": "Multi",
         "AbilityText":  "Create a Roll card in any ally hand",
         "FlavorText":  "Duck and roll!",
@@ -27,7 +27,7 @@
     "GOOSE!":
     {
         "MatrixName": "Manhattan",
-        "Range": "5",
+        "Range": "1",
         "TargetType": "Multi",
         "AbilityText":  "Two ducks",
         "FlavorText":  "RELEASE THE GEESE",
@@ -39,7 +39,7 @@
     "Binoculars":
     {
         "MatrixName": "Manhattan",
-        "Range": "6",
+        "Range": "1",
         "TargetType": "Multi",
         "AbilityText":  "Spy on a card?",
         "FlavorText":  "Four eyes are better than two",

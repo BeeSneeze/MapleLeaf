@@ -43,12 +43,7 @@ public class CardManager : Node2D
 
 			CardType CardInfo =  AllCardsDict[NewCard.CardName];
 
-			NewCard.MatrixName = CardInfo.MatrixName;
-			NewCard.Range = int.Parse(CardInfo.Range);
-			NewCard.TargetType = CardInfo.TargetType;
-			NewCard.FlavorText = CardInfo.FlavorText;
-			NewCard.AbilityList = CardInfo.AbilityList;
-			NewCard.SecondaryList = CardInfo.SecondaryList;
+			NewCard.LoadInfo(CardInfo);
 
 			// INITIATE STUFF HERE
 
