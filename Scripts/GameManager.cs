@@ -35,17 +35,24 @@ public class GameManager : Node2D
 				RotClock(CurrentMatrix);
 				Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
 			}
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.Space)
+			{
+				// FINISH PLAYING HERE!
+			}
 		}	
 	}
 
-
-
-
+	// Plays a card and its abilities
 	public void ExecutePlay(Card Card)
 	{
 		GD.Print(Card.CardName);
 		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
+
+		Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
+
 	}
+
+
 
 	public bool[,] LoadMatrix(string MatrixName, int range)
 	{

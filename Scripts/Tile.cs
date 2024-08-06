@@ -78,5 +78,15 @@ public class Tile : Node2D
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Marker");
 		AnimSpr.Animation = InString;
 	}
+
+	public void RightClick()
+	{
+		GD.Print("Tile right clicked!");
+	}
+
+	public void LeftClick()
+	{
+		GD.Print("Tile left clicked!");
+	}
 	
 }

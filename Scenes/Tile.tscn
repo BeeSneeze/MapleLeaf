@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/Visuals/Markers/Attack2.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Visuals/Markers/Attack1.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Visuals/Characters/Mountain.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Click.cs" type="Script" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -69,8 +70,15 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Node2D" type="Node2D"]
+[node name="Tile" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="TileClick" type="Control" parent="."]
+margin_left = -37.0
+margin_top = -37.0
+margin_right = 37.0
+margin_bottom = 37.0
+script = ExtResource( 13 )
 
 [node name="Terrain" type="Sprite" parent="."]
 z_index = -10

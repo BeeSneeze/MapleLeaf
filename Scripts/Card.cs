@@ -20,7 +20,18 @@ public class Card : Sprite
 	public List<Ability> AbilityList {get; private set;}
 	public List<Ability> SecondaryList {get; private set;}
 
-	// Called when the node enters the scene tree for the first time.
+	// Loads all the information about the card. This is the only way to edit from outside
+	public void LoadInfo(CardType CardInfo)
+	{
+		MatrixName = CardInfo.MatrixName;
+		Range = int.Parse(CardInfo.Range);
+		TargetType = CardInfo.TargetType;
+		FlavorText = CardInfo.FlavorText;
+		AbilityList = CardInfo.AbilityList;
+		SecondaryList = CardInfo.SecondaryList;
+	}
+
+	// Called when the node enters the scene tree for the first time. Executed after LoadInfo
 	public override void _Ready()
 	{
 		GM = (GameManager)GetParent().GetParent();
@@ -39,17 +50,7 @@ public class Card : Sprite
 		RLabel.Text = Range.ToString();
 	}
 
-
-	// Loads all the information about the card. This is the only way to edit from outside
-	public void LoadInfo(CardType CardInfo)
-	{
-		MatrixName = CardInfo.MatrixName;
-		Range = int.Parse(CardInfo.Range);
-		TargetType = CardInfo.TargetType;
-		FlavorText = CardInfo.FlavorText;
-		AbilityList = CardInfo.AbilityList;
-		SecondaryList = CardInfo.SecondaryList;
-	}
+	
 
 	public void PlayCard()
 	{
