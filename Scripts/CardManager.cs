@@ -11,6 +11,8 @@ public class CardManager : Node2D
 
 	public List<Card> Cards = new List<Card>();
 
+	[Export] public string Owner;
+
 	private bool Big = false;
 
 	Dictionary<string,CardType> AllCardsDict; // Dict containing info about all the cards in a Cardtype struct
@@ -18,6 +20,19 @@ public class CardManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Sprite SprOwner = (Sprite)GetNode("Owner");
+		SprOwner.Texture = (Texture)GD.Load("res://Assets/Visuals/Characters/" + Owner + ".png");
+
+		if(Owner == "RatNormal")
+		{
+			Sprite BG = (Sprite)GetNode("CardManagerBG");
+			BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
+			Node2D SOwner = (Node2D)SprOwner;
+			SOwner.Translate(new Vector2(390,-280));
+			SOwner.Scale = new Vector2(0.7f,0.7f);
+		}
+		
+
 		File Reader = new File();
 		Reader.Open("res://Assets/Cards.JSON", File.ModeFlags.Read);
 		string Contents = Reader.GetAsText();
@@ -48,7 +63,7 @@ public class CardManager : Node2D
 			// INITIATE STUFF HERE
 
 			Cards.Add(NewCard);
-			NewCard.Translate(new Vector2(x*100,0));
+			NewCard.Translate(new Vector2(x*100+10,-10));
 			AddChild(NewCard);
 			NewCard.BigMode(false);
 		}
