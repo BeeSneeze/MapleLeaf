@@ -14,8 +14,8 @@
     },
     "Duck!":
     {
-        "MatrixName": "Manhattan",
-        "Range": "2",
+        "MatrixName": "Diagonal",
+        "Range": "3",
         "TargetType": "Multi",
         "AbilityText":  "Create a Roll card in any ally hand",
         "FlavorText":  "Duck and roll!",

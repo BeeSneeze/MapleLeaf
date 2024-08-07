@@ -20,7 +20,6 @@ public class Tile : Node2D
 		Translate(new Vector2(X,Y));
 	}
 
-
 	public void SetTerrain(string InString)
 	{
 		Terrain = InString;

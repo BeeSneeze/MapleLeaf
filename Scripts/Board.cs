@@ -42,7 +42,9 @@ public class Board : Node2D
 		Cell[3,4].SetCharacter(410);
 		Cell[2,7].SetCharacter(510);
 
-		Cell[2,4].SetCharacter(103);
+		Cell[5,3].SetCharacter(101);
+		Cell[5,4].SetCharacter(202);
+		Cell[2,4].SetCharacter(303);
 	}
 
 	public void ShowMatrix(bool[,] InMat, Vector2 Center)

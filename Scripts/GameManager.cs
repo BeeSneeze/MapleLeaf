@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class GameManager : Node2D
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
 	private Board Board;
 	public bool[,] CurrentMatrix;
 

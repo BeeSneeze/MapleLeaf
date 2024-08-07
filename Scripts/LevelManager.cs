@@ -24,6 +24,8 @@ public class LevelManager : Node2D
 		NewLevel.Show();
 	}
 
+
+	// Debug buttons for changing between levels
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey eventKey)

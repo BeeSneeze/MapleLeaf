@@ -14,7 +14,6 @@ public struct CardType{
 	public List<Ability> SecondaryList;
 };
 
-
 // A specific ability, stored in a card, to be triggered by the game manager and board
 public struct Ability{
 	public string Name;
