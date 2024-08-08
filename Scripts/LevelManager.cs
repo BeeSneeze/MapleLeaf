@@ -7,10 +7,12 @@ public class LevelManager : Node2D
 	// private int a = 2;
 	// private string b = "text";
 
+	public MusicManager MM;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		MM = (MusicManager)GetParent().GetNode("MusicManager");
 	}
 
 	public void ChangeLevel(string InString)
@@ -22,6 +24,8 @@ public class LevelManager : Node2D
 		}
 		Node2D NewLevel = (Node2D)GetNode(InString);
 		NewLevel.Show();
+
+		MM.PlayMusic(InString);
 	}
 
 

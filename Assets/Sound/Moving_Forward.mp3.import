@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Moving_Forward.mp3-1c31fe5a1d5b5b767a54f284dc8afe48.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Moving_Forward.mp3"
+dest_files=[ "res://.import/Moving_Forward.mp3-1c31fe5a1d5b5b767a54f284dc8afe48.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
