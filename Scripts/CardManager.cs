@@ -11,19 +11,22 @@ public class CardManager : Node2D
 
 	public List<Card> Cards = new List<Card>();
 
-	[Export] public string Owner;
+	[Export] public string OwnerName;
 
 	private bool Big = false;
+
+	private GameManager GM;
 
 	Dictionary<string,CardType> AllCardsDict; // Dict containing info about all the cards in a Cardtype struct
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GM = (GameManager)GetParent();
 		Sprite SprOwner = (Sprite)GetNode("Owner");
 		Sprite BG = (Sprite)GetNode("CardManagerBG");
 
-		switch(Owner)
+		switch(OwnerName)
 		{
 			case "Soldier":
 				BG.Modulate = new Color(0.0f, 0.8f, 0.0f, 0.6f);
@@ -44,7 +47,7 @@ public class CardManager : Node2D
 			break;
 		}
 
-		SprOwner.Texture = (Texture)GD.Load("res://Assets/Visuals/Characters/" + Owner + ".png");
+		SprOwner.Texture = (Texture)GD.Load("res://Assets/Visuals/Characters/" + OwnerName + ".png");
 		
 		File Reader = new File();
 		Reader.Open("res://Assets/Cards.JSON", File.ModeFlags.Read);
@@ -86,11 +89,15 @@ public class CardManager : Node2D
 	{
 		GD.Print("MANAGER BIGMODE");
 		Big = InBool;
+		
 	}
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+	public void UnBig()
+	{
+		foreach(Card C in Cards)
+		{
+			C.BigMode(false);
+		}
+	}
+
 }

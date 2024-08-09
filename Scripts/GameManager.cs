@@ -6,6 +6,7 @@ public class GameManager : Node2D
 {
 	private Board Board;
 	public bool[,] CurrentMatrix;
+	public List<CardManager> CMList;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -123,5 +124,18 @@ public class GameManager : Node2D
 				InMat[x,y] = OldMat[y,MatSize-1-x];
 			}
 		}
+	}
+
+
+	public void UnBig()
+	{
+		CardManager CMnew = (CardManager)GetNode("CardsSoldier");
+		CMnew.UnBig();
+		CMnew = (CardManager)GetNode("CardsSniper");
+		CMnew.UnBig();
+		CMnew = (CardManager)GetNode("CardsSupport");
+		CMnew.UnBig();
+		CMnew = (CardManager)GetNode("CardsRat");
+		CMnew.UnBig();
 	}
 }

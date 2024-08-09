@@ -18,16 +18,16 @@ position = Vector2( 800, 450 )
 
 [node name="CardsSoldier" parent="." instance=ExtResource( 3 )]
 position = Vector2( 90, 195 )
-Owner = "Soldier"
+OwnerName = "Soldier"
 
 [node name="CardsSniper" parent="." instance=ExtResource( 3 )]
 position = Vector2( 90, 475 )
-Owner = "Sniper"
+OwnerName = "Sniper"
 
 [node name="CardsSupport" parent="." instance=ExtResource( 3 )]
 position = Vector2( 90, 755 )
-Owner = "Support"
+OwnerName = "Support"
 
 [node name="CardsRat" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1202, 475 )
-Owner = "RatNormal"
+OwnerName = "RatNormal"

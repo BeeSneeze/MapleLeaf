@@ -38,8 +38,7 @@ public class Card : Sprite
 
 		// Load the card picture
 		Sprite Image = (Sprite)GetNode("Picture");
-		var img = (Texture)GD.Load("res://Assets/Visuals/Cards/" + CardName + ".png");
-		Image.SetTexture(img);
+		Image.Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/" + CardName + ".png");
 
 		// Set the title of the card to the name
 		Label Title = (Label)GetNode("Title");
@@ -61,19 +60,20 @@ public class Card : Sprite
 	{
 		CardManager CM = (CardManager)GetParent();
 
-		CM.BigMode(InBool);
+		// Prioritise manager bigmode first
 
 		if(InBool)
 		{
+			Big = true;
+			GM.UnBig();
 			Scale = new Vector2(1.0f, 1.0f);
 			ZIndex = 101;
 			Control N2D = (Control)GetNode("FlavorText");
 			N2D.RectScale = new Vector2(1.0f, 1.0f);
-
-			//this.GetParent().MoveChild(this, 3); // Trying to order the cards so you can't click a card behind the focused one
 		}
 		else
 		{
+			Big = false;
 			Scale = new Vector2(0.5f, 0.5f);
 			ZIndex = 100;
 			Control N2D = (Control)GetNode("FlavorText");
