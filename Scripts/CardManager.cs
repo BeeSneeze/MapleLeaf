@@ -21,18 +21,31 @@ public class CardManager : Node2D
 	public override void _Ready()
 	{
 		Sprite SprOwner = (Sprite)GetNode("Owner");
-		SprOwner.Texture = (Texture)GD.Load("res://Assets/Visuals/Characters/" + Owner + ".png");
+		Sprite BG = (Sprite)GetNode("CardManagerBG");
 
-		if(Owner == "RatNormal")
+		switch(Owner)
 		{
-			Sprite BG = (Sprite)GetNode("CardManagerBG");
-			BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
-			Node2D SOwner = (Node2D)SprOwner;
-			SOwner.Translate(new Vector2(390,-280));
-			SOwner.Scale = new Vector2(0.7f,0.7f);
+			case "Soldier":
+				BG.Modulate = new Color(0.0f, 0.8f, 0.0f, 0.6f);
+			break;
+			case "Sniper":
+				BG.Modulate = new Color(1.0f, 0.6f, 0.3f, 0.7f);
+			break;
+			case "Support":
+				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
+				BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
+			break;
+			case "RatNormal":
+				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
+				Node2D SOwner = (Node2D)SprOwner;
+				SOwner.Translate(new Vector2(390,-280));
+				SOwner.Scale = new Vector2(0.7f,0.7f);
+				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+			break;
 		}
-		
 
+		SprOwner.Texture = (Texture)GD.Load("res://Assets/Visuals/Characters/" + Owner + ".png");
+		
 		File Reader = new File();
 		Reader.Open("res://Assets/Cards.JSON", File.ModeFlags.Read);
 		string Contents = Reader.GetAsText();
@@ -63,7 +76,7 @@ public class CardManager : Node2D
 			// INITIATE STUFF HERE
 
 			Cards.Add(NewCard);
-			NewCard.Translate(new Vector2(x*100+10,-10));
+			NewCard.Translate(new Vector2(x*100+10,-12));
 			AddChild(NewCard);
 			NewCard.BigMode(false);
 		}
