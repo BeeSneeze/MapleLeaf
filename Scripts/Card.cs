@@ -64,9 +64,11 @@ public class Card : Sprite
 
 		if(InBool)
 		{
-			Big = true;
 			GM.UnBig();
-			Scale = new Vector2(1.0f, 1.0f);
+
+			Big = true;
+			SceneTreeTween tween = GetTree().CreateTween();
+			tween.TweenProperty((Sprite)this, "scale", new Vector2(1.0f, 1.0f), 0.07f);
 			ZIndex = 101;
 			Control N2D = (Control)GetNode("FlavorText");
 			N2D.RectScale = new Vector2(1.0f, 1.0f);
@@ -74,7 +76,8 @@ public class Card : Sprite
 		else
 		{
 			Big = false;
-			Scale = new Vector2(0.5f, 0.5f);
+			SceneTreeTween tween = GetTree().CreateTween();
+			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
 			ZIndex = 100;
 			Control N2D = (Control)GetNode("FlavorText");
 			N2D.RectScale = new Vector2(0.0f, 0.0f);

@@ -46,6 +46,6 @@
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
             {"Name":"Push", "Effect": "2"}],
-        "SecondaryList":  [{"Name":"Damage", "Effect": "1"}]
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
     }
 }
