@@ -50,6 +50,8 @@ public class GameManager : Node2D
 
 		Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
 
+		Card.Discard();
+
 	}
 
 	// Creates a new ID for a card

@@ -51,12 +51,21 @@ public class Card : Sprite
 	}
 
 	
-
-	public void PlayCard()
+	// Play card
+	public void Play()
 	{
 		GM.ExecutePlay(this);
 	}
 
+	// Discard card
+	public void Discard()
+	{
+		CardManager CM = (CardManager)GetParent();
+		CM.DiscardCard(this);
+	}
+
+
+	// BIG MODE BIG MODE BIG MODE BIG MODE BIG MODE
 	public void BigMode(bool InBool)
 	{
 		CardManager CM = (CardManager)GetParent();
@@ -94,6 +103,6 @@ public class Card : Sprite
 
 	public void LeftClick()
 	{
-		PlayCard();
+		Play();
 	}
 }

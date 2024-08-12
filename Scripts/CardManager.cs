@@ -72,7 +72,7 @@ public class CardManager : Node2D
 
 		Deck.Add(GM.NewCardID(2));
 		Deck.Add(GM.NewCardID(1));
-		Deck.Add(GM.NewCardID(3));
+		Deck.Add(GM.NewCardID(2));
 		Deck.Add(GM.NewCardID(4));
 
 		for(int x = 0; x < 4; x++)
@@ -99,14 +99,27 @@ public class CardManager : Node2D
 		NewCard.BigMode(false);
 	}
 
+
+	// Draws the top card from the deck, and puts it in hand
 	public void DrawCard()
 	{
 		int TopCard = Deck[0];
 		Deck.Remove(TopCard);
 		Hand.Add(TopCard);
-		GD.Print(TopCard);
-		CreateCardObject(TopCard);
 
+		CreateCardObject(TopCard);
+	}
+
+	// Discards a specific card
+	public void DiscardCard(Card InCard)
+	{
+		Hand.Remove(InCard.CardID);
+		Discard.Add(InCard.CardID);
+		Cards.Remove(InCard);
+
+		InCard.QueueFree();
+		
+		// Delete card
 	}
 
 
