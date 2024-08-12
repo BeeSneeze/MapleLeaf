@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 // Contains all the information needed about a specific card
 public struct CardType{
+	public string CardNum;
 	public string MatrixName;
 	public string Range; // Stored as a string for the sake of the JSON interpreter
 	public string TargetType;

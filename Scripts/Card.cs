@@ -6,6 +6,7 @@ public class Card : Sprite
 {
 
 	public string CardName;
+	public int CardID;
 	public int OwnerID;
 
 	private bool Big = false;

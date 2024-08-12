@@ -7,6 +7,8 @@ public class GameManager : Node2D
 	private Board Board;
 	public bool[,] CurrentMatrix;
 	public List<CardManager> CMList;
+	private int CardIDCounter = 0;
+	private int CharacterIDCounter = 0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -48,6 +50,20 @@ public class GameManager : Node2D
 
 		Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
 
+	}
+
+	// Creates a new ID for a card
+	public int NewCardID(int InInt)
+	{
+		CardIDCounter++;
+		return CardIDCounter * 100 + InInt;
+	}
+
+	// Creates a new ID for a character
+	public int NewCharacterID(int InInt)
+	{
+		CharacterIDCounter++;
+		return CharacterIDCounter * 100 + InInt;
 	}
 
 

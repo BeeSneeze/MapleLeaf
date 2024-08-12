@@ -2,6 +2,7 @@
 {
     "The Swarm":
     {   
+        "CardNum": "1",
         "MatrixName": "Full",
         "Range": "7",
         "TargetType": "Multi",
@@ -14,6 +15,7 @@
     },
     "Duck!":
     {
+        "CardNum": "2",
         "MatrixName": "Diagonal",
         "Range": "3",
         "TargetType": "Multi",
@@ -26,6 +28,7 @@
     },
     "GOOSE!":
     {
+        "CardNum": "3",
         "MatrixName": "Manhattan",
         "Range": "3",
         "TargetType": "Multi",
@@ -38,6 +41,7 @@
     },
     "Binoculars":
     {
+        "CardNum": "4",
         "MatrixName": "Cone",
         "Range": "2",
         "TargetType": "Multi",
