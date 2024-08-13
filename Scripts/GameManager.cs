@@ -5,35 +5,56 @@ using System.Collections.Generic;
 public class GameManager : Node2D
 {
 	private Board Board;
-	public bool[,] CurrentMatrix;
+	
 	public List<CardManager> CMList;
 	private int CardIDCounter = 0;
 	private int CharacterIDCounter = 0;
+
+	private bool CurrentLoaded = false;
+	private bool[,] UnRotated;
+	public bool[,] CurrentMatrix;
+	public Card CurrentCard;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Board = (Board)GetNode("Board");
-		CurrentMatrix = LoadMatrix("Cone", 2);
-
-		Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
 	}
 
 
 	// Rotating matrices using the A and D buttons
 	public override void _UnhandledInput(InputEvent @event)
 	{
+		if(!CurrentLoaded)
+		{
+			return;
+		}
+
 		if (@event is InputEventKey eventKey)
 		{
+			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.W)
+			{
+				CurrentMatrix = (bool[,])UnRotated.Clone();
+				Board.ShowMatrix(CurrentMatrix, CurrentCard);
+			}
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.A)
 			{
+				CurrentMatrix = (bool[,])UnRotated.Clone();
 				RotCounter(CurrentMatrix);
-				Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
+				Board.ShowMatrix(CurrentMatrix, CurrentCard);
+			}
+			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.S)
+			{
+				CurrentMatrix = (bool[,])UnRotated.Clone();
+				RotCounter(CurrentMatrix);
+				RotCounter(CurrentMatrix);
+				Board.ShowMatrix(CurrentMatrix, CurrentCard);
 			}
 			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.D)
 			{
+				CurrentMatrix = (bool[,])UnRotated.Clone();
 				RotClock(CurrentMatrix);
-				Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
+				Board.ShowMatrix(CurrentMatrix, CurrentCard);
 			}
 			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.Space)
 			{
@@ -42,16 +63,28 @@ public class GameManager : Node2D
 		}	
 	}
 
+	// Visualizes what a card does, but without playing it
+	public void ShowPlay(Card Card)
+	{
+		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
+		UnRotated = (bool[,])CurrentMatrix.Clone();
+		CurrentLoaded = true;
+		CurrentCard = Card;
+
+		Board.ShowMatrix(CurrentMatrix, CurrentCard);
+	}
+
 	// Plays a card and its abilities
 	public void ExecutePlay(Card Card)
 	{
-		GD.Print(Card.CardName);
 		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
+		UnRotated = (bool[,])CurrentMatrix.Clone();
+		CurrentLoaded = true;
+		CurrentCard = Card;
 
-		Board.ShowMatrix(CurrentMatrix, new Vector2(2,4));
+		Board.ShowMatrix(CurrentMatrix, CurrentCard);
 
 		Card.Discard();
-
 	}
 
 	// Creates a new ID for a card

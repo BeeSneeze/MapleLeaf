@@ -9,7 +9,9 @@ public class Card : Sprite
 	public int CardID;
 	public int OwnerID;
 
+	// Different card visuals
 	private bool Big = false;
+	private bool Prepped = false;
 
 	private GameManager GM;
 
@@ -50,6 +52,12 @@ public class Card : Sprite
 		RLabel.Text = Range.ToString();
 	}
 
+	// Visualizes what a card does, without playing it
+	public void Prep()
+	{
+		Prepped = true;
+		GM.ShowPlay(this);
+	}
 	
 	// Play card
 	public void Play()
@@ -68,15 +76,12 @@ public class Card : Sprite
 	// BIG MODE BIG MODE BIG MODE BIG MODE BIG MODE
 	public void BigMode(bool InBool)
 	{
-		CardManager CM = (CardManager)GetParent();
-
-		// Prioritise manager bigmode first
-
 		if(InBool)
 		{
-			GM.UnBig();
-
-			Big = true;
+			GM.UnBig(); // Prioritise manager bigmode first
+			GM.ShowPlay(this);
+			CardManager CM = (CardManager)GetParent();
+			CM.BigMode(this);
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(1.0f, 1.0f), 0.07f);
 			ZIndex = 101;
@@ -85,24 +90,26 @@ public class Card : Sprite
 		}
 		else
 		{
-			Big = false;
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
 			ZIndex = 100;
 			Control N2D = (Control)GetNode("FlavorText");
 			N2D.RectScale = new Vector2(0.0f, 0.0f);
 		}
+
+		Big = InBool;
 		
+	}
+
+
+	public void LeftClick()
+	{
+		Prep();
 	}
 
 	public void RightClick()
 	{
 		Big = !Big;
 		BigMode(Big);
-	}
-
-	public void LeftClick()
-	{
-		Play();
 	}
 }

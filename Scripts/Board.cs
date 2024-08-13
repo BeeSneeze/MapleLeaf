@@ -8,6 +8,8 @@ public class Board : Node2D
 	Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
 	bool[,] ActionMatrix = new bool[8,8]; // Matrix saying which tiles are affected by an action
 
+	// RAT MATRICES?
+
 	public override void _Ready()
 	{
 		// Spawn all the tile objects
@@ -42,13 +44,30 @@ public class Board : Node2D
 		Cell[3,4].SetCharacter(410);
 		Cell[2,7].SetCharacter(510);
 
-		Cell[5,3].SetCharacter(101);
-		Cell[5,4].SetCharacter(202);
-		Cell[2,4].SetCharacter(303);
+		Cell[5,3].SetCharacter(101); // Soldier
+		Cell[5,4].SetCharacter(202); // Sniper
+		Cell[2,4].SetCharacter(303); // Support
 	}
 
-	public void ShowMatrix(bool[,] InMat, Vector2 Center)
+	public Vector2 GetCharPos(int InID)
 	{
+		for(int x = 0; x < MaxSize; x++)
+		{
+			for(int y = 0; y < MaxSize; y++)
+			{
+				if(Cell[x,y].CharID == InID)
+				{
+					return new Vector2(x,y);
+				}
+			}
+		}
+		return new Vector2(0,0);
+	}
+
+	public void ShowMatrix(bool[,] InMat, Card Card)
+	{
+		Vector2 Center = GetCharPos(Card.OwnerID);
+
 		ClearMarkers();
 		Patch(InMat, ActionMatrix, Center);
 		for(int x = 0; x < MaxSize; x++)

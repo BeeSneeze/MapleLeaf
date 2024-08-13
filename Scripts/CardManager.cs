@@ -13,8 +13,6 @@ public class CardManager : Node2D
 
 	[Export] public string OwnerName;
 
-	private bool Big = false;
-
 	private GameManager GM;
 
 	// Cards as card IDs
@@ -87,11 +85,26 @@ public class CardManager : Node2D
 			
 		Card NewCard = (Card)scene.Instance();
 
+		switch(OwnerName)
+		{
+			case "Soldier":
+				NewCard.OwnerID = 101;
+			break;
+			case "Sniper":
+				NewCard.OwnerID = 202;
+			break;
+			case "Support":
+				NewCard.OwnerID = 303;
+			break;
+			case "RatNormal":
+				NewCard.OwnerID = 101; // TEMP ID
+				// Gotta think about how this one works
+			break;
+		}
+
 		NewCard.CardName = IdToNameConvert[InInt%100];
 
-		CardType CardInfo =  AllCardsDict[NewCard.CardName];
-
-		NewCard.LoadInfo(CardInfo);
+		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
 
 		Cards.Add(NewCard);
 		NewCard.Translate(new Vector2((Hand.Count-1)*100+10,-12));
@@ -118,17 +131,12 @@ public class CardManager : Node2D
 		Cards.Remove(InCard);
 
 		InCard.QueueFree();
-		
-		// Delete card
 	}
 
-
-
-
-	public void BigMode(bool InBool)
+	// BIG MODE BIG MODE BIG MODE BIG MODE BIG MODE
+	public void BigMode(Card Card)
 	{
 		GD.Print("MANAGER BIGMODE");
-		Big = InBool;
 	}
 
 	// Turns all cards in hand to the small visual
