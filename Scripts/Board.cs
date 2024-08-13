@@ -44,11 +44,12 @@ public class Board : Node2D
 		Cell[3,4].SetCharacter(410);
 		Cell[2,7].SetCharacter(510);
 
-		Cell[5,3].SetCharacter(101); // Soldier
+		Cell[4,3].SetCharacter(101); // Soldier
 		Cell[5,4].SetCharacter(202); // Sniper
 		Cell[2,4].SetCharacter(303); // Support
 	}
 
+	// Get the position of a specific character
 	public Vector2 GetCharPos(int InID)
 	{
 		for(int x = 0; x < MaxSize; x++)
@@ -64,9 +65,10 @@ public class Board : Node2D
 		return new Vector2(0,0);
 	}
 
+	// Visualize what a card does
 	public void ShowMatrix(bool[,] InMat, Card Card)
 	{
-		Vector2 Center = GetCharPos(Card.OwnerID);
+		Vector2 Center = GetCharPos(Card.PlayerID);
 
 		ClearMarkers();
 		Patch(InMat, ActionMatrix, Center);

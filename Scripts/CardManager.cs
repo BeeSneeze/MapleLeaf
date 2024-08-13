@@ -47,12 +47,12 @@ public class CardManager : Node2D
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
 				BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
 			break;
-			case "RatNormal":
+			case "Rat":
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
 				Node2D SOwner = (Node2D)SprOwner;
-				SOwner.Translate(new Vector2(390,-280));
+				SOwner.Translate(new Vector2(390,-205));
 				SOwner.Scale = new Vector2(0.7f,0.7f);
-				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.6f);
 			break;
 		}
 
@@ -68,15 +68,7 @@ public class CardManager : Node2D
 			IdToNameConvert.Add(int.Parse(Entry.Value.CardNum), Entry.Key);
 		}
 
-		Deck.Add(GM.NewCardID(2));
-		Deck.Add(GM.NewCardID(1));
-		Deck.Add(GM.NewCardID(2));
-		Deck.Add(GM.NewCardID(4));
-
-		for(int x = 0; x < 4; x++)
-		{
-			DrawCard();
-		}
+		
 	}
 
 	private void CreateCardObject(int InInt)
@@ -89,15 +81,19 @@ public class CardManager : Node2D
 		{
 			case "Soldier":
 				NewCard.OwnerID = 101;
+				NewCard.PlayerID = 101;
 			break;
 			case "Sniper":
 				NewCard.OwnerID = 202;
+				NewCard.PlayerID = 202;
 			break;
 			case "Support":
 				NewCard.OwnerID = 303;
+				NewCard.PlayerID = 303;
 			break;
-			case "RatNormal":
+			case "Rat":
 				NewCard.OwnerID = 101; // TEMP ID
+				NewCard.PlayerID = 101; // TEMP ID
 				// Gotta think about how this one works
 			break;
 		}
@@ -107,9 +103,27 @@ public class CardManager : Node2D
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
 
 		Cards.Add(NewCard);
-		NewCard.Translate(new Vector2((Hand.Count-1)*100+10,-12));
+		if(OwnerName == "Rat")
+		{
+			int Column = ((Hand.Count-1)%4);
+			int Row = ((Hand.Count-1) - ((Hand.Count-1)%4)) / 4;
+			// Rat uses several rows for their cards
+			NewCard.Translate(new Vector2(Column*100+5,-220 + Row*200+7));
+		}
+		else
+		{
+			// Everyone else, sandwich on one row
+			NewCard.Translate(new Vector2((Hand.Count-1)*100+10,-12));
+		}
+		
 		AddChild(NewCard);
 		NewCard.BigMode(false);
+	}
+
+	// Adds a new card to the deck, by name
+	public void AddCard(string CardName)
+	{
+		Deck.Add(GM.NewCardID(int.Parse(AllCardsDict[CardName].CardNum)));
 	}
 
 

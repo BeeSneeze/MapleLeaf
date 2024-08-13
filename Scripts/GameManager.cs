@@ -6,7 +6,7 @@ public class GameManager : Node2D
 {
 	private Board Board;
 	
-	public List<CardManager> CMList;
+	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
 	private int CardIDCounter = 0;
 	private int CharacterIDCounter = 0;
 
@@ -19,6 +19,55 @@ public class GameManager : Node2D
 	public override void _Ready()
 	{
 		Board = (Board)GetNode("Board");
+		CMSoldier = (CardManager)GetNode("CardsSoldier");
+		CMSniper = (CardManager)GetNode("CardsSniper");
+		CMSupport = (CardManager)GetNode("CardsSupport");
+		CMRat = (CardManager)GetNode("CardsRat");
+
+		CMSoldier.AddCard("Duck!");
+		CMSoldier.AddCard("Duck!");
+		CMSoldier.AddCard("Duck!");
+		CMSoldier.AddCard("Duck!");
+
+		CMSniper.AddCard("Duck!");
+		CMSniper.AddCard("Duck!");
+		CMSniper.AddCard("Duck!");
+		CMSniper.AddCard("Duck!");
+
+		CMSupport.AddCard("Duck!");
+		CMSupport.AddCard("Duck!");
+		CMSupport.AddCard("Duck!");
+		CMSupport.AddCard("Duck!");
+
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Duck!");
+		
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Duck!");
+		
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Duck!");
+		CMRat.AddCard("GOOSE!");
+		
+
+
+		for(int x = 0; x < 4; x++)
+		{
+			CMSoldier.DrawCard();
+			CMSniper.DrawCard();
+			CMSupport.DrawCard();
+			CMRat.DrawCard();
+		}
+
+		for(int x = 0; x < 8; x++)
+		{
+			CMRat.DrawCard();
+		}
 	}
 
 
@@ -26,9 +75,7 @@ public class GameManager : Node2D
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if(!CurrentLoaded)
-		{
 			return;
-		}
 
 		if (@event is InputEventKey eventKey)
 		{

@@ -30,4 +30,4 @@ OwnerName = "Support"
 
 [node name="CardsRat" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1202, 475 )
-OwnerName = "RatNormal"
+OwnerName = "Rat"

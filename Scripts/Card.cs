@@ -7,7 +7,8 @@ public class Card : Sprite
 
 	public string CardName;
 	public int CardID;
-	public int OwnerID;
+	public int OwnerID; // If this person dies, remove the card
+	public int PlayerID; // Who is currently playing this card?
 
 	// Different card visuals
 	private bool Big = false;
