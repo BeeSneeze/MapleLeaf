@@ -42,18 +42,31 @@ public class Tile : Node2D
 
 
 	// Creates a new character on a tile, using the character ID
-	public void CreateCharacter(int InInt)
+	public void CreateCharacter(string CharName)
 	{
-		Char.ID = InInt;
+		Board Brd = (Board)GetParent();
+		CharacterInfo CI = Brd.AllCharacters[CharName];
+		GameManager GM = (GameManager)GetParent().GetParent();
 
-		// FIND OUT HP
-		// FIND OUT MAX HP
-		// CREATE A NEW NAME
-		Char.Name = "Jim";
-		switch(InInt % 100)
+
+		Char.ID = GM.NewCharacterID(int.Parse(CI.ID));
+		Char.MaxHP = int.Parse(CI.MaxHP);
+		Char.HP = Char.MaxHP;
+
+
+		Char.Name = CI.Names[0];
+
+		if(CI.Names.Count > 1)
+		{
+			Random rnd = new Random();
+			Char.Name = CI.Names[rnd.Next(1,CI.Names.Count)];
+		}
+		
+
+
+		switch(Char.ID % 100)
 		{
 			case 0: // Empty tile
-				LabelBox.Hide();
 
 			break;
 			case 1: // Soldier

@@ -6,10 +6,34 @@
         "MaxHP": "1",
         "Names":["Jim", "Ralph", "Bobby"]
     },
+    "Sniper":
+    {   
+        "ID": "2",
+        "MaxHP": "1",
+        "Names":["Jim", "Ralph", "Bobby"]
+    },
     "Support":
     {
         "ID": "3",
         "MaxHP": "1",
         "Names":["Steve", "Steven"]
+    },
+    "City":
+    {
+        "ID": "4",
+        "MaxHP": "1",
+        "Names":["Steve", "Steven"]
+    },
+    "RatTutorial":
+    {
+        "ID": "10",
+        "MaxHP": "1",
+        "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
+    },
+    "Mountain":
+    {
+        "ID": "50",
+        "MaxHP": "1",
+        "Names":["Mountain"]
     }
 }

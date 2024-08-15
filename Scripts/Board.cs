@@ -1,6 +1,7 @@
 using Godot;
 using System;
-
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public class Board : Node2D
 {
@@ -8,10 +9,19 @@ public class Board : Node2D
 	Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
 	bool[,] ActionMatrix = new bool[8,8]; // Matrix saying which tiles are affected by an action
 
+	public Dictionary<string,CharacterInfo> AllCharacters;
 	// RAT MATRICES?
 
 	public override void _Ready()
 	{
+
+		// Load Character Info
+		File Reader = new File();
+		Reader.Open("res://Assets/Characters.JSON", File.ModeFlags.Read);
+		string Contents = Reader.GetAsText();
+		AllCharacters = JsonConvert.DeserializeObject<Dictionary<string,CharacterInfo>>(Contents);
+		Reader.Close();
+
 		// Spawn all the tile objects
 		var scene = GD.Load<PackedScene>("res://Scenes/Tile.tscn");
 
@@ -34,20 +44,21 @@ public class Board : Node2D
 		Cell[2,2].SetTerrain("Mountains");
 		Cell[2,3].SetTerrain("Mountains");
 
-		Cell[7,1].CreateCharacter(104);
-		Cell[1,0].CreateCharacter(204);
-		Cell[3,5].CreateCharacter(304);
+		Cell[4,3].CreateCharacter("Soldier");
+		Cell[5,4].CreateCharacter("Sniper");
+		Cell[2,4].CreateCharacter("Support");
 
-		Cell[3,6].CreateCharacter(110);
-		Cell[6,1].CreateCharacter(210);
-		Cell[1,1].CreateCharacter(310);
-		Cell[3,4].CreateCharacter(410);
-		Cell[2,7].CreateCharacter(510);
+		Cell[7,1].CreateCharacter("City");
+		Cell[1,0].CreateCharacter("City");
+		Cell[3,5].CreateCharacter("City");
 
-		Cell[4,3].CreateCharacter(101); // Soldier
-		Cell[5,4].CreateCharacter(202); // Sniper
-		Cell[2,4].CreateCharacter(303); // Support
+		Cell[3,6].CreateCharacter("RatTutorial");
+		Cell[6,1].CreateCharacter("RatTutorial");
+		Cell[1,1].CreateCharacter("RatTutorial");
+		Cell[3,4].CreateCharacter("RatTutorial");
+		Cell[2,7].CreateCharacter("RatTutorial");
 
+		
 		SwapTiles(1,1,2,6);
 	}
 
