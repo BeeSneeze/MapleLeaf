@@ -24,8 +24,8 @@ public class GameManager : Node2D
 		CMSupport = (CardManager)GetNode("CardsSupport");
 		CMRat = (CardManager)GetNode("CardsRat");
 
-		CMSoldier.AddCard("Duck!");
-		CMSoldier.AddCard("Duck!");
+		CMSoldier.AddCard("Step");
+		CMSoldier.AddCard("March");
 		CMSoldier.AddCard("Duck!");
 		CMSoldier.AddCard("Duck!");
 
@@ -41,7 +41,7 @@ public class GameManager : Node2D
 
 		CMRat.AddCard("Binoculars");
 		CMRat.AddCard("The Swarm");
-		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Move");
 		CMRat.AddCard("Duck!");
 		
 		CMRat.AddCard("Duck!");

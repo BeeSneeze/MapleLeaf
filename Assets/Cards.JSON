@@ -1,8 +1,45 @@
 
 {
-    "The Swarm":
+
+    "Step":
     {   
         "CardNum": "1",
+        "MatrixName": "Manhattan",
+        "Range": "1",
+        "TargetType": "Single",
+        "AbilityText":  "",
+        "FlavorText":  "Just 5344595 more and we'll get there in no time!",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "March":
+    {   
+        "CardNum": "2",
+        "MatrixName": "Manhattan",
+        "Range": "2",
+        "TargetType": "Single",
+        "AbilityText":  "",
+        "FlavorText":  "Steady onwards, people!",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "Move":
+    {   
+        "CardNum": "3",
+        "MatrixName": "Manhattan",
+        "Range": "3",
+        "TargetType": "Single",
+        "AbilityText":  "",
+        "FlavorText":  "./Project",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "The Swarm":
+    {   
+        "CardNum": "10",
         "MatrixName": "Full",
         "Range": "7",
         "TargetType": "Multi",
@@ -15,7 +52,7 @@
     },
     "Duck!":
     {
-        "CardNum": "2",
+        "CardNum": "20",
         "MatrixName": "Diagonal",
         "Range": "3",
         "TargetType": "Multi",
@@ -28,7 +65,7 @@
     },
     "GOOSE!":
     {
-        "CardNum": "3",
+        "CardNum": "30",
         "MatrixName": "Manhattan",
         "Range": "3",
         "TargetType": "Multi",
@@ -41,7 +78,7 @@
     },
     "Binoculars":
     {
-        "CardNum": "4",
+        "CardNum": "40",
         "MatrixName": "Cone",
         "Range": "2",
         "TargetType": "Multi",
