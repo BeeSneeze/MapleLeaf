@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/Visuals/Markers/Attack1.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Visuals/Characters/Mountain.png" type="Texture" id=12]
 [ext_resource path="res://Scripts/Click.cs" type="Script" id=13]
+[ext_resource path="res://Themes/Tile.tres" type="Theme" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -94,3 +95,19 @@ z_index = 10
 frames = SubResource( 2 )
 animation = "None"
 playing = true
+
+[node name="LabelBox" type="ColorRect" parent="."]
+margin_left = -35.0
+margin_top = -60.0
+margin_right = 35.0
+margin_bottom = -40.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="Label" type="Label" parent="LabelBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = 2.0
+theme = ExtResource( 14 )
+align = 1
+valign = 1

@@ -11,11 +11,18 @@ public class Tile : Node2D
 	public int MaxHP;
 	public int HP;
 
+	Label NameLabel;
+	ColorRect LabelBox;
+
 	public Character Char = new Character(); // The character currently on the tile
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{	
+		LabelBox = (ColorRect)GetNode("LabelBox");
+		NameLabel = (Label)GetNode("LabelBox").GetNode("Label");
+
+		LabelBox.Hide();
 		Terrain = "Grass";
 		Translate(new Vector2(X,Y));
 	}
@@ -44,7 +51,8 @@ public class Tile : Node2D
 		// FIND OUT MAX HP
 
 		// CREATE A NEW NAME
-
+		Char.Name = "Jim";
+		
 		SetCharacter(Char);
 	}
 
@@ -52,12 +60,18 @@ public class Tile : Node2D
 	{
 		Char = InChar;
 
+		NameLabel.Text = Char.Name;
+
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
+
+		LabelBox.Show();
 
 		// Character IDs: 0 = Nothing, 1-9 = friendly characters, 10-49 = enemy characters, 50+ = misc.
 		switch(Char.ID % 100)
 		{
-			case 0:
+			case 0: // Empty tile
+				LabelBox.Hide();
+
 				AnimSpr.Animation = "None";
 				AnimSpr.ZIndex = 0;
 			break;
