@@ -98,9 +98,9 @@ animation = "None"
 playing = true
 
 [node name="LabelBox" type="ColorRect" parent="."]
-margin_left = -35.0
+margin_left = -37.0
 margin_top = -60.0
-margin_right = 35.0
+margin_right = 37.0
 margin_bottom = -40.0
 color = Color( 0, 0, 0, 0.392157 )
 
@@ -108,7 +108,7 @@ color = Color( 0, 0, 0, 0.392157 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -1.0
-margin_bottom = 2.0
+margin_bottom = 1.0
 theme = ExtResource( 14 )
 align = 1
 valign = 1

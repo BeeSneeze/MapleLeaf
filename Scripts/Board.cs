@@ -9,12 +9,11 @@ public class Board : Node2D
 	Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
 	bool[,] ActionMatrix = new bool[8,8]; // Matrix saying which tiles are affected by an action
 
-	public Dictionary<string,CharacterInfo> AllCharacters;
+	public Dictionary<string,CharacterInfo> AllCharacters; // Contains relevant info on characters, loaded via Characters.JSON
 	// RAT MATRICES?
 
 	public override void _Ready()
 	{
-
 		// Load Character Info
 		File Reader = new File();
 		Reader.Open("res://Assets/Characters.JSON", File.ModeFlags.Read);

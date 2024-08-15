@@ -1,39 +1,45 @@
 
 {
+    "None":
+    {   
+        "ID": "0",
+        "MaxHP": "0",
+        "Names":["None"]
+    },
     "Soldier":
     {   
         "ID": "1",
-        "MaxHP": "1",
-        "Names":["Jim", "Ralph", "Bobby"]
+        "MaxHP": "3",
+        "Names":["Brown", "Martin", "Bobby"]
     },
     "Sniper":
     {   
         "ID": "2",
-        "MaxHP": "1",
-        "Names":["Jim", "Ralph", "Bobby"]
+        "MaxHP": "3",
+        "Names":["Langdon", "Andersson", "Jones", "Lee"]
     },
     "Support":
     {
         "ID": "3",
-        "MaxHP": "1",
-        "Names":["Steve", "Steven"]
+        "MaxHP": "3",
+        "Names":["Steve", "Steven", "Steph", "Stephanie", "Stephen"]
     },
     "City":
     {
         "ID": "4",
-        "MaxHP": "1",
+        "MaxHP": "0",
         "Names":["Steve", "Steven"]
     },
     "RatTutorial":
     {
         "ID": "10",
-        "MaxHP": "1",
+        "MaxHP": "2",
         "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
     },
     "Mountain":
     {
         "ID": "50",
-        "MaxHP": "1",
+        "MaxHP": "0",
         "Names":["Mountain"]
     }
 }

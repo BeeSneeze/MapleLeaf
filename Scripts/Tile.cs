@@ -40,6 +40,24 @@ public class Tile : Node2D
 
 	}
 
+	// Take the numbered amount of damage
+	public void TakeDamage(int Dmg)
+	{
+		if(Char.MaxHP == 0)
+		{
+			// Character cannot be damaged
+			return;
+		}
+		
+		Char.HP -= Dmg;
+		if(Char.HP < 1)
+		{
+			// Character dies
+			CreateCharacter("None");
+		}
+		
+	}
+
 
 	// Creates a new character on a tile, using the character ID
 	public void CreateCharacter(string CharName)
@@ -48,8 +66,15 @@ public class Tile : Node2D
 		CharacterInfo CI = Brd.AllCharacters[CharName];
 		GameManager GM = (GameManager)GetParent().GetParent();
 
-
-		Char.ID = GM.NewCharacterID(int.Parse(CI.ID));
+		if(CharName != "None")
+		{
+			Char.ID = GM.NewCharacterID(int.Parse(CI.ID));
+		}
+		else
+		{
+			Char.ID = 0;
+		}
+		
 		Char.MaxHP = int.Parse(CI.MaxHP);
 		Char.HP = Char.MaxHP;
 
