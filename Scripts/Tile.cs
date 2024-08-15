@@ -34,8 +34,8 @@ public class Tile : Node2D
 		spr.Texture = (Texture)GD.Load("res://Assets/Visuals/Terrain/" + InString + ".png");
 		if(InString == "Mountains")
 		{
-			AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
-			AnimSpr.Animation = "Mountain";
+			Char.ID = 50;
+			SetCharacter(Char);
 		}
 
 	}
@@ -47,12 +47,34 @@ public class Tile : Node2D
 		Char.ID = InInt;
 
 		// FIND OUT HP
-
 		// FIND OUT MAX HP
-
 		// CREATE A NEW NAME
 		Char.Name = "Jim";
+		switch(InInt % 100)
+		{
+			case 0: // Empty tile
+				LabelBox.Hide();
+
+			break;
+			case 1: // Soldier
+
+			break;
+			case 2: // Sniper
+
+			break;
+			case 3: // Support
+
+			break;
+			case 4: // City
+
+			break;
+			case 10: // Tutorial Rat
+				
+			break;
+		}
+
 		
+
 		SetCharacter(Char);
 	}
 
@@ -71,29 +93,27 @@ public class Tile : Node2D
 		{
 			case 0: // Empty tile
 				LabelBox.Hide();
-
 				AnimSpr.Animation = "None";
-				AnimSpr.ZIndex = 0;
 			break;
 			case 1:
 				AnimSpr.Animation = "Soldier";
-				AnimSpr.ZIndex = 20;
 			break;
 			case 2:
 				AnimSpr.Animation = "Sniper";
-				AnimSpr.ZIndex = 20;
 			break;
 			case 3:
 				AnimSpr.Animation = "Support";
-				AnimSpr.ZIndex = 20;
 			break;
 			case 4:
+				LabelBox.Hide();
 				AnimSpr.Animation = "City";
-				AnimSpr.ZIndex = 0;
 			break;
 			case 10:
 				AnimSpr.Animation = "RatTutorial";
-				AnimSpr.ZIndex = 0;
+			break;
+			case 50:
+				LabelBox.Hide();
+				AnimSpr.Animation = "Mountain";
 			break;
 		}
 	}

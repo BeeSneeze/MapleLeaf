@@ -1,0 +1,15 @@
+
+{
+    "Soldier":
+    {   
+        "ID": "1",
+        "MaxHP": "1",
+        "Names":["Jim", "Ralph", "Bobby"]
+    },
+    "Support":
+    {
+        "ID": "3",
+        "MaxHP": "1",
+        "Names":["Steve", "Steven"]
+    }
+}
