@@ -3,15 +3,15 @@ using System;
 
 public class Tile : Node2D
 {	
-	public int X = 0;
-	public int Y = 0;
+	public int X, Y;
 
 	private string Terrain;
-	public string Character;
-	public int CharID {get; private set;}
 
+	// Character information
 	public int MaxHP;
 	public int HP;
+
+	public Character Char = new Character(); // The character currently on the tile
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,15 +33,29 @@ public class Tile : Node2D
 
 	}
 
-	public void SetCharacter(int InInt)
+
+	// Creates a new character on a tile, using the character ID
+	public void CreateCharacter(int InInt)
 	{
-		CharID = InInt;
-		// Change the animated sprite
+		Char.ID = InInt;
+
+		// FIND OUT HP
+
+		// FIND OUT MAX HP
+
+		// CREATE A NEW NAME
+
+		SetCharacter(Char);
+	}
+
+	public void SetCharacter(Character InChar)
+	{
+		Char = InChar;
 
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
 
 		// Character IDs: 0 = Nothing, 1-9 = friendly characters, 10-49 = enemy characters, 50+ = misc.
-		switch(InInt % 100)
+		switch(Char.ID % 100)
 		{
 			case 0:
 				AnimSpr.Animation = "None";

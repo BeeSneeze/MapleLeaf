@@ -20,3 +20,11 @@ public struct Ability{
 	public string Name;
 	public string Effect;
 }
+
+// Information about a specific character. Each tile has one. (HAVE EMPTY CHARACTERS OR NOT?)
+public struct Character{
+	public int HP, MaxHP;
+	public int ID; // % 100 on the ID to get the character type. For instance 101 % 100 = 1, which is the soldier
+	public string Name; // The name associated with a given ID. Only used for labeling purposes
+
+}

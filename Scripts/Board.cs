@@ -34,19 +34,21 @@ public class Board : Node2D
 		Cell[2,2].SetTerrain("Mountains");
 		Cell[2,3].SetTerrain("Mountains");
 
-		Cell[7,1].SetCharacter(104);
-		Cell[1,0].SetCharacter(204);
-		Cell[3,5].SetCharacter(304);
+		Cell[7,1].CreateCharacter(104);
+		Cell[1,0].CreateCharacter(204);
+		Cell[3,5].CreateCharacter(304);
 
-		Cell[3,6].SetCharacter(110);
-		Cell[6,1].SetCharacter(210);
-		Cell[1,1].SetCharacter(310);
-		Cell[3,4].SetCharacter(410);
-		Cell[2,7].SetCharacter(510);
+		Cell[3,6].CreateCharacter(110);
+		Cell[6,1].CreateCharacter(210);
+		Cell[1,1].CreateCharacter(310);
+		Cell[3,4].CreateCharacter(410);
+		Cell[2,7].CreateCharacter(510);
 
-		Cell[4,3].SetCharacter(101); // Soldier
-		Cell[5,4].SetCharacter(202); // Sniper
-		Cell[2,4].SetCharacter(303); // Support
+		Cell[4,3].CreateCharacter(101); // Soldier
+		Cell[5,4].CreateCharacter(202); // Sniper
+		Cell[2,4].CreateCharacter(303); // Support
+
+		SwapTiles(1,1,2,6);
 	}
 
 	// Get the position of a specific character
@@ -56,7 +58,7 @@ public class Board : Node2D
 		{
 			for(int y = 0; y < MaxSize; y++)
 			{
-				if(Cell[x,y].CharID == InID)
+				if(Cell[x,y].Char.ID == InID)
 				{
 					return new Vector2(x,y);
 				}
@@ -128,10 +130,11 @@ public class Board : Node2D
 	// Swaps characters between two tiles, useful for movement
 	public void SwapTiles(int X1, int Y1, int X2, int Y2)
 	{
-		int CharID1 = Cell[X1,Y1].CharID;
-		int CharID2 = Cell[X2,Y2].CharID;
-		Cell[X1,Y1].SetCharacter(CharID2);
-		Cell[X2,Y2].SetCharacter(CharID1);
+		Character Char1 = Cell[X1,Y1].Char;
+		Character Char2 = Cell[X2,Y2].Char;
+
+		Cell[X1,Y1].SetCharacter(Char2);
+		Cell[X2,Y2].SetCharacter(Char1);
 	}
 
 }
