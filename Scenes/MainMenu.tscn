@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Assets/Visuals/Background.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Visuals/GameBG.png" type="Texture" id=1]
 
 [node name="Main Menu" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 800, 450 )
+position = Vector2( 960, 540 )
 z_index = -100
 texture = ExtResource( 1 )

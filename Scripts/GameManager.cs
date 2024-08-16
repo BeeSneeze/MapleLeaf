@@ -44,7 +44,7 @@ public class GameManager : Node2D
 		CMRat.AddCard("Jog");
 		CMRat.AddCard("Duck!");
 		
-		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Overwhelm");
 		CMRat.AddCard("Duck!");
 		CMRat.AddCard("Duck!");
 		CMRat.AddCard("Duck!");
