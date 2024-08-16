@@ -77,6 +77,20 @@ public class Board : Node2D
 		return new Vector2(0,0);
 	}
 
+	public void Remove(bool[,] InMat, string Type)
+	{
+		for(int x = 0; x < MaxSize; x++)
+		{
+			for(int y = 0; y < MaxSize; y++)
+			{
+				if(Cell[x,y].Char.ID > 0 && Type == "Occupied")
+				{
+					InMat[x,y] = false;
+				}
+			}
+		}
+	}
+
 	// Visualize what a card does
 	public void ShowMatrix(bool[,] InMat, Card Card)
 	{
@@ -84,13 +98,35 @@ public class Board : Node2D
 
 		ClearMarkers();
 		Patch(InMat, ActionMatrix, Center);
+
+		// For loop over all abilities
+		switch(Card.AbilityList[0].Name)
+		{
+			case "Move":
+				Remove(ActionMatrix, "Occupied");
+			break;
+			case "Damage":
+				
+			break;
+		}
+
+		
 		for(int x = 0; x < MaxSize; x++)
 		{
 			for(int y = 0; y < MaxSize; y++)
 			{
 				if(ActionMatrix[x,y])
 				{
-					Cell[x,y].SetMarker("Attack");
+					switch(Card.AbilityList[0].Name)
+					{
+						case "Move":
+							Cell[x,y].SetMarker("Move");
+						break;
+						case "Damage":
+							Cell[x,y].SetMarker("Attack");
+						break;
+					}
+					
 				}
 			}
 		}

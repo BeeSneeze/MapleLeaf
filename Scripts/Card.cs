@@ -51,6 +51,12 @@ public class Card : Sprite
 		// Set the range of the card
 		Label RLabel = (Label)GetNode("Range");
 		RLabel.Text = Range.ToString();
+
+		// Set the flavortext
+		RichTextLabel RichLabel = (RichTextLabel)GetNode("FlavorText");
+		RichLabel.AppendBbcode("[center][i]" + FlavorText);
+
+
 	}
 
 	// Visualizes what a card does, without playing it

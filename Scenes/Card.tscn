@@ -47,10 +47,6 @@ margin_bottom = -51.0
 size_flags_stretch_ratio = 0.0
 theme = ExtResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[center][i]With the power of friendship, we can accomplish anything![/i]
-[u]Spawn three rats[/u]"
-text = "With the power of friendship, we can accomplish anything!
-Spawn three rats"
 scroll_active = false
 
 [node name="Range" type="Label" parent="."]

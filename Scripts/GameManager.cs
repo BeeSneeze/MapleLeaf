@@ -29,19 +29,19 @@ public class GameManager : Node2D
 		CMSoldier.AddCard("Duck!");
 		CMSoldier.AddCard("Duck!");
 
-		CMSniper.AddCard("Duck!");
+		CMSniper.AddCard("Jog");
 		CMSniper.AddCard("Duck!");
 		CMSniper.AddCard("Duck!");
 		CMSniper.AddCard("Duck!");
 
-		CMSupport.AddCard("Duck!");
+		CMSupport.AddCard("Jog");
 		CMSupport.AddCard("Duck!");
 		CMSupport.AddCard("Duck!");
 		CMSupport.AddCard("Duck!");
 
 		CMRat.AddCard("Binoculars");
 		CMRat.AddCard("The Swarm");
-		CMRat.AddCard("Move");
+		CMRat.AddCard("Jog");
 		CMRat.AddCard("Duck!");
 		
 		CMRat.AddCard("Duck!");
@@ -138,7 +138,7 @@ public class GameManager : Node2D
 	public int NewCardID(int InInt)
 	{
 		CardIDCounter++;
-		return CardIDCounter * 100 + InInt;
+		return CardIDCounter * 1000 + InInt;
 	}
 
 	// Creates a new ID for a character

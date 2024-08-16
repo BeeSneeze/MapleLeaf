@@ -25,14 +25,38 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
-    "Move":
+    "Jog":
     {   
         "CardNum": "3",
         "MatrixName": "Manhattan",
         "Range": "3",
         "TargetType": "Single",
         "AbilityText":  "",
+        "FlavorText":  "A nice morning jog to clear the mind. The swarm of rats make it harder",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "Run":
+    {   
+        "CardNum": "4",
+        "MatrixName": "Manhattan",
+        "Range": "4",
+        "TargetType": "Single",
+        "AbilityText":  "",
         "FlavorText":  "./Project",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "Sprint":
+    {   
+        "CardNum": "5",
+        "MatrixName": "Manhattan",
+        "Range": "5",
+        "TargetType": "Single",
+        "AbilityText":  "",
+        "FlavorText":  "Not quite faster than the wind, but getting there",
         "AbilityList":  [
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []

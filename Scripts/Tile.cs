@@ -79,13 +79,9 @@ public class Tile : Node2D
 		Char.HP = Char.MaxHP;
 
 
-		Char.Name = CI.Names[0];
-
-		if(CI.Names.Count > 1)
-		{
-			Random rnd = new Random();
-			Char.Name = CI.Names[rnd.Next(1,CI.Names.Count)];
-		}
+		
+		Random rnd = new Random();
+		Char.Name = CI.Names[rnd.Next(0,CI.Names.Count)];
 		
 
 

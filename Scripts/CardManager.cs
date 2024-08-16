@@ -98,7 +98,7 @@ public class CardManager : Node2D
 			break;
 		}
 
-		NewCard.CardName = IdToNameConvert[InInt%100];
+		NewCard.CardName = IdToNameConvert[InInt % 1000];
 
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
 
