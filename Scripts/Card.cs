@@ -54,7 +54,7 @@ public class Card : Sprite
 
 		// Set the flavortext
 		RichTextLabel RichLabel = (RichTextLabel)GetNode("FlavorText");
-		RichLabel.AppendBbcode("[center][i]" + FlavorText);
+		RichLabel.AppendBbcode("[center]" + FlavorText);
 
 
 	}

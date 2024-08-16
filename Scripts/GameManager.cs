@@ -30,12 +30,12 @@ public class GameManager : Node2D
 		CMSoldier.AddCard("Duck!");
 
 		CMSniper.AddCard("Jog");
-		CMSniper.AddCard("Duck!");
+		CMSniper.AddCard("Run");
 		CMSniper.AddCard("Duck!");
 		CMSniper.AddCard("Duck!");
 
-		CMSupport.AddCard("Jog");
-		CMSupport.AddCard("Duck!");
+		CMSupport.AddCard("Sprint");
+		CMSupport.AddCard("Zoom");
 		CMSupport.AddCard("Duck!");
 		CMSupport.AddCard("Duck!");
 

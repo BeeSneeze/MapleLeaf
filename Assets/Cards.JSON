@@ -61,6 +61,18 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
+    "Zoom":
+    {   
+        "CardNum": "6",
+        "MatrixName": "Manhattan",
+        "Range": "6",
+        "TargetType": "Single",
+        "AbilityText":  "",
+        "FlavorText":  "WEEEEEEEEEEEE",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
     "The Swarm":
     {   
         "CardNum": "10",

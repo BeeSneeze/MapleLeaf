@@ -10,13 +10,13 @@
     {   
         "ID": "1",
         "MaxHP": "3",
-        "Names":["Brown", "Martin", "Bobby"]
+        "Names":["Brown", "Martin", "Smith"]
     },
     "Sniper":
     {   
         "ID": "2",
         "MaxHP": "3",
-        "Names":["Langdon", "Andersson", "Jones", "Lee"]
+        "Names":["Langdon", "Andersson", "Chavez", "Lee"]
     },
     "Support":
     {

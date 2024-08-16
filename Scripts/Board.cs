@@ -56,7 +56,6 @@ public class Board : Node2D
 		Cell[1,1].CreateCharacter("RatTutorial");
 		Cell[3,4].CreateCharacter("RatTutorial");
 		Cell[2,7].CreateCharacter("RatTutorial");
-
 		
 		SwapTiles(1,1,2,6);
 	}
@@ -106,7 +105,7 @@ public class Board : Node2D
 				Remove(ActionMatrix, "Occupied");
 			break;
 			case "Damage":
-				
+
 			break;
 		}
 
