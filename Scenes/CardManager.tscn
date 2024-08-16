@@ -15,6 +15,6 @@ texture = ExtResource( 3 )
 
 [node name="Owner" type="Sprite" parent="."]
 modulate = Color( 0.947266, 0.947266, 0.947266, 1 )
-position = Vector2( -40, -142 )
-scale = Vector2( -0.7, 0.7 )
+position = Vector2( -70, -165 )
+scale = Vector2( -0.84, 0.84 )
 texture = ExtResource( 2 )

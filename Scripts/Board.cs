@@ -29,8 +29,8 @@ public class Board : Node2D
 			for(int y = 0; y < MaxSize; y++)
 			{
 				Tile tile = (Tile)scene.Instance();
-				tile.X = x*74-74*4+35+2; // 70x70 pixel boxes + 4 pixel margin between
-				tile.Y = y*74-74*4+35+2;
+				tile.X = x*88-88*4+42+2; // 84x84 pixel boxes + 4 pixel margin between
+				tile.Y = y*88-88*4+42+2;
 
 				Cell[x,y] = tile;
 

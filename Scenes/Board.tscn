@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Visuals/Board.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Visuals/Board1080.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Board.cs" type="Script" id=2]
 
 [node name="Board" type="Node2D"]

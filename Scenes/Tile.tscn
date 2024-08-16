@@ -83,10 +83,10 @@ z_index = 20
 script = ExtResource( 2 )
 
 [node name="TileClick" type="Control" parent="."]
-margin_left = -37.0
-margin_top = -37.0
-margin_right = 37.0
-margin_bottom = 37.0
+margin_left = -44.4
+margin_top = -44.4
+margin_right = 44.4
+margin_bottom = 44.4
 script = ExtResource( 13 )
 
 [node name="Terrain" type="Sprite" parent="."]
@@ -105,16 +105,16 @@ animation = "None"
 playing = true
 
 [node name="LabelBox" type="ColorRect" parent="."]
-margin_left = -37.0
-margin_top = -60.0
-margin_right = 37.0
-margin_bottom = -40.0
+margin_left = -44.0
+margin_top = -70.0
+margin_right = 44.0
+margin_bottom = -46.0
 color = Color( 0, 0, 0, 0.392157 )
 
 [node name="Label" type="Label" parent="LabelBox"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -1.0
+margin_top = -2.0
 margin_bottom = 1.0
 theme = ExtResource( 14 )
 align = 1

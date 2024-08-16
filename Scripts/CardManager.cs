@@ -50,7 +50,7 @@ public class CardManager : Node2D
 			case "Rat":
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
 				Node2D SOwner = (Node2D)SprOwner;
-				SOwner.Translate(new Vector2(390,-205));
+				SOwner.Translate(new Vector2(450,-245));
 				SOwner.Scale = new Vector2(0.7f,0.7f);
 				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.6f);
 			break;
@@ -108,12 +108,12 @@ public class CardManager : Node2D
 			int Column = ((Hand.Count-1)%4);
 			int Row = ((Hand.Count-1) - ((Hand.Count-1)%4)) / 4;
 			// Rat uses several rows for their cards
-			NewCard.Translate(new Vector2(Column*100+5,-220 + Row*200+7));
+			NewCard.Translate(new Vector2(Column*120-25,-220 + Row*240-30));
 		}
 		else
 		{
 			// Everyone else, sandwich on one row
-			NewCard.Translate(new Vector2((Hand.Count-1)*100+10,-12));
+			NewCard.Translate(new Vector2((Hand.Count-1)*120-25,-12));
 		}
 		
 		AddChild(NewCard);

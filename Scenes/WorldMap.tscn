@@ -11,37 +11,45 @@ z_index = -100
 texture = ExtResource( 1 )
 
 [node name="Edmonton" parent="." instance=ExtResource( 2 )]
-position = Vector2( 204, 125 )
+position = Vector2( 244.8, 150 )
+frame = 2
 
 [node name="Calgary" parent="." instance=ExtResource( 2 )]
-position = Vector2( 189, 245 )
+position = Vector2( 226.8, 294 )
+frame = 2
 
 [node name="Regina" parent="." instance=ExtResource( 2 )]
-position = Vector2( 448, 279 )
+position = Vector2( 537.6, 334.8 )
+frame = 2
 
 [node name="Winnipeg" parent="." instance=ExtResource( 2 )]
-position = Vector2( 681, 294 )
-frame = 2
+position = Vector2( 817.2, 352.8 )
+frame = 0
 
 [node name="Minneapolis" parent="." instance=ExtResource( 2 )]
-position = Vector2( 802, 524 )
+position = Vector2( 962.4, 628.8 )
+frame = 2
 
 [node name="Kansas City" parent="." instance=ExtResource( 2 )]
-position = Vector2( 752, 781 )
+position = Vector2( 902.4, 937.2 )
+frame = 2
 
 [node name="Indianapolis" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1004, 720 )
+position = Vector2( 1204.8, 864 )
+frame = 2
 
 [node name="Toronto" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1201, 578 )
+position = Vector2( 1441.2, 693.6 )
+frame = 2
 
 [node name="Ottawa" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1301, 502 )
+position = Vector2( 1561.2, 602.4 )
+frame = 2
 
 [node name="Montreal" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1378, 492 )
+position = Vector2( 1653.6, 590.4 )
+frame = 2
 
 [node name="New York City" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1375, 698 )
+position = Vector2( 1650, 837.6 )
 animation = "Circle"
-frame = 2
