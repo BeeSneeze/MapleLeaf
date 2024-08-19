@@ -31,7 +31,7 @@ public class GameManager : Node2D
 
 		CMSniper.AddCard("Jog");
 		CMSniper.AddCard("Run");
-		CMSniper.AddCard("Duck!");
+		CMSniper.AddCard("Feint");
 		CMSniper.AddCard("Duck!");
 
 		CMSupport.AddCard("Duck!");
@@ -39,16 +39,15 @@ public class GameManager : Node2D
 		CMSupport.AddCard("Binoculars");
 		CMSupport.AddCard("Duck!");
 
+
 		CMRat.AddCard("Binoculars");
 		CMRat.AddCard("The Swarm");
 		CMRat.AddCard("Jog");
-		CMRat.AddCard("Duck!");
-		
+		CMRat.AddCard("Duck!");		
 		CMRat.AddCard("Overwhelm");
 		CMRat.AddCard("Chomp");
 		CMRat.AddCard("Duck!");
 		CMRat.AddCard("Duck!");
-		
 		CMRat.AddCard("Sprint");
 		CMRat.AddCard("Zoom");
 		CMRat.AddCard("Duck!");
@@ -71,7 +70,7 @@ public class GameManager : Node2D
 	}
 
 
-	// Rotating matrices using the A and D buttons
+	// Rotating matrices using WASD
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if(!CurrentLoaded)
@@ -110,6 +109,53 @@ public class GameManager : Node2D
 		}	
 	}
 
+	// Prepares a card for play
+	public void PrepPlay(Card Card)
+	{
+
+		CardManager CMnew = (CardManager)GetNode("CardsSoldier");
+		CMnew.UnClick();
+		CMnew = (CardManager)GetNode("CardsSniper");
+		CMnew.UnClick();
+		CMnew = (CardManager)GetNode("CardsSupport");
+		CMnew.UnClick();
+		CMnew = (CardManager)GetNode("CardsRat");
+		CMnew.UnClick();
+
+		ShowPlay(Card);
+	}
+
+	// Unprepares a card for play
+	public void UnPrep()
+	{
+		
+		CardManager CMnew = (CardManager)GetNode("CardsSoldier");
+		CMnew.ReClick();
+		CMnew = (CardManager)GetNode("CardsSniper");
+		CMnew.ReClick();
+		CMnew = (CardManager)GetNode("CardsSupport");
+		CMnew.ReClick();
+		CMnew = (CardManager)GetNode("CardsRat");
+		CMnew.ReClick();
+
+		Board.ClearMarkers();
+	}
+
+	// Plays a card and its abilities
+	public void ExecutePlay(Card Card)
+	{
+		GD.Print("ATTEMPTED EXECUTION OF PLAY");
+		/*
+		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
+		UnRotated = (bool[,])CurrentMatrix.Clone();
+		CurrentLoaded = true;
+		CurrentCard = Card;
+
+		Board.ShowMatrix(CurrentMatrix, CurrentCard);
+
+		Card.Discard();*/
+	}
+
 	// Visualizes what a card does, but without playing it
 	public void ShowPlay(Card Card)
 	{
@@ -119,19 +165,6 @@ public class GameManager : Node2D
 		CurrentCard = Card;
 
 		Board.ShowMatrix(CurrentMatrix, CurrentCard);
-	}
-
-	// Plays a card and its abilities
-	public void ExecutePlay(Card Card)
-	{
-		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
-		UnRotated = (bool[,])CurrentMatrix.Clone();
-		CurrentLoaded = true;
-		CurrentCard = Card;
-
-		Board.ShowMatrix(CurrentMatrix, CurrentCard);
-
-		Card.Discard();
 	}
 
 	// Creates a new ID for a card

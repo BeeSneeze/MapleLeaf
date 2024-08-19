@@ -12,7 +12,9 @@ public class Card : Sprite
 
 	// Different card visuals
 	private bool Big = false;
-	private bool Prepped = false;
+	public bool Prepped = false;
+
+	public bool Clickable = true;
 
 	private GameManager GM;
 
@@ -81,10 +83,22 @@ public class Card : Sprite
 	}
 
 	// Visualizes what a card does, without playing it
-	public void Prep()
+	public void Prep(bool InBool)
 	{
-		Prepped = true;
-		GM.ShowPlay(this);
+		if(InBool)
+		{
+			GM.PrepPlay(this);
+			SceneTreeTween tween = GetTree().CreateTween();
+			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.6f, 0.6f), 0.07f);
+			ZIndex = 101;
+		}
+		else
+		{
+			GM.UnPrep();
+			SceneTreeTween tween = GetTree().CreateTween();
+			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
+			ZIndex = 100;
+		}
 	}
 	
 	// Play card
@@ -126,18 +140,43 @@ public class Card : Sprite
 		}
 
 		Big = InBool;
-		
 	}
-
 
 	public void LeftClick()
 	{
-		Prep();
+		if(Clickable)
+		{
+			if(Prepped) // Click the second time to execute the play
+			{
+				Play();
+			}
+			else // The first click preps the play
+			{
+				Big = false;
+				GM.UnBig();
+				BigMode(Big);
+				Prepped = true;
+				Prep(Prepped);
+			}
+			
+		}
 	}
 
 	public void RightClick()
 	{
-		Big = !Big;
-		BigMode(Big);
+		if(Clickable)
+		{
+			if(Prepped) // Right click to abort play
+			{
+				Prepped = false;
+				Prep(false);
+			}
+			else
+			{
+				Big = !Big;
+				BigMode(Big);
+			}
+			
+		}
 	}
 }

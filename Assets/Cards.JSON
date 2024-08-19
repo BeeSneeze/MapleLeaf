@@ -81,6 +81,24 @@
     },
 
 
+    "Feint":
+    {   
+        "CardNum": "201",
+        "MatrixName": "Line",
+        "Range": "5",
+        "TargetType": "Single",
+        "TargetCell": "Enemy",
+        "AbilityText": "Damage 1, Swap with target",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+
+
+
+
     "Duck!":
     {
         "CardNum": "320",

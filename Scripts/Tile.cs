@@ -43,16 +43,14 @@ public class Tile : Node2D
 	// Take the numbered amount of damage
 	public void TakeDamage(int Dmg)
 	{
-		if(Char.MaxHP == 0)
+		if(Char.MaxHP == 0) // Character cannot be damaged
 		{
-			// Character cannot be damaged
 			return;
 		}
 		
 		Char.HP -= Dmg;
-		if(Char.HP < 1)
+		if(Char.HP < 1) // Character dies
 		{
-			// Character dies
 			CreateCharacter("None");
 		}
 		

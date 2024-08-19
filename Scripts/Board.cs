@@ -76,6 +76,7 @@ public class Board : Node2D
 		return new Vector2(0,0);
 	}
 
+	// Removes parts of the matrix depending on certain keywords
 	public void Remove(bool[,] InMat, string Type)
 	{
 		for(int x = 0; x < MaxSize; x++)
@@ -105,7 +106,7 @@ public class Board : Node2D
 		if(Card.AbilityList.Count == 0)
 			return;
 
-		// For loop over all abilities
+		// Remove parts of the matrix according to who the card targets
 		switch(Card.TargetCell)
 		{
 			case "Empty":
@@ -115,7 +116,6 @@ public class Board : Node2D
 				Remove(ActionMatrix, "Mountain");
 			break;
 		}
-
 		
 		for(int x = 0; x < MaxSize; x++)
 		{

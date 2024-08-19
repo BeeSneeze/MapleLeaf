@@ -162,4 +162,27 @@ public class CardManager : Node2D
 		}
 	}
 
+
+	// Makes all non-prepped cards unclickable
+	public void UnClick()
+	{
+		foreach(Card C in Cards)
+		{
+			if(!C.Prepped)
+			{
+				C.Clickable = false;
+			}
+			
+		}
+	}
+
+	// Makes all cards clickable again
+	public void ReClick()
+	{
+		foreach(Card C in Cards)
+		{
+			C.Clickable = true;
+		}
+	}
+
 }
