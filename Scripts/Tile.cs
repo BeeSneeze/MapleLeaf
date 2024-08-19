@@ -7,7 +7,7 @@ public class Tile : Node2D
 
 	private string Terrain;
 
-	private bool Clickable = false;
+	public bool Clickable = false;
 
 	// Character information
 	public int MaxHP;
@@ -18,9 +18,12 @@ public class Tile : Node2D
 
 	public Character Char = new Character(); // The character currently on the tile
 
+	public GameManager GM;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{	
+		GM = (GameManager)GetParent().GetParent();
 		LabelBox = (ColorRect)GetNode("LabelBox");
 		NameLabel = (Label)GetNode("LabelBox").GetNode("Label");
 
@@ -171,8 +174,15 @@ public class Tile : Node2D
 	{
 		if(Clickable)
 		{
-			AddTarget();
 			GD.Print("Tile left clicked!");
+			AddTarget();
+			
+			if(GM.CurrentCard.TargetType == "Single")
+			{
+				GM.ExecutePlay();
+			}
+			
+			
 		}
 		else
 		{

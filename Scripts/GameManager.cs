@@ -141,15 +141,19 @@ public class GameManager : Node2D
 	}
 
 	// Plays a card and its abilities
-	public void ExecutePlay(Card Card)
+	public void ExecutePlay()
 	{
 		GD.Print("ATTEMPTED EXECUTION OF PLAY");
 
-		foreach(Ability A in Card.AbilityList)
+		foreach(Ability A in CurrentCard.AbilityList)
 		{
 			switch(A.Name)
 			{
 				case "Move":
+					if(Board.TargetList.Count > 0)
+					{
+						Board.Swap(Board.TargetList[0], Board.GetCharPos(CurrentCard.PlayerID));
+					}
 				break;
 				case "Damage":
 					foreach(Vector2 Target in Board.TargetList)
@@ -162,7 +166,7 @@ public class GameManager : Node2D
 			}
 		}
 
-		Card.Discard();
+		CurrentCard.Discard();
 		UnPrep();
 	}
 

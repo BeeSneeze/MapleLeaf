@@ -102,12 +102,6 @@ public class Card : Sprite
 			ZIndex = 100;
 		}
 	}
-	
-	// Play card
-	public void Play()
-	{
-		GM.ExecutePlay(this);
-	}
 
 	// Discard card
 	public void Discard()
@@ -150,7 +144,7 @@ public class Card : Sprite
 		{
 			if(Prepped) // Click the second time to execute the play
 			{
-				Play();
+				GM.ExecutePlay();
 			}
 			else // The first click preps the play
 			{
