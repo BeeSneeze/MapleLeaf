@@ -12,6 +12,8 @@ public class Board : Node2D
 	public Dictionary<string,CharacterInfo> AllCharacters; // Contains relevant info on characters, loaded via Characters.JSON
 	// RAT MATRICES?
 
+	public List<Vector2> TargetList = new List<Vector2>(); // List of all targets selected for a given card action, to be used in ExecutePlay
+
 	public override void _Ready()
 	{
 		// Load Character Info
@@ -29,8 +31,9 @@ public class Board : Node2D
 			for(int y = 0; y < MaxSize; y++)
 			{
 				Tile tile = (Tile)scene.Instance();
-				tile.X = x*88-88*4+42+2; // 84x84 pixel boxes + 4 pixel margin between
-				tile.Y = y*88-88*4+42+2;
+				tile.X = x;
+				tile.Y = y;
+
 
 				Cell[x,y] = tile;
 
@@ -57,7 +60,7 @@ public class Board : Node2D
 		Cell[3,4].CreateCharacter("RatTutorial");
 		Cell[2,7].CreateCharacter("RatTutorial");
 		
-		SwapTiles(1,1,2,6);
+		Swap(new Vector2(1,1), new Vector2(2,6));
 	}
 
 	// Get the position of a specific character
@@ -141,6 +144,7 @@ public class Board : Node2D
 	// Remove all of the markers
 	public void ClearMarkers()
 	{
+		TargetList = new List<Vector2>();
 		ActionMatrix = new bool[8,8];
 		for(int x = 0; x < MaxSize; x++)
 		{
@@ -179,14 +183,23 @@ public class Board : Node2D
 		}
 	}
 
-	// Swaps characters between two tiles, useful for movement
-	public void SwapTiles(int X1, int Y1, int X2, int Y2)
-	{
-		Character Char1 = Cell[X1,Y1].Char;
-		Character Char2 = Cell[X2,Y2].Char;
 
-		Cell[X1,Y1].SetCharacter(Char2);
-		Cell[X2,Y2].SetCharacter(Char1);
+	// ABILITY FUNCTIONS
+
+	// Applies an amount of damage to a given tile
+	public void Damage(Vector2 InVec, int Amount)
+	{
+		Cell[(int)InVec.x, (int)InVec.y].TakeDamage(Amount);
+	}
+
+	// Swaps characters between two tiles, useful for movement
+	public void Swap(Vector2 Vec1, Vector2 Vec2)
+	{
+		Character Char1 = Cell[(int)Vec1.x,(int)Vec1.y].Char;
+		Character Char2 = Cell[(int)Vec2.x,(int)Vec2.y].Char;
+
+		Cell[(int)Vec1.x,(int)Vec1.y].SetCharacter(Char2);
+		Cell[(int)Vec2.x,(int)Vec2.y].SetCharacter(Char1);
 	}
 
 }

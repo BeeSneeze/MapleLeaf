@@ -54,7 +54,6 @@ public class GameManager : Node2D
 		CMRat.AddCard("GOOSE!");
 		
 
-
 		for(int x = 0; x < 4; x++)
 		{
 			CMSoldier.DrawCard();
@@ -125,7 +124,7 @@ public class GameManager : Node2D
 		ShowPlay(Card);
 	}
 
-	// Unprepares a card for play
+	// Enables clicking for all cards again, and clears the board
 	public void UnPrep()
 	{
 		
@@ -145,15 +144,26 @@ public class GameManager : Node2D
 	public void ExecutePlay(Card Card)
 	{
 		GD.Print("ATTEMPTED EXECUTION OF PLAY");
-		/*
-		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
-		UnRotated = (bool[,])CurrentMatrix.Clone();
-		CurrentLoaded = true;
-		CurrentCard = Card;
 
-		Board.ShowMatrix(CurrentMatrix, CurrentCard);
+		foreach(Ability A in Card.AbilityList)
+		{
+			switch(A.Name)
+			{
+				case "Move":
+				break;
+				case "Damage":
+					foreach(Vector2 Target in Board.TargetList)
+					{
+						GD.Print(Target);
+						Board.Damage(Target, int.Parse(A.Effect));
+					}
 
-		Card.Discard();*/
+				break;
+			}
+		}
+
+		Card.Discard();
+		UnPrep();
 	}
 
 	// Visualizes what a card does, but without playing it

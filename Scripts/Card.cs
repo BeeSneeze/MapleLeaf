@@ -76,10 +76,8 @@ public class Card : Sprite
 			}
 		}
 
-
 		Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Card" + ChosenAbility + ".png");
-
-
+		
 	}
 
 	// Visualizes what a card does, without playing it

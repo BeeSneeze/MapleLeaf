@@ -7,6 +7,8 @@ public class Tile : Node2D
 
 	private string Terrain;
 
+	private bool Clickable = false;
+
 	// Character information
 	public int MaxHP;
 	public int HP;
@@ -24,7 +26,7 @@ public class Tile : Node2D
 
 		LabelBox.Hide();
 		Terrain = "Grass";
-		Translate(new Vector2(X,Y));
+		Translate(new Vector2(X*88-88*4+42+2,Y*88-88*4+42+2)); // 84x84 pixel boxes + 4 pixel margin between
 	}
 
 	public void SetTerrain(string InString)
@@ -155,16 +157,40 @@ public class Tile : Node2D
 		// Change the animated sprite
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Marker");
 		AnimSpr.Animation = InString;
+
+		Clickable = !(InString == "None");
 	}
 
-	public void RightClick()
+	public void AddTarget()
 	{
-		GD.Print("Tile right clicked!");
+		Board Brd = (Board)GetParent();
+		Brd.TargetList.Add(new Vector2(X,Y));
 	}
 
 	public void LeftClick()
 	{
-		GD.Print("Tile left clicked!");
+		if(Clickable)
+		{
+			AddTarget();
+			GD.Print("Tile left clicked!");
+		}
+		else
+		{
+
+		}
+		
+	}
+
+	public void RightClick()
+	{
+		if(Clickable)
+		{
+			GD.Print("Tile right clicked!");
+		}
+		else
+		{
+
+		}
 	}
 	
 }
