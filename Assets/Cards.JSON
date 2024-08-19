@@ -93,7 +93,7 @@
         "Range": "1",
         "TargetType": "Multi",
         "AbilityText":  "",
-        "FlavorText":  "Size doesn't matter...  up to a point...",
+        "FlavorText":  "Size doesn't matter. Well, up to a point...",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []

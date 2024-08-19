@@ -86,6 +86,10 @@ public class Board : Node2D
 				{
 					InMat[x,y] = false;
 				}
+				if(Cell[x,y].Char.ID == 50 && Type == "Mountain")
+				{
+					InMat[x,y] = false;
+				}
 			}
 		}
 	}
@@ -105,7 +109,7 @@ public class Board : Node2D
 				Remove(ActionMatrix, "Occupied");
 			break;
 			case "Damage":
-
+				Remove(ActionMatrix, "Mountain");
 			break;
 		}
 

@@ -34,22 +34,27 @@ public class LevelManager : Node2D
 	{
 		if (@event is InputEventKey eventKey)
 		{
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
+			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Y)
 			{
 				ChangeLevel("WorldMap");
 			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.P)
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.U)
 			{
 				ChangeLevel("PauseMenu");
 			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.M)
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.I)
 			{
 				ChangeLevel("MainMenu");
 			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.N)
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.O)
 			{
 				ChangeLevel("Game");
 			}
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
+			{
+				GetTree().Quit();
+			}
+			
 		}	
 	}
 

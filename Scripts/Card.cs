@@ -21,6 +21,7 @@ public class Card : Sprite
 	public int Range {get; private set;}
 	public string TargetType {get; private set;}
 	public string FlavorText {get; private set;}
+	public string AbilityText {get; private set;}
 	public List<Ability> AbilityList {get; private set;}
 	public List<Ability> SecondaryList {get; private set;}
 
@@ -31,6 +32,7 @@ public class Card : Sprite
 		Range = int.Parse(CardInfo.Range);
 		TargetType = CardInfo.TargetType;
 		FlavorText = CardInfo.FlavorText;
+		AbilityText = CardInfo.AbilityText;
 		AbilityList = CardInfo.AbilityList;
 		SecondaryList = CardInfo.SecondaryList;
 	}
@@ -54,7 +56,7 @@ public class Card : Sprite
 
 		// Set the flavortext
 		RichTextLabel RichLabel = (RichTextLabel)GetNode("FlavorText");
-		RichLabel.AppendBbcode("[center]" + FlavorText);
+		RichLabel.AppendBbcode("[center]" + FlavorText + "\n [u]" + AbilityText);
 
 
 	}

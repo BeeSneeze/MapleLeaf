@@ -50,7 +50,7 @@ public class CardManager : Node2D
 			case "Rat":
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
 				Node2D SOwner = (Node2D)SprOwner;
-				SOwner.Translate(new Vector2(450,-245));
+				SOwner.Translate(new Vector2(450,-250));
 				SOwner.Scale = new Vector2(0.7f,0.7f);
 				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.6f);
 			break;
