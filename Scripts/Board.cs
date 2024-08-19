@@ -79,6 +79,14 @@ public class Board : Node2D
 		return new Vector2(0,0);
 	}
 
+	public void AddTarget(Vector2 Vec)
+	{
+		if(!TargetList.Contains(Vec))
+		{
+			TargetList.Add(Vec);
+		}
+	}
+
 	// Removes parts of the matrix depending on certain keywords
 	public void Remove(bool[,] InMat, string Type)
 	{

@@ -172,7 +172,7 @@ public class Tile : Node2D
 	public void AddTarget()
 	{
 		Board Brd = (Board)GetParent();
-		Brd.TargetList.Add(new Vector2(X,Y));
+		Brd.AddTarget(new Vector2(X,Y));
 	}
 
 	public void LeftClick()

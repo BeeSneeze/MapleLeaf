@@ -81,6 +81,36 @@
     },
 
 
+    "Alpha":
+    {   
+        "CardNum": "101",
+        "MatrixName": "Cardinal",
+        "Range": "1",
+        "TargetType": "Area",
+        "TargetCell": "Enemy",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+
+    "Bravo":
+    {   
+        "CardNum": "103",
+        "MatrixName": "Line",
+        "Range": "2",
+        "TargetType": "Area",
+        "TargetCell": "Enemy",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+
+
+
     "Feint":
     {   
         "CardNum": "201",
@@ -93,6 +123,20 @@
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
             {"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "Haymaker":
+    {   
+        "CardNum": "203",
+        "MatrixName": "Line",
+        "Range": "3",
+        "TargetType": "Single",
+        "TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "KNOCKOUT!",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "2"}],
         "SecondaryList":  []
     },
 
@@ -145,7 +189,7 @@
         "TargetType": "Multi",
         "TargetCell": "Enemy",
         "AbilityText":  "1 Damage",
-        "FlavorText":  "Wars may be fought with teeth, but they are won by rats!",
+        "FlavorText":  "Wars may be fought with weapons, but they are won by rats!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  []
