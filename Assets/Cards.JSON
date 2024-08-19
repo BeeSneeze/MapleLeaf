@@ -7,6 +7,7 @@
         "MatrixName": "Manhattan",
         "Range": "1",
         "TargetType": "Single",
+        "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Just 5344595 more and we'll get there in no time!",
         "AbilityList":  [
@@ -19,6 +20,7 @@
         "MatrixName": "Manhattan",
         "Range": "2",
         "TargetType": "Single",
+        "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Steady onwards, people!",
         "AbilityList":  [
@@ -31,6 +33,7 @@
         "MatrixName": "Manhattan",
         "Range": "3",
         "TargetType": "Single",
+        "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "A nice morning jog to clear the mind. The swarm of rats make it harder",
         "AbilityList":  [
@@ -43,6 +46,7 @@
         "MatrixName": "Manhattan",
         "Range": "4",
         "TargetType": "Single",
+        "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "./Project",
         "AbilityList":  [
@@ -55,6 +59,7 @@
         "MatrixName": "Manhattan",
         "Range": "5",
         "TargetType": "Single",
+        "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Not quite faster than the wind, but getting there",
         "AbilityList":  [
@@ -67,6 +72,7 @@
         "MatrixName": "Manhattan",
         "Range": "6",
         "TargetType": "Single",
+        "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "WEEEEEEEEEEEE",
         "AbilityList":  [
@@ -81,6 +87,7 @@
         "MatrixName": "Diagonal",
         "Range": "3",
         "TargetType": "Multi",
+        "TargetCell": "Friendly",
         "AbilityText":  "Create a Roll card in any ally hand",
         "FlavorText":  "Duck and roll!",
         "AbilityList":  [],
@@ -92,6 +99,7 @@
         "MatrixName": "Manhattan",
         "Range": "3",
         "TargetType": "Multi",
+        "TargetCell": "Friendly",
         "AbilityText":  "Two ducks",
         "FlavorText":  "RELEASE THE GEESE",
         "AbilityList":  [],
@@ -103,6 +111,7 @@
         "MatrixName": "Cone",
         "Range": "2",
         "TargetType": "Multi",
+        "TargetCell": "Friendly",
         "AbilityText":  "Spy on a card?",
         "FlavorText":  "Four eyes are better than two",
         "AbilityList":  [],
@@ -116,6 +125,7 @@
         "MatrixName": "Line",
         "Range": "1",
         "TargetType": "Multi",
+        "TargetCell": "Enemy",
         "AbilityText":  "1 Damage",
         "FlavorText":  "Wars may be fought with teeth, but they are won by rats!",
         "AbilityList":  [
@@ -128,6 +138,7 @@
         "MatrixName": "Line",
         "Range": "2",
         "TargetType": "Multi",
+        "TargetCell": "Enemy",
         "AbilityText":  "2 Damage",
         "FlavorText":  "Size doesn't matter. Well, up to a point...",
         "AbilityList":  [
@@ -140,6 +151,7 @@
         "MatrixName": "Full",
         "Range": "7",
         "TargetType": "Multi",
+        "TargetCell": "Enemy",
         "AbilityText":  "Spawn three rats",
         "FlavorText":  "With the power of friendship, we can accomplish anything!",
         "AbilityList":  [],

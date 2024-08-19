@@ -106,12 +106,12 @@ public class Board : Node2D
 			return;
 
 		// For loop over all abilities
-		switch(Card.AbilityList[0].Name)
+		switch(Card.TargetCell)
 		{
-			case "Move":
+			case "Empty":
 				Remove(ActionMatrix, "Occupied");
 			break;
-			case "Damage":
+			case "Enemy":
 				Remove(ActionMatrix, "Mountain");
 			break;
 		}

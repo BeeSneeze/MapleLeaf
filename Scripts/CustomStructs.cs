@@ -9,7 +9,8 @@ public struct CardType
 	public string CardNum;
 	public string MatrixName;
 	public string Range; // Stored as a string for the sake of the JSON interpreter
-	public string TargetType;
+	public string TargetType; // Sinle, Multi or Area effects
+	public string TargetCell; // Empty, occupied, friendly, enemy etc.
 	public string AbilityText;
 	public string FlavorText;
 	public List<Ability> AbilityList;

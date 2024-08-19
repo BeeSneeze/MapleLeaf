@@ -20,6 +20,7 @@ public class Card : Sprite
 	public string MatrixName {get; private set;}
 	public int Range {get; private set;}
 	public string TargetType {get; private set;}
+	public string TargetCell {get; private set;}
 	public string FlavorText {get; private set;}
 	public string AbilityText {get; private set;}
 	public List<Ability> AbilityList {get; private set;}
@@ -31,6 +32,7 @@ public class Card : Sprite
 		MatrixName = CardInfo.MatrixName;
 		Range = int.Parse(CardInfo.Range);
 		TargetType = CardInfo.TargetType;
+		TargetCell = CardInfo.TargetCell;
 		FlavorText = CardInfo.FlavorText;
 		AbilityText = CardInfo.AbilityText;
 		AbilityList = CardInfo.AbilityList;
