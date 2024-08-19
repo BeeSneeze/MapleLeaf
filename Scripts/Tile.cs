@@ -123,6 +123,11 @@ public class Tile : Node2D
 
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
 
+		AnimSpr.Scale = new Vector2(0.7f,0.7f);
+
+		SceneTreeTween tween = GetTree().CreateTween();
+		tween.TweenProperty(AnimSpr, "scale", new Vector2(1.0f, 1.0f), 0.07f);
+
 		LabelBox.Show();
 
 		// Character IDs: 0 = Nothing, 1-9 = friendly characters, 10-49 = enemy characters, 50+ = misc.

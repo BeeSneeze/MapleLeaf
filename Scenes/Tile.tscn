@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -17,7 +17,6 @@
 [ext_resource path="res://Assets/Visuals/Markers/Move2.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Visuals/Markers/Move1.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Visuals/Markers/Select1.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Visuals/Markers/Select2.png" type="Texture" id=18]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -36,10 +35,10 @@ animations = [ {
 "name": "None",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "Select",
-"speed": 2.4
+"speed": 1.0
 } ]
 
 [sub_resource type="SpriteFrames" id=1]
