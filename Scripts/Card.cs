@@ -77,7 +77,7 @@ public class Card : Sprite
 		}
 
 		Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Card" + ChosenAbility + ".png");
-		
+
 	}
 
 	// Visualizes what a card does, without playing it
@@ -85,6 +85,8 @@ public class Card : Sprite
 	{
 		if(InBool)
 		{
+			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
+			PrepHalo.Show();
 			GM.PrepPlay(this);
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.6f, 0.6f), 0.07f);
@@ -92,6 +94,8 @@ public class Card : Sprite
 		}
 		else
 		{
+			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
+			PrepHalo.Hide();
 			GM.UnPrep();
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
