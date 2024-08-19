@@ -58,6 +58,23 @@ public class Card : Sprite
 		RichTextLabel RichLabel = (RichTextLabel)GetNode("FlavorText");
 		RichLabel.AppendBbcode("[center]" + FlavorText + "\n [u]" + AbilityText);
 
+		// Set the background corresponding to the ability
+		string ChosenAbility = "Rat";
+		foreach(Ability A in AbilityList)
+		{
+			if(A.Name == "Move")
+			{
+				ChosenAbility = "Move";
+			}
+			if(A.Name == "Damage")
+			{
+				ChosenAbility = "Damage";
+			}
+		}
+
+
+		Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Card" + ChosenAbility + ".png");
+
 
 	}
 

@@ -102,6 +102,9 @@ public class Board : Node2D
 		ClearMarkers();
 		Patch(InMat, ActionMatrix, Center);
 
+		if(Card.AbilityList.Count == 0)
+			return;
+
 		// For loop over all abilities
 		switch(Card.AbilityList[0].Name)
 		{

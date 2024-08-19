@@ -73,68 +73,77 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
-    "The Swarm":
-    {   
-        "CardNum": "10",
-        "MatrixName": "Full",
-        "Range": "7",
-        "TargetType": "Multi",
-        "AbilityText":  "Spawn three rats",
-        "FlavorText":  "With the power of friendship, we can accomplish anything!",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"},
-            {"Name":"Push", "Effect": "2"}],
-        "SecondaryList":  [{"Name":"Damage", "Effect": "1"}]
-    },
-    "Overwhelm":
-    {   
-        "CardNum": "11",
-        "MatrixName": "Line",
-        "Range": "1",
-        "TargetType": "Multi",
-        "AbilityText":  "",
-        "FlavorText":  "Size doesn't matter. Well, up to a point...",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
-    },
+
+
     "Duck!":
     {
-        "CardNum": "20",
+        "CardNum": "320",
         "MatrixName": "Diagonal",
         "Range": "3",
         "TargetType": "Multi",
         "AbilityText":  "Create a Roll card in any ally hand",
         "FlavorText":  "Duck and roll!",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"},
-            {"Name":"Push", "Effect": "2"}],
-        "SecondaryList":  [{"Name":"Damage", "Effect": "1"}]
+        "AbilityList":  [],
+        "SecondaryList":  []
     },
     "GOOSE!":
     {
-        "CardNum": "30",
+        "CardNum": "330",
         "MatrixName": "Manhattan",
         "Range": "3",
         "TargetType": "Multi",
         "AbilityText":  "Two ducks",
         "FlavorText":  "RELEASE THE GEESE",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"},
-            {"Name":"Push", "Effect": "2"}],
-        "SecondaryList":  [{"Name":"Damage", "Effect": "1"}]
+        "AbilityList":  [],
+        "SecondaryList":  []
     },
     "Binoculars":
     {
-        "CardNum": "40",
+        "CardNum": "340",
         "MatrixName": "Cone",
         "Range": "2",
         "TargetType": "Multi",
         "AbilityText":  "Spy on a card?",
         "FlavorText":  "Four eyes are better than two",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
+    
+
+    "Chomp":
+    {   
+        "CardNum": "501",
+        "MatrixName": "Line",
+        "Range": "1",
+        "TargetType": "Multi",
+        "AbilityText":  "1 Damage",
+        "FlavorText":  "Wars may be fought with teeth, but they are won by rats!",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"},
-            {"Name":"Push", "Effect": "2"}],
-        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
+            {"Name":"Damage", "Effect": "1"}],
+        "SecondaryList":  []
+    },
+    "Overwhelm":
+    {   
+        "CardNum": "502",
+        "MatrixName": "Line",
+        "Range": "2",
+        "TargetType": "Multi",
+        "AbilityText":  "2 Damage",
+        "FlavorText":  "Size doesn't matter. Well, up to a point...",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+    "The Swarm":
+    {   
+        "CardNum": "510",
+        "MatrixName": "Full",
+        "Range": "7",
+        "TargetType": "Multi",
+        "AbilityText":  "Spawn three rats",
+        "FlavorText":  "With the power of friendship, we can accomplish anything!",
+        "AbilityList":  [],
+        "SecondaryList":  []
     }
+    
 }

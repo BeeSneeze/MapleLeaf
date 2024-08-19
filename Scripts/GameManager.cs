@@ -34,9 +34,9 @@ public class GameManager : Node2D
 		CMSniper.AddCard("Duck!");
 		CMSniper.AddCard("Duck!");
 
-		CMSupport.AddCard("Sprint");
-		CMSupport.AddCard("Zoom");
 		CMSupport.AddCard("Duck!");
+		CMSupport.AddCard("GOOSE!");
+		CMSupport.AddCard("Binoculars");
 		CMSupport.AddCard("Duck!");
 
 		CMRat.AddCard("Binoculars");
@@ -45,12 +45,12 @@ public class GameManager : Node2D
 		CMRat.AddCard("Duck!");
 		
 		CMRat.AddCard("Overwhelm");
-		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Chomp");
 		CMRat.AddCard("Duck!");
 		CMRat.AddCard("Duck!");
 		
-		CMRat.AddCard("Duck!");
-		CMRat.AddCard("Duck!");
+		CMRat.AddCard("Sprint");
+		CMRat.AddCard("Zoom");
 		CMRat.AddCard("Duck!");
 		CMRat.AddCard("GOOSE!");
 		
