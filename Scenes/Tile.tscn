@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -17,6 +17,10 @@
 [ext_resource path="res://Assets/Visuals/Markers/Move2.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Visuals/Markers/Move1.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Visuals/Markers/Select1.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Visuals/Markers/Explosion1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Visuals/Markers/Explosion2.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Visuals/Markers/Empty.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Visuals/Markers/Explosion3.png" type="Texture" id=21]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -84,6 +88,14 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "default",
+"speed": 15.0
+} ]
+
 [node name="Tile" type="Node2D"]
 z_index = 20
 script = ExtResource( 2 )
@@ -109,6 +121,9 @@ playing = true
 frames = SubResource( 1 )
 animation = "None"
 playing = true
+
+[node name="Effect" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
 
 [node name="LabelBox" type="ColorRect" parent="."]
 margin_left = -44.0
