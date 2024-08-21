@@ -13,6 +13,9 @@ public class Tile : Node2D
 	Label NameLabel;
 	ColorRect LabelBox;
 
+	private Node2D HPNode;
+	private bool HPToggle = false;
+
 	public Character Char = new Character(); // The character currently on the tile
 
 	public GameManager GM;
@@ -20,6 +23,7 @@ public class Tile : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{	
+		HPNode = (Node2D)GetNode("HealthBar");
 		GM = (GameManager)GetParent().GetParent();
 		LabelBox = (ColorRect)GetNode("LabelBox");
 		NameLabel = (Label)GetNode("LabelBox").GetNode("Label");
@@ -63,15 +67,11 @@ public class Tile : Node2D
 
 	public void UpdateHealthBar()
 	{
-		Sprite HPBar = (Sprite)GetNode("HealthBar");
-		Node2D HPNode = (Node2D)GetNode("HealthBar");
+		Sprite HPBar = (Sprite)HPNode;
 		if(Char.MaxHP == 0)
 		{
-			HPNode.Hide();
 			return;
 		}
-		
-		HPNode.Show();
 
 		float TruePercentage = ((float)Char.HP)/((float)Char.MaxHP) * 100f;
 		int Percentage = ( ((int)TruePercentage/10)) * 10;
@@ -158,6 +158,7 @@ public class Tile : Node2D
 		{
 			case 0: // Empty tile
 				LabelBox.Hide();
+				HPNode.Hide();
 				AnimSpr.Animation = "None";
 			break;
 			case 1:
@@ -236,9 +237,24 @@ public class Tile : Node2D
 
 	public void RightClick()
 	{
+		if(Char.MaxHP != 0)
+		{
+			HPToggle = !HPToggle;
+			if(HPToggle)
+			{
+				HPNode.Show();
+			}
+			else
+			{
+				HPNode.Hide();
+			}
+		}
+		
+		
+
 		if(Clickable)
 		{
-			GD.Print("Tile right clicked!");
+			
 		}
 		else
 		{

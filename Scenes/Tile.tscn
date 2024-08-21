@@ -151,6 +151,7 @@ align = 1
 valign = 1
 
 [node name="HealthBar" type="Sprite" parent="."]
+visible = false
 texture = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="HealthBar"]
