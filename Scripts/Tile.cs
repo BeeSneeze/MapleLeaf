@@ -9,10 +9,6 @@ public class Tile : Node2D
 	private string Marker;
 
 	public bool Clickable = false;
-	
-	// Character information
-	public int MaxHP;
-	public int HP;
 
 	Label NameLabel;
 	ColorRect LabelBox;
@@ -31,6 +27,7 @@ public class Tile : Node2D
 		LabelBox.Hide();
 		Terrain = "Grass";
 		Translate(new Vector2(X*88-88*4+42+2,Y*88-88*4+42+2)); // 84x84 pixel boxes + 4 pixel margin between
+		UpdateHealthBar();
 	}
 
 	public void SetTerrain(string InString)
@@ -59,7 +56,30 @@ public class Tile : Node2D
 		{
 			CreateCharacter("None");
 		}
+
+		UpdateHealthBar();
 		
+	}
+
+	public void UpdateHealthBar()
+	{
+		Sprite HPBar = (Sprite)GetNode("HealthBar");
+		Node2D HPNode = (Node2D)GetNode("HealthBar");
+		if(Char.MaxHP == 0)
+		{
+			HPNode.Hide();
+			return;
+		}
+		
+		HPNode.Show();
+
+		float TruePercentage = ((float)Char.HP)/((float)Char.MaxHP) * 100f;
+		int Percentage = ( ((int)TruePercentage/10)) * 10;
+		GD.Print(Percentage);
+		HPBar.Texture = (Texture)GD.Load("res://Assets/Visuals/HP/HP" + Percentage.ToString() + ".png");
+
+		Label HPLabel = (Label)HPNode.GetNode("Label");
+		HPLabel.Text = (Char.HP).ToString();
 	}
 
 
@@ -119,6 +139,8 @@ public class Tile : Node2D
 	public void SetCharacter(Character InChar)
 	{
 		Char = InChar;
+
+		UpdateHealthBar();
 
 		NameLabel.Text = Char.Name;
 

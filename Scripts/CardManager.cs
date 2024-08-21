@@ -61,6 +61,9 @@ public class CardManager : Node2D
 				SOwner.Translate(new Vector2(450,-250));
 				SOwner.Scale = new Vector2(0.7f,0.7f);
 				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.6f);
+
+				Discard.Modulate = new Color(0.8f, 0.8f, 0.8f, 1.0f);
+				Draw.Modulate = new Color(0.8f, 0.8f, 0.8f, 1.0f);
 				Discard.Translate(new Vector2(-290,-245));
 				Draw.Translate(new Vector2(-440,-245));
 			break;

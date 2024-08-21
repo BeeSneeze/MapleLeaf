@@ -31,14 +31,14 @@ public class GameManager : Node2D
 		CMSoldier.AddCard("Bravo");
 
 		CMSniper.AddCard("Jog");
-		CMSniper.AddCard("Run");
+		CMSniper.AddCard("Snipe");
 		CMSniper.AddCard("Feint");
 		CMSniper.AddCard("Haymaker");
 
 		CMSupport.AddCard("Duck!");
 		CMSupport.AddCard("GOOSE!");
 		CMSupport.AddCard("Binoculars");
-		CMSupport.AddCard("Duck!");
+		CMSupport.AddCard("Run");
 
 
 		CMRat.AddCard("Binoculars");

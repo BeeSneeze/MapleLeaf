@@ -6,16 +6,16 @@ using System.Collections.Generic;
 // Contains all the information needed about a specific card
 public struct CardType
 {
-	public string CardNum;
-	public string MatrixName;
-	public string Range; // Stored as a string for the sake of the JSON interpreter
-	public string Uses; // How many times can this card be used before being discarded?
-	public string TargetType; // Sinle, Multi or Area effects
-	public string TargetCell; // Empty, occupied, friendly, enemy etc.
-	public string AbilityText;
-	public string FlavorText;
-	public List<Ability> AbilityList;
-	public List<Ability> SecondaryList;
+	public string CardNum;		// ID end for the card
+	public string MatrixName;	// What shape of matrix should be loaded
+	public string Range; 		// Stored as a string for the sake of the JSON interpreter
+	public string Uses; 		// How many times can this card be used before being discarded?
+	public string TargetType; 	// Sinle, Multi or Area effects
+	public string TargetCell; 	// Empty, occupied, friendly, enemy etc.
+	public string FlavorText; 	// Funny text
+	public string AbilityText;  // Useful text
+	public List<Ability> AbilityList; 	// List of abilities that target cells
+	public List<Ability> SecondaryList; // List of abilities that work independently
 };
 
 // A specific ability, stored in a card, to be triggered by the game manager and board

@@ -17,15 +17,15 @@ texture = ExtResource( 4 )
 position = Vector2( 960, 540 )
 
 [node name="CardsSoldier" parent="." instance=ExtResource( 3 )]
-position = Vector2( 140, 223 )
+position = Vector2( 140, 233 )
 OwnerName = "Soldier"
 
 [node name="CardsSniper" parent="." instance=ExtResource( 3 )]
-position = Vector2( 140, 560 )
+position = Vector2( 140, 570 )
 OwnerName = "Sniper"
 
 [node name="CardsSupport" parent="." instance=ExtResource( 3 )]
-position = Vector2( 140, 896 )
+position = Vector2( 140, 906 )
 OwnerName = "Support"
 
 [node name="CardsRat" parent="." instance=ExtResource( 3 )]

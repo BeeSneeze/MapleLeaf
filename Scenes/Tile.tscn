@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://Assets/Visuals/Markers/Empty.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Visuals/Markers/Explosion3.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Visuals/Markers/Select2.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Visuals/HP/HP100.png" type="Texture" id=23]
+[ext_resource path="res://Themes/HealthBar.tres" type="Theme" id=25]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -145,5 +147,22 @@ anchor_bottom = 1.0
 margin_top = -2.0
 margin_bottom = 1.0
 theme = ExtResource( 14 )
+align = 1
+valign = 1
+
+[node name="HealthBar" type="Sprite" parent="."]
+texture = ExtResource( 23 )
+
+[node name="Label" type="Label" parent="HealthBar"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -75.0
+margin_right = -15.0
+margin_bottom = -15.0
+theme = ExtResource( 25 )
+text = "1"
 align = 1
 valign = 1

@@ -178,6 +178,10 @@ public class Card : Sprite
 			{
 				Big = !Big;
 				BigMode(Big);
+				if(Big == false)
+				{
+					GM.UnPrep();
+				}
 			}
 			
 		}
