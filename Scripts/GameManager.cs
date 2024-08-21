@@ -14,6 +14,7 @@ public class GameManager : Node2D
 	private bool[,] UnRotated;
 	public bool[,] CurrentMatrix;
 	public Card CurrentCard;
+	public bool PrepMode;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -121,13 +122,13 @@ public class GameManager : Node2D
 		CMnew = (CardManager)GetNode("CardsRat");
 		CMnew.UnClick();
 
+		PrepMode = true;
 		ShowPlay(Card);
 	}
 
 	// Enables clicking for all cards again, and clears the board
 	public void UnPrep()
 	{
-		
 		CardManager CMnew = (CardManager)GetNode("CardsSoldier");
 		CMnew.ReClick();
 		CMnew = (CardManager)GetNode("CardsSniper");
@@ -138,6 +139,8 @@ public class GameManager : Node2D
 		CMnew.ReClick();
 
 		Board.ClearMarkers();
+		CurrentLoaded = false;
+		PrepMode = false;
 	}
 
 	// Plays a card and its abilities
@@ -161,7 +164,6 @@ public class GameManager : Node2D
 						GD.Print(Target);
 						Board.Damage(Target, int.Parse(A.Effect));
 					}
-
 				break;
 			}
 		}

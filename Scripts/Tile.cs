@@ -166,7 +166,11 @@ public class Tile : Node2D
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Marker");
 		AnimSpr.Animation = InString;
 
-		Clickable = !(InString == "None");
+		if(((GameManager)GetParent().GetParent()).PrepMode)
+		{
+			Clickable = !(InString == "None");
+		}
+		
 	}
 
 	public void AddTarget()

@@ -115,6 +115,7 @@ public class Board : Node2D
 		Patch(InMat, ActionMatrix, Center);
 
 		Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
+		
 		Cell[(int)Center.x,(int)Center.y].Clickable = false;
 
 		if(Card.AbilityList.Count == 0)

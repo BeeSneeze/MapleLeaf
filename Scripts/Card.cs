@@ -6,9 +6,7 @@ public class Card : Sprite
 {
 
 	public string CardName;
-	public int CardID;
-	public int OwnerID; // If this person dies, remove the card
-	public int PlayerID; // Who is currently playing this card?
+	
 
 	// Different card visuals
 	private bool Big = false;
@@ -19,6 +17,9 @@ public class Card : Sprite
 	private GameManager GM;
 
 	// Card specifics
+	public int CardID;
+	public int OwnerID; // If this person dies, remove the card
+	public int PlayerID; // Who is currently playing this card?
 	public string MatrixName {get; private set;}
 	public int Range {get; private set;}
 	public string TargetType {get; private set;}
@@ -144,7 +145,9 @@ public class Card : Sprite
 		{
 			if(Prepped) // Click the second time to execute the play
 			{
-				GM.ExecutePlay();
+				//GM.ExecutePlay();
+				Prepped = false;
+				Prep(false);
 			}
 			else // The first click preps the play
 			{
