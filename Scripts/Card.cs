@@ -20,6 +20,7 @@ public class Card : Sprite
 	public int PlayerID; // Who is currently playing this card?
 	public string MatrixName {get; private set;}
 	public int Range {get; private set;}
+	public int Uses {get; private set;}
 	public string TargetType {get; private set;}
 	public string TargetCell {get; private set;}
 	public string FlavorText {get; private set;}
@@ -32,6 +33,7 @@ public class Card : Sprite
 	{
 		MatrixName = CardInfo.MatrixName;
 		Range = int.Parse(CardInfo.Range);
+		Uses = int.Parse(CardInfo.Uses);
 		TargetType = CardInfo.TargetType;
 		TargetCell = CardInfo.TargetCell;
 		FlavorText = CardInfo.FlavorText;
@@ -56,6 +58,10 @@ public class Card : Sprite
 		// Set the range of the card
 		Label RLabel = (Label)GetNode("Range");
 		RLabel.Text = Range.ToString();
+
+		// Set the amount of uses of the card
+		Label ULabel = (Label)GetNode("Uses");
+		ULabel.Text = Uses.ToString();
 
 		// Set the flavortext
 		RichTextLabel RichLabel = (RichTextLabel)GetNode("FlavorText");

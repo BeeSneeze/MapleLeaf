@@ -9,6 +9,7 @@ public struct CardType
 	public string CardNum;
 	public string MatrixName;
 	public string Range; // Stored as a string for the sake of the JSON interpreter
+	public string Uses; // How many times can this card be used before being discarded?
 	public string TargetType; // Sinle, Multi or Area effects
 	public string TargetCell; // Empty, occupied, friendly, enemy etc.
 	public string AbilityText;

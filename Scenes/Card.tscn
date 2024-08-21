@@ -67,10 +67,22 @@ bbcode_enabled = true
 scroll_active = false
 
 [node name="Range" type="Label" parent="."]
-margin_left = 46.0
-margin_top = 163.0
-margin_right = 79.0
-margin_bottom = 201.0
+margin_left = 47.0
+margin_top = 162.0
+margin_right = 80.0
+margin_bottom = 200.0
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 1
+valign = 1
+
+[node name="Uses" type="Label" parent="."]
+margin_left = -82.0
+margin_top = 162.0
+margin_right = -49.0
+margin_bottom = 200.0
 theme = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
