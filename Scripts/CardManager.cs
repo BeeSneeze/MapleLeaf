@@ -32,6 +32,8 @@ public class CardManager : Node2D
 		// Manager Visuals
 		Sprite SprOwner = (Sprite)GetNode("Owner");
 		Sprite BG = (Sprite)GetNode("CardManagerBG");
+		Sprite Discard = (Sprite)GetNode("Discard");
+		Sprite Draw = (Sprite)GetNode("Draw");
 
 		SprOwner.Texture = (Texture)GD.Load("res://Assets/Visuals/Characters/" + OwnerName + ".png");
 
@@ -39,13 +41,19 @@ public class CardManager : Node2D
 		{
 			case "Soldier":
 				BG.Modulate = new Color(0.0f, 0.8f, 0.0f, 0.6f);
+				Discard.Modulate = new Color(0.0f, 0.8f, 0.0f, 1.0f);
+				Draw.Modulate = new Color(0.0f, 0.8f, 0.0f, 1.0f);
 			break;
 			case "Sniper":
 				BG.Modulate = new Color(1.0f, 0.6f, 0.3f, 0.7f);
+				Discard.Modulate = new Color(1.0f, 0.6f, 0.3f, 1.0f);
+				Draw.Modulate = new Color(1.0f, 0.6f, 0.3f, 1.0f);
 			break;
 			case "Support":
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
 				BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
+				Discard.Modulate = new Color(0.3f, 0.3f, 0.9f, 1.0f);
+				Draw.Modulate = new Color(0.3f, 0.3f, 0.9f, 1.0f);
 			break;
 			case "Rat":
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
@@ -53,6 +61,8 @@ public class CardManager : Node2D
 				SOwner.Translate(new Vector2(450,-250));
 				SOwner.Scale = new Vector2(0.7f,0.7f);
 				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.6f);
+				Discard.Translate(new Vector2(-290,-245));
+				Draw.Translate(new Vector2(-440,-245));
 			break;
 		}
 
