@@ -130,6 +130,7 @@ margin_left = -44.0
 margin_top = -70.0
 margin_right = 44.0
 margin_bottom = -46.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 0.392157 )
 
 [node name="Label" type="Label" parent="LabelBox"]

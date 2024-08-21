@@ -11,9 +11,7 @@ public class Card : Sprite
 	// Different card visuals
 	private bool Big = false;
 	public bool Prepped = false;
-
 	public bool Clickable = true;
-
 	private GameManager GM;
 
 	// Card specifics
