@@ -5,9 +5,9 @@ using Newtonsoft.Json;
 
 public class Board : Node2D
 {
-	const int MaxSize = 8;
-	Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
-	bool[,] ActionMatrix = new bool[8,8]; // Matrix saying which tiles are affected by an action
+	private const int MaxSize = 8;
+	private Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
+	private bool[,] ActionMatrix = new bool[8,8]; // Matrix saying which tiles are affected by an action
 
 	public Dictionary<string,CharacterInfo> AllCharacters; // Contains relevant info on characters, loaded via Characters.JSON
 	// RAT MATRICES?
@@ -46,7 +46,7 @@ public class Board : Node2D
 		Cell[2,2].SetTerrain("Mountains");
 		Cell[2,3].SetTerrain("Mountains");
 
-		Cell[4,3].CreateCharacter("Soldier");
+		Cell[2,5].CreateCharacter("Soldier");
 		Cell[5,4].CreateCharacter("Sniper");
 		Cell[2,4].CreateCharacter("Support");
 
@@ -54,11 +54,14 @@ public class Board : Node2D
 		Cell[1,0].CreateCharacter("City");
 		Cell[3,5].CreateCharacter("City");
 
+		Cell[1,1].CreateCharacter("RatTutorial");
+		Cell[2,7].CreateCharacter("RatTutorial");
+		Cell[3,4].CreateCharacter("RatTutorial");
 		Cell[3,6].CreateCharacter("RatTutorial");
 		Cell[6,1].CreateCharacter("RatTutorial");
-		Cell[1,1].CreateCharacter("RatTutorial");
-		Cell[3,4].CreateCharacter("RatTutorial");
-		Cell[2,7].CreateCharacter("RatTutorial");
+		
+		
+		
 		
 		Swap(new Vector2(1,1), new Vector2(2,6));
 	}
@@ -114,12 +117,20 @@ public class Board : Node2D
 		ClearMarkers();
 		Patch(InMat, ActionMatrix, Center);
 
-		Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
+		if(Card.TargetType == "Area")
+		{
+			Cell[(int)Center.x,(int)Center.y].SetMarker("SelectClickable");
+		}
+		else
+		{
+			Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
+		}
 		
-		Cell[(int)Center.x,(int)Center.y].Clickable = false;
+		
 
 		if(Card.AbilityList.Count == 0)
 			return;
+
 
 		// Remove parts of the matrix according to who the card targets
 		switch(Card.TargetCell)
@@ -138,6 +149,13 @@ public class Board : Node2D
 			{
 				if(ActionMatrix[x,y])
 				{
+
+					if(Card.TargetType == "Area")
+					{
+						AddTarget(new Vector2(x,y));
+					}
+
+
 					switch(Card.AbilityList[0].Name)
 					{
 						case "Move":
@@ -153,7 +171,7 @@ public class Board : Node2D
 		}
 	}
 
-	// Remove all of the markers
+	// Remove all of the markers, and resets the target list
 	public void ClearMarkers()
 	{
 		TargetList = new List<Vector2>();

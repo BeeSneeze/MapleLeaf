@@ -25,7 +25,7 @@ public class GameManager : Node2D
 		CMSupport = (CardManager)GetNode("CardsSupport");
 		CMRat = (CardManager)GetNode("CardsRat");
 
-		CMSoldier.AddCard("Step");
+		CMSoldier.AddCard("Bravo");
 		CMSoldier.AddCard("March");
 		CMSoldier.AddCard("Alpha");
 		CMSoldier.AddCard("Bravo");
@@ -152,17 +152,24 @@ public class GameManager : Node2D
 		{
 			switch(A.Name)
 			{
+				
+				case "Damage":
+					foreach(Vector2 Target in Board.TargetList)
+					{
+						GD.Print(Target);
+						Board.Damage(Target, int.Parse(A.Effect));
+					}
+				break;
 				case "Move":
 					if(Board.TargetList.Count > 0)
 					{
 						Board.Swap(Board.TargetList[0], Board.GetCharPos(CurrentCard.PlayerID));
 					}
 				break;
-				case "Damage":
-					foreach(Vector2 Target in Board.TargetList)
+				case "Swap":
+					if(Board.TargetList.Count > 0)
 					{
-						GD.Print(Target);
-						Board.Damage(Target, int.Parse(A.Effect));
+						Board.Swap(Board.TargetList[0], Board.GetCharPos(CurrentCard.PlayerID));
 					}
 				break;
 			}

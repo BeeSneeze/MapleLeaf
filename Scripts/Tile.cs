@@ -6,9 +6,10 @@ public class Tile : Node2D
 	public int X, Y;
 
 	private string Terrain;
+	private string Marker;
 
 	public bool Clickable = false;
-
+	
 	// Character information
 	public int MaxHP;
 	public int HP;
@@ -162,6 +163,7 @@ public class Tile : Node2D
 
 	public void SetMarker(string InString)
 	{
+		Marker = InString;
 		// Change the animated sprite
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Marker");
 		AnimSpr.Animation = InString;
@@ -169,6 +171,16 @@ public class Tile : Node2D
 		if(((GameManager)GetParent().GetParent()).PrepMode)
 		{
 			Clickable = !(InString == "None");
+		}
+
+		if(InString == "Select")
+		{
+			Clickable = false;
+		}
+
+		if(GM.CurrentCard.TargetType == "Area" && InString != "SelectClickable")
+		{
+			Clickable = false; // Only allow the select marker to be clicked if it's an area attack
 		}
 		
 	}
@@ -184,14 +196,14 @@ public class Tile : Node2D
 		if(Clickable)
 		{
 			GD.Print("Tile left clicked!");
-			AddTarget();
-			
-			if(GM.CurrentCard.TargetType == "Single")
+			if(Marker != "SelectClickable")
+			{
+				AddTarget();
+			}
+			if(GM.CurrentCard.TargetType == "Single" || Marker == "SelectClickable")
 			{
 				GM.ExecutePlay();
 			}
-			
-			
 		}
 		else
 		{
