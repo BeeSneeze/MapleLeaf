@@ -7,18 +7,20 @@ public class CardManager : Node2D
 {
 	[Export] public string OwnerName;
 
-	private GameManager GM;
-
 	// Cards as card IDs
-	public List<Card> Cards = new List<Card>();
+	public List<Card> HandCards = new List<Card>();
 
 	public List<int> Deck = new List<int>();
 	public List<int> Hand = new List<int>();
 	public List<int> Discard = new List<int>();
+	
 
-	Dictionary<string,CardType> AllCardsDict; // Dict containing info about all the cards in a Cardtype struct
+	private GameManager GM;
+	private Label DrawLabel;
+	private Label DiscardLabel;
 
-	Dictionary<int, string> IdToNameConvert = new Dictionary<int, string>(); 
+	private Dictionary<string,CardType> AllCardsDict; // Dict containing info about all the cards in a Cardtype struct. Keys by card name
+	private Dictionary<int, string> IdToNameConvert = new Dictionary<int, string>(); // Used to convert from ID to name
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -30,6 +32,8 @@ public class CardManager : Node2D
 		Sprite BG = (Sprite)GetNode("CardManagerBG");
 		Sprite Discard = (Sprite)GetNode("Discard");
 		Sprite Draw = (Sprite)GetNode("Draw");
+		DiscardLabel = (Label)GetNode("Discard").GetNode("Label");
+		DrawLabel = (Label)GetNode("Draw").GetNode("Label");
 
 		SprOwner.Texture = (Texture)GD.Load("res://Assets/Visuals/Characters/" + OwnerName + ".png");
 
@@ -60,8 +64,8 @@ public class CardManager : Node2D
 
 				Discard.Modulate = new Color(0.8f, 0.8f, 0.8f, 1.0f);
 				Draw.Modulate = new Color(0.8f, 0.8f, 0.8f, 1.0f);
-				Discard.Translate(new Vector2(-290,-245));
-				Draw.Translate(new Vector2(-440,-245));
+				Discard.Translate(new Vector2(-350,-245));
+				Draw.Translate(new Vector2(-350,-245));
 			break;
 		}
 
@@ -77,6 +81,16 @@ public class CardManager : Node2D
 			IdToNameConvert.Add(int.Parse(Entry.Value.CardNum), Entry.Key);
 		}
 
+		
+	}
+
+	private void UpdateLabels()
+	{
+		if(DrawLabel != null)
+		{
+			DrawLabel.Text = (Deck.Count).ToString();
+			DiscardLabel.Text = (Discard.Count).ToString();
+		}
 		
 	}
 
@@ -113,7 +127,7 @@ public class CardManager : Node2D
 
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
 
-		Cards.Add(NewCard);
+		HandCards.Add(NewCard);
 		if(OwnerName == "Rat")
 		{
 			int Column = ((Hand.Count-1)%4);
@@ -146,6 +160,7 @@ public class CardManager : Node2D
 		Hand.Add(TopCard);
 
 		CreateCardObject(TopCard);
+		UpdateLabels();
 	}
 
 	// Discards a specific card
@@ -153,9 +168,10 @@ public class CardManager : Node2D
 	{
 		Hand.Remove(InCard.CardID);
 		Discard.Add(InCard.CardID);
-		Cards.Remove(InCard);
+		HandCards.Remove(InCard);
 
 		InCard.QueueFree();
+		UpdateLabels();
 	}
 
 	// BIG MODE BIG MODE BIG MODE BIG MODE BIG MODE
@@ -167,7 +183,7 @@ public class CardManager : Node2D
 	// Turns all cards in hand to the small visual
 	public void UnBig()
 	{
-		foreach(Card C in Cards)
+		foreach(Card C in HandCards)
 		{
 			C.BigMode(false);
 		}
@@ -177,7 +193,7 @@ public class CardManager : Node2D
 	// Makes all non-prepped cards unclickable
 	public void UnClick()
 	{
-		foreach(Card C in Cards)
+		foreach(Card C in HandCards)
 		{
 			if(!C.Prepped)
 			{
@@ -191,7 +207,7 @@ public class CardManager : Node2D
 	// Makes all cards clickable again
 	public void ReClick()
 	{
-		foreach(Card C in Cards)
+		foreach(Card C in HandCards)
 		{
 			C.Clickable = true;
 			((Control)(C.GetNode("CardClick"))).MouseFilter = (Godot.Control.MouseFilterEnum)1;

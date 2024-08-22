@@ -87,6 +87,7 @@
     },
 
 
+
     "Alpha":
     {   
         "CardNum": "101",
@@ -101,7 +102,6 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
-
     "Bravo":
     {   
         "CardNum": "103",
@@ -116,6 +116,35 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Charlie":
+    {   
+        "CardNum": "105",
+        "MatrixName": "Cone",
+        "Range": "2",
+        "Uses": "1",
+        "TargetType": "Area",
+        "TargetCell": "Enemy",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+    "Delta":
+    {   
+        "CardNum": "107",
+        "MatrixName": "Diagonal",
+        "Range": "3",
+        "Uses": "1",
+        "TargetType": "Area",
+        "TargetCell": "Enemy",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+
 
 
 
@@ -206,6 +235,7 @@
         "AbilityList":  [],
         "SecondaryList":  []
     },
+
     
 
     "Chomp":

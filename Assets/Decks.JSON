@@ -1,5 +1,5 @@
 {
-    "Soldier": ["Alpha", "Bravo", "Bravo", "March"],
+    "Soldier": ["Alpha", "Bravo", "Charlie", "Delta"],
     "Sniper": ["Jog", "Snipe", "Feint", "Haymaker"],
     "Support": ["Run", "Duck!", "GOOSE!", "Binoculars"],
     "Rat": ["Chomp", "Chomp", "Overwhelm", "Step", "Step", "Sprint", "Zoom", "Step", "Step", "Step", "Step", "Step", "Step", "Step", "Step", "Step", "Step"]
