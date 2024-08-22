@@ -31,6 +31,7 @@ public struct Character
 	public int HP, MaxHP;
 	public int ID; // % 100 on the ID to get the character type. For instance 101 % 100 = 1, which is the soldier
 	public string Name; // The name associated with a given ID. Only used for labeling purposes
+	public Vector2 QueuedMove; // Where is this character about to move?
 }
 
 public struct CharacterInfo
@@ -38,4 +39,10 @@ public struct CharacterInfo
 	public string ID;
 	public string MaxHP;
 	public List<string> Names;
+}
+
+public struct Arrow
+{
+	public Vector2 From;
+	public Vector2 To;
 }

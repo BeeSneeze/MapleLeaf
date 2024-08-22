@@ -13,6 +13,10 @@ public class Board : Node2D
 	// RAT MATRICES?
 
 	public List<Vector2> TargetList = new List<Vector2>(); // List of all targets selected for a given card action, to be used in ExecutePlay
+	public List<Arrow> QueuedMoves = new List<Arrow>();
+
+	private int[,] TheoreticalCellID = new int[8,8];
+
 
 	public override void _Ready()
 	{
@@ -60,7 +64,11 @@ public class Board : Node2D
 		Cell[6,1].CreateCharacter("RatTutorial");
 		
 		Swap(new Vector2(1,1), new Vector2(2,6));
+
+		LoadTheoretical();
 	}
+
+	
 
 	// Get the position of a specific character
 	public Vector2 GetCharPos(int InID)
@@ -171,6 +179,7 @@ public class Board : Node2D
 	{
 		TargetList = new List<Vector2>();
 		ActionMatrix = new bool[8,8];
+		QueuedMoves = new List<Arrow>();
 		for(int x = 0; x < MaxSize; x++)
 		{
 			for(int y = 0; y < MaxSize; y++)
@@ -208,6 +217,18 @@ public class Board : Node2D
 		}
 	}
 
+	// Preps the theoretical ID matrix
+	public void LoadTheoretical()
+	{
+		for(int x = 0; x < MaxSize; x++)
+		{
+			for(int y = 0; y < MaxSize; y++)
+			{
+				TheoreticalCellID[x,y] = Cell[x,y].Char.ID;
+			}
+		}
+	}
+
 
 	// ABILITY FUNCTIONS
 
@@ -227,7 +248,9 @@ public class Board : Node2D
 		Cell[(int)Vec2.x,(int)Vec2.y].SetCharacter(Char1);
 	}
 
-	public bool Push(Vector2 Tile, string Direction, int Amount)
+
+	// Push a character a given amount of squares
+	public bool Push(Vector2 Tile, Vector2 OrignalTile, string Direction, int Amount)
 	{
 		int TargetX = (int)Tile.x;
 		int TargetY = (int)Tile.y;
@@ -266,19 +289,98 @@ public class Board : Node2D
 
 		if(TargetX < 0 || TargetX > 7 || TargetY < 0 || TargetY > 7)
 		{
-			return false; // Out of bounds
+			GD.Print("OOB");
+			GD.Print(OrignalTile);
+			GD.Print(new Vector2(TargetX,TargetY));
+			// Out of bounds
+			return false; 
 		}
 
-		if(Cell[TargetX,TargetY].Char.ID != 0)
+		if(TheoreticalCellID[TargetX,TargetY] % 100 > 49 || TheoreticalCellID[TargetX,TargetY] % 100 == 4)
 		{
-			// RECURSE OVER THE CHARACTER FOUND
-			return false; // Should be character
+			GD.Print("SOLID OBJECT");
+			GD.Print(OrignalTile);
+			GD.Print(new Vector2(TargetX,TargetY));
+			return false; // Hit an immovable object
 		}
 
 
-		// Move to the empty tile
-		Swap(Tile, new Vector2(TargetX, TargetY));
-		return true;
+		if(TheoreticalCellID[TargetX,TargetY] != 0)
+		{
+			GD.Print("CHARACTER PUSH");
+			GD.Print(OrignalTile);
+			GD.Print(new Vector2(TargetX,TargetY));
+			// Recurse over the found character
+			bool Result = false;
+			Result = Push(new Vector2(TargetX, TargetY), new Vector2(TargetX, TargetY), Direction, Amount);
+
+			if(!Result)
+			{
+				return false; // If blocked by the character, return false
+			}
+			
+		}
+
+
+		if(Amount > 1)
+		{
+			GD.Print("CONTINUED PUSH");
+			GD.Print(OrignalTile);
+			GD.Print(new Vector2(TargetX,TargetY));
+			// Attempt another push from the next square
+			bool Result = false;
+			Result = Push(new Vector2(TargetX, TargetY), OrignalTile, Direction, Amount-1);
+			
+			if(!Result) // Hit a dead end, stop recursing and assign the queued move
+			{
+				/*Arrow NewArr;
+				NewArr.From = OrignalTile;
+				NewArr.To = new Vector2(TargetX,TargetY);
+				QueuedMoves.Add(NewArr);*/
+			}
+		}
+		else
+		{
+			GD.Print("ENDED PUSH");
+			GD.Print(OrignalTile);
+			GD.Print(new Vector2(TargetX,TargetY));
+			// Just push the character one step, and then it's done
+			Arrow NewArr;
+			NewArr.From = OrignalTile;
+			NewArr.To = new Vector2(TargetX,TargetY);
+			QueuedMoves.Add(NewArr);
+
+			TheoreticalCellID[TargetX, TargetY] = TheoreticalCellID[(int)Tile.x, (int)Tile.y];
+			TheoreticalCellID[(int)Tile.x, (int)Tile.y] = 0;
+		}
+
+		
+
+		return true; // Successful push!
+		
+	}
+
+	// Moves all the queued moves at once
+	public void MoveQueue()
+	{
+		List<Character> MoveChars = new List<Character>();
+
+		// First save all the characters in a list
+		foreach(Arrow A in QueuedMoves)
+		{
+			GD.Print("QUEUED MOVE:");
+			GD.Print(A.From);
+			GD.Print(A.To);
+			MoveChars.Add(Cell[(int)A.From.x,(int)A.From.y].Char);
+			Cell[(int)A.From.x,(int)A.From.y].CreateCharacter("None");
+		}
+
+		// Then set all the characters from the list to the corresponding spot
+		int index = 0;
+		foreach(Arrow A in QueuedMoves)
+		{
+			Cell[(int)A.To.x,(int)A.To.y].SetCharacter(MoveChars[index++]);
+		}
 	}
 
 }

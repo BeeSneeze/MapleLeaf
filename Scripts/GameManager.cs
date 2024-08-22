@@ -151,7 +151,6 @@ public class GameManager : Node2D
 				case "Damage":
 					foreach(Vector2 Target in Board.TargetList)
 					{
-						GD.Print(Target);
 						Board.Damage(Target, int.Parse(A.Effect));
 					}
 				break;
@@ -187,7 +186,8 @@ public class GameManager : Node2D
 
 					if(Board.TargetList.Count > 0)
 					{
-						Board.Push(Board.TargetList[0], PushDirection, 1);
+						Board.Push(Board.TargetList[0], Board.TargetList[0], PushDirection, 3);
+						Board.MoveQueue();
 					}
 				break;
 			}
