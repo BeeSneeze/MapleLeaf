@@ -80,8 +80,6 @@ public class CardManager : Node2D
 		{
 			IdToNameConvert.Add(int.Parse(Entry.Value.CardNum), Entry.Key);
 		}
-
-		
 	}
 
 	private void UpdateLabels()

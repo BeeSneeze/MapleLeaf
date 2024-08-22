@@ -15,6 +15,8 @@ public class GameManager : Node2D
 	private bool CurrentLoaded = false;
 	private bool[,] UnRotated;
 	private bool[,] CurrentMatrix;
+
+	public string Rotation = "Up";
 	public Card CurrentCard;
 	public bool PrepMode;
 
@@ -79,33 +81,35 @@ public class GameManager : Node2D
 
 		if (@event is InputEventKey eventKey)
 		{
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.W)
+			if(eventKey.Pressed)
 			{
-				CurrentMatrix = (bool[,])UnRotated.Clone();
-				Board.ShowMatrix(CurrentMatrix, CurrentCard);
-			}
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.A)
-			{
-				CurrentMatrix = (bool[,])UnRotated.Clone();
-				RotCounter(CurrentMatrix);
-				Board.ShowMatrix(CurrentMatrix, CurrentCard);
-			}
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.S)
-			{
-				CurrentMatrix = (bool[,])UnRotated.Clone();
-				RotCounter(CurrentMatrix);
-				RotCounter(CurrentMatrix);
-				Board.ShowMatrix(CurrentMatrix, CurrentCard);
-			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.D)
-			{
-				CurrentMatrix = (bool[,])UnRotated.Clone();
-				RotClock(CurrentMatrix);
-				Board.ShowMatrix(CurrentMatrix, CurrentCard);
-			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.Space)
-			{
-				// FINISH PLAYING HERE!
+				switch(eventKey.Scancode)
+				{
+					case (int)KeyList.W:
+						Rotation = "Up";
+						CurrentMatrix = (bool[,])UnRotated.Clone();
+						Board.ShowMatrix(CurrentMatrix, CurrentCard);
+					break;
+					case (int)KeyList.A:
+						Rotation = "Left";
+						CurrentMatrix = (bool[,])UnRotated.Clone();
+						RotCounter(CurrentMatrix);
+						Board.ShowMatrix(CurrentMatrix, CurrentCard);
+					break;
+					case (int)KeyList.S:
+						Rotation = "Down";
+						CurrentMatrix = (bool[,])UnRotated.Clone();
+						RotCounter(CurrentMatrix);
+						RotCounter(CurrentMatrix);
+						Board.ShowMatrix(CurrentMatrix, CurrentCard);
+					break;
+					case (int)KeyList.D:
+						Rotation = "Right";
+						CurrentMatrix = (bool[,])UnRotated.Clone();
+						RotClock(CurrentMatrix);
+						Board.ShowMatrix(CurrentMatrix, CurrentCard);
+					break;
+				}
 			}
 		}	
 	}
@@ -119,6 +123,7 @@ public class GameManager : Node2D
 		CMRat.UnClick();
 
 		PrepMode = true;
+		Rotation = "Up";
 		ShowPlay(Card);
 	}
 
@@ -138,12 +143,11 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
-
+		GD.Print(Rotation);
 		foreach(Ability A in CurrentCard.AbilityList)
 		{
 			switch(A.Name)
 			{
-				
 				case "Damage":
 					foreach(Vector2 Target in Board.TargetList)
 					{
@@ -161,6 +165,29 @@ public class GameManager : Node2D
 					if(Board.TargetList.Count > 0)
 					{
 						Board.Swap(Board.TargetList[0], Board.GetCharPos(CurrentCard.PlayerID));
+					}
+				break;
+				case "Push":
+					string PushDirection = "N";
+					switch(Rotation)
+					{
+						case "Up":
+							PushDirection = "N";
+						break;
+						case "Left":
+							PushDirection = "W";
+						break;
+						case "Down":
+							PushDirection = "S";
+						break;
+						case "Right":
+							PushDirection = "E";
+						break;
+					}
+
+					if(Board.TargetList.Count > 0)
+					{
+						Board.Push(Board.TargetList[0], PushDirection, 1);
 					}
 				break;
 			}

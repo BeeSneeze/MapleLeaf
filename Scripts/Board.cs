@@ -232,7 +232,6 @@ public class Board : Node2D
 		int TargetX = (int)Tile.x;
 		int TargetY = (int)Tile.y;
 
-
 		switch(Direction)
 		{
 			case "N":
@@ -265,11 +264,21 @@ public class Board : Node2D
 			break;
 		}
 
+		if(TargetX < 0 || TargetX > 7 || TargetY < 0 || TargetY > 7)
+		{
+			return false; // Out of bounds
+		}
 
-		// CHECK IF HIT WALL
+		if(Cell[TargetX,TargetY].Char.ID != 0)
+		{
+			// RECURSE OVER THE CHARACTER FOUND
+			return false; // Should be character
+		}
 
 
-		return false;
+		// Move to the empty tile
+		Swap(Tile, new Vector2(TargetX, TargetY));
+		return true;
 	}
 
 }

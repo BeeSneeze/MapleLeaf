@@ -167,7 +167,7 @@
     {   
         "CardNum": "204",
         "MatrixName": "Line",
-        "Range": "3",
+        "Range": "2",
         "Uses": "1",
         "TargetType": "Single",
         "TargetCell": "Enemy",
