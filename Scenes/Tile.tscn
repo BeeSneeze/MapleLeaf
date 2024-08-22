@@ -134,12 +134,13 @@ playing = true
 frames = SubResource( 3 )
 
 [node name="LabelBox" type="ColorRect" parent="."]
+visible = false
 margin_left = -44.0
 margin_top = -70.0
 margin_right = 44.0
 margin_bottom = -46.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0.392157 )
+color = Color( 0, 0, 0, 0.333333 )
 
 [node name="Label" type="Label" parent="LabelBox"]
 anchor_right = 1.0
@@ -152,6 +153,9 @@ valign = 1
 
 [node name="HealthBar" type="Sprite" parent="."]
 visible = false
+self_modulate = Color( 1, 1, 1, 0.862745 )
+position = Vector2( 30, 30 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="HealthBar"]

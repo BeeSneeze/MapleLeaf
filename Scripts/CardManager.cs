@@ -5,17 +5,13 @@ using Newtonsoft.Json;
 
 public class CardManager : Node2D
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
-
-	public List<Card> Cards = new List<Card>();
-
 	[Export] public string OwnerName;
 
 	private GameManager GM;
 
 	// Cards as card IDs
+	public List<Card> Cards = new List<Card>();
+
 	public List<int> Deck = new List<int>();
 	public List<int> Hand = new List<int>();
 	public List<int> Discard = new List<int>();
@@ -52,8 +48,8 @@ public class CardManager : Node2D
 			case "Support":
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
 				BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
-				Discard.Modulate = new Color(0.3f, 0.3f, 0.9f, 1.0f);
-				Draw.Modulate = new Color(0.3f, 0.3f, 0.9f, 1.0f);
+				Discard.Modulate = new Color(0.4f, 0.4f, 1.0f, 1.0f);
+				Draw.Modulate = new Color(0.4f, 0.4f, 1.0f, 1.0f);
 			break;
 			case "Rat":
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
@@ -84,6 +80,8 @@ public class CardManager : Node2D
 		
 	}
 
+
+	// Creates a new card from a card ID end
 	private void CreateCardObject(int InInt)
 	{
 		var scene = GD.Load<PackedScene>("res://Scenes/Card.tscn");

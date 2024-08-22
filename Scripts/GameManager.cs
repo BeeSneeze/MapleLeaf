@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 public class GameManager : Node2D
 {
@@ -9,10 +10,11 @@ public class GameManager : Node2D
 	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
 	private int CardIDCounter = 0;
 	private int CharacterIDCounter = 0;
+	private Dictionary<string,List<string>> Decks;
 
 	private bool CurrentLoaded = false;
 	private bool[,] UnRotated;
-	public bool[,] CurrentMatrix;
+	private bool[,] CurrentMatrix;
 	public Card CurrentCard;
 	public bool PrepMode;
 
@@ -25,46 +27,45 @@ public class GameManager : Node2D
 		CMSupport = (CardManager)GetNode("CardsSupport");
 		CMRat = (CardManager)GetNode("CardsRat");
 
-		CMSoldier.AddCard("Bravo");
-		CMSoldier.AddCard("March");
-		CMSoldier.AddCard("Alpha");
-		CMSoldier.AddCard("Bravo");
+		// Load starting decks
+		File Reader = new File();
+		Reader.Open("res://Assets/Decks.JSON", File.ModeFlags.Read);
+		string Contents = Reader.GetAsText();
+		Decks = JsonConvert.DeserializeObject<Dictionary<string,List<string>>>(Contents);
+		Reader.Close();
 
-		CMSniper.AddCard("Jog");
-		CMSniper.AddCard("Snipe");
-		CMSniper.AddCard("Feint");
-		CMSniper.AddCard("Haymaker");
+		string[] CMnames = {"Soldier", "Sniper", "Support", "Rat"};
 
-		CMSupport.AddCard("Duck!");
-		CMSupport.AddCard("GOOSE!");
-		CMSupport.AddCard("Binoculars");
-		CMSupport.AddCard("Run");
-
-
-		CMRat.AddCard("Binoculars");
-		CMRat.AddCard("The Swarm");
-		CMRat.AddCard("Jog");
-		CMRat.AddCard("Duck!");		
-		CMRat.AddCard("Overwhelm");
-		CMRat.AddCard("Chomp");
-		CMRat.AddCard("Duck!");
-		CMRat.AddCard("Duck!");
-		CMRat.AddCard("Sprint");
-		CMRat.AddCard("Zoom");
-		CMRat.AddCard("Duck!");
-		CMRat.AddCard("GOOSE!");
+		foreach(string CMName in CMnames)
+		{
+			foreach(string Cstring in Decks[CMName])
+			{
+				switch(CMName)
+				{
+					case "Soldier":
+						CMSoldier.AddCard(Cstring);
+					break;
+					case "Sniper":
+						CMSniper.AddCard(Cstring);
+					break;
+					case "Support":
+						CMSupport.AddCard(Cstring);
+					break;
+					case "Rat":
+						CMRat.AddCard(Cstring);
+					break;
+				}
+			}
+		}
 		
-
+		// Draw a full hand for each player
 		for(int x = 0; x < 4; x++)
 		{
 			CMSoldier.DrawCard();
 			CMSniper.DrawCard();
 			CMSupport.DrawCard();
 			CMRat.DrawCard();
-		}
-
-		for(int x = 0; x < 8; x++)
-		{
+			CMRat.DrawCard();
 			CMRat.DrawCard();
 		}
 	}
@@ -112,15 +113,10 @@ public class GameManager : Node2D
 	// Prepares a card for play
 	public void PrepPlay(Card Card)
 	{
-
-		CardManager CMnew = (CardManager)GetNode("CardsSoldier");
-		CMnew.UnClick();
-		CMnew = (CardManager)GetNode("CardsSniper");
-		CMnew.UnClick();
-		CMnew = (CardManager)GetNode("CardsSupport");
-		CMnew.UnClick();
-		CMnew = (CardManager)GetNode("CardsRat");
-		CMnew.UnClick();
+		CMSoldier.UnClick();
+		CMSniper.UnClick();
+		CMSupport.UnClick();
+		CMRat.UnClick();
 
 		PrepMode = true;
 		ShowPlay(Card);
@@ -129,14 +125,10 @@ public class GameManager : Node2D
 	// Enables clicking for all cards again, and clears the board
 	public void UnPrep()
 	{
-		CardManager CMnew = (CardManager)GetNode("CardsSoldier");
-		CMnew.ReClick();
-		CMnew = (CardManager)GetNode("CardsSniper");
-		CMnew.ReClick();
-		CMnew = (CardManager)GetNode("CardsSupport");
-		CMnew.ReClick();
-		CMnew = (CardManager)GetNode("CardsRat");
-		CMnew.ReClick();
+		CMSoldier.ReClick();
+		CMSniper.ReClick();
+		CMSupport.ReClick();
+		CMRat.ReClick();
 
 		Board.ClearMarkers();
 		CurrentLoaded = false;
@@ -146,7 +138,6 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
-		GD.Print("ATTEMPTED EXECUTION OF PLAY");
 
 		foreach(Ability A in CurrentCard.AbilityList)
 		{

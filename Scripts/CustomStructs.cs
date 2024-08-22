@@ -10,7 +10,7 @@ public struct CardType
 	public string MatrixName;	// What shape of matrix should be loaded
 	public string Range; 		// Stored as a string for the sake of the JSON interpreter
 	public string Uses; 		// How many times can this card be used before being discarded?
-	public string TargetType; 	// Sinle, Multi or Area effects
+	public string TargetType; 	// Single target, Area effects or a specific amount (2, 3, 4 etc.)
 	public string TargetCell; 	// Empty, occupied, friendly, enemy etc.
 	public string FlavorText; 	// Funny text
 	public string AbilityText;  // Useful text
@@ -31,7 +31,6 @@ public struct Character
 	public int HP, MaxHP;
 	public int ID; // % 100 on the ID to get the character type. For instance 101 % 100 = 1, which is the soldier
 	public string Name; // The name associated with a given ID. Only used for labeling purposes
-
 }
 
 public struct CharacterInfo

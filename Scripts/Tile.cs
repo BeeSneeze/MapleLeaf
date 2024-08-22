@@ -3,22 +3,22 @@ using System;
 
 public class Tile : Node2D
 {	
-	public int X, Y;
-
+	
 	private string Terrain;
 	private string Marker;
 
+	public int X, Y;
 	public bool Clickable = false;
-
-	Label NameLabel;
-	ColorRect LabelBox;
-
-	private Node2D HPNode;
-	private bool HPToggle = false;
 
 	public Character Char = new Character(); // The character currently on the tile
 
-	public GameManager GM;
+	private Label NameLabel;
+	private ColorRect LabelBox;
+
+	private Node2D HPNode;
+	private bool HPToggle = false;
+	
+	private GameManager GM;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -65,6 +65,7 @@ public class Tile : Node2D
 		
 	}
 
+	// Updates the health bar visual
 	public void UpdateHealthBar()
 	{
 		Sprite HPBar = (Sprite)HPNode;
@@ -75,7 +76,7 @@ public class Tile : Node2D
 
 		float TruePercentage = ((float)Char.HP)/((float)Char.MaxHP) * 100f;
 		int Percentage = ( ((int)TruePercentage/10)) * 10;
-		GD.Print(Percentage);
+
 		HPBar.Texture = (Texture)GD.Load("res://Assets/Visuals/HP/HP" + Percentage.ToString() + ".png");
 
 		Label HPLabel = (Label)HPNode.GetNode("Label");
@@ -102,36 +103,8 @@ public class Tile : Node2D
 		Char.MaxHP = int.Parse(CI.MaxHP);
 		Char.HP = Char.MaxHP;
 
-
-		
 		Random rnd = new Random();
 		Char.Name = CI.Names[rnd.Next(0,CI.Names.Count)];
-		
-
-
-		switch(Char.ID % 100)
-		{
-			case 0: // Empty tile
-
-			break;
-			case 1: // Soldier
-
-			break;
-			case 2: // Sniper
-
-			break;
-			case 3: // Support
-
-			break;
-			case 4: // City
-
-			break;
-			case 10: // Tutorial Rat
-				
-			break;
-		}
-
-		
 
 		SetCharacter(Char);
 	}
@@ -150,8 +123,6 @@ public class Tile : Node2D
 
 		SceneTreeTween tween = GetTree().CreateTween();
 		tween.TweenProperty(AnimSpr, "scale", new Vector2(1.0f, 1.0f), 0.07f);
-
-		LabelBox.Show();
 
 		// Character IDs: 0 = Nothing, 1-9 = friendly characters, 10-49 = enemy characters, 50+ = misc.
 		switch(Char.ID % 100)
@@ -184,6 +155,8 @@ public class Tile : Node2D
 		}
 	}
 
+
+	// Shows the action marker, move, attack etc.
 	public void SetMarker(string InString)
 	{
 		Marker = InString;
@@ -208,11 +181,16 @@ public class Tile : Node2D
 		
 	}
 
+	// Adds this cell to the list of cells affected by a specific card ability
 	public void AddTarget()
 	{
 		Board Brd = (Board)GetParent();
 		Brd.AddTarget(new Vector2(X,Y));
 	}
+
+
+
+	// MOUSE INTERACTIONS
 
 	public void LeftClick()
 	{
@@ -234,7 +212,7 @@ public class Tile : Node2D
 		}
 		
 	}
-
+	
 	public void RightClick()
 	{
 		if(Char.MaxHP != 0)
@@ -242,16 +220,16 @@ public class Tile : Node2D
 			HPToggle = !HPToggle;
 			if(HPToggle)
 			{
+				LabelBox.Show();
 				HPNode.Show();
 			}
 			else
 			{
+				LabelBox.Hide();
 				HPNode.Hide();
 			}
 		}
 		
-		
-
 		if(Clickable)
 		{
 			
@@ -260,6 +238,16 @@ public class Tile : Node2D
 		{
 
 		}
+	}
+
+	public void MouseEnter()
+	{
+
+	}
+
+	public void MouseExit()
+	{
+
 	}
 	
 }

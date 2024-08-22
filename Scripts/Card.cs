@@ -186,4 +186,14 @@ public class Card : Sprite
 			
 		}
 	}
+
+	public void MouseEnter()
+	{
+
+	}
+
+	public void MouseExit()
+	{
+
+	}
 }

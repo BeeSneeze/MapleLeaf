@@ -34,7 +34,6 @@ public class Board : Node2D
 				tile.X = x;
 				tile.Y = y;
 
-
 				Cell[x,y] = tile;
 
 				AddChild(tile);
@@ -59,9 +58,6 @@ public class Board : Node2D
 		Cell[3,4].CreateCharacter("RatTutorial");
 		Cell[3,6].CreateCharacter("RatTutorial");
 		Cell[6,1].CreateCharacter("RatTutorial");
-		
-		
-		
 		
 		Swap(new Vector2(1,1), new Vector2(2,6));
 	}
@@ -125,8 +121,6 @@ public class Board : Node2D
 		{
 			Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
 		}
-		
-		
 
 		if(Card.AbilityList.Count == 0)
 			return;
@@ -149,7 +143,8 @@ public class Board : Node2D
 			{
 				if(ActionMatrix[x,y])
 				{
-
+					
+					// If it's an areal attack, add every single tile to the target list
 					if(Card.TargetType == "Area")
 					{
 						AddTarget(new Vector2(x,y));
@@ -230,6 +225,51 @@ public class Board : Node2D
 
 		Cell[(int)Vec1.x,(int)Vec1.y].SetCharacter(Char2);
 		Cell[(int)Vec2.x,(int)Vec2.y].SetCharacter(Char1);
+	}
+
+	public bool Push(Vector2 Tile, string Direction, int Amount)
+	{
+		int TargetX = (int)Tile.x;
+		int TargetY = (int)Tile.y;
+
+
+		switch(Direction)
+		{
+			case "N":
+				TargetY-=1;
+			break;
+			case "NE":
+				TargetX+=1;
+				TargetY-=1;
+			break;
+			case "E":
+				TargetX+=1;
+			break;
+			case "SE":
+				TargetX+=1;
+				TargetY+=1;
+			break;
+			case "S":
+				TargetY+=1;
+			break;
+			case "SW":
+				TargetX-=1;
+				TargetY+=1;
+			break;
+			case "W":
+				TargetX-=1;
+			break;
+			case "NW":
+				TargetX-=1;
+				TargetY-=1;
+			break;
+		}
+
+
+		// CHECK IF HIT WALL
+
+
+		return false;
 	}
 
 }
