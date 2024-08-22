@@ -111,8 +111,17 @@ public class Card : Sprite
 	// Discard card
 	public void Discard()
 	{
-		CardManager CM = (CardManager)GetParent();
-		CM.DiscardCard(this);
+		
+		if(--Uses < 1)
+		{
+			CardManager CM = (CardManager)GetParent();
+			CM.DiscardCard(this);
+		}
+		else
+		{
+			Prep(false);
+			Prepped = false;
+		}
 	}
 
 

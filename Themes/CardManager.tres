@@ -5,9 +5,9 @@
 [sub_resource type="DynamicFont" id=1]
 size = 50
 outline_size = 5
-outline_color = Color( 0.533333, 0.533333, 0.533333, 1 )
+outline_color = Color( 0.6, 0.6, 0.6, 1 )
 font_data = ExtResource( 1 )
 
 [resource]
 default_font = SubResource( 1 )
-Label/colors/font_color = Color( 0.8, 0.8, 0.8, 1 )
+Label/colors/font_color = Color( 0.866667, 0.866667, 0.866667, 1 )

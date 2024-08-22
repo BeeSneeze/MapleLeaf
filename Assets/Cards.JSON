@@ -6,7 +6,7 @@
         "CardNum": "1",
         "MatrixName": "Manhattan",
         "Range": "1",
-        "Uses": "1",
+        "Uses": "2",
         "TargetType": "Single",
         "TargetCell": "Empty",
         "AbilityText":  "",
@@ -84,6 +84,19 @@
         "AbilityList":  [
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
+    },
+    "Paramedic":
+    {   
+        "CardNum": "10",
+        "MatrixName": "Manhattan",
+        "Range": "6",
+        "Uses": "1",
+        "TargetType": "Area",
+        "TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "The unfortunate truth is that in every war, the innocent get hurt",
+        "AbilityList":  [],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "-"}]
     },
 
 

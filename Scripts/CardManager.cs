@@ -116,7 +116,7 @@ public class CardManager : Node2D
 			break;
 			case "Rat":
 				NewCard.OwnerID = 101; // TEMP ID
-				NewCard.PlayerID = 101; // TEMP ID
+				NewCard.PlayerID = 999; // TEMP ID
 				// Gotta think about how this one works
 			break;
 		}

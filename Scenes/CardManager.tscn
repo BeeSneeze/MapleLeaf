@@ -40,7 +40,7 @@ align = 1
 valign = 1
 
 [node name="Draw" type="Sprite" parent="."]
-position = Vector2( 375, -168 )
+position = Vector2( 365, -168 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 

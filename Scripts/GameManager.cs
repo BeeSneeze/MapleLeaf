@@ -127,6 +127,11 @@ public class GameManager : Node2D
 		ShowPlay(Card);
 	}
 
+	public int GetRat()
+	{
+		return 710; // Prompts the AI to select a valid rat
+	}
+
 	// Enables clicking for all cards again, and clears the board
 	public void UnPrep()
 	{
@@ -146,6 +151,7 @@ public class GameManager : Node2D
 		GD.Print(Rotation);
 		foreach(Ability A in CurrentCard.AbilityList)
 		{
+			Board.LoadTheoretical();
 			switch(A.Name)
 			{
 				case "Damage":
@@ -186,7 +192,7 @@ public class GameManager : Node2D
 
 					if(Board.TargetList.Count > 0)
 					{
-						Board.Push(Board.TargetList[0], Board.TargetList[0], PushDirection, 3);
+						Board.Push(Board.TargetList[0], Board.TargetList[0], PushDirection, 2);
 						Board.MoveQueue();
 					}
 				break;
@@ -200,6 +206,13 @@ public class GameManager : Node2D
 	// Visualizes what a card does, but without playing it
 	public void ShowPlay(Card Card)
 	{
+		if(Card.PlayerID == 999) // This card can be played by any rat
+		{
+			Card.PlayerID = GetRat();
+		}
+
+
+
 		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
 		UnRotated = (bool[,])CurrentMatrix.Clone();
 		CurrentLoaded = true;

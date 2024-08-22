@@ -354,8 +354,6 @@ public class Board : Node2D
 			TheoreticalCellID[(int)Tile.x, (int)Tile.y] = 0;
 		}
 
-		
-
 		return true; // Successful push!
 		
 	}
