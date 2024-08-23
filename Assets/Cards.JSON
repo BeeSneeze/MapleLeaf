@@ -285,7 +285,7 @@
         "MatrixName": "Line",
         "Range": "3",
         "Uses": "1",
-        "TargetType": "Multi",
+        "TargetType": "Single",
         "TargetCell": "Enemy",
         "AbilityText":  "2 Damage",
         "FlavorText":  "Size doesn't matter. Well, up to a point...",

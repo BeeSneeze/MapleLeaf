@@ -50,7 +50,7 @@ public class Tile : Node2D
 	// Take the numbered amount of damage
 	public void TakeDamage(int Dmg)
 	{
-		PlayEffect("Explosion");
+		
 		if(Char.MaxHP == 0) // Character cannot be damaged
 		{
 			return;
@@ -59,7 +59,12 @@ public class Tile : Node2D
 		Char.HP -= Dmg;
 		if(Char.HP < 1) // Character dies
 		{
+			PlayEffect("Death");
 			CreateCharacter("None");
+		}
+		else
+		{
+			PlayEffect("Explosion");
 		}
 
 		UpdateHealthBar();

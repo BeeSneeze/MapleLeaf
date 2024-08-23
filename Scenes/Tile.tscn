@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -26,6 +26,9 @@
 [ext_resource path="res://Assets/Visuals/Markers/PossibleAttack1.png" type="Texture" id=24]
 [ext_resource path="res://Themes/HealthBar.tres" type="Theme" id=25]
 [ext_resource path="res://Assets/Visuals/Markers/PossibleMove1.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Visuals/Markers/Death1.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Visuals/Markers/Death2.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Visuals/Markers/Death3.png" type="Texture" id=29]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -110,6 +113,11 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "Death",
+"speed": 12.0
+}, {
 "frames": [ ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 20 ) ],
 "loop": false,
 "name": "Explosion",
