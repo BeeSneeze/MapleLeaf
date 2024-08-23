@@ -34,6 +34,7 @@ public class Tile : Node2D
 		UpdateHealthBar();
 	}
 
+	// Creates a specific terrain for a tile
 	public void SetTerrain(string InString)
 	{
 		Terrain = InString;
@@ -44,7 +45,6 @@ public class Tile : Node2D
 			Char.ID = 50;
 			SetCharacter(Char);
 		}
-
 	}
 
 	// Take the numbered amount of damage

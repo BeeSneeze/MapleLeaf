@@ -157,6 +157,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Golf":
+    {   
+        "CardNum": "113",
+        "MatrixName": "Diagonal",
+        "Range": "3",
+        "Uses": "1",
+        "TargetType": "Area",
+        "TargetCell": "Enemy",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
 
 
 
@@ -166,7 +180,7 @@
         "CardNum": "201",
         "MatrixName": "Line",
         "Range": "5",
-        "Uses": "1",
+        "Uses": "2",
         "TargetType": "Single",
         "TargetCell": "Enemy",
         "AbilityText": "Damage 1, Swap with target",

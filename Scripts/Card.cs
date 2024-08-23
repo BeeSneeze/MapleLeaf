@@ -6,7 +6,6 @@ public class Card : Sprite
 {
 
 	public string CardName;
-	
 
 	// Different card visuals
 	private bool Big = false;
@@ -51,21 +50,11 @@ public class Card : Sprite
 		Sprite Image = (Sprite)GetNode("Picture");
 		Image.Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/" + CardName + ".png");
 
-		// Set the title of the card to the name
-		Label Title = (Label)GetNode("Title");
-		Title.Text = CardName;
-
-		// Set the range of the card
-		Label RLabel = (Label)GetNode("Range");
-		RLabel.Text = Range.ToString();
-
-		// Set the amount of uses of the card
-		Label ULabel = (Label)GetNode("Uses");
-		ULabel.Text = Uses.ToString();
-
 		// Set the flavortext
 		RichTextLabel RichLabel = (RichTextLabel)GetNode("FlavorText");
 		RichLabel.AppendBbcode("[center]" + FlavorText + "\n [u]" + AbilityText);
+
+		UpdateLabels();
 
 		// Set the background corresponding to the ability
 		string ChosenAbility = "Rat";
@@ -82,7 +71,22 @@ public class Card : Sprite
 		}
 
 		Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Card" + ChosenAbility + ".png");
+	}
 
+	// Update all the labels on the card
+	public void UpdateLabels()
+	{
+		// Set the title of the card to the name
+		Label Title = (Label)GetNode("Title");
+		Title.Text = CardName;
+
+		// Set the range of the card
+		Label RLabel = (Label)GetNode("Range");
+		RLabel.Text = Range.ToString();
+
+		// Set the amount of uses of the card
+		Label ULabel = (Label)GetNode("Uses");
+		ULabel.Text = Uses.ToString();
 	}
 
 	// Visualizes what a card does, without playing it
@@ -112,13 +116,15 @@ public class Card : Sprite
 	public void Discard()
 	{
 		
-		if(--Uses < 1)
+		if(--Uses < 1) // Ran out of uses
 		{
 			CardManager CM = (CardManager)GetParent();
 			CM.DiscardCard(this);
 		}
-		else
+		else // Still have some amount of uses left
 		{
+			GD.Print(Uses);
+			UpdateLabels();
 			Prep(false);
 			Prepped = false;
 		}
