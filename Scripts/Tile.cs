@@ -169,7 +169,7 @@ public class Tile : Node2D
 			Clickable = !(InString == "None");
 		}
 
-		if(InString == "Select")
+		if(InString == "Select" || InString == "PossibleAttack")
 		{
 			Clickable = false;
 		}

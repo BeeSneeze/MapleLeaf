@@ -160,8 +160,8 @@
     "Golf":
     {   
         "CardNum": "113",
-        "MatrixName": "Diagonal",
-        "Range": "3",
+        "MatrixName": "Dive",
+        "Range": "2",
         "Uses": "1",
         "TargetType": "Area",
         "TargetCell": "Enemy",

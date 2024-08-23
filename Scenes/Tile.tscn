@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -23,7 +23,9 @@
 [ext_resource path="res://Assets/Visuals/Markers/Explosion3.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Visuals/Markers/Select2.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Visuals/HP/HP100.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Visuals/Markers/PossibleAttack1.png" type="Texture" id=24]
 [ext_resource path="res://Themes/HealthBar.tres" type="Theme" id=25]
+[ext_resource path="res://Assets/Visuals/Markers/PossibleMove1.png" type="Texture" id=26]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -40,6 +42,16 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "None",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "PossibleAttack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "PossibleMove",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],

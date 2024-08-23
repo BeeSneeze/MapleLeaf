@@ -95,19 +95,29 @@ public class Board : Node2D
 	}
 
 	// Removes parts of the matrix depending on certain keywords
-	public void Remove(bool[,] InMat, string Type)
+	public void Remove(bool[,] InMat, bool[,] PossibleMat, string Type)
 	{
 		for(int x = 0; x < MaxSize; x++)
 		{
 			for(int y = 0; y < MaxSize; y++)
 			{
-				if(Cell[x,y].Char.ID > 0 && Type == "Occupied")
+				if(InMat[x,y]) // Only activate if there is anything to remove. Needed for PossibleMat
 				{
-					InMat[x,y] = false;
-				}
-				if(Cell[x,y].Char.ID == 50 && Type == "Mountain")
-				{
-					InMat[x,y] = false;
+					if(Cell[x,y].Char.ID > 0 && Type == "Occupied")
+					{
+						InMat[x,y] = false;
+						PossibleMat[x,y] = true;
+					}
+					if(Cell[x,y].Char.ID == 50 && Type == "Mountain")
+					{
+						InMat[x,y] = false;
+						PossibleMat[x,y] = true;
+					}
+					if(Cell[x,y].Char.ID == 0 && Type == "Empty")
+					{
+						InMat[x,y] = false;
+						PossibleMat[x,y] = true;
+					}
 				}
 			}
 		}
@@ -133,15 +143,18 @@ public class Board : Node2D
 		if(Card.AbilityList.Count == 0)
 			return;
 
+		bool[,] PossibleMat = new bool[8,8]; // Used to show a move as possible, if  other characters were involved
+		bool[,] Impossible = new bool[8,8]; // Dummy matrix used to *not* show a move as possible
 
 		// Remove parts of the matrix according to who the card targets
 		switch(Card.TargetCell)
 		{
 			case "Empty":
-				Remove(ActionMatrix, "Occupied");
+				Remove(ActionMatrix, Impossible, "Occupied");
 			break;
 			case "Enemy":
-				Remove(ActionMatrix, "Mountain");
+				Remove(ActionMatrix, PossibleMat, "Mountain");
+				Remove(ActionMatrix, PossibleMat, "Empty");
 			break;
 		}
 		
@@ -149,6 +162,22 @@ public class Board : Node2D
 		{
 			for(int y = 0; y < MaxSize; y++)
 			{
+
+				// Show moves that would be possible, if only the right characters were present on those tiles
+				if(PossibleMat[x,y])
+				{
+					switch(Card.AbilityList[0].Name)
+					{
+						case "Move":
+							Cell[x,y].SetMarker("PossibleMove");
+						break;
+						case "Damage":
+							Cell[x,y].SetMarker("PossibleAttack");
+						break;
+					}
+				}
+
+
 				if(ActionMatrix[x,y])
 				{
 					
@@ -170,6 +199,7 @@ public class Board : Node2D
 					}
 					
 				}
+				
 			}
 		}
 	}
