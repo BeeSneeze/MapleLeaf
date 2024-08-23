@@ -110,10 +110,15 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 20 ) ],
 "loop": false,
-"name": "default",
+"name": "Explosion",
 "speed": 15.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "None",
+"speed": 5.0
 } ]
 
 [node name="Tile" type="Node2D"]
@@ -144,6 +149,8 @@ playing = true
 
 [node name="Effect" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
+animation = "None"
+playing = true
 
 [node name="LabelBox" type="ColorRect" parent="."]
 visible = false

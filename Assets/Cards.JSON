@@ -271,7 +271,7 @@
         "MatrixName": "Line",
         "Range": "1",
         "Uses": "1",
-        "TargetType": "Multi",
+        "TargetType": "Single",
         "TargetCell": "Enemy",
         "AbilityText":  "1 Damage",
         "FlavorText":  "Wars may be fought with weapons, but they are won by rats!",
@@ -283,7 +283,7 @@
     {   
         "CardNum": "502",
         "MatrixName": "Line",
-        "Range": "2",
+        "Range": "3",
         "Uses": "1",
         "TargetType": "Multi",
         "TargetCell": "Enemy",

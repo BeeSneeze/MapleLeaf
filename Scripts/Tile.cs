@@ -50,6 +50,7 @@ public class Tile : Node2D
 	// Take the numbered amount of damage
 	public void TakeDamage(int Dmg)
 	{
+		PlayEffect("Explosion");
 		if(Char.MaxHP == 0) // Character cannot be damaged
 		{
 			return;
@@ -179,6 +180,14 @@ public class Tile : Node2D
 			Clickable = false; // Only allow the select marker to be clicked if it's an area attack
 		}
 		
+	}
+
+	// Plays a visual effect to coincide with stuff like dying, taking damage, etc.
+	public void PlayEffect(string InString)
+	{
+		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Effect");
+		AnimSpr.Animation = "None";
+		AnimSpr.Animation = InString;
 	}
 
 	// Adds this cell to the list of cells affected by a specific card ability
