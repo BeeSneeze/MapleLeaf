@@ -123,11 +123,19 @@ public class Card : Sprite
 		}
 		else // Still have some amount of uses left
 		{
+			PlayEffect("Use");
 			GD.Print(Uses);
 			UpdateLabels();
 			Prep(false);
 			Prepped = false;
 		}
+	}
+
+	private void PlayEffect(string InString)
+	{
+		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Effect");
+		AnimSpr.Animation = "None";
+		AnimSpr.Animation = InString;
 	}
 
 

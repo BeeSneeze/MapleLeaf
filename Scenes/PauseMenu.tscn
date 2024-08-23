@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Assets/Visuals/PauseMenuBG1080.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Visuals/PauseMenuBG.png" type="Texture" id=1]
 
 [node name="Pause Menu" type="Node2D"]
 
