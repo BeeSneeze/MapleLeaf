@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -29,6 +29,9 @@
 [ext_resource path="res://Assets/Visuals/Markers/Death1.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Visuals/Markers/Death2.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Visuals/Markers/Death3.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Visuals/Markers/Step3.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Visuals/Markers/Step1.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Visuals/Markers/Step2.png" type="Texture" id=32]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -127,6 +130,11 @@ animations = [ {
 "loop": true,
 "name": "None",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 30 ), ExtResource( 20 ) ],
+"loop": false,
+"name": "Step",
+"speed": 15.0
 } ]
 
 [node name="Tile" type="Node2D"]
@@ -157,7 +165,8 @@ playing = true
 
 [node name="Effect" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
-animation = "None"
+animation = "Step"
+frame = 4
 playing = true
 
 [node name="LabelBox" type="ColorRect" parent="."]

@@ -131,6 +131,7 @@ public class Tile : Node2D
 
 	public void SetCharacter(Character InChar)
 	{
+		
 		Char = InChar;
 
 		UpdateHealthBar();
@@ -143,6 +144,11 @@ public class Tile : Node2D
 
 		SceneTreeTween tween = GetTree().CreateTween();
 		tween.TweenProperty(AnimSpr, "scale", new Vector2(1.0f, 1.0f), 0.07f);
+
+		if(Char.ID != 0)
+		{
+			PlayEffect("Step");
+		}
 
 		// Character IDs: 0 = Nothing, 1-9 = friendly characters, 10-49 = enemy characters, 50+ = misc.
 		switch(Char.ID % 100)
@@ -207,6 +213,15 @@ public class Tile : Node2D
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Effect");
 		AnimSpr.Animation = "None";
 		AnimSpr.Animation = InString;
+		
+		if(InString == "Step")
+		{
+			((Node2D)AnimSpr).ZIndex = -10;
+		}
+		else
+		{
+			((Node2D)AnimSpr).ZIndex = 0;
+		}
 	}
 
 	// Adds this cell to the list of cells affected by a specific card ability

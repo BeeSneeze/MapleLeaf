@@ -157,6 +157,34 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Echo":
+    {   
+        "CardNum": "109",
+        "MatrixName": "Diagonal",
+        "Range": "3",
+        "Uses": "1",
+        "TargetType": "Area",
+        "TargetCell": "Enemy",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+    "Foxtrot":
+    {   
+        "CardNum": "111",
+        "MatrixName": "Diagonal",
+        "Range": "3",
+        "Uses": "1",
+        "TargetType": "Area",
+        "TargetCell": "Enemy",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Golf":
     {   
         "CardNum": "113",

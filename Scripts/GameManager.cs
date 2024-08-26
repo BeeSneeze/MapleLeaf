@@ -78,6 +78,31 @@ public class GameManager : Node2D
 	// Rotating matrices using WASD
 	public override void _UnhandledInput(InputEvent @event)
 	{
+
+		if (@event is InputEventKey eventKey2)
+		{
+			if(eventKey2.Pressed)
+			{
+				switch(eventKey2.Scancode)
+				{
+					// DEBUG CARD DRAWS
+					case (int)KeyList.Z:
+						GD.Print("ATTEMPTED CARD DRAW SOLDIER");
+						CMSoldier.DrawCard();
+					break;
+					case (int)KeyList.X:
+						CMSniper.DrawCard();
+					break;
+					case (int)KeyList.C:
+						CMSupport.DrawCard();
+					break;
+					case (int)KeyList.V:
+						CMRat.DrawCard();
+					break;
+				}
+			}
+		}
+
 		if(!CurrentLoaded)
 			return;
 
@@ -111,6 +136,8 @@ public class GameManager : Node2D
 						RotClock(CurrentMatrix);
 						Board.ShowMatrix(CurrentMatrix, CurrentCard);
 					break;
+
+					
 				}
 			}
 		}	

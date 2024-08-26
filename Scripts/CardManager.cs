@@ -161,6 +161,12 @@ public class CardManager : Node2D
 	// Draws the top card from the deck, and puts it in hand
 	public void DrawCard()
 	{
+		if(Deck.Count == 0)
+		{
+			GD.Print("OUT OF CARDS!");
+			return;
+		}
+
 		int TopCard = Deck[0];
 		Deck.Remove(TopCard);
 		Hand.Add(TopCard);
