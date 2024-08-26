@@ -254,7 +254,6 @@ public class CardManager : Node2D
 			{
 				DrawCard();
 				DrawCard();
-				DrawCard();
 			}
 		}
 		

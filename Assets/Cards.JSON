@@ -231,11 +231,26 @@
             {"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
     },
+    "Jab":
+    {   
+        "CardNum": "203",
+        "MatrixName": "Line",
+        "Range": "3",
+        "Uses": "1",
+        "TargetType": "Single",
+        "TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "One-Two!",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "1"}],
+        "SecondaryList":  []
+    },
     "Haymaker":
     {   
         "CardNum": "204",
         "MatrixName": "Line",
-        "Range": "2",
+        "Range": "3",
         "Uses": "1",
         "TargetType": "Single",
         "TargetCell": "Enemy",

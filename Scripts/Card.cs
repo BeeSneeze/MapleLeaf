@@ -45,6 +45,8 @@ public class Card : Sprite
 	// Called when the node enters the scene tree for the first time. Executed after LoadInfo
 	public override void _Ready()
 	{
+		((Sprite)this).Scale = new Vector2(0.6f,0.6f);
+
 		GM = (GameManager)GetParent().GetParent();
 
 		// Load the card picture
