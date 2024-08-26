@@ -20,6 +20,8 @@ public class GameManager : Node2D
 	public Card CurrentCard;
 	public bool PrepMode;
 
+	public string Turn = "Player"; // Whose turn is it? RatMove, Player, RatAttack, None
+
 	public List<int> RatIDList = new List<int>();
 
 	// Called when the node enters the scene tree for the first time.

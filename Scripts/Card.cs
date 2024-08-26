@@ -58,7 +58,7 @@ public class Card : Sprite
 		UpdateLabels();
 
 		// Set the background corresponding to the ability
-		string ChosenAbility = "Support";
+		string ChosenAbility = "Rat";
 		foreach(Ability A in AbilityList)
 		{
 			if(A.Name == "Move")
@@ -69,6 +69,11 @@ public class Card : Sprite
 			{
 				ChosenAbility = "Damage";
 			}
+		}
+
+		if(TargetCell == "Friendly")
+		{
+			ChosenAbility = "Support";
 		}
 
 		Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Card" + ChosenAbility + ".png");

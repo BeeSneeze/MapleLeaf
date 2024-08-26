@@ -17,9 +17,12 @@ public class Board : Node2D
 
 	private int[,] TheoreticalCellID = new int[8,8];
 
+	private GameManager GM;
 
 	public override void _Ready()
 	{
+		GM = (GameManager)GetParent();
+
 		// Load Character Info
 		File Reader = new File();
 		Reader.Open("res://Assets/Characters.JSON", File.ModeFlags.Read);
@@ -95,25 +98,37 @@ public class Board : Node2D
 	}
 
 	// Removes parts of the matrix depending on certain keywords
-	public void Remove(bool[,] InMat, bool[,] PossibleMat, string Type)
+	private void Remove(bool[,] InMat, bool[,] PossibleMat, string Type)
 	{
 		for(int x = 0; x < MaxSize; x++)
 		{
 			for(int y = 0; y < MaxSize; y++)
 			{
+				int CID = Cell[x,y].Char.ID % 100;
+
 				if(InMat[x,y]) // Only activate if there is anything to remove. Needed for PossibleMat
 				{
-					if(Cell[x,y].Char.ID > 0 && Type == "Occupied")
+					if(CID > 0 && Type == "Occupied")
 					{
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
 					}
-					if(Cell[x,y].Char.ID == 50 && Type == "Mountain")
+					if(CID == 50 && Type == "Mountain")
 					{
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
 					}
-					if(Cell[x,y].Char.ID == 0 && Type == "Empty")
+					if(CID == 0 && Type == "Empty")
+					{
+						InMat[x,y] = false;
+						PossibleMat[x,y] = true;
+					}
+					if(CID > 9 && CID < 49 && Type == "Rat")
+					{
+						InMat[x,y] = false;
+						PossibleMat[x,y] = true;
+					}
+					if(CID < 9 && Type == "Friendly")
 					{
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
@@ -155,10 +170,26 @@ public class Board : Node2D
 			case "Enemy":
 				Remove(ActionMatrix, PossibleMat, "Mountain");
 				Remove(ActionMatrix, PossibleMat, "Empty");
+				if(GM.Turn == "Player")
+				{
+					Remove(ActionMatrix, PossibleMat, "Friendly");
+				}
+				else
+				{
+					Remove(ActionMatrix, PossibleMat, "Rat");
+				}
 			break;
 			case "Friendly":
 				Remove(ActionMatrix, Impossible, "Mountain");
 				Remove(ActionMatrix, Impossible, "Empty");
+				if(GM.Turn == "Player")
+				{
+					Remove(ActionMatrix, PossibleMat, "Rat");
+				}
+				else
+				{
+					Remove(ActionMatrix, PossibleMat, "Friendly");
+				}
 			break;
 		}
 		
