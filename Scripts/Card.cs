@@ -4,13 +4,14 @@ using System.Collections.Generic;
 
 public class Card : Sprite
 {
-
 	public string CardName;
 
 	// Different card visuals
-	private bool Big = false;
 	public bool Prepped = false;
 	public bool Clickable = true;
+	private bool Big = false;
+
+	private bool Skipped = false; // Card is completely unclickable until its game object is destroyed
 	private GameManager GM;
 
 	// Card specifics
@@ -166,9 +167,19 @@ public class Card : Sprite
 		Big = InBool;
 	}
 
+	public void Skip()
+	{
+		Sprite Overlay = (Sprite)GetNode("Overlay");
+		Overlay.Show();
+		Skipped = true;
+	}
+
+
+	// MOUSE ACTIONS
+
 	public void LeftClick()
 	{
-		if(Clickable)
+		if(Clickable && !Skipped)
 		{
 			if(Prepped) // Click the second time to execute the play
 			{
@@ -190,7 +201,7 @@ public class Card : Sprite
 
 	public void RightClick()
 	{
-		if(Clickable)
+		if(Clickable && !Skipped)
 		{
 			if(Prepped) // Right click to abort play
 			{

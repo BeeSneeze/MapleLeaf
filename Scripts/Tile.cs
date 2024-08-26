@@ -65,7 +65,8 @@ public class Tile : Node2D
 				GM.RatIDList.Remove(Char.ID);
 			}
 
-
+			GM.SkipCard(Char.ID);
+			
 			PlayEffect("Death");
 			CreateCharacter("None");
 		}

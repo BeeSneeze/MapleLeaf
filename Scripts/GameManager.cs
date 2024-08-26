@@ -304,13 +304,18 @@ public class GameManager : Node2D
 
 	public void UnBig()
 	{
-		CardManager CMnew = (CardManager)GetNode("CardsSoldier");
-		CMnew.UnBig();
-		CMnew = (CardManager)GetNode("CardsSniper");
-		CMnew.UnBig();
-		CMnew = (CardManager)GetNode("CardsSupport");
-		CMnew.UnBig();
-		CMnew = (CardManager)GetNode("CardsRat");
-		CMnew.UnBig();
+		CMSoldier.UnBig();
+		CMSniper.UnBig();
+		CMSupport.UnBig();
+		CMRat.UnBig();
+	}
+
+	// Temporarily disables a card due to a dying character
+	public void SkipCard(int PID)
+	{
+		CMSoldier.SkipCard(PID);
+		CMSniper.SkipCard(PID);
+		CMSupport.SkipCard(PID);
+		CMRat.SkipCard(PID);
 	}
 }

@@ -220,4 +220,15 @@ public class CardManager : Node2D
 		}
 	}
 
+	public void SkipCard(int PID)
+	{
+		foreach(Card C in HandCards)
+		{
+			if(C.PlayerID == PID)
+			{
+				C.Skip();
+			}
+		}
+	}
+
 }
