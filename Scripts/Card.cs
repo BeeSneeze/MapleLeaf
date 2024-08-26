@@ -58,7 +58,7 @@ public class Card : Sprite
 		UpdateLabels();
 
 		// Set the background corresponding to the ability
-		string ChosenAbility = "Rat";
+		string ChosenAbility = "Support";
 		foreach(Ability A in AbilityList)
 		{
 			if(A.Name == "Move")
@@ -125,7 +125,6 @@ public class Card : Sprite
 		else // Still have some amount of uses left
 		{
 			PlayEffect("Use");
-			GD.Print(Uses);
 			UpdateLabels();
 			Prep(false);
 			Prepped = false;

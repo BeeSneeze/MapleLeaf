@@ -3,21 +3,19 @@ using System;
 
 public class Tile : Node2D
 {	
-	
-	private string Terrain;
-	private string Marker;
 
 	public int X, Y;
 	public bool Clickable = false;
-
 	public Character Char = new Character(); // The character currently on the tile
+
+
+	private string Terrain;
+	private string Marker;
 
 	private Label NameLabel;
 	private ColorRect LabelBox;
-
 	private Node2D HPNode;
 	private bool HPToggle = false;
-	
 	private GameManager GM;
 
 	// Called when the node enters the scene tree for the first time.
@@ -53,6 +51,11 @@ public class Tile : Node2D
 		
 		if(Char.MaxHP == 0) // Character cannot be damaged
 		{
+			if(Char.ID % 100 == 4) // Exception for cities
+			{
+				PlayEffect("Explosion"); 
+			}
+
 			return;
 		}
 		

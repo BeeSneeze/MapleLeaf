@@ -91,12 +91,15 @@ public class GameManager : Node2D
 						CMSoldier.DrawCard();
 					break;
 					case (int)KeyList.X:
+						GD.Print("ATTEMPTED CARD DRAW SNIPER");
 						CMSniper.DrawCard();
 					break;
 					case (int)KeyList.C:
+						GD.Print("ATTEMPTED CARD DRAW SUPPORT");
 						CMSupport.DrawCard();
 					break;
 					case (int)KeyList.V:
+						GD.Print("ATTEMPTED CARD DRAW RAT");
 						CMRat.DrawCard();
 					break;
 				}

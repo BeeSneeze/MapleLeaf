@@ -93,7 +93,7 @@ public class CardManager : Node2D
 	}
 
 
-	// Creates a new card from a card ID end
+	// Creates a new card from a CardID
 	private void CreateCardObject(int InInt)
 	{
 		var scene = GD.Load<PackedScene>("res://Scenes/Card.tscn");
@@ -116,11 +116,11 @@ public class CardManager : Node2D
 			break;
 			case "Rat":
 				NewCard.OwnerID = 101; // TEMP ID
-				NewCard.PlayerID = 999; // TEMP ID
-				// Gotta think about how this one works
+				// Player ID assigned further down
 			break;
 		}
 
+		NewCard.CardID = InInt;
 		NewCard.CardName = IdToNameConvert[InInt % 1000];
 
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
@@ -132,7 +132,6 @@ public class CardManager : Node2D
 
 			Random rnd = new Random();
 			NewCard.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
-
 
 
 			// CARD VISUALS
