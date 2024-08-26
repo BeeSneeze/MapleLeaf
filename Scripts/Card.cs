@@ -67,10 +67,15 @@ public class Card : Sprite
 			{
 				ChosenAbility = "Move";
 			}
+			if(A.Name == "Stun")
+			{
+				ChosenAbility = "Harm";
+			}
 			if(A.Name == "Damage")
 			{
 				ChosenAbility = "Damage";
 			}
+			
 		}
 
 		if(TargetCell == "Friendly")

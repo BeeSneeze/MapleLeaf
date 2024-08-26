@@ -134,7 +134,7 @@ public class Board : Node2D
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
 					}
-					if(CID < 4 && Type == "Friendly")
+					if(CID < 9 && Type == "Friendly")
 					{
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;

@@ -9,19 +9,19 @@
     "Soldier":
     {   
         "ID": "1",
-        "MaxHP": "3",
+        "MaxHP": "5",
         "Names":["Brown", "Martin", "Smith"]
     },
     "Sniper":
     {   
         "ID": "2",
-        "MaxHP": "3",
+        "MaxHP": "5",
         "Names":["Langdon", "Andersson", "Chavez", "Lee"]
     },
     "Support":
     {
         "ID": "3",
-        "MaxHP": "3",
+        "MaxHP": "5",
         "Names":["Steve", "Steven", "Steph", "Stephanie", "Stephen"]
     },
     "City":

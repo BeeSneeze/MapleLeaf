@@ -121,7 +121,7 @@
         "Range": "1",
         "Uses": "1",
         "TargetType": "Area",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
@@ -135,7 +135,7 @@
         "Range": "2",
         "Uses": "1",
         "TargetType": "Area",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
@@ -149,7 +149,7 @@
         "Range": "2",
         "Uses": "1",
         "TargetType": "Area",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
@@ -163,7 +163,7 @@
         "Range": "3",
         "Uses": "1",
         "TargetType": "Area",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
@@ -177,7 +177,7 @@
         "Range": "3",
         "Uses": "1",
         "TargetType": "Area",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
@@ -191,7 +191,7 @@
         "Range": "3",
         "Uses": "1",
         "TargetType": "Area",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
@@ -205,7 +205,7 @@
         "Range": "2",
         "Uses": "1",
         "TargetType": "Area",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
