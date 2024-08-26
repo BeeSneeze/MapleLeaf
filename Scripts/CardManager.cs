@@ -128,6 +128,14 @@ public class CardManager : Node2D
 		HandCards.Add(NewCard);
 		if(OwnerName == "Rat")
 		{
+			// RAT ID ASSIGNMENT
+
+			Random rnd = new Random();
+			NewCard.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
+
+
+
+			// CARD VISUALS
 			int Column = ((Hand.Count-1)%4);
 			int Row = ((Hand.Count-1) - ((Hand.Count-1)%4)) / 4;
 			// Rat uses several rows for their cards

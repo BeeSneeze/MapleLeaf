@@ -59,6 +59,13 @@ public class Tile : Node2D
 		Char.HP -= Dmg;
 		if(Char.HP < 1) // Character dies
 		{
+
+			if(Char.ID % 100 > 9 && Char.ID % 100 < 50)
+			{
+				GM.RatIDList.Remove(Char.ID);
+			}
+
+
 			PlayEffect("Death");
 			CreateCharacter("None");
 		}
@@ -111,6 +118,12 @@ public class Tile : Node2D
 
 		Random rnd = new Random();
 		Char.Name = CI.Names[rnd.Next(0,CI.Names.Count)];
+
+
+		if(Char.ID % 100 > 9 && Char.ID % 100 < 50)
+		{
+			GM.RatIDList.Add(Char.ID);
+		}
 
 		SetCharacter(Char);
 	}

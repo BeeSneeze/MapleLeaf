@@ -20,6 +20,8 @@ public class GameManager : Node2D
 	public Card CurrentCard;
 	public bool PrepMode;
 
+	public List<int> RatIDList = new List<int>();
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -127,11 +129,6 @@ public class GameManager : Node2D
 		ShowPlay(Card);
 	}
 
-	public int GetRat()
-	{
-		return 710; // Prompts the AI to select a valid rat
-	}
-
 	// Enables clicking for all cards again, and clears the board
 	public void UnPrep()
 	{
@@ -206,13 +203,6 @@ public class GameManager : Node2D
 	// Visualizes what a card does, but without playing it
 	public void ShowPlay(Card Card)
 	{
-		if(Card.PlayerID == 999) // This card can be played by any rat
-		{
-			Card.PlayerID = GetRat();
-		}
-
-
-
 		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
 		UnRotated = (bool[,])CurrentMatrix.Clone();
 		CurrentLoaded = true;
