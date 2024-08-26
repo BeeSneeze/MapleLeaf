@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -34,12 +34,20 @@
 [ext_resource path="res://Assets/Visuals/Markers/Step2.png" type="Texture" id=32]
 [ext_resource path="res://Assets/Visuals/Markers/Support1.png" type="Texture" id=33]
 [ext_resource path="res://Assets/Visuals/Markers/PossibleSupport1.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Visuals/Markers/Harm1.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Visuals/Markers/Harm2.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Visuals/Markers/PossibleHarm1.png" type="Texture" id=37]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "Attack",
+"speed": 1.2
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 36 ) ],
+"loop": true,
+"name": "Harm",
 "speed": 1.2
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 15 ) ],
@@ -55,6 +63,11 @@ animations = [ {
 "frames": [ ExtResource( 24 ) ],
 "loop": true,
 "name": "PossibleAttack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ) ],
+"loop": true,
+"name": "PossibleHarm",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],

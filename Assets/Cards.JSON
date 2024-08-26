@@ -253,7 +253,7 @@
         "Range": "3",
         "Uses": "2",
         "TargetType": "Single",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "",
         "FlavorText": "One-Two!",
         "AbilityList":  [
@@ -268,7 +268,7 @@
         "Range": "3",
         "Uses": "2",
         "TargetType": "Single",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "",
         "FlavorText": "KNOCKOUT!",
         "AbilityList":  [
@@ -293,10 +293,22 @@
 
 
 
-
+    "Binoculars":
+    {
+        "CardNum": "301",
+        "MatrixName": "Cone",
+        "Range": "2",
+        "Uses": "1",
+        "TargetType": "Multi",
+        "TargetCell": "Friendly",
+        "AbilityText":  "Spy on a card?",
+        "FlavorText":  "Four eyes are better than two",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
     "Duck!":
     {
-        "CardNum": "320",
+        "CardNum": "303",
         "MatrixName": "Diagonal",
         "Range": "3",
         "Uses": "1",
@@ -309,7 +321,7 @@
     },
     "GOOSE!":
     {
-        "CardNum": "330",
+        "CardNum": "304",
         "MatrixName": "Manhattan",
         "Range": "3",
         "Uses": "1",
@@ -320,17 +332,17 @@
         "AbilityList":  [],
         "SecondaryList":  []
     },
-    "Binoculars":
-    {
-        "CardNum": "340",
-        "MatrixName": "Cone",
-        "Range": "2",
-        "Uses": "1",
-        "TargetType": "Multi",
-        "TargetCell": "Friendly",
-        "AbilityText":  "Spy on a card?",
-        "FlavorText":  "Four eyes are better than two",
-        "AbilityList":  [],
+    "Distract":
+    {   
+        "CardNum": "305",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "2",
+        "TargetType": "Single",
+        "TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "Woah for real?",
+        "AbilityList":  [{"Name":"Stun", "Effect": "-"}],
         "SecondaryList":  []
     },
 

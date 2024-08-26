@@ -47,26 +47,32 @@ public class Board : Node2D
 			}
 		}
 
+		Cell[0,0].SetTerrain("Mountains");
+		Cell[0,1].SetTerrain("Mountains");
+		Cell[0,2].SetTerrain("Mountains");
+		Cell[0,3].SetTerrain("Mountains");
+		Cell[1,0].SetTerrain("Mountains");
+		Cell[1,1].SetTerrain("Mountains");
 		Cell[2,0].SetTerrain("Mountains");
-		Cell[2,1].SetTerrain("Mountains");
-		Cell[2,2].SetTerrain("Mountains");
-		Cell[2,3].SetTerrain("Mountains");
+		Cell[4,4].SetTerrain("Mountains");
+		Cell[5,5].SetTerrain("Mountains");
+		Cell[5,4].SetTerrain("Mountains");
+		Cell[6,5].SetTerrain("Mountains");
 
 		Cell[2,5].CreateCharacter("Soldier");
-		Cell[5,4].CreateCharacter("Sniper");
+		Cell[7,4].CreateCharacter("Sniper");
 		Cell[2,4].CreateCharacter("Support");
 
 		Cell[7,1].CreateCharacter("City");
-		Cell[1,0].CreateCharacter("City");
+		Cell[3,2].CreateCharacter("City");
+		Cell[4,2].CreateCharacter("City");
 		Cell[3,5].CreateCharacter("City");
 
-		Cell[1,1].CreateCharacter("RatTutorial");
+		Cell[3,3].CreateCharacter("RatTutorial");
 		Cell[2,7].CreateCharacter("RatTutorial");
 		Cell[3,4].CreateCharacter("RatTutorial");
 		Cell[3,6].CreateCharacter("RatTutorial");
 		Cell[6,1].CreateCharacter("RatTutorial");
-		
-		Swap(new Vector2(1,1), new Vector2(2,6));
 
 		LoadTheoretical();
 	}
@@ -216,6 +222,9 @@ public class Board : Node2D
 						case "Shield":
 							Cell[x,y].SetMarker("PossibleSupport");
 						break;
+						case "Stun":
+							Cell[x,y].SetMarker("PossibleHarm");
+						break;
 					}
 				}
 
@@ -240,6 +249,9 @@ public class Board : Node2D
 						break;
 						case "Shield":
 							Cell[x,y].SetMarker("Support");
+						break;
+						case "Stun":
+							Cell[x,y].SetMarker("Harm");
 						break;
 					}
 					
@@ -318,6 +330,11 @@ public class Board : Node2D
 	{
 		Character Char1 = Cell[(int)Vec1.x,(int)Vec1.y].Char;
 		Character Char2 = Cell[(int)Vec2.x,(int)Vec2.y].Char;
+
+		if(Char1.ID % 100 == 4 || Char2.ID % 100 == 4)
+		{
+			return; // Cities are immovable
+		}
 
 		Cell[(int)Vec1.x,(int)Vec1.y].SetCharacter(Char2);
 		Cell[(int)Vec2.x,(int)Vec2.y].SetCharacter(Char1);
@@ -431,6 +448,11 @@ public class Board : Node2D
 
 		return true; // Successful push!
 		
+	}
+
+	public void Stun(Vector2 Position)
+	{
+
 	}
 
 	// Moves all the queued moves at once
