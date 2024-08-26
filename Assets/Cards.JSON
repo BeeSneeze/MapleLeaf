@@ -98,6 +98,19 @@
         "AbilityList":  [],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "-"}]
     },
+    "Backup":
+    {   
+        "CardNum": "11",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "1",
+        "TargetType": "Single",
+        "TargetCell": "Friendly",
+        "AbilityText":  "",
+        "FlavorText":  "Two heads are better than one",
+        "AbilityList":  [{"Name":"Shield", "Effect": "-"}],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "-"}]
+    },
 
 
 

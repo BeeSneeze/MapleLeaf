@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -32,6 +32,8 @@
 [ext_resource path="res://Assets/Visuals/Markers/Step3.png" type="Texture" id=30]
 [ext_resource path="res://Assets/Visuals/Markers/Step1.png" type="Texture" id=31]
 [ext_resource path="res://Assets/Visuals/Markers/Step2.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Visuals/Markers/Support1.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Visuals/Markers/PossibleSupport1.png" type="Texture" id=34]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -60,6 +62,11 @@ animations = [ {
 "name": "PossibleMove",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 34 ) ],
+"loop": true,
+"name": "PossibleSupport",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "Select",
@@ -69,6 +76,11 @@ animations = [ {
 "loop": true,
 "name": "SelectClickable",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "Support",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=1]

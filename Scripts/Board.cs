@@ -156,6 +156,10 @@ public class Board : Node2D
 				Remove(ActionMatrix, PossibleMat, "Mountain");
 				Remove(ActionMatrix, PossibleMat, "Empty");
 			break;
+			case "Friendly":
+				Remove(ActionMatrix, Impossible, "Mountain");
+				Remove(ActionMatrix, Impossible, "Empty");
+			break;
 		}
 		
 		for(int x = 0; x < MaxSize; x++)
@@ -173,6 +177,9 @@ public class Board : Node2D
 						break;
 						case "Damage":
 							Cell[x,y].SetMarker("PossibleAttack");
+						break;
+						case "Shield":
+							Cell[x,y].SetMarker("PossibleSupport");
 						break;
 					}
 				}
@@ -195,6 +202,9 @@ public class Board : Node2D
 						break;
 						case "Damage":
 							Cell[x,y].SetMarker("Attack");
+						break;
+						case "Shield":
+							Cell[x,y].SetMarker("Support");
 						break;
 					}
 					

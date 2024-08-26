@@ -225,6 +225,7 @@ public class CardManager : Node2D
 		}
 	}
 
+	// Turn a card into "SKIP" making it unplayable for this turn
 	public void SkipCard(int PID)
 	{
 		foreach(Card C in HandCards)
@@ -234,6 +235,29 @@ public class CardManager : Node2D
 				C.Skip();
 			}
 		}
+	}
+
+	// Discard all remaining cards, and draw a new full hand
+	public void NewTurn()
+	{	
+		// Discard all cards
+		while(HandCards.Count > 0)
+		{
+			DiscardCard(HandCards[0]);
+		}
+
+		// Draw new cards
+		for(int x = 0; x < 4; x++)
+		{
+			DrawCard();
+			if(OwnerName == "Rat")
+			{
+				DrawCard();
+				DrawCard();
+				DrawCard();
+			}
+		}
+		
 	}
 
 }

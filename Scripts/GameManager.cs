@@ -16,7 +16,7 @@ public class GameManager : Node2D
 	private bool[,] UnRotated;
 	private bool[,] CurrentMatrix;
 
-	public string Rotation = "Up";
+	public string Rot = "Up";
 	public Card CurrentCard;
 	public bool PrepMode;
 
@@ -88,19 +88,19 @@ public class GameManager : Node2D
 					// DEBUG CARD DRAWS
 					case (int)KeyList.Z:
 						GD.Print("ATTEMPTED CARD DRAW SOLDIER");
-						CMSoldier.DrawCard();
+						CMSoldier.NewTurn();
 					break;
 					case (int)KeyList.X:
 						GD.Print("ATTEMPTED CARD DRAW SNIPER");
-						CMSniper.DrawCard();
+						CMSniper.NewTurn();
 					break;
 					case (int)KeyList.C:
 						GD.Print("ATTEMPTED CARD DRAW SUPPORT");
-						CMSupport.DrawCard();
+						CMSupport.NewTurn();
 					break;
 					case (int)KeyList.V:
 						GD.Print("ATTEMPTED CARD DRAW RAT");
-						CMRat.DrawCard();
+						CMRat.NewTurn();
 					break;
 				}
 			}
@@ -116,25 +116,25 @@ public class GameManager : Node2D
 				switch(eventKey.Scancode)
 				{
 					case (int)KeyList.W:
-						Rotation = "Up";
+						Rot = "Up";
 						CurrentMatrix = (bool[,])UnRotated.Clone();
 						Board.ShowMatrix(CurrentMatrix, CurrentCard);
 					break;
 					case (int)KeyList.A:
-						Rotation = "Left";
+						Rot = "Left";
 						CurrentMatrix = (bool[,])UnRotated.Clone();
 						RotCounter(CurrentMatrix);
 						Board.ShowMatrix(CurrentMatrix, CurrentCard);
 					break;
 					case (int)KeyList.S:
-						Rotation = "Down";
+						Rot = "Down";
 						CurrentMatrix = (bool[,])UnRotated.Clone();
 						RotCounter(CurrentMatrix);
 						RotCounter(CurrentMatrix);
 						Board.ShowMatrix(CurrentMatrix, CurrentCard);
 					break;
 					case (int)KeyList.D:
-						Rotation = "Right";
+						Rot = "Right";
 						CurrentMatrix = (bool[,])UnRotated.Clone();
 						RotClock(CurrentMatrix);
 						Board.ShowMatrix(CurrentMatrix, CurrentCard);
@@ -155,7 +155,7 @@ public class GameManager : Node2D
 		CMRat.UnClick();
 
 		PrepMode = true;
-		Rotation = "Up";
+		Rot = "Up";
 		ShowPlay(Card);
 	}
 
@@ -175,7 +175,7 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
-		GD.Print(Rotation);
+		GD.Print(Rot);
 		foreach(Ability A in CurrentCard.AbilityList)
 		{
 			Board.LoadTheoretical();
@@ -201,7 +201,7 @@ public class GameManager : Node2D
 				break;
 				case "Push":
 					string PushDirection = "N";
-					switch(Rotation)
+					switch(Rot)
 					{
 						case "Up":
 							PushDirection = "N";
