@@ -198,7 +198,7 @@ public class Tile : Node2D
 			Clickable = !(InString == "None");
 		}
 
-		if(InString == "Select" || InString == "PossibleAttack")
+		if(InString == "Select" || InString.Contains("Possible"))
 		{
 			Clickable = false;
 		}

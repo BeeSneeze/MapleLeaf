@@ -128,7 +128,7 @@ public class Board : Node2D
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
 					}
-					if(CID < 9 && Type == "Friendly")
+					if(CID < 4 && Type == "Friendly")
 					{
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
@@ -190,6 +190,10 @@ public class Board : Node2D
 				{
 					Remove(ActionMatrix, PossibleMat, "Friendly");
 				}
+			break;
+			case "Character":
+				Remove(ActionMatrix, PossibleMat, "Mountain");
+				Remove(ActionMatrix, PossibleMat, "Empty");
 			break;
 		}
 		

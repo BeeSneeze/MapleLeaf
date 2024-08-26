@@ -223,7 +223,7 @@
         "Range": "5",
         "Uses": "2",
         "TargetType": "Single",
-        "TargetCell": "Enemy",
+        "TargetCell": "Character",
         "AbilityText": "Damage 1, Swap with target",
         "FlavorText":  "",
         "AbilityList":  [

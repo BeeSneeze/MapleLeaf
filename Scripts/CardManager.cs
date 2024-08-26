@@ -162,8 +162,8 @@ public class CardManager : Node2D
 	{
 		if(Deck.Count == 0)
 		{
-			GD.Print("OUT OF CARDS!");
-			return;
+			Deck = new List<int>(Discard);
+			Discard = new List<int>();
 		}
 
 		int TopCard = Deck[0];
