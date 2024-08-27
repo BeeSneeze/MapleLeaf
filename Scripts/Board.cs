@@ -46,33 +46,8 @@ public class Board : Node2D
 				AddChild(tile);
 			}
 		}
-
-		Cell[0,0].SetTerrain("Mountains");
-		Cell[0,1].SetTerrain("Mountains");
-		Cell[0,2].SetTerrain("Mountains");
-		Cell[0,3].SetTerrain("Mountains");
-		Cell[1,0].SetTerrain("Mountains");
-		Cell[1,1].SetTerrain("Mountains");
-		Cell[2,0].SetTerrain("Mountains");
-		Cell[4,4].SetTerrain("Mountains");
-		Cell[5,5].SetTerrain("Mountains");
-		Cell[5,4].SetTerrain("Mountains");
-		Cell[6,5].SetTerrain("Mountains");
-
-		Cell[2,5].CreateCharacter("Soldier");
-		Cell[7,4].CreateCharacter("Sniper");
-		Cell[2,4].CreateCharacter("Support");
-
-		Cell[7,1].CreateCharacter("City");
-		Cell[3,2].CreateCharacter("City");
-		Cell[4,2].CreateCharacter("City");
-		Cell[3,5].CreateCharacter("City");
-
-		Cell[3,3].CreateCharacter("RatTutorial");
-		Cell[2,7].CreateCharacter("RatTutorial");
-		Cell[3,4].CreateCharacter("RatTutorial");
-		Cell[3,6].CreateCharacter("RatTutorial");
-		Cell[6,1].CreateCharacter("RatTutorial");
+		
+		LoadStage("Calgary");
 
 		LoadTheoretical();
 	}
@@ -475,6 +450,61 @@ public class Board : Node2D
 		foreach(Arrow A in QueuedMoves)
 		{
 			Cell[(int)A.To.x,(int)A.To.y].SetCharacter(MoveChars[index++]);
+		}
+	}
+
+
+
+	public void LoadStage(string StageName)
+	{
+		File Reader = new File();
+		Reader.Open("res://Assets/Matrices/Stages/" + StageName + ".txt", File.ModeFlags.Read);
+		string Contents = Reader.GetAsText();
+		Reader.Close();
+
+		int x = 0;
+		int y = 0;
+
+		foreach(char C in Contents)
+		{
+			// We explicitly check for 1's and 0's, as line ends are two or just one character depending on OS
+			switch(C)
+			{
+				case '0':
+					//Cell[x,y].SetTerrain("Mountains");
+					x++;
+				break;
+				case '1':
+					Cell[x,y].CreateCharacter("Soldier");
+					x++;
+				break;
+				case '2':
+					Cell[x,y].CreateCharacter("Sniper");
+					x++;
+				break;
+				case '3':
+					Cell[x,y].CreateCharacter("Support");
+					x++;
+				break;
+				case '4':
+					Cell[x,y].CreateCharacter("City");
+					x++;
+				break;
+				case '5':
+					Cell[x,y].CreateCharacter("RatTutorial");
+					x++;
+				break;
+				case '6':
+					Cell[x,y].SetTerrain("Mountains");
+					x++;
+				break;
+				case '\n':
+					// Line break, new row to the matrix
+					x = 0;
+					y++;
+				break;
+			}
+
 		}
 	}
 

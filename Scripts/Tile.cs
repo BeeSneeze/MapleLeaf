@@ -111,6 +111,19 @@ public class Tile : Node2D
 		if(CharName != "None")
 		{
 			Char.ID = GM.NewCharacterID(int.Parse(CI.ID));
+			switch(CharName)
+			{
+				case "Soldier":
+					Char.ID = 101;
+				break;
+				case "Sniper":
+					Char.ID = 202;
+				break;
+				case "Support":
+					Char.ID = 303;
+				break;
+			}
+			
 		}
 		else
 		{
