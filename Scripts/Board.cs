@@ -46,7 +46,7 @@ public class Board : Node2D
 				AddChild(tile);
 			}
 		}
-		
+
 		LoadStage("Calgary");
 
 		LoadTheoretical();
@@ -127,14 +127,18 @@ public class Board : Node2D
 		ClearMarkers();
 		Patch(InMat, ActionMatrix, Center);
 
-		if(Card.TargetType == "Area")
+		if(Card.MatrixName != "Global")
 		{
-			Cell[(int)Center.x,(int)Center.y].SetMarker("SelectClickable");
+			if(Card.TargetType == "Area")
+			{
+				Cell[(int)Center.x,(int)Center.y].SetMarker("SelectClickable");
+			}
+			else
+			{
+				Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
+			}
 		}
-		else
-		{
-			Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
-		}
+		
 
 		if(Card.AbilityList.Count == 0)
 			return;

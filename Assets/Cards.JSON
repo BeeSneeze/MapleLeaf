@@ -376,14 +376,27 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Normal Rat":
+    {   
+        "CardNum": "601",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "TargetType": "Single",
+        "TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "Even the most ordinary rat can accomplish extraordinary things!",
+        "AbilityList":  [{"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
     "The Swarm":
     {   
         "CardNum": "510",
-        "MatrixName": "Full",
+        "MatrixName": "Global",
         "Range": "7",
         "Uses": "1",
         "TargetType": "Multi",
-        "TargetCell": "Enemy",
+        "TargetCell": "Empty",
         "AbilityText":  "Spawn three rats",
         "FlavorText":  "With the power of friendship, we can accomplish anything!",
         "AbilityList":  [],

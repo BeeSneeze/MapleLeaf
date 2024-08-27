@@ -241,7 +241,22 @@ public class GameManager : Node2D
 	// Visualizes what a card does, but without playing it
 	public void ShowPlay(Card Card)
 	{
-		CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
+		if(Card.MatrixName == "Global")
+		{
+			CurrentMatrix = new bool[15,15];
+			for(int x = 0; x < 15; x++)
+			{
+				for(int y = 0; y < 15; y++)
+				{
+					CurrentMatrix[x,y] = true;
+				}
+			}
+		}
+		else
+		{
+			CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
+		}
+		
 		UnRotated = (bool[,])CurrentMatrix.Clone();
 		CurrentLoaded = true;
 		CurrentCard = Card;
