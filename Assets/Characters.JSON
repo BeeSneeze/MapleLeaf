@@ -36,6 +36,12 @@
         "MaxHP": "3",
         "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
     },
+    "RatNormal":
+    {
+        "ID": "11",
+        "MaxHP": "3",
+        "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
+    },
     "Mountain":
     {
         "ID": "50",

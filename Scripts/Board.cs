@@ -204,6 +204,9 @@ public class Board : Node2D
 						case "Stun":
 							Cell[x,y].SetMarker("PossibleHarm");
 						break;
+						case "Spawn":
+							Cell[x,y].SetMarker("PossibleSpawn");
+						break;
 					}
 				}
 
@@ -231,6 +234,9 @@ public class Board : Node2D
 						break;
 						case "Stun":
 							Cell[x,y].SetMarker("Harm");
+						break;
+						case "Spawn":
+							Cell[x,y].SetMarker("Spawn");
 						break;
 					}
 					
@@ -434,6 +440,11 @@ public class Board : Node2D
 
 	}
 
+	public void Spawn(string SpawnName, Vector2 Pos)
+	{
+		Cell[(int)Pos.x,(int)Pos.y].CreateCharacter(SpawnName);
+	}
+
 	// Moves all the queued moves at once
 	public void MoveQueue()
 	{
@@ -511,5 +522,7 @@ public class Board : Node2D
 
 		}
 	}
+
+	
 
 }

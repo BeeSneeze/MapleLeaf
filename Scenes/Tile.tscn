@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -37,6 +37,8 @@
 [ext_resource path="res://Assets/Visuals/Markers/Harm1.png" type="Texture" id=35]
 [ext_resource path="res://Assets/Visuals/Markers/Harm2.png" type="Texture" id=36]
 [ext_resource path="res://Assets/Visuals/Markers/PossibleHarm1.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Visuals/Markers/Spawn2.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Visuals/Markers/Spawn1.png" type="Texture" id=39]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -75,6 +77,11 @@ animations = [ {
 "name": "PossibleMove",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 39 ) ],
+"loop": true,
+"name": "PossibleSpawn",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 34 ) ],
 "loop": true,
 "name": "PossibleSupport",
@@ -89,6 +96,11 @@ animations = [ {
 "loop": true,
 "name": "SelectClickable",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 39 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "Spawn",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 33 ) ],
 "loop": true,

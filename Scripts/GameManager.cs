@@ -201,6 +201,12 @@ public class GameManager : Node2D
 						Board.Swap(Board.TargetList[0], Board.GetCharPos(CurrentCard.PlayerID));
 					}
 				break;
+				case "Spawn":
+					if(Board.TargetList.Count > 0)
+					{
+						Board.Spawn(A.Effect, Board.TargetList[0]);
+					}
+				break;
 				case "Stun":
 					if(Board.TargetList.Count > 0)
 					{
