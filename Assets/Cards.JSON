@@ -1,7 +1,7 @@
 
 {
 
-    "Step":
+    "Walk":
     {   
         "CardNum": "1",
         "MatrixName": "Manhattan",
@@ -14,12 +14,12 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
-    "March":
+    "Jog":
     {   
         "CardNum": "2",
         "MatrixName": "Manhattan",
         "Range": "2",
-        "Uses": "1",
+        "Uses": "2",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Steady onwards, people!",
@@ -27,12 +27,12 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
-    "Jog":
+    "Run":
     {   
         "CardNum": "3",
         "MatrixName": "Manhattan",
         "Range": "3",
-        "Uses": "1",
+        "Uses": "2",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "A nice morning jog to clear the mind. The swarm of rats make it harder",
@@ -40,41 +40,15 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
-    "Run":
+    "Sprint":
     {   
         "CardNum": "4",
         "MatrixName": "Manhattan",
         "Range": "4",
-        "Uses": "1",
+        "Uses": "2",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "./Project",
-        "AbilityList":  [
-            {"Name":"Move", "Effect": "-"}],
-        "SecondaryList":  []
-    },
-    "Sprint":
-    {   
-        "CardNum": "5",
-        "MatrixName": "Manhattan",
-        "Range": "5",
-        "Uses": "1",
-        "TargetType": "Single","TargetCell": "Empty",
-        "AbilityText":  "",
-        "FlavorText":  "Not quite faster than the wind, but getting there",
-        "AbilityList":  [
-            {"Name":"Move", "Effect": "-"}],
-        "SecondaryList":  []
-    },
-    "Zoom":
-    {   
-        "CardNum": "6",
-        "MatrixName": "Manhattan",
-        "Range": "6",
-        "Uses": "1",
-        "TargetType": "Single","TargetCell": "Empty",
-        "AbilityText":  "",
-        "FlavorText":  "WEEEEEEEEEEEE",
         "AbilityList":  [
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
@@ -279,7 +253,7 @@
         "MatrixName": "Cone",
         "Range": "2",
         "Uses": "1",
-        "TargetType": "Multi","TargetCell": "Friendly",
+        "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Spy on a card?",
         "FlavorText":  "Four eyes are better than two",
         "AbilityList":  [],
@@ -291,7 +265,7 @@
         "MatrixName": "Diagonal",
         "Range": "2",
         "Uses": "1",
-        "TargetType": "Multi","TargetCell": "Friendly",
+        "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Create a Roll card in any ally hand",
         "FlavorText":  "Duck and roll!",
         "AbilityList":  [],
@@ -303,7 +277,7 @@
         "MatrixName": "Manhattan",
         "Range": "3",
         "Uses": "1",
-        "TargetType": "Multi","TargetCell": "Friendly",
+        "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Two ducks",
         "FlavorText":  "RELEASE THE GEESE",
         "AbilityList":  [],
@@ -358,13 +332,13 @@
         "Uses": "1",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
-        "FlavorText":  "Even the most ordinary rat can accomplish extraordinary things!",
+        "FlavorText":  "Even the most ordinary rat can overcome extraordinary things!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
         "SecondaryList":  []
     },
     "The Swarm":
     {   
-        "CardNum": "510",
+        "CardNum": "602",
         "MatrixName": "Global",
         "Range": "7",
         "Uses": "3",

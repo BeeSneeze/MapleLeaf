@@ -155,7 +155,7 @@ public class Board : Node2D
 			case "Enemy":
 				Remove(ActionMatrix, PossibleMat, "Mountain");
 				Remove(ActionMatrix, PossibleMat, "Empty");
-				if(GM.Turn == "Player")
+				if(Card.PlayerID % 100 < 10)
 				{
 					Remove(ActionMatrix, PossibleMat, "Friendly");
 				}
@@ -167,7 +167,7 @@ public class Board : Node2D
 			case "Friendly":
 				Remove(ActionMatrix, Impossible, "Mountain");
 				Remove(ActionMatrix, PossibleMat, "Empty");
-				if(GM.Turn == "Player")
+				if(Card.PlayerID % 100 < 10)
 				{
 					Remove(ActionMatrix, PossibleMat, "Rat");
 				}
