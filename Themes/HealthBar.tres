@@ -1,11 +1,13 @@
 [gd_resource type="Theme" load_steps=3 format=2]
 
-[ext_resource path="res://Themes/ComicCheese.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Themes/Keep Cheese.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
-outline_size = 3
-outline_color = Color( 0.105882, 0.101961, 0.0509804, 1 )
+size = 60
+outline_size = 5
+outline_color = Color( 0.254902, 0.239216, 0.0470588, 1 )
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 1 )
 
 [resource]

@@ -150,10 +150,10 @@
         "Uses": "1",
         "TargetType": "Area",
         "TargetCell": "Character",
-        "AbilityText": "Damage 2",
+        "AbilityText": "Damage 1",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Delta":
