@@ -106,6 +106,19 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Bowling":
+    {   
+        "CardNum": "104",
+        "MatrixName": "Line",
+        "Range": "5",
+        "Uses": "1",
+        "TargetType": "Area","TargetCell": "Character",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Charlie":
     {   
         "CardNum": "105",
