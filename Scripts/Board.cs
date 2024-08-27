@@ -187,7 +187,7 @@ public class Board : Node2D
 			break;
 			case "Friendly":
 				Remove(ActionMatrix, Impossible, "Mountain");
-				Remove(ActionMatrix, Impossible, "Empty");
+				Remove(ActionMatrix, PossibleMat, "Empty");
 				if(GM.Turn == "Player")
 				{
 					Remove(ActionMatrix, PossibleMat, "Rat");

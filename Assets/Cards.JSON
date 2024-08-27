@@ -310,7 +310,7 @@
     {
         "CardNum": "303",
         "MatrixName": "Diagonal",
-        "Range": "3",
+        "Range": "2",
         "Uses": "1",
         "TargetType": "Multi",
         "TargetCell": "Friendly",
@@ -336,7 +336,7 @@
     {   
         "CardNum": "305",
         "MatrixName": "Full",
-        "Range": "3",
+        "Range": "2",
         "Uses": "2",
         "TargetType": "Single",
         "TargetCell": "Enemy",
