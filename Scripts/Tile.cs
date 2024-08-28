@@ -219,7 +219,7 @@ public class Tile : Node2D
 			Clickable = false;
 		}
 
-		if(InString == "Support")
+		if(InString == "Support" || InString == "Harm")
 		{
 			((Node2D)AnimSpr).ZIndex = 10;
 		}

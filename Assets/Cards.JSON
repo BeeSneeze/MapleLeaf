@@ -22,7 +22,7 @@
         "Uses": "2",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
-        "FlavorText":  "Steady onwards, people!",
+        "FlavorText":  "A nice morning jog to clear the mind. The swarm of rats make it harder",
         "AbilityList":  [
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
@@ -35,9 +35,8 @@
         "Uses": "2",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
-        "FlavorText":  "A nice morning jog to clear the mind. The swarm of rats make it harder",
-        "AbilityList":  [
-            {"Name":"Move", "Effect": "-"}],
+        "FlavorText":  "./Project",
+        "AbilityList":  [{"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
     "Sprint":
@@ -48,10 +47,21 @@
         "Uses": "2",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
-        "FlavorText":  "./Project",
-        "AbilityList":  [
-            {"Name":"Move", "Effect": "-"}],
+        "FlavorText":  "As fast as the wind",
+        "AbilityList":  [{"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
+    },
+    "Roll":
+    {   
+        "CardNum": "5",
+        "MatrixName": "Manhattan",
+        "Range": "4",
+        "Uses": "2",
+        "TargetType": "Single","TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "Get outta there, NOW!",
+        "AbilityList":  [{"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
     },
     "Paramedic":
     {   

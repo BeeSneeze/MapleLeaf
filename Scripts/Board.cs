@@ -506,7 +506,7 @@ public class Board : Node2D
 					x++;
 				break;
 				case '5':
-					Cell[x,y].CreateCharacter("RatTutorial");
+					Cell[x,y].CreateCharacter("RatNormal");
 					x++;
 				break;
 				case '6':
