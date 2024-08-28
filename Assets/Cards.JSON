@@ -347,6 +347,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+
+
+    "Tutorial Rat":
+    {   
+        "CardNum": "600",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "TargetType": "Single","TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "There are no rats in Alberta, so we'll be training with these",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
+        "SecondaryList":  []
+    },
     "Normal Rat":
     {   
         "CardNum": "601",

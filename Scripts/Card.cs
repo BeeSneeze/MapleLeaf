@@ -60,22 +60,24 @@ public class Card : Sprite
 		UpdateLabels();
 
 		// Set the background corresponding to the ability
-		string ChosenAbility = "Rat";
+		string ChosenAbility = "Negative";
 		foreach(Ability A in AbilityList)
 		{
-			if(A.Name == "Move")
+			switch(A.Name)
 			{
-				ChosenAbility = "Move";
+				case "Move":
+					ChosenAbility = "Move";
+				break;
+				case "Stun":
+					ChosenAbility = "Harm";
+				break;
+				case "Damage":
+					ChosenAbility = "Damage";
+				break;
+				case "Spawn":
+					ChosenAbility = "Rat";
+				break;
 			}
-			if(A.Name == "Stun")
-			{
-				ChosenAbility = "Harm";
-			}
-			if(A.Name == "Damage")
-			{
-				ChosenAbility = "Damage";
-			}
-			
 		}
 
 		if(TargetCell == "Friendly")
