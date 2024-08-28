@@ -148,8 +148,8 @@
     "Echo":
     {   
         "CardNum": "109",
-        "MatrixName": "Diagonal",
-        "Range": "3",
+        "MatrixName": "Full",
+        "Range": "1",
         "Uses": "1",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "Damage 2",
@@ -346,7 +346,7 @@
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Even the most ordinary rat can overcome extraordinary things!",
-        "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  []
     },
     "The Swarm":
@@ -359,7 +359,7 @@
         "TargetCell": "Empty",
         "AbilityText":  "Spawn three rats",
         "FlavorText":  "With the power of friendship, we can accomplish anything!",
-        "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  []
     }
     
