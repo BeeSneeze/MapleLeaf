@@ -13,6 +13,7 @@ public class LevelManager : Node2D
 	public override void _Ready()
 	{
 		MM = (MusicManager)GetParent().GetNode("MusicManager");
+		EventManager.Instance.Connect("LevelChange", this, "ChangeLevel");
 	}
 
 	public void ChangeLevel(string InString)
@@ -36,7 +37,7 @@ public class LevelManager : Node2D
 		{
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Y)
 			{
-				ChangeLevel("WorldMap");
+				EventManager.Instance.EmitSignal("LevelChange", "WorldMap");
 			}
 			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.U)
 			{

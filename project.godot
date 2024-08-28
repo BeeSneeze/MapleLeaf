@@ -14,6 +14,10 @@ config/name="Maple Leaf"
 run/main_scene="res://Scenes/RunGame.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+EventManager="*res://Scripts/EventManager.cs"
+
 [display]
 
 window/size/width=1920

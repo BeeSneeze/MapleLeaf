@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/CardManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Visuals/GameBG.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=5]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,3 +32,5 @@ OwnerName = "Support"
 [node name="CardsRat" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1472, 560 )
 OwnerName = "Rat"
+
+[node name="PauseButton" parent="." instance=ExtResource( 5 )]

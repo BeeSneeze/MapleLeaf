@@ -9,7 +9,7 @@
         "Uses": "2",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
-        "FlavorText":  "Just 5344595 more and we'll get there in no time!",
+        "FlavorText":  "You may not get there on time, but you WILL get there",
         "AbilityList":  [
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
@@ -70,8 +70,8 @@
         "Range": "6",
         "Uses": "1",
         "TargetType": "Area","TargetCell": "Empty",
-        "AbilityText":  "",
-        "FlavorText":  "The unfortunate truth is that in every war, the innocent get hurt",
+        "AbilityText":  "Does nothing",
+        "FlavorText":  "Stay still please...",
         "AbilityList":  [],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "-"}]
     },
