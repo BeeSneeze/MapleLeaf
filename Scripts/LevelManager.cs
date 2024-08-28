@@ -9,6 +9,9 @@ public class LevelManager : Node2D
 
 	public MusicManager MM;
 
+	private string CurrentLevel = "MainMenu";
+	private string PreviousLevel = "MainMenu";
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -18,6 +21,8 @@ public class LevelManager : Node2D
 
 	public void ChangeLevel(string InString)
 	{
+		PreviousLevel = CurrentLevel;
+		CurrentLevel = InString;
 		GD.Print("LEVEL CHANGED:" + InString);
 		foreach(Node2D child in GetChildren())
 		{
@@ -27,6 +32,11 @@ public class LevelManager : Node2D
 		NewLevel.Show();
 
 		MM.PlayMusic(InString);
+	}
+
+	public void BackTrack()
+	{
+		ChangeLevel(PreviousLevel);
 	}
 
 
@@ -41,7 +51,7 @@ public class LevelManager : Node2D
 			}
 			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.U)
 			{
-				ChangeLevel("PauseMenu");
+				BackTrack();
 			}
 			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.I)
 			{

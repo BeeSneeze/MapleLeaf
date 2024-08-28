@@ -52,7 +52,7 @@ animations = [ {
 "frames": [ ExtResource( 35 ), ExtResource( 36 ) ],
 "loop": true,
 "name": "Harm",
-"speed": 1.2
+"speed": 2.2
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 15 ) ],
 "loop": true,

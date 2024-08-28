@@ -56,7 +56,7 @@
         "CardNum": "5",
         "MatrixName": "Manhattan",
         "Range": "4",
-        "Uses": "2",
+        "Uses": "1",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Get outta there, NOW!",
