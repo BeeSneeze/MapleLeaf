@@ -92,6 +92,14 @@ public class CardManager : Node2D
 		
 	}
 
+	private void LoadCardEffect(string EffectName, Card InCard)
+	{
+		var scene = GD.Load<PackedScene>("res://Scenes/CardEffect.tscn");
+		Node2D NewCardEffect = (Node2D)scene.Instance();
+		NewCardEffect.Position = ((Node2D)InCard).Position;
+		AddChild(NewCardEffect);
+	}
+
 
 	// Creates a new card from a CardID
 	private void CreateCardObject(int InID)
@@ -224,6 +232,14 @@ public class CardManager : Node2D
 	public void ExhaustCard(Card InCard)
 	{
 		GD.Print("ATTEMPTED TO EXHAUST");
+
+		Hand.Remove(InCard.CardID);
+		HandCards.Remove(InCard);
+
+		LoadCardEffect("Exhaust", InCard);
+
+		InCard.QueueFree();
+		UpdateLabels();
 	}
 
 	// BIG MODE BIG MODE BIG MODE BIG MODE BIG MODE

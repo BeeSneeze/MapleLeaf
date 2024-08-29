@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Visuals/Cards/CardPoof2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Visuals/Cards/CardPoof3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Visuals/Cards/CardPoof1.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/CardEffect.cs" type="Script" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), null ],
+"loop": false,
+"name": "Poof",
+"speed": 15.0
+} ]
+
+[node name="Node2D" type="AnimatedSprite"]
+scale = Vector2( 0.6, 0.6 )
+z_index = 100
+frames = SubResource( 1 )
+animation = "Poof"
+script = ExtResource( 4 )
+
+[connection signal="animation_finished" from="." to="." method="_on_Node2D_animation_finished"]

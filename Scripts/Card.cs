@@ -130,11 +130,29 @@ public class Card : Sprite
 	// Discard card
 	public void Discard()
 	{
-		
 		if(--Uses < 1) // Ran out of uses
 		{
+			bool ShouldExhaust = false;
+
 			CardManager CM = (CardManager)GetParent();
-			CM.DiscardCard(this);
+			foreach(Ability A in SecondaryList)
+			{
+				if(A.Name == "Exhaust" && A.Effect == "Self")
+				{
+					ShouldExhaust = true;
+				}
+			}
+
+			if(ShouldExhaust)
+			{
+				CM.ExhaustCard(this);
+			}
+			else
+			{
+				CM.DiscardCard(this);
+			}
+
+			
 		}
 		else // Still have some amount of uses left
 		{
