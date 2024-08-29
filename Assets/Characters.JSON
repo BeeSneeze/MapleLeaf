@@ -33,12 +33,18 @@
     "RatTutorial":
     {
         "ID": "10",
-        "MaxHP": "3",
+        "MaxHP": "2",
         "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
     },
     "RatNormal":
     {
         "ID": "11",
+        "MaxHP": "3",
+        "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
+    },
+    "RatLawyer":
+    {
+        "ID": "12",
         "MaxHP": "3",
         "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
     },

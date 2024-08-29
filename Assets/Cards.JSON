@@ -385,6 +385,19 @@
         "FlavorText":  "With the power of friendship, we can accomplish anything!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  []
+    },
+    "The Lawyer":
+    {   
+        "CardNum": "603",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "TargetType": "Single",
+        "TargetCell": "Empty",
+        "AbilityText":  "Spawn three rats",
+        "FlavorText":  "Don't worry mr. Jim, we've got the best lawyer on this side of the border",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatLawyer"}],
+        "SecondaryList":  []
     }
     
 }

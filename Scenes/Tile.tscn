@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -43,6 +43,8 @@
 [ext_resource path="res://Assets/Visuals/Characters/Soldier3.png" type="Texture" id=41]
 [ext_resource path="res://Assets/Visuals/Characters/Sniper1.png" type="Texture" id=42]
 [ext_resource path="res://Assets/Visuals/Characters/Sniper2.png" type="Texture" id=43]
+[ext_resource path="res://Assets/Visuals/Characters/LawyerRat1.png" type="Texture" id=44]
+[ext_resource path="res://Assets/Visuals/Characters/LawyerRat2.png" type="Texture" id=45]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -128,6 +130,11 @@ animations = [ {
 "loop": true,
 "name": "None",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 44 ), ExtResource( 45 ) ],
+"loop": true,
+"name": "RatLawyer",
+"speed": 2.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
