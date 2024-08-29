@@ -321,6 +321,18 @@
 
     
 
+    "Nap":
+    {   
+        "CardNum": "500",
+        "MatrixName": "Line",
+        "Range": "1",
+        "Uses": "1",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "Does nothing",
+        "FlavorText":  "Just five more minutes please",
+        "AbilityList":  [],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
+    },
     "Chomp":
     {   
         "CardNum": "501",
