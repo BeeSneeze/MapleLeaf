@@ -240,6 +240,33 @@ public class GameManager : Node2D
 			}
 		}
 
+		foreach(Ability B in CurrentCard.SecondaryList)
+		{
+			switch(B.Name)
+			{
+				case "Shuffle":
+					string[] Effect = (B.Effect).Split(":");
+					switch(Effect[0])
+					{
+						case "Soldier":
+							CMSoldier.AddCard(Effect[1]);
+						break;
+						case "Sniper":
+							CMSniper.AddCard(Effect[1]);
+						break;
+						case "Support":
+							CMSupport.AddCard(Effect[1]);
+						break;
+						case "Rat":
+							CMRat.AddCard(Effect[1]);
+						break;
+					}
+					
+				break;
+			}
+		}
+
+
 		CurrentCard.Discard();
 		UnPrep();
 	}

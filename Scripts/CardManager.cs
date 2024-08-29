@@ -193,6 +193,7 @@ public class CardManager : Node2D
 		ActiveCards[NewID] = CC;
 
 		Deck.Add(NewID);
+		UpdateLabels();
 	}
 
 

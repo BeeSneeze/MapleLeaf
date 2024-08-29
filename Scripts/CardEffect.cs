@@ -15,14 +15,8 @@ public class CardEffect : AnimatedSprite
 
 	private void _on_Node2D_animation_finished()
 	{
-		GD.Print("DONE ANIMATION!");
+		QueueFree();
 	}
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }
 
 
