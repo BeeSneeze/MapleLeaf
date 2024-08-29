@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 public class Board : Node2D
 {
 	private const int MaxSize = 8;
-	private Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
+	public Tile[,] Cell = new Tile[8,8]; // A matrix containing all of the tiles on the board
 	private bool[,] ActionMatrix = new bool[8,8]; // Matrix saying which tiles are affected by an action
 
 	public Dictionary<string,CharacterInfo> AllCharacters; // Contains relevant info on characters, loaded via Characters.JSON
