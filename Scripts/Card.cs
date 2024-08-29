@@ -15,7 +15,7 @@ public class Card : Sprite
 	private GameManager GM;
 
 	// Card specifics
-	public int CardID;
+	public int CardID; // Unique identifier. Do % 1000 to get the specific card type
 	public int OwnerID; // If this person dies, remove the card
 	public int PlayerID; // Who is currently playing this card?
 	public string MatrixName {get; private set;}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -41,6 +41,8 @@
 [ext_resource path="res://Assets/Visuals/Markers/Spawn1.png" type="Texture" id=39]
 [ext_resource path="res://Assets/Visuals/Characters/Soldier1.png" type="Texture" id=40]
 [ext_resource path="res://Assets/Visuals/Characters/Soldier3.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Visuals/Characters/Sniper1.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Visuals/Characters/Sniper2.png" type="Texture" id=43]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -137,10 +139,10 @@ animations = [ {
 "name": "RatTutorial",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 43 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ), ExtResource( 42 ) ],
 "loop": true,
 "name": "Sniper",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 40 ), ExtResource( 6 ), ExtResource( 41 ), ExtResource( 6 ) ],
 "loop": true,

@@ -18,6 +18,14 @@ public struct CardType
 	public List<Ability> SecondaryList; // List of abilities that work independently
 };
 
+// Used to store a unique card in the card manager
+public struct CompactCard
+{
+	public int ID;		// ID for the card
+	public int OwnerID; 	// Who owns this card?
+	public int TotalDraws; 	// How many times can this card be drawn before it is destroyed?
+};
+
 // A specific ability, stored in a card, to be triggered by the game manager and board
 public struct Ability
 {

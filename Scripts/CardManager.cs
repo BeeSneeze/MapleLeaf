@@ -14,13 +14,13 @@ public class CardManager : Node2D
 	public List<int> Hand = new List<int>();
 	public List<int> Discard = new List<int>();
 	
-
 	private GameManager GM;
 	private Label DrawLabel;
 	private Label DiscardLabel;
 
 	private Dictionary<string,CardType> AllCardsDict; // Dict containing info about all the cards in a Cardtype struct. Keys by card name
 	private Dictionary<int, string> IdToNameConvert = new Dictionary<int, string>(); // Used to convert from ID to name
+	private Dictionary<int, CompactCard> ActiveCards = new Dictionary<int, CompactCard>(); // Contains supplementary info about all the cards managed by this class
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -94,24 +94,23 @@ public class CardManager : Node2D
 
 
 	// Creates a new card from a CardID
-	private void CreateCardObject(int InInt)
+	private void CreateCardObject(int InID)
 	{
 		var scene = GD.Load<PackedScene>("res://Scenes/Card.tscn");
 			
 		Card NewCard = (Card)scene.Instance();
 
+		NewCard.OwnerID = ActiveCards[InID].OwnerID; 
+
 		switch(OwnerName)
 		{
 			case "Soldier":
-				NewCard.OwnerID = 101;
 				NewCard.PlayerID = 101;
 			break;
 			case "Sniper":
-				NewCard.OwnerID = 202;
 				NewCard.PlayerID = 202;
 			break;
 			case "Support":
-				NewCard.OwnerID = 303;
 				NewCard.PlayerID = 303;
 			break;
 			case "Rat":
@@ -120,8 +119,8 @@ public class CardManager : Node2D
 			break;
 		}
 
-		NewCard.CardID = InInt;
-		NewCard.CardName = IdToNameConvert[InInt % 1000];
+		NewCard.CardID = InID;
+		NewCard.CardName = IdToNameConvert[InID % 1000];
 
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
 
@@ -151,9 +150,41 @@ public class CardManager : Node2D
 	}
 
 	// Adds a new card to the deck, by name
-	public void AddCard(string CardName)
+	public void AddCard(string CardName, string RatName = "")
 	{
-		Deck.Add(GM.NewCardID(int.Parse(AllCardsDict[CardName].CardNum)));
+		int NewID = GM.NewCardID(int.Parse(AllCardsDict[CardName].CardNum));
+
+		// Compact card notation
+		CompactCard CC = new CompactCard();
+		CC.ID = NewID;
+		CC.TotalDraws = 0;
+		switch(OwnerName)
+		{
+			case "Soldier":
+				CC.OwnerID = 101;
+			break;
+			case "Sniper":
+				CC.OwnerID = 202;
+			break;
+			case "Support":
+				CC.OwnerID = 303;
+			break;
+			case "Rat":
+				if(RatName != "")
+				{
+
+				}
+				else
+				{
+					CC.OwnerID = 101; // TEMP ID
+				}
+				
+			break;
+		}
+		
+		ActiveCards[NewID] = CC;
+
+		Deck.Add(NewID);
 	}
 
 
@@ -170,6 +201,10 @@ public class CardManager : Node2D
 		Deck.Remove(TopCard);
 		Hand.Add(TopCard);
 
+		CompactCard CC = ActiveCards[TopCard];
+		CC.TotalDraws += 1;
+		ActiveCards[TopCard] = CC;
+
 		CreateCardObject(TopCard);
 		UpdateLabels();
 	}
@@ -183,6 +218,12 @@ public class CardManager : Node2D
 
 		InCard.QueueFree();
 		UpdateLabels();
+	}
+
+	// Completely remove a card from play
+	public void ExhaustCard(Card InCard)
+	{
+		GD.Print("ATTEMPTED TO EXHAUST");
 	}
 
 	// BIG MODE BIG MODE BIG MODE BIG MODE BIG MODE
