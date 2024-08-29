@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 public class GameManager : Node2D
 {
 	private Board Board;
+	private AI AI;
 	
 	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
 	private int CardIDCounter = 0;
@@ -32,6 +33,7 @@ public class GameManager : Node2D
 		CMSniper = (CardManager)GetNode("CardsSniper");
 		CMSupport = (CardManager)GetNode("CardsSupport");
 		CMRat = (CardManager)GetNode("CardsRat");
+		AI = (AI)GetNode("AI");
 
 		// Load starting decks
 		File Reader = new File();
@@ -76,6 +78,14 @@ public class GameManager : Node2D
 		}
 	}
 
+	public void SetMode(string ModeName)
+	{
+		GD.Print("SET MODE: " + ModeName);
+		Turn = ModeName;
+		AI.MoveBest();
+		
+	}
+
 
 	// Rotating matrices using WASD
 	public override void _UnhandledInput(InputEvent @event)
@@ -104,6 +114,21 @@ public class GameManager : Node2D
 						GD.Print("ATTEMPTED CARD DRAW RAT");
 						CMRat.NewTurn();
 					break;
+
+					// DEBUG SWITCH GAME MODES
+					case (int)KeyList.G:
+						SetMode("RatMove");
+					break;
+					case (int)KeyList.H:
+						SetMode("Player");
+					break;
+					case (int)KeyList.J:
+						SetMode("RatAttack");
+					break;
+					case (int)KeyList.K:
+						SetMode("None");
+					break;
+
 				}
 			}
 		}

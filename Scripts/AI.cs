@@ -20,9 +20,7 @@ public class AI : Node2D
 		CM = (CardManager)GM.GetNode("CardsRat");
 		Board = (Board)GM.GetNode("Board");
 
-		LoadPatch("Move");
 		EvaluateBoard();
-
 	}
 
 	public void EvaluateBoard()
@@ -49,6 +47,34 @@ public class AI : Node2D
 			PatchRatMove(RatPatch, MoveRat, Pos);
 		}
 
+	}
+
+	public void ClickTile(Vector2 TilePos)
+	{
+		Board.Cell[(int)TilePos.x,(int)TilePos.y].LeftClick();
+	}
+
+	public void MoveBest()
+	{
+		Vector2 BestMove = new Vector2(0,0);
+		int BestValue = 1000;
+
+		for(int x = 0; x < 8; x++)
+		{
+			for(int y = 0; y < 8; y++)
+			{
+				if(Board.ActionMatrix[x,y])
+				{
+					if(BestValue > MoveRat[x,y])
+					{
+						BestValue = MoveRat[x,y];
+						BestMove = new Vector2(x,y);
+					}
+				}
+			}
+		}
+
+		ClickTile(BestMove);
 	}
 
 	public void PatchRatMove(int[,] InMat, int[,] OutMat, Vector2 CPos)
@@ -97,8 +123,6 @@ public class AI : Node2D
 
 		foreach(int C in Contents)
 		{
-			GD.Print(C);
-
 			if(C == 10)
 			{
 				// Line break, new row to the matrix
