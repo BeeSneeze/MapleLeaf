@@ -171,8 +171,8 @@
     "Foxtrot":
     {   
         "CardNum": "111",
-        "MatrixName": "Diagonal",
-        "Range": "3",
+        "MatrixName": "Fox",
+        "Range": "2",
         "Uses": "1",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "Damage 2",

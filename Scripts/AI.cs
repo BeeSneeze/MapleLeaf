@@ -41,7 +41,6 @@ public class AI : Node2D
 
 		if(Timer > TurnTime)
 		{
-			GD.Print("DELTA PROCESS");
 			Timer = 0;
 
 			if(MoveMode)
