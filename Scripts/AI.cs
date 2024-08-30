@@ -32,7 +32,7 @@ public class AI : Node2D
 	}
 
 	float Timer = 0;
-	static float TurnTime = 0.2f; // How long inbetween AI Clicks
+	static float TurnTime = 0.3f; // How long inbetween AI Clicks
 
 	// Called every frame
 	public override void _Process(float delta)

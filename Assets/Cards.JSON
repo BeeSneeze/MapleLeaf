@@ -318,6 +318,18 @@
         "AbilityList":  [{"Name":"Stun", "Effect": "-"}],
         "SecondaryList":  []
     },
+    "Switch":
+    {   
+        "CardNum": "311",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "2",
+        "TargetType": "Single","TargetCell": "Friendly",
+        "AbilityText": "",
+        "FlavorText":  "Your turn!",
+        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
 
     
 

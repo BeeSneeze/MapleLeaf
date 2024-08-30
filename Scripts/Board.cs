@@ -198,15 +198,16 @@ public class Board : Node2D
 						case "Damage":
 							Cell[x,y].SetMarker("PossibleAttack");
 						break;
-						case "Shield":
-							Cell[x,y].SetMarker("PossibleSupport");
-						break;
 						case "Stun":
 							Cell[x,y].SetMarker("PossibleHarm");
 						break;
 						case "Spawn":
 							Cell[x,y].SetMarker("PossibleSpawn");
 						break;
+					}
+					if(Card.TargetCell == "Friendly")
+					{
+						Cell[x,y].SetMarker("PossibleSupport");
 					}
 				}
 
@@ -229,15 +230,17 @@ public class Board : Node2D
 						case "Damage":
 							Cell[x,y].SetMarker("Attack");
 						break;
-						case "Shield":
-							Cell[x,y].SetMarker("Support");
-						break;
 						case "Stun":
 							Cell[x,y].SetMarker("Harm");
 						break;
 						case "Spawn":
 							Cell[x,y].SetMarker("Spawn");
 						break;
+					}
+
+					if(Card.TargetCell == "Friendly")
+					{
+						Cell[x,y].SetMarker("Support");
 					}
 					
 				}
