@@ -59,7 +59,7 @@ public class CardManager : Node2D
 				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
 				Node2D SOwner = (Node2D)SprOwner;
 				SOwner.Translate(new Vector2(450,-250));
-				SOwner.Scale = new Vector2(0.7f,0.7f);
+				SOwner.Scale = new Vector2(0.9f,0.9f);
 				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.6f);
 
 				Discard.Modulate = new Color(0.8f, 0.8f, 0.8f, 1.0f);

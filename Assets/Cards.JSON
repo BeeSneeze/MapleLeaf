@@ -330,6 +330,30 @@
         "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
     },
+    "Double Agent":
+    {   
+        "CardNum": "309",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "2",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "They'll never see it coming",
+        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "Mole":
+    {   
+        "CardNum": "310",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "2",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "Let's send someone rat-sized this time",
+        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
     "Switch":
     {   
         "CardNum": "311",
