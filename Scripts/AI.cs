@@ -9,9 +9,13 @@ public class AI : Node2D
 	private Board Board;
 	private CardManager CM;
 
+	private List<int> ExaminedCards = new List<int>();
+
 
 	private int[,] RatPatch = new int[8,8];
 	public int[,] MoveRat = new int[8,8];
+
+	private Card ActiveCard;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -23,6 +27,48 @@ public class AI : Node2D
 		EvaluateBoard();
 	}
 
+	// The action loop for the move phase. This includes playing move cards, and spawn cards
+	public void MoveLoop()
+	{
+		ExaminedCards = new List<int>();
+
+		int FAILSAFE = 0;
+		int CardFlag = 1;
+		bool SuccessfulAction = false;
+		while(CardFlag > 0)
+		{
+			SuccessfulAction = true;
+			CardFlag = ClickMoveCard();
+			if(CardFlag == 1)
+			{
+				SuccessfulAction = MoveBest();
+			}
+			else if (CardFlag == 2)
+			{
+				SuccessfulAction = SpawnBest();
+			}
+
+			if(!SuccessfulAction)
+			{
+				ActiveCard.LeftClick();
+				// UNCLICK CARD BEFORE MOVING ON
+			}
+			else
+			{
+				if(ActiveCard.Uses > 0)
+				{
+					ExaminedCards.Remove(ActiveCard.CardID);
+				}
+				
+			}
+			if(FAILSAFE++ > 50)
+			{
+				break;
+			}
+		}
+	}
+
+	// Reevaluates all positions to provide information to the AI about best moves
 	public void EvaluateBoard()
 	{
 		List<Vector2> PatchPosList = new List<Vector2>();
@@ -49,13 +95,49 @@ public class AI : Node2D
 
 	}
 
+	// This clicks a card in the move phase
+	public int ClickMoveCard()
+	{
+		// RETURN: 0 = Failed to find card, 1 = Found move card, 2 = Found Spawn card
+		foreach(Card C in CM.HandCards)
+		{
+			if(ExaminedCards.Contains(C.CardID))
+			{
+				continue;
+			}
+			ExaminedCards.Add(C.CardID);
+			foreach(Ability A in C.AbilityList)
+			{
+				if(A.Name == "Move")
+				{
+					C.LeftClick();
+					ActiveCard = C;
+					return 1;
+					
+				}
+				if(A.Name == "Spawn")
+				{
+					GD.Print("FOUND SPAWN CARD!");
+					C.LeftClick();
+					ActiveCard = C;
+					return 2;
+				}
+			}
+			
+		}
+		return 0;
+	}
+
 	public void ClickTile(Vector2 TilePos)
 	{
 		Board.Cell[(int)TilePos.x,(int)TilePos.y].LeftClick();
 	}
 
-	public void MoveBest()
+
+	// Move the closest possible to friendlies
+	public bool MoveBest()
 	{
+		bool SuccessfulMove = false;
 		Vector2 BestMove = new Vector2(0,0);
 		int BestValue = 1000;
 
@@ -69,13 +151,43 @@ public class AI : Node2D
 					{
 						BestValue = MoveRat[x,y];
 						BestMove = new Vector2(x,y);
+						SuccessfulMove = true;
 					}
 				}
 			}
 		}
 
 		ClickTile(BestMove);
+		return SuccessfulMove;
 	}
+
+	// Spawn the furthest away from friendlies
+	public bool SpawnBest()
+	{
+		bool SuccessfulSpawn = false;
+		Vector2 BestMove = new Vector2(0,0);
+		int BestValue = -1000;
+
+		for(int x = 0; x < 8; x++)
+		{
+			for(int y = 0; y < 8; y++)
+			{
+				if(Board.ActionMatrix[x,y])
+				{
+					if(BestValue < MoveRat[x,y])
+					{
+						BestValue = MoveRat[x,y];
+						BestMove = new Vector2(x,y);
+						SuccessfulSpawn = true;
+					}
+				}
+			}
+		}
+
+		ClickTile(BestMove);
+		return SuccessfulSpawn;
+	}
+
 
 	public void PatchRatMove(int[,] InMat, int[,] OutMat, Vector2 CPos)
 	{
@@ -108,6 +220,7 @@ public class AI : Node2D
 		}
 	}
 
+	// Loads the appropriate patch to determine move/attack priorities
 	public void LoadPatch(string MatrixName)
 	{
 		RatPatch = new int[15,15];

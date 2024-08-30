@@ -82,7 +82,10 @@ public class GameManager : Node2D
 	{
 		GD.Print("SET MODE: " + ModeName);
 		Turn = ModeName;
-		AI.MoveBest();
+		if(ModeName == "RatMove")
+		{
+			AI.MoveLoop();
+		}
 		
 	}
 
