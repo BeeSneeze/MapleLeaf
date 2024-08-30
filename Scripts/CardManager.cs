@@ -92,12 +92,25 @@ public class CardManager : Node2D
 		
 	}
 
-	private void LoadCardEffect(string EffectName, Card InCard)
+	public void LoadCardEffect(string EffectName, Card InCard)
 	{
 		var scene = GD.Load<PackedScene>("res://Scenes/CardEffect.tscn");
 		Node2D NewCardEffect = (Node2D)scene.Instance();
 		NewCardEffect.Position = ((Node2D)InCard).Position;
 		AddChild(NewCardEffect);
+
+		AnimatedSprite AnimSpr = (AnimatedSprite)NewCardEffect;
+
+		switch(EffectName)
+		{
+			case "Exhaust":
+				AnimSpr.Animation = "Poof";
+			break;
+			case "Unplayable":
+				AnimSpr.Animation = "Shrug";
+			break;
+
+		}
 	}
 
 

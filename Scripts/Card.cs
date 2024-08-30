@@ -198,11 +198,16 @@ public class Card : Sprite
 		Big = InBool;
 	}
 
-	public void Skip()
+	public void Skip(bool Unplayable = false)
 	{
 		Sprite Overlay = (Sprite)GetNode("Overlay");
 		Overlay.Show();
 		Skipped = true;
+
+		if(Unplayable)
+		{
+			((CardManager)GetParent()).LoadCardEffect("Unplayable", this);
+		}
 	}
 
 
