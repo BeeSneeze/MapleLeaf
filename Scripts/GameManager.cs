@@ -84,7 +84,7 @@ public class GameManager : Node2D
 		Turn = ModeName;
 		if(ModeName == "RatMove")
 		{
-			AI.MoveLoop();
+			AI.StartMoveMode();
 		}
 		
 	}

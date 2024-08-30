@@ -5,17 +5,21 @@ using System.Collections.Generic;
 public class AI : Node2D
 {
 
+	private int[,] MoveRat = new int[8,8];
+
 	private GameManager GM;
 	private Board Board;
 	private CardManager CM;
 
 	private List<int> ExaminedCards = new List<int>();
-
-
 	private int[,] RatPatch = new int[8,8];
-	public int[,] MoveRat = new int[8,8];
+	
 
 	private Card ActiveCard;
+	private int CardFlag = 0;
+	private int ClickNum = 0;
+	private bool MoveMode = false;
+	private bool SuccessfulAction = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -27,18 +31,48 @@ public class AI : Node2D
 		EvaluateBoard();
 	}
 
-	// The action loop for the move phase. This includes playing move cards, and spawn cards
-	public void MoveLoop()
+	float Timer = 0;
+	static float TurnTime = 0.5f; // How long inbetween AI Clicks
+
+	// Called every frame
+	public override void _Process(float delta)
+	{
+		Timer += delta;
+
+		if(Timer > TurnTime)
+		{
+			GD.Print("DELTA PROCESS");
+			Timer = 0;
+
+			if(MoveMode)
+			{
+				MoveClick();
+			}
+		}
+	}
+
+	public void StartMoveMode()
 	{
 		ExaminedCards = new List<int>();
+		CardFlag = 1;
+		MoveMode = true;
+		ClickNum = 1;
+	}
 
-		int FAILSAFE = 0;
-		int CardFlag = 1;
-		bool SuccessfulAction = false;
-		while(CardFlag > 0)
+	// The action loop for the move phase. This includes playing move cards, and spawn cards
+	public void MoveClick()
+	{
+		
+		if(ClickNum == 1)
 		{
+			// CLICK ONE
 			SuccessfulAction = true;
 			CardFlag = ClickMoveCard();
+			ClickNum = 2;
+		}
+		else if(ClickNum == 2)
+		{
+			// CLICK TWO
 			if(CardFlag == 1)
 			{
 				SuccessfulAction = MoveBest();
@@ -61,9 +95,11 @@ public class AI : Node2D
 				}
 				
 			}
-			if(FAILSAFE++ > 50)
+			SuccessfulAction = false;
+			ClickNum = 1;
+			if(CardFlag == 0)
 			{
-				break;
+				MoveMode = false; // Ran out of cards
 			}
 		}
 	}

@@ -268,10 +268,6 @@ public class Tile : Node2D
 
 	public void LeftClick()
 	{
-
-		AI RatAI = (AI)(GetParent().GetParent()).GetNode("AI");
-		GD.Print(RatAI.MoveRat[X,Y]);
-
 		if(Clickable)
 		{
 			GD.Print("Tile left clicked!");
