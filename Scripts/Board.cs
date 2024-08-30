@@ -201,6 +201,9 @@ public class Board : Node2D
 						case "Stun":
 							Cell[x,y].SetMarker("PossibleHarm");
 						break;
+						case "Swap":
+							Cell[x,y].SetMarker("PossibleHarm");
+						break;
 						case "Spawn":
 							Cell[x,y].SetMarker("PossibleSpawn");
 						break;
@@ -231,6 +234,9 @@ public class Board : Node2D
 							Cell[x,y].SetMarker("Attack");
 						break;
 						case "Stun":
+							Cell[x,y].SetMarker("Harm");
+						break;
+						case "Swap":
 							Cell[x,y].SetMarker("Harm");
 						break;
 						case "Spawn":

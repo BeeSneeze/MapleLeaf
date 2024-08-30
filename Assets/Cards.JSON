@@ -318,6 +318,18 @@
         "AbilityList":  [{"Name":"Stun", "Effect": "-"}],
         "SecondaryList":  []
     },
+    "Bribe":
+    {   
+        "CardNum": "307",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "2",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "All is fair in love and war",
+        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
     "Switch":
     {   
         "CardNum": "311",
@@ -371,6 +383,19 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Scamper":
+    {   
+        "CardNum": "503",
+        "MatrixName": "Manhattan",
+        "Range": "2",
+        "Uses": "1",
+        "TargetType": "Single","TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "We move as one!",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
 
 
     "Tutorial Rat":
@@ -397,7 +422,7 @@
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"},
         {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
-        {"Name":"Shuffle", "Effect": "Rat:Walk"}]
+        {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
     },
     "The Swarm":
     {   
@@ -412,7 +437,7 @@
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"},
         {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
-        {"Name":"Shuffle", "Effect": "Rat:Walk"}]
+        {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
     },
     "The Lawyer":
     {   

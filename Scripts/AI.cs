@@ -49,7 +49,8 @@ public class AI : Node2D
 			}
 		}
 	}
-
+	
+	// Prepares to start the move phase
 	public void StartMoveMode()
 	{
 		ExaminedCards = new List<int>();
@@ -100,6 +101,7 @@ public class AI : Node2D
 			if(CardFlag == 0)
 			{
 				MoveMode = false; // Ran out of cards
+				GM.SetMode("Player");
 			}
 		}
 	}

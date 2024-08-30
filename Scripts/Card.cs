@@ -71,6 +71,12 @@ public class Card : Sprite
 				case "Stun":
 					ChosenAbility = "Harm";
 				break;
+				case "Swap":
+					if(ChosenAbility!="Damage")
+					{
+						ChosenAbility = "Harm";
+					}
+				break;
 				case "Damage":
 					ChosenAbility = "Damage";
 				break;
