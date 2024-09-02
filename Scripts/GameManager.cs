@@ -258,12 +258,10 @@ public class GameManager : Node2D
 							PushDirection = "E";
 						break;
 					}
-
-					if(Board.TargetList.Count > 0)
-					{
-						Board.Push(Board.TargetList[0], Board.TargetList[0], PushDirection, int.Parse(A.Effect));
-						Board.MoveQueue();
-					}
+					
+					// GOTTA FIGURE OUT HOW TO RESOLVE MULTIPLE PUSHES AT ONCE
+					Board.Push(Board.TargetList[0], Board.TargetList[0], PushDirection);
+					Board.MoveQueue();
 				break;
 			}
 		}

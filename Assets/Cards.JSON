@@ -150,7 +150,8 @@
         "AbilityText": "Damage 1",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"}],
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "N"}],
         "SecondaryList":  []
     },
     "Delta":
@@ -255,7 +256,7 @@
         "FlavorText": "One-Two!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
-            {"Name":"Push", "Effect": "1"}],
+            {"Name":"Push", "Effect": "N"}],
         "SecondaryList":  []
     },
     "Haymaker":
@@ -270,7 +271,7 @@
         "FlavorText": "KNOCKOUT!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
-            {"Name":"Push", "Effect": "2"}],
+            {"Name":"Push", "Effect": "N"}],
         "SecondaryList":  []
     },
     "Snipe":

@@ -27,6 +27,7 @@ public class Board : Node2D
 		GM = (GameManager)GetParent();
 
 		WASD = (Node2D)GetNode("WASD");
+		HelpArrow = (Node2D)GetNode("HelpArrow");
 
 		// Load Character Info
 		File Reader = new File();
@@ -138,6 +139,12 @@ public class Board : Node2D
 		{
 			WASD.Show();
 			WASD.Position = new Vector2(-250,-267) + Center*88f;
+		}
+
+		if(Card.TargetType == "Area")
+		{
+			HelpArrow.Show();
+			HelpArrow.Position = new Vector2(-240,-375) + Center*88f;
 		}
 		
 
@@ -273,6 +280,8 @@ public class Board : Node2D
 	public void ClearMarkers()
 	{
 		WASD.Hide();
+		HelpArrow.Hide();
+
 		TargetList = new List<Vector2>();
 		ActionMatrix = new bool[8,8];
 		QueuedMoves = new List<Arrow>();
@@ -351,7 +360,7 @@ public class Board : Node2D
 
 
 	// Push a character a given amount of squares
-	public bool Push(Vector2 Tile, Vector2 OrignalTile, string Direction, int Amount)
+	public bool Push(Vector2 Tile, Vector2 OrignalTile, string Direction)
 	{
 		int TargetX = (int)Tile.x;
 		int TargetY = (int)Tile.y;
@@ -393,8 +402,7 @@ public class Board : Node2D
 			GD.Print("OOB");
 			GD.Print(OrignalTile);
 			GD.Print(new Vector2(TargetX,TargetY));
-			// Out of bounds
-			return false; 
+			return false; // Out of bounds, hit the board border
 		}
 
 		if(TheoreticalCellID[TargetX,TargetY] % 100 > 49 || TheoreticalCellID[TargetX,TargetY] % 100 == 4)
@@ -413,7 +421,7 @@ public class Board : Node2D
 			GD.Print(new Vector2(TargetX,TargetY));
 			// Recurse over the found character
 			bool Result = false;
-			Result = Push(new Vector2(TargetX, TargetY), new Vector2(TargetX, TargetY), Direction, Amount);
+			Result = Push(new Vector2(TargetX, TargetY), new Vector2(TargetX, TargetY), Direction);
 
 			if(!Result)
 			{
@@ -421,42 +429,16 @@ public class Board : Node2D
 			}
 			
 		}
+		GD.Print("ENDED PUSH");
+		Arrow NewArr;
+		NewArr.From = OrignalTile;
+		NewArr.To = new Vector2(TargetX,TargetY);
+		QueuedMoves.Add(NewArr);
 
-
-		if(Amount > 1)
-		{
-			GD.Print("CONTINUED PUSH");
-			GD.Print(OrignalTile);
-			GD.Print(new Vector2(TargetX,TargetY));
-			// Attempt another push from the next square
-			bool Result = false;
-			Result = Push(new Vector2(TargetX, TargetY), OrignalTile, Direction, Amount-1);
-			
-			if(!Result) // Hit a dead end, stop recursing and assign the queued move
-			{
-				/*Arrow NewArr;
-				NewArr.From = OrignalTile;
-				NewArr.To = new Vector2(TargetX,TargetY);
-				QueuedMoves.Add(NewArr);*/
-			}
-		}
-		else
-		{
-			GD.Print("ENDED PUSH");
-			GD.Print(OrignalTile);
-			GD.Print(new Vector2(TargetX,TargetY));
-			// Just push the character one step, and then it's done
-			Arrow NewArr;
-			NewArr.From = OrignalTile;
-			NewArr.To = new Vector2(TargetX,TargetY);
-			QueuedMoves.Add(NewArr);
-
-			TheoreticalCellID[TargetX, TargetY] = TheoreticalCellID[(int)Tile.x, (int)Tile.y];
-			TheoreticalCellID[(int)Tile.x, (int)Tile.y] = 0;
-		}
+		TheoreticalCellID[TargetX, TargetY] = TheoreticalCellID[(int)Tile.x, (int)Tile.y];
+		TheoreticalCellID[(int)Tile.x, (int)Tile.y] = 0;
 
 		return true; // Successful push!
-		
 	}
 
 	public void Stun(Vector2 Position)
@@ -490,6 +472,8 @@ public class Board : Node2D
 		{
 			Cell[(int)A.To.x,(int)A.To.y].SetCharacter(MoveChars[index++]);
 		}
+		
+		LoadTheoretical();
 	}
 
 
@@ -546,7 +530,5 @@ public class Board : Node2D
 
 		}
 	}
-
-	
 
 }
