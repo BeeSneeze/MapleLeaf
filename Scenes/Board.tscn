@@ -49,4 +49,5 @@ rotation = 0.785398
 scale = Vector2( 0.3, 0.4 )
 z_index = 100
 frames = SubResource( 2 )
+frame = 1
 playing = true

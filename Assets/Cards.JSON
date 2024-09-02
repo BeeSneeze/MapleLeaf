@@ -247,8 +247,8 @@
     "Jab":
     {   
         "CardNum": "203",
-        "MatrixName": "Line",
-        "Range": "3",
+        "MatrixName": "Cone",
+        "Range": "1",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
@@ -262,8 +262,8 @@
     "Haymaker":
     {   
         "CardNum": "204",
-        "MatrixName": "Line",
-        "Range": "3",
+        "MatrixName": "Cone",
+        "Range": "1",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
