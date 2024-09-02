@@ -17,11 +17,16 @@ public class Board : Node2D
 
 	private int[,] TheoreticalCellID = new int[8,8];
 
+	private Node2D WASD;
+	private Node2D HelpArrow;
+
 	private GameManager GM;
 
 	public override void _Ready()
 	{
 		GM = (GameManager)GetParent();
+
+		WASD = (Node2D)GetNode("WASD");
 
 		// Load Character Info
 		File Reader = new File();
@@ -122,10 +127,19 @@ public class Board : Node2D
 	// Visualize what a card does
 	public void ShowMatrix(bool[,] InMat, Card Card)
 	{
-		Vector2 Center = GetCharPos(Card.PlayerID);
-
+		
 		ClearMarkers();
+
+		Vector2 Center = GetCharPos(Card.PlayerID);
 		Patch(InMat, ActionMatrix, Center);
+
+		// Show the helper keyboard if you can rotate the matrix
+		if(Card.MatrixName != "Global" && Card.MatrixName != "Manhattan" && Card.MatrixName != "Cardinal" && Card.MatrixName != "Full")
+		{
+			WASD.Show();
+			WASD.Position = new Vector2(-250,-267) + Center*88f;
+		}
+		
 
 		if(Card.MatrixName != "Global")
 		{
@@ -258,6 +272,7 @@ public class Board : Node2D
 	// Remove all of the markers, and resets the target list
 	public void ClearMarkers()
 	{
+		WASD.Hide();
 		TargetList = new List<Vector2>();
 		ActionMatrix = new bool[8,8];
 		QueuedMoves = new List<Arrow>();

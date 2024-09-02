@@ -174,8 +174,6 @@ public class Card : Sprite
 			{
 				CM.DiscardCard(this);
 			}
-
-			
 		}
 		else // Still have some amount of uses left
 		{
@@ -186,6 +184,7 @@ public class Card : Sprite
 		}
 	}
 
+	// Show a visual effect of some kind
 	private void PlayEffect(string InString)
 	{
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Effect");
@@ -221,6 +220,7 @@ public class Card : Sprite
 		Big = InBool;
 	}
 
+	// Skip a card for this turn, making it unplayable
 	public void Skip(bool Unplayable = false)
 	{
 		Sprite Overlay = (Sprite)GetNode("Overlay");
@@ -235,6 +235,7 @@ public class Card : Sprite
 
 
 	// MOUSE ACTIONS
+
 
 	public void LeftClick()
 	{

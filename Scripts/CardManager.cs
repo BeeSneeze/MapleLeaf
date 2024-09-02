@@ -82,6 +82,7 @@ public class CardManager : Node2D
 		}
 	}
 
+	// Update the labels at the top of the Card Manager
 	private void UpdateLabels()
 	{
 		if(DrawLabel != null)
@@ -134,10 +135,7 @@ public class CardManager : Node2D
 			case "Support":
 				NewCard.PlayerID = 303;
 			break;
-			case "Rat":
-				NewCard.OwnerID = 520; // TEMP ID
-				// Player ID assigned further down
-			break;
+			// RAT Player ID assigned further down
 		}
 
 		NewCard.CardID = InID;
@@ -197,7 +195,7 @@ public class CardManager : Node2D
 				}
 				else
 				{
-					CC.OwnerID = 101; // TEMP ID
+					CC.OwnerID = 520; // TEMP ID
 				}
 				
 			break;
