@@ -21,6 +21,7 @@ public class Card : Sprite
 	public string MatrixName {get; private set;}
 	public int Range {get; private set;}
 	public int Uses {get; private set;}
+	public int Draws {get; private set;}
 	public string TargetType {get; private set;}
 	public string TargetCell {get; private set;}
 	public string FlavorText {get; private set;}
@@ -34,6 +35,7 @@ public class Card : Sprite
 		MatrixName = CardInfo.MatrixName;
 		Range = int.Parse(CardInfo.Range);
 		Uses = int.Parse(CardInfo.Uses);
+		Draws = int.Parse(CardInfo.Draws);
 		TargetType = CardInfo.TargetType;
 		TargetCell = CardInfo.TargetCell;
 		FlavorText = CardInfo.FlavorText;
@@ -108,6 +110,21 @@ public class Card : Sprite
 		// Set the amount of uses of the card
 		Label ULabel = (Label)GetNode("Uses");
 		ULabel.Text = Uses.ToString();
+
+		Label MLabel = (Label)GetNode("MiddleLabel");
+		if(Draws > 0) // If it has limited draws, show the draws
+		{
+			MLabel.Text = Draws.ToString();
+		}
+		else if(OwnerID % 100 > 4) // If it's a rat, show the name corresponding to the ID
+		{
+			MLabel.Text = OwnerID.ToString();
+		}
+		else
+		{
+			MLabel.Text = "";
+		}
+
 	}
 
 	// Visualizes what a card does, without playing it
