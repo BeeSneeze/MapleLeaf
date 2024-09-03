@@ -39,7 +39,7 @@ rotation = 0.349066
 scale = Vector2( 0.6, 0.6 )
 z_index = 100
 frames = SubResource( 1 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="HelpArrow" type="AnimatedSprite" parent="."]
@@ -49,5 +49,4 @@ rotation = 0.785398
 scale = Vector2( 0.3, 0.4 )
 z_index = 100
 frames = SubResource( 2 )
-frame = 1
 playing = true

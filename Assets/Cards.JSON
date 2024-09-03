@@ -499,9 +499,23 @@
         {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
         {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
     },
-    "The Lawyer":
+    "The Spark":
     {   
         "CardNum": "603",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "Draws": "3",
+        "TargetType": "Single",
+        "TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "More powerful than a AA battery!",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatSparky"}],
+        "SecondaryList":  []
+    },
+    "The Lawyer":
+    {   
+        "CardNum": "606",
         "MatrixName": "Global",
         "Range": "7",
         "Uses": "1",

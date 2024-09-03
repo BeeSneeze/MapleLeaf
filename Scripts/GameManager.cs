@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 
 public class GameManager : Node2D
@@ -24,6 +25,8 @@ public class GameManager : Node2D
 	public string Turn = "Player"; // Whose turn is it? RatMove, Player, RatAttack, None
 
 	public List<int> RatIDList = new List<int>();
+
+	public Dictionary<int, string> RatIDToName = new Dictionary<int,string>(); // Used to convert from a rat id to a rat name
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -284,7 +287,7 @@ public class GameManager : Node2D
 							CMSupport.AddCard(Effect[1]);
 						break;
 						case "Rat":
-							CMRat.AddCard(Effect[1]);
+							CMRat.AddCard(Effect[1], RatIDList.LastOrDefault());
 						break;
 					}
 					

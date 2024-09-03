@@ -150,6 +150,11 @@ public class CardManager : Node2D
 
 			Random rnd = new Random();
 			NewCard.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
+			if(GM.RatIDList.Contains(NewCard.OwnerID))
+			{
+				NewCard.RatName = GM.RatIDToName[NewCard.OwnerID];
+			}
+			
 
 
 			// CARD VISUALS
@@ -169,7 +174,7 @@ public class CardManager : Node2D
 	}
 
 	// Adds a new card to the deck, by name
-	public void AddCard(string CardName, string RatName = "")
+	public void AddCard(string CardName, int RatID = 0)
 	{
 		int NewID = GM.NewCardID(int.Parse(AllCardsDict[CardName].CardNum));
 
@@ -189,9 +194,10 @@ public class CardManager : Node2D
 				CC.OwnerID = 303;
 			break;
 			case "Rat":
-				if(RatName != "")
+				if(RatID != 0)
 				{
-
+					CC.OwnerID = RatID;
+					GD.Print("FOUND RAT ID");
 				}
 				else
 				{

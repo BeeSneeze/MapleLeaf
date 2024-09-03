@@ -40,13 +40,19 @@
     {
         "ID": "11",
         "MaxHP": "3",
-        "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
+        "Names":["Jim", "Bob", "Cal", "Max", "Rob", "Mark"]
     },
     "RatLawyer":
     {
         "ID": "12",
         "MaxHP": "3",
         "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
+    },
+    "RatSparky":
+    {
+        "ID": "13",
+        "MaxHP": "3",
+        "Names":["Zip", "Zap", "Speedy"]
     },
     "Mountain":
     {

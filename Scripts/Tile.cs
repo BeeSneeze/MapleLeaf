@@ -139,6 +139,7 @@ public class Tile : Node2D
 
 		if(Char.ID % 100 > 9 && Char.ID % 100 < 50)
 		{
+			GM.RatIDToName.Add(Char.ID, Char.Name);
 			GM.RatIDList.Add(Char.ID);
 		}
 

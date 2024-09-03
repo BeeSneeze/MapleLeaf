@@ -22,6 +22,7 @@ public class Card : Sprite
 	public int Range {get; private set;}
 	public int Uses {get; private set;}
 	public int Draws {get; private set;}
+	public string RatName;
 	public string TargetType {get; private set;}
 	public string TargetCell {get; private set;}
 	public string FlavorText {get; private set;}
@@ -116,9 +117,9 @@ public class Card : Sprite
 		{
 			MLabel.Text = Draws.ToString();
 		}
-		else if(OwnerID % 100 > 4) // If it's a rat, show the name corresponding to the ID
+		else if(RatName != "") // If it's a rat, show the name corresponding to the ID
 		{
-			MLabel.Text = OwnerID.ToString();
+			MLabel.Text = RatName;
 		}
 		else
 		{
