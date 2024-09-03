@@ -77,6 +77,10 @@ public class Card : Sprite
 			{
 				case "Move":
 					ChosenAbility = "Move";
+					if(((CardManager)GetParent()).OwnerName == "Rat")
+					{
+						ChosenAbility = "MoveRat";
+					}
 				break;
 				case "Stun":
 					ChosenAbility = "Harm";
