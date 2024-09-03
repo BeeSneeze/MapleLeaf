@@ -122,7 +122,8 @@ public class CardManager : Node2D
 			
 		Card NewCard = (Card)scene.Instance();
 
-		NewCard.OwnerID = ActiveCards[InID].OwnerID; 
+		NewCard.OwnerID = ActiveCards[InID].OwnerID;
+		
 
 		switch(OwnerName)
 		{
@@ -140,6 +141,7 @@ public class CardManager : Node2D
 
 		NewCard.CardID = InID;
 		NewCard.CardName = IdToNameConvert[InID % 1000];
+		NewCard.Draws = int.Parse(AllCardsDict[NewCard.CardName].Draws) - ActiveCards[InID].DrawCount; 
 
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
 
@@ -180,8 +182,8 @@ public class CardManager : Node2D
 
 		// Compact card notation
 		CompactCard CC = new CompactCard();
+		CC.DrawCount = 0;
 		CC.ID = NewID;
-		CC.TotalDraws = 0;
 		switch(OwnerName)
 		{
 			case "Soldier":
@@ -227,10 +229,6 @@ public class CardManager : Node2D
 		Deck.Remove(TopCard);
 		Hand.Add(TopCard);
 
-		CompactCard CC = ActiveCards[TopCard];
-		CC.TotalDraws += 1;
-		ActiveCards[TopCard] = CC;
-
 		CreateCardObject(TopCard);
 		UpdateLabels();
 	}
@@ -238,6 +236,10 @@ public class CardManager : Node2D
 	// Discards a specific card
 	public void DiscardCard(Card InCard)
 	{
+		CompactCard CC = ActiveCards[InCard.CardID];
+		CC.DrawCount += 1;
+		ActiveCards[InCard.CardID] = CC;
+
 		Hand.Remove(InCard.CardID);
 		Discard.Add(InCard.CardID);
 		HandCards.Remove(InCard);

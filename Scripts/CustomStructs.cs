@@ -24,7 +24,7 @@ public struct CompactCard
 {
 	public int ID;		// ID for the card
 	public int OwnerID; 	// Who owns this card?
-	public int TotalDraws; 	// How many times can this card be drawn before it is destroyed?
+	public int DrawCount; 	// How many times can this card be drawn before it is exhausted?
 };
 
 // A specific ability, stored in a card, to be triggered by the game manager and board

@@ -21,7 +21,7 @@ public class Card : Sprite
 	public string MatrixName {get; private set;}
 	public int Range {get; private set;}
 	public int Uses {get; private set;}
-	public int Draws {get; private set;}
+	public int Draws;
 	public string RatName;
 	public string TargetType {get; private set;}
 	public string TargetCell {get; private set;}
@@ -36,7 +36,6 @@ public class Card : Sprite
 		MatrixName = CardInfo.MatrixName;
 		Range = int.Parse(CardInfo.Range);
 		Uses = int.Parse(CardInfo.Uses);
-		Draws = int.Parse(CardInfo.Draws);
 		TargetType = CardInfo.TargetType;
 		TargetCell = CardInfo.TargetCell;
 		FlavorText = CardInfo.FlavorText;
@@ -59,6 +58,14 @@ public class Card : Sprite
 		// Set the flavortext
 		RichTextLabel RichLabel = (RichTextLabel)GetNode("FlavorText");
 		RichLabel.AppendBbcode("[center]" + FlavorText + "\n [u]" + AbilityText);
+
+		if(Draws == 1)
+		{
+			Ability A = new Ability();
+			A.Name = "Exhaust";
+			A.Effect = "Self";
+			SecondaryList.Add(A);
+		}
 
 		UpdateLabels();
 
