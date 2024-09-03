@@ -155,7 +155,6 @@ public class AI : Node2D
 				}
 				if(A.Name == "Spawn")
 				{
-					GD.Print("FOUND SPAWN CARD!");
 					C.LeftClick();
 					ActiveCard = C;
 					return 2;

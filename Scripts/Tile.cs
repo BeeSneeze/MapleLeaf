@@ -167,6 +167,8 @@ public class Tile : Node2D
 			PlayEffect("Step");
 		}
 
+		AnimSpr.FlipH = X < 4 && Char.ID % 100 < 50;
+
 		// Character IDs: 0 = Nothing, 1-9 = friendly characters, 10-49 = enemy characters, 50+ = misc.
 		switch(Char.ID % 100)
 		{

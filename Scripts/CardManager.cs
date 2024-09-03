@@ -199,7 +199,6 @@ public class CardManager : Node2D
 				if(RatID != 0)
 				{
 					CC.OwnerID = RatID;
-					GD.Print("FOUND RAT ID");
 				}
 				else
 				{
