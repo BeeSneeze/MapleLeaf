@@ -261,10 +261,15 @@ public class GameManager : Node2D
 							PushDirection = "E";
 						break;
 					}
-					
-					// GOTTA FIGURE OUT HOW TO RESOLVE MULTIPLE PUSHES AT ONCE
-					Board.Push(Board.TargetList[0], Board.TargetList[0], PushDirection);
+					foreach(Vector2 Target in Board.TargetList)
+					{	
+						// GOTTA FIGURE OUT HOW TO RESOLVE MULTIPLE PUSHES AT ONCE
+						Board.Push(Target, Target, PushDirection);
+						
+					}
+
 					Board.MoveQueue();
+					
 				break;
 			}
 		}

@@ -262,11 +262,11 @@
     "Haymaker":
     {   
         "CardNum": "204",
-        "MatrixName": "Punch",
-        "Range": "2",
+        "MatrixName": "Cone",
+        "Range": "1",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Character",
+        "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
         "FlavorText": "KNOCKOUT!",
         "AbilityList":  [
