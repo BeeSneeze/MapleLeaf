@@ -7,6 +7,10 @@ public class AI : Node2D
 
 	private int[,] MoveRat = new int[8,8];
 
+	private float Timer = 0;
+	static float TurnTime = 0.3f; // How long inbetween AI Clicks
+	static float RandomVariation = 2.5f;
+
 	private GameManager GM;
 	private Board Board;
 	private CardManager CM;
@@ -21,9 +25,12 @@ public class AI : Node2D
 	private bool MoveMode = false;
 	private bool SuccessfulAction = false;
 
+	private Random rnd;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		rnd = new Random();
 		GM = (GameManager)GetParent();
 		CM = (CardManager)GM.GetNode("CardsRat");
 		Board = (Board)GM.GetNode("Board");
@@ -31,8 +38,7 @@ public class AI : Node2D
 		EvaluateBoard();
 	}
 
-	float Timer = 0;
-	static float TurnTime = 0.3f; // How long inbetween AI Clicks
+	
 
 	// Called every frame
 	public override void _Process(float delta)
@@ -176,7 +182,7 @@ public class AI : Node2D
 	{
 		bool SuccessfulMove = false;
 		Vector2 BestMove = new Vector2(0,0);
-		int BestValue = 1000;
+		float BestValue = 1000.0f;
 
 		for(int x = 0; x < 8; x++)
 		{
@@ -184,9 +190,9 @@ public class AI : Node2D
 			{
 				if(Board.ActionMatrix[x,y])
 				{
-					if(BestValue > MoveRat[x,y])
+					if(BestValue > (float)MoveRat[x,y] - (float)rnd.NextDouble() * RandomVariation)
 					{
-						BestValue = MoveRat[x,y];
+						BestValue = (float)MoveRat[x,y] - (float)rnd.NextDouble() * RandomVariation;
 						BestMove = new Vector2(x,y);
 						SuccessfulMove = true;
 					}
@@ -203,7 +209,7 @@ public class AI : Node2D
 	{
 		bool SuccessfulSpawn = false;
 		Vector2 BestMove = new Vector2(0,0);
-		int BestValue = -1000;
+		float BestValue = -1000.0f;
 
 		for(int x = 0; x < 8; x++)
 		{
@@ -211,9 +217,9 @@ public class AI : Node2D
 			{
 				if(Board.ActionMatrix[x,y])
 				{
-					if(BestValue < MoveRat[x,y])
+					if(BestValue < (float)rnd.NextDouble() * RandomVariation + (float)MoveRat[x,y])
 					{
-						BestValue = MoveRat[x,y];
+						BestValue = (float)rnd.NextDouble() * RandomVariation + (float)MoveRat[x,y];
 						BestMove = new Vector2(x,y);
 						SuccessfulSpawn = true;
 					}
