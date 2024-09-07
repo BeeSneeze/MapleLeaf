@@ -150,8 +150,7 @@
         "AbilityText": "Damage 1",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"},
-            {"Name":"Push", "Effect": "N"}],
+            {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Delta":
@@ -346,6 +345,19 @@
     "Bribe":
     {   
         "CardNum": "307",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "All is fair in love and war",
+        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "Grease":
+    {   
+        "CardNum": "308",
         "MatrixName": "Full",
         "Range": "2",
         "Uses": "2",
