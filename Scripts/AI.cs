@@ -6,10 +6,11 @@ public class AI : Node2D
 {
 
 	private int[,] MoveRat = new int[8,8];
+	private int[,] SpawnRat = new int[8,8];
 
 	private float Timer = 0;
 	static float TurnTime = 0.3f; // How long inbetween AI Clicks
-	static float RandomVariation = 2.5f;
+	static float RandomVariation = 0.1f;
 
 	private GameManager GM;
 	private Board Board;
@@ -81,11 +82,11 @@ public class AI : Node2D
 			// CLICK TWO
 			if(CardFlag == 1)
 			{
-				SuccessfulAction = MoveBest();
+				SuccessfulAction = MoveBest(MoveRat);
 			}
 			else if (CardFlag == 2)
 			{
-				SuccessfulAction = SpawnBest();
+				SuccessfulAction = MoveBest(SpawnRat);
 			}
 
 			if(!SuccessfulAction)
@@ -117,6 +118,7 @@ public class AI : Node2D
 	{
 		List<Vector2> PatchPosList = new List<Vector2>();
 		MoveRat = new int[8,8];
+		SpawnRat = new int[8,8];
 		for(int x = 0; x < 8; x++)
 		{
 			for(int y = 0; y < 8; y++)
@@ -130,10 +132,13 @@ public class AI : Node2D
 			}
 		}
 
-		LoadPatch("Move");
+		
 
 		foreach(Vector2 Pos in PatchPosList)
 		{
+			LoadPatch("Move/SpawnNormal");
+			PatchRatMove(RatPatch, SpawnRat, Pos);
+			LoadPatch("Move/MoveNormal");
 			PatchRatMove(RatPatch, MoveRat, Pos);
 		}
 
@@ -178,7 +183,7 @@ public class AI : Node2D
 
 
 	// Move the closest possible to friendlies
-	public bool MoveBest()
+	public bool MoveBest(int[,] InMat)
 	{
 		bool SuccessfulMove = false;
 		Vector2 BestMove = new Vector2(0,0);
@@ -190,9 +195,12 @@ public class AI : Node2D
 			{
 				if(Board.ActionMatrix[x,y])
 				{
-					if(BestValue > (float)MoveRat[x,y] - (float)rnd.NextDouble() * RandomVariation)
+					float RandomVal = RandomVariation/2.0f - ((float)rnd.NextDouble() * RandomVariation);
+					
+					if(BestValue >= (float)InMat[x,y] + RandomVal)
 					{
-						BestValue = (float)MoveRat[x,y] - (float)rnd.NextDouble() * RandomVariation;
+						BestValue = (float)InMat[x,y] + RandomVal;
+						GD.Print(RandomVal);
 						BestMove = new Vector2(x,y);
 						SuccessfulMove = true;
 					}
@@ -203,34 +211,6 @@ public class AI : Node2D
 		ClickTile(BestMove);
 		return SuccessfulMove;
 	}
-
-	// Spawn the furthest away from friendlies
-	public bool SpawnBest()
-	{
-		bool SuccessfulSpawn = false;
-		Vector2 BestMove = new Vector2(0,0);
-		float BestValue = -1000.0f;
-
-		for(int x = 0; x < 8; x++)
-		{
-			for(int y = 0; y < 8; y++)
-			{
-				if(Board.ActionMatrix[x,y])
-				{
-					if(BestValue < (float)rnd.NextDouble() * RandomVariation + (float)MoveRat[x,y])
-					{
-						BestValue = (float)rnd.NextDouble() * RandomVariation + (float)MoveRat[x,y];
-						BestMove = new Vector2(x,y);
-						SuccessfulSpawn = true;
-					}
-				}
-			}
-		}
-
-		ClickTile(BestMove);
-		return SuccessfulSpawn;
-	}
-
 
 	public void PatchRatMove(int[,] InMat, int[,] OutMat, Vector2 CPos)
 	{
