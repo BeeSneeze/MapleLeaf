@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -48,6 +48,8 @@
 [ext_resource path="res://Assets/Visuals/Characters/RatNormal2.png" type="Texture" id=46]
 [ext_resource path="res://Assets/Visuals/Characters/SparkyRat1.png" type="Texture" id=47]
 [ext_resource path="res://Assets/Visuals/Characters/SparkyRat2.png" type="Texture" id=48]
+[ext_resource path="res://Assets/Visuals/Markers/Support2.png" type="Texture" id=49]
+[ext_resource path="res://Assets/Visuals/Markers/Support3.png" type="Texture" id=50]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -111,10 +113,10 @@ animations = [ {
 "name": "Spawn",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ) ],
+"frames": [ ExtResource( 33 ), ExtResource( 33 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ) ],
 "loop": true,
 "name": "Support",
-"speed": 5.0
+"speed": 15.0
 } ]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -246,20 +248,21 @@ valign = 1
 [node name="HealthBar" type="Sprite" parent="."]
 visible = false
 self_modulate = Color( 1, 1, 1, 0.862745 )
-position = Vector2( 30, 30 )
+position = Vector2( 0, 30 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="HealthBar"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -73.0
-margin_top = -75.0
-margin_right = -19.0
-margin_bottom = -9.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -80.0
+margin_top = -25.0
+margin_right = -80.0
+margin_bottom = -18.0
 theme = ExtResource( 25 )
 text = "1"
 align = 1
 valign = 1
+
+[connection signal="mouse_entered" from="TileClick" to="TileClick" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="TileClick" to="TileClick" method="OnMouseExit"]

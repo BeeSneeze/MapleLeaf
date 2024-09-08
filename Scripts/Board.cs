@@ -349,7 +349,7 @@ public class Board : Node2D
 		Character Char1 = Cell[(int)Vec1.x,(int)Vec1.y].Char;
 		Character Char2 = Cell[(int)Vec2.x,(int)Vec2.y].Char;
 
-		if(Char1.ID % 100 == 4 || Char2.ID % 100 == 4)
+		if(Char1.ID % 100 == 51 || Char2.ID % 100 == 51)
 		{
 			return; // Cities are immovable
 		}
@@ -405,7 +405,7 @@ public class Board : Node2D
 			return false; // Out of bounds, hit the board border
 		}
 
-		if(TheoreticalCellID[TargetX,TargetY] % 100 > 49 || TheoreticalCellID[TargetX,TargetY] % 100 == 4)
+		if(TheoreticalCellID[TargetX,TargetY] % 100 > 49)
 		{
 			GD.Print("SOLID OBJECT");
 			GD.Print(OrignalTile);

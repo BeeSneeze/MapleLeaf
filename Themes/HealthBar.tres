@@ -3,13 +3,13 @@
 [ext_resource path="res://Themes/Keep Cheese.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 60
-outline_size = 5
-outline_color = Color( 0.254902, 0.239216, 0.0470588, 1 )
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
 [resource]
 default_font = SubResource( 1 )
-Label/colors/font_color = Color( 0.980392, 1, 0.756863, 1 )
+Label/colors/font_color = Color( 0, 1, 0, 1 )

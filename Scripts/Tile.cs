@@ -51,7 +51,7 @@ public class Tile : Node2D
 		
 		if(Char.MaxHP == 0) // Character cannot be damaged
 		{
-			if(Char.ID % 100 == 4) // Exception for cities
+			if(Char.ID % 100 == 51) // Exception for cities
 			{
 				PlayEffect("Explosion"); 
 			}
@@ -186,10 +186,6 @@ public class Tile : Node2D
 			case 3:
 				AnimSpr.Animation = "Support";
 			break;
-			case 4:
-				LabelBox.Hide();
-				AnimSpr.Animation = "City";
-			break;
 			case 10:
 				AnimSpr.Animation = "RatTutorial";
 			break;
@@ -205,6 +201,10 @@ public class Tile : Node2D
 			case 50:
 				LabelBox.Hide();
 				AnimSpr.Animation = "Mountain";
+			break;
+			case 51:
+				LabelBox.Hide();
+				AnimSpr.Animation = "City";
 			break;
 		}
 	}
@@ -322,12 +322,21 @@ public class Tile : Node2D
 
 	public void MouseEnter()
 	{
-
+		GD.Print("ENTER");
+		if(Char.MaxHP != 0)
+		{
+			LabelBox.Show();
+			HPNode.Show();
+		}
 	}
 
 	public void MouseExit()
 	{
-
+		if(Char.MaxHP != 0)
+		{
+			LabelBox.Hide();
+			HPNode.Hide();
+		}
 	}
 	
 }

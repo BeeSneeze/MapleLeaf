@@ -1,12 +1,17 @@
 using Godot;
 using System;
 
+
+
+
+
 public class Click : Control
 {
 	public override void _GuiInput(InputEvent @event) // On mouse clicks.
 	{
+		
 		var Parent = GetParent();
-
+		
 		if (@event is InputEventMouseButton mb)
 		{
 			// Left mouse button
@@ -18,5 +23,17 @@ public class Click : Control
 				Parent.CallDeferred("RightClick");
 			
 		}
+	}
+
+	void OnMouseEntered()
+	{
+		var Parent = GetParent();
+		Parent.CallDeferred("MouseEnter");
+	}
+
+	void OnMouseExit()
+	{
+		var Parent = GetParent();
+		Parent.CallDeferred("MouseExit");
 	}
 }

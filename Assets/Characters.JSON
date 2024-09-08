@@ -24,12 +24,6 @@
         "MaxHP": "5",
         "Names":["Steph", "Stephanie", "Stacy"]
     },
-    "City":
-    {
-        "ID": "4",
-        "MaxHP": "0",
-        "Names":["Steve", "Steven"]
-    },
     "RatTutorial":
     {
         "ID": "10",
@@ -59,5 +53,11 @@
         "ID": "50",
         "MaxHP": "0",
         "Names":["Mountain"]
+    },
+    "City":
+    {
+        "ID": "51",
+        "MaxHP": "0",
+        "Names":["Steve", "Steven"]
     }
 }
