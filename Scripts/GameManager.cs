@@ -89,16 +89,39 @@ public class GameManager : Node2D
 		GD.Print("ATTEMPTED TO PLAY SFX: " + SFXName);
 	}
 
-	//  RatMove->Player->RatAttack->TurnChange->RatMove etc.
+	//  RatMove->Player->RatAttack->Draw->RatMove etc.
 	public void SetMode(string ModeName)
 	{
 		GD.Print("SET MODE: " + ModeName);
 		Turn = ModeName;
-		if(ModeName == "RatMove")
+		switch(ModeName)
 		{
-			AI.StartMoveMode();
+			case "RatMove":
+				CMSoldier.UnClick();
+				CMSniper.UnClick();
+				CMSupport.UnClick();
+				CMRat.ReClick();
+				AI.StartMoveMode();
+			break;
+			case "Player":
+				CMSoldier.ReClick();
+				CMSniper.ReClick();
+				CMSupport.ReClick();
+				CMRat.UnClick();
+			break;
+			case "RatAttack":
+				CMSoldier.UnClick();
+				CMSniper.UnClick();
+				CMSupport.UnClick();
+				CMRat.ReClick();
+			break;
+			case "Draw":
+				CMSoldier.NewTurn();
+				CMSniper.NewTurn();
+				CMSupport.NewTurn();
+				CMRat.NewTurn();
+			break;
 		}
-		
 	}
 
 
@@ -112,24 +135,6 @@ public class GameManager : Node2D
 			{
 				switch(eventKey2.Scancode)
 				{
-					// DEBUG CARD DRAWS
-					case (int)KeyList.Z:
-						GD.Print("ATTEMPTED CARD DRAW SOLDIER");
-						CMSoldier.NewTurn();
-					break;
-					case (int)KeyList.X:
-						GD.Print("ATTEMPTED CARD DRAW SNIPER");
-						CMSniper.NewTurn();
-					break;
-					case (int)KeyList.C:
-						GD.Print("ATTEMPTED CARD DRAW SUPPORT");
-						CMSupport.NewTurn();
-					break;
-					case (int)KeyList.V:
-						GD.Print("ATTEMPTED CARD DRAW RAT");
-						CMRat.NewTurn();
-					break;
-
 					// DEBUG SWITCH GAME MODES
 					case (int)KeyList.G:
 						SetMode("RatMove");
@@ -141,6 +146,9 @@ public class GameManager : Node2D
 						SetMode("RatAttack");
 					break;
 					case (int)KeyList.K:
+						SetMode("Draw");
+					break;
+					case (int)KeyList.L:
 						SetMode("None");
 					break;
 
@@ -191,10 +199,18 @@ public class GameManager : Node2D
 	// Prepares a card for play
 	public void PrepPlay(Card Card)
 	{
-		CMSoldier.UnClick();
-		CMSniper.UnClick();
-		CMSupport.UnClick();
-		CMRat.UnClick();
+		if(Turn == "Player")
+		{
+			CMSoldier.UnClick();
+			CMSniper.UnClick();
+			CMSupport.UnClick();
+			
+		}
+		else
+		{
+			CMRat.UnClick();
+		}
+		
 
 		PrepMode = true;
 		Rot = "Up";
@@ -204,10 +220,17 @@ public class GameManager : Node2D
 	// Enables clicking for all cards again, and clears the board
 	public void UnPrep()
 	{
-		CMSoldier.ReClick();
-		CMSniper.ReClick();
-		CMSupport.ReClick();
-		CMRat.ReClick();
+		if(Turn == "Player")
+		{
+			CMSoldier.ReClick();
+			CMSniper.ReClick();
+			CMSupport.ReClick();
+			
+		}
+		else
+		{
+			CMRat.ReClick();
+		}
 
 		Board.ClearMarkers();
 		CurrentLoaded = false;

@@ -157,22 +157,38 @@ public class CardManager : Node2D
 				NewCard.RatName = GM.RatIDToName[NewCard.OwnerID];
 			}
 			
-
-
-			// CARD VISUALS
-			int Column = ((Hand.Count-1)%4);
-			int Row = ((Hand.Count-1) - ((Hand.Count-1)%4)) / 4;
-			// Rat uses several rows for their cards
-			NewCard.Translate(new Vector2(Column*120-25,-220 + Row*240-30));
 		}
-		else
-		{
-			// Everyone else, sandwich on one row
-			NewCard.Translate(new Vector2((Hand.Count-1)*120-25,-12));
-		}
+
+		NewCard.Translate(new Vector2(335,-12));
+
+		UpdateCardPositions();
 		
 		AddChild(NewCard);
 		NewCard.BigMode(false);
+	}
+
+	// Moves the cards around to suitable positions
+	public void UpdateCardPositions()
+	{
+		int index = 1;
+		foreach(Card C in HandCards)
+		{
+			Node2D CNode = (Node2D)C;
+			if(OwnerName == "Rat")
+			{
+				int Column = ((index-1)%4);
+				int Row = ((index-1) - ((index-1)%4)) / 4;
+				// Rat uses several rows for their cards
+				SceneTreeTween tween = GetTree().CreateTween();
+				tween.TweenProperty(CNode, "position", new Vector2(Column*120-25,-220 + Row*240-30), 0.15f);
+			}
+			else
+			{
+				SceneTreeTween tween = GetTree().CreateTween();
+				tween.TweenProperty(CNode, "position", new Vector2((4.0f/(float)Hand.Count) * (index-1)*120-25,-12), 0.15f);
+			}
+			index++;
+		}
 	}
 
 	// Adds a new card to the deck, by name
@@ -230,6 +246,7 @@ public class CardManager : Node2D
 
 		CreateCardObject(TopCard);
 		UpdateLabels();
+		UpdateCardPositions();
 	}
 
 	// Discards a specific card
@@ -245,6 +262,7 @@ public class CardManager : Node2D
 
 		InCard.QueueFree();
 		UpdateLabels();
+		UpdateCardPositions();
 	}
 
 	// Completely remove a card from play
@@ -259,6 +277,7 @@ public class CardManager : Node2D
 
 		InCard.QueueFree();
 		UpdateLabels();
+		UpdateCardPositions();
 	}
 
 	// BIG MODE BIG MODE BIG MODE BIG MODE BIG MODE
