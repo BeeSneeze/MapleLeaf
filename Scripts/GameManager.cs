@@ -120,6 +120,7 @@ public class GameManager : Node2D
 				CMSniper.NewTurn();
 				CMSupport.NewTurn();
 				CMRat.NewTurn();
+				CMRat.UnClick();
 			break;
 		}
 	}

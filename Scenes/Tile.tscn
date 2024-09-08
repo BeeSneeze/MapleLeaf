@@ -113,10 +113,10 @@ animations = [ {
 "name": "Spawn",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ), ExtResource( 33 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 33 ), ExtResource( 33 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ), ExtResource( 33 ) ],
 "loop": true,
 "name": "Support",
-"speed": 15.0
+"speed": 12.0
 } ]
 
 [sub_resource type="SpriteFrames" id=1]

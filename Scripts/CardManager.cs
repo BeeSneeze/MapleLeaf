@@ -180,12 +180,12 @@ public class CardManager : Node2D
 				int Row = ((index-1) - ((index-1)%4)) / 4;
 				// Rat uses several rows for their cards
 				SceneTreeTween tween = GetTree().CreateTween();
-				tween.TweenProperty(CNode, "position", new Vector2(Column*120-25,-220 + Row*240-30), 0.15f);
+				tween.TweenProperty(CNode, "position", new Vector2(Column*120-25,-220 + Row*240-30), 0.20f);
 			}
 			else
 			{
 				SceneTreeTween tween = GetTree().CreateTween();
-				tween.TweenProperty(CNode, "position", new Vector2((4.0f/(float)Hand.Count) * (index-1)*120-25,-12), 0.15f);
+				tween.TweenProperty(CNode, "position", new Vector2((4.0f/(float)Hand.Count) * (index-1)*120-25,-12), 0.20f);
 			}
 			index++;
 		}
