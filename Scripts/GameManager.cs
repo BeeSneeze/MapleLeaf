@@ -10,6 +10,7 @@ public class GameManager : Node2D
 	private AI AI;
 	
 	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
+	private SFXManager SFX;
 	private int CardIDCounter = 0;
 	private int CharacterIDCounter = 0;
 	private Dictionary<string,List<string>> Decks;
@@ -31,6 +32,7 @@ public class GameManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		SFX = (SFXManager)GetNode("SFX");
 		Board = (Board)GetNode("Board");
 		CMSoldier = (CardManager)GetNode("CardsSoldier");
 		CMSniper = (CardManager)GetNode("CardsSniper");
@@ -81,6 +83,13 @@ public class GameManager : Node2D
 		}
 	}
 
+	public void PlaySFX(string SFXName)
+	{
+		SFX.PlaySFX(SFXName);
+		GD.Print("ATTEMPTED TO PLAY SFX: " + SFXName);
+	}
+
+	//  RatMove->Player->RatAttack->TurnChange->RatMove etc.
 	public void SetMode(string ModeName)
 	{
 		GD.Print("SET MODE: " + ModeName);
@@ -269,6 +278,7 @@ public class GameManager : Node2D
 					}
 
 					Board.MoveQueue();
+					PlaySFX("Punch");
 					
 				break;
 			}
