@@ -22,6 +22,8 @@ public class CardManager : Node2D
 	private Dictionary<int, string> IdToNameConvert = new Dictionary<int, string>(); // Used to convert from ID to name
 	private Dictionary<int, CompactCard> ActiveCards = new Dictionary<int, CompactCard>(); // Contains supplementary info about all the cards managed by this class
 
+	private SceneTreeTween CTween;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -136,7 +138,15 @@ public class CardManager : Node2D
 			case "Support":
 				NewCard.PlayerID = 303;
 			break;
-			// RAT Player ID assigned further down
+			case "Rat":
+				// RAT ID ASSIGNMENT
+				Random rnd = new Random();
+				NewCard.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
+				if(GM.RatIDList.Contains(NewCard.OwnerID))
+				{
+					NewCard.RatName = GM.RatIDToName[NewCard.OwnerID];
+				}
+			break;
 		}
 
 		NewCard.CardID = InID;
@@ -144,33 +154,18 @@ public class CardManager : Node2D
 		NewCard.Draws = int.Parse(AllCardsDict[NewCard.CardName].Draws) - ActiveCards[InID].DrawCount; 
 
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
-
 		HandCards.Add(NewCard);
-		if(OwnerName == "Rat")
-		{
-			// RAT ID ASSIGNMENT
 
-			Random rnd = new Random();
-			NewCard.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
-			if(GM.RatIDList.Contains(NewCard.OwnerID))
-			{
-				NewCard.RatName = GM.RatIDToName[NewCard.OwnerID];
-			}
-			
-		}
-
-		NewCard.Translate(new Vector2(335,-12));
-
+		NewCard.Translate(new Vector2(365,-202));
 		UpdateCardPositions();
-		
 		AddChild(NewCard);
-		NewCard.BigMode(false);
 	}
 
 	// Moves the cards around to suitable positions
 	public void UpdateCardPositions()
 	{
 		int index = 1;
+		
 		foreach(Card C in HandCards)
 		{
 			Node2D CNode = (Node2D)C;
@@ -179,13 +174,13 @@ public class CardManager : Node2D
 				int Column = ((index-1)%4);
 				int Row = ((index-1) - ((index-1)%4)) / 4;
 				// Rat uses several rows for their cards
-				SceneTreeTween tween = GetTree().CreateTween();
-				tween.TweenProperty(CNode, "position", new Vector2(Column*120-25,-220 + Row*240-30), 0.20f);
+				CTween = GetTree().CreateTween();
+				CTween.TweenProperty(CNode, "position", new Vector2(Column*120-25,-220 + Row*240-30), 0.20f);
 			}
 			else
 			{
-				SceneTreeTween tween = GetTree().CreateTween();
-				tween.TweenProperty(CNode, "position", new Vector2((4.0f/(float)Hand.Count) * (index-1)*120-25,-12), 0.20f);
+				CTween = GetTree().CreateTween();
+				CTween.TweenProperty(CNode, "position", new Vector2((4.0f/(float)Hand.Count) * (index-1)*120-25,-12), 0.20f);
 			}
 			index++;
 		}
@@ -225,7 +220,6 @@ public class CardManager : Node2D
 		}
 		
 		ActiveCards[NewID] = CC;
-
 		Deck.Add(NewID);
 		UpdateLabels();
 	}

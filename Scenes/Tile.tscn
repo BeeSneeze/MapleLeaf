@@ -248,8 +248,9 @@ valign = 1
 [node name="HealthBar" type="Sprite" parent="."]
 visible = false
 self_modulate = Color( 1, 1, 1, 0.862745 )
-position = Vector2( 0, 30 )
+position = Vector2( 0, 60 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 100
 texture = ExtResource( 23 )
 
 [node name="Label" type="Label" parent="HealthBar"]

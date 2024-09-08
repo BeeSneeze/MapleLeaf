@@ -45,3 +45,13 @@ script = ExtResource( 6 )
 
 [node name="Punch" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 8 )
+
+[node name="NextTurn" type="Button" parent="."]
+margin_left = 1107.0
+margin_top = 958.0
+margin_right = 1351.0
+margin_bottom = 1036.0
+text = "Next turn"
+icon_align = 1
+
+[connection signal="pressed" from="NextTurn" to="." method="SetMode" binds= [ "RatAttack" ]]

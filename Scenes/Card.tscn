@@ -139,3 +139,6 @@ playing = true
 [node name="Overlay" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 14 )
+
+[connection signal="mouse_entered" from="CardClick" to="CardClick" method="OnMouseEntered"]
+[connection signal="mouse_exited" from="CardClick" to="CardClick" method="OnMouseExit"]

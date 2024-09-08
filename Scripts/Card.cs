@@ -47,7 +47,13 @@ public class Card : Sprite
 	// Called when the node enters the scene tree for the first time. Executed after LoadInfo
 	public override void _Ready()
 	{
-		((Sprite)this).Scale = new Vector2(0.6f,0.6f);
+		((Sprite)this).Scale = new Vector2(0.0f,0.0f);
+
+		SceneTreeTween tween = GetTree().CreateTween();
+		tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.20f);
+		ZIndex = 100;
+		Control N2D = (Control)GetNode("FlavorText");
+		N2D.RectScale = new Vector2(0.0f, 0.0f);
 
 		GM = (GameManager)GetParent().GetParent();
 
@@ -311,11 +317,17 @@ public class Card : Sprite
 
 	public void MouseEnter()
 	{
-
+		if(!Skipped)
+		{
+			//Prep(true);
+		}
 	}
 
 	public void MouseExit()
 	{
-
+		if(!Skipped)
+		{
+			//Prep(false);
+		}
 	}
 }

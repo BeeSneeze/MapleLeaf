@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 public class GameManager : Node2D
 {
-	private Board Board;
+	public Board Board;
 	private AI AI;
 	
 	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
@@ -92,6 +92,10 @@ public class GameManager : Node2D
 	//  RatMove->Player->RatAttack->Draw->RatMove etc.
 	public void SetMode(string ModeName)
 	{
+		if(ModeName == "RatAttack" && Turn != "Player")
+		{
+			return;
+		}
 		GD.Print("SET MODE: " + ModeName);
 		Turn = ModeName;
 		switch(ModeName)
@@ -137,19 +141,19 @@ public class GameManager : Node2D
 				switch(eventKey2.Scancode)
 				{
 					// DEBUG SWITCH GAME MODES
-					case (int)KeyList.G:
+					case (int)KeyList.Z:
 						SetMode("RatMove");
 					break;
-					case (int)KeyList.H:
+					case (int)KeyList.X:
 						SetMode("Player");
 					break;
-					case (int)KeyList.J:
+					case (int)KeyList.C:
 						SetMode("RatAttack");
 					break;
-					case (int)KeyList.K:
+					case (int)KeyList.V:
 						SetMode("Draw");
 					break;
-					case (int)KeyList.L:
+					case (int)KeyList.N:
 						SetMode("None");
 					break;
 
