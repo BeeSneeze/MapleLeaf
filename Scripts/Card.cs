@@ -8,7 +8,7 @@ public class Card : Sprite
 
 	// Different card visuals
 	public bool Prepped = false;
-	public bool Clickable = true;
+	private bool Clickable = true;
 	private bool Big = false;
 
 	private bool Skipped = false; // Card is completely unclickable until its game object is destroyed
@@ -237,6 +237,7 @@ public class Card : Sprite
 	{
 		Sprite Overlay = (Sprite)GetNode("Overlay");
 		Overlay.Show();
+		Overlay.Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Skipped.png");
 		Skipped = true;
 
 		if(Unplayable)
@@ -246,9 +247,24 @@ public class Card : Sprite
 	}
 
 
+	public void ToggleClickable(bool InBool)
+	{
+		Clickable = InBool;
+		if(Clickable && !Skipped)
+		{
+			Sprite Overlay = (Sprite)GetNode("Overlay");
+			Overlay.Hide();
+		}
+		if(!Clickable && !Skipped)
+		{
+			Sprite Overlay = (Sprite)GetNode("Overlay");
+			Overlay.Show();
+			Overlay.Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/UnClickable.png");
+		}
+	}
+
+
 	// MOUSE ACTIONS
-
-
 	public void LeftClick()
 	{
 		if(Clickable && !Skipped)

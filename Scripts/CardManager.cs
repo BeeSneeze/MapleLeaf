@@ -284,7 +284,7 @@ public class CardManager : Node2D
 		{
 			if(!C.Prepped)
 			{
-				C.Clickable = false;
+				C.ToggleClickable(false);
 				((Control)(C.GetNode("CardClick"))).MouseFilter = (Godot.Control.MouseFilterEnum)2;
 			}
 			
@@ -296,7 +296,7 @@ public class CardManager : Node2D
 	{
 		foreach(Card C in HandCards)
 		{
-			C.Clickable = true;
+			C.ToggleClickable(true);
 			((Control)(C.GetNode("CardClick"))).MouseFilter = (Godot.Control.MouseFilterEnum)1;
 		}
 	}

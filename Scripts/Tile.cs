@@ -294,22 +294,7 @@ public class Tile : Node2D
 	}
 	
 	public void RightClick()
-	{
-		if(Char.MaxHP != 0)
-		{
-			HPToggle = !HPToggle;
-			if(HPToggle)
-			{
-				LabelBox.Show();
-				HPNode.Show();
-			}
-			else
-			{
-				LabelBox.Hide();
-				HPNode.Hide();
-			}
-		}
-		
+	{	
 		if(Clickable)
 		{
 			
@@ -322,7 +307,6 @@ public class Tile : Node2D
 
 	public void MouseEnter()
 	{
-		GD.Print("ENTER");
 		if(Char.MaxHP != 0)
 		{
 			LabelBox.Show();
