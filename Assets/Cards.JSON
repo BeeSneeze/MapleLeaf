@@ -407,6 +407,32 @@
         "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
     },
+    "Luck":
+    {   
+        "ID": "313",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Friendly",
+        "AbilityText": "",
+        "FlavorText":  "A little bit can change a lot!",
+        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "F---!":
+    {   
+        "ID": "314",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Friendly",
+        "AbilityText": "",
+        "FlavorText":  "Being a little sh't can also work",
+        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
 
     
 

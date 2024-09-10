@@ -1,6 +1,6 @@
 {
     "Soldier": ["Backup", "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Alpha", "Bowling", "Charlie", "Delta", "Echo", "Foxtrot", "Golf"],
     "Sniper": ["Jog", "Feint", "Jab", "Haymaker", "Jog", "Confound", "Haymaker", "Haymaker"],
-    "Support": ["Switch", "Duck!", "Distract", "Run", "Bribe", "GOOSE!", "Binoculars", "Double Agent", "Mole"],
+    "Support": ["F---!", "Duck!", "Luck", "Run", "Bribe", "GOOSE!", "Binoculars", "Double Agent", "Mole"],
     "Rat": ["Normal Rat", "The Swarm", "The Spark", "Scamper", "Normal Rat", "Scamper",  "Scamper", "Scamper", "Overwhelm", "Scamper", "The Swarm", "Normal Rat", "Tutorial Rat", "The Lawyer"]
 }
