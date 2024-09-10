@@ -359,7 +359,25 @@ public class CardManager : Node2D
 		// Discard all cards
 		while(HandCards.Count > 0)
 		{
-			DiscardCard(HandCards[0]);
+			bool ForceExhaust = false;
+
+			foreach(Ability A in HandCards[0].SecondaryList)
+			{
+				if(A.Name == "Exhaust" && A.Effect == "Forced")
+				{
+					ForceExhaust = true;
+				}
+			}
+
+			if(ForceExhaust)
+			{
+				GD.Print("FORCED EXHAUST");
+				HandCards[0].Discard();
+			}
+			else
+			{
+				DiscardCard(HandCards[0]);
+			}
 		}
 
 		// Draw new cards

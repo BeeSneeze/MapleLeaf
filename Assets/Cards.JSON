@@ -66,7 +66,7 @@
         "AbilityText":  "",
         "FlavorText":  "Get outta there, NOW!",
         "AbilityList":  [{"Name":"Move", "Effect": "-"}],
-        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Forced"}]
     },
     "Paramedic":
     {   
@@ -79,7 +79,7 @@
         "AbilityText":  "Does nothing",
         "FlavorText":  "Stay still please...",
         "AbilityList":  [],
-        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
     "Backup":
     {   
@@ -92,7 +92,7 @@
         "AbilityText":  "",
         "FlavorText":  "Two heads are better than one",
         "AbilityList":  [{"Name":"Shield", "Effect": "-"}],
-        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
 
 
@@ -447,7 +447,7 @@
         "AbilityText":  "Does nothing",
         "FlavorText":  "Just five more minutes please",
         "AbilityList":  [],
-        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
     "Chomp":
     {   
@@ -504,7 +504,7 @@
         "AbilityText":  "",
         "FlavorText":  "There are no rats in Alberta, so we'll be training with these",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
-        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Self"}]
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
     "Normal Rat":
     {   

@@ -67,9 +67,10 @@ public class Card : Sprite
 
 		if(Draws == 1)
 		{
+			GD.Print("GOING TO FORCE");
 			Ability A = new Ability();
 			A.Name = "Exhaust";
-			A.Effect = "Self";
+			A.Effect = "Forced";
 			SecondaryList.Add(A);
 		}
 
@@ -178,7 +179,7 @@ public class Card : Sprite
 			CardManager CM = (CardManager)GetParent();
 			foreach(Ability A in SecondaryList)
 			{
-				if(A.Name == "Exhaust" && A.Effect == "Self")
+				if(A.Name == "Exhaust")
 				{
 					ShouldExhaust = true;
 				}
