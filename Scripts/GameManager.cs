@@ -297,6 +297,32 @@ public class GameManager : Node2D
 						}
 					}
 				break;
+				case "Create":
+					foreach(Vector2 Target in Board.TargetList)
+					{
+						// Draw card for one of the player characters
+						switch(Board.Cell[(int)Target.x,(int)Target.y].Char.ID)
+						{
+							case 101:
+								CMSoldier.AddCard(A.Effect);
+								CMSoldier.DrawCard(A.Effect);
+							break;
+							case 202:
+								CMSniper.AddCard(A.Effect);
+								CMSniper.DrawCard(A.Effect);
+							break;
+							case 303:
+								CMSupport.AddCard(A.Effect);
+								CMSupport.DrawCard(A.Effect);
+							break;
+						}
+						// Draw card for the rats
+						if(Board.Cell[(int)Target.x,(int)Target.y].Char.ID % 100 > 10)
+						{
+							CMRat.DrawCard();
+						}
+					}
+				break;
 				case "Stun":
 					foreach(Vector2 Target in Board.TargetList)
 					{

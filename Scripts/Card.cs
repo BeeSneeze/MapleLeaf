@@ -150,16 +150,15 @@ public class Card : Sprite
 				break;
 
 				case "Shuffle":
-					//
+					//string[] ShuffleStrings = (A.Effect).Split(":");
+					//KeyText.Text = ShuffleStrings[1];
+					KeyText.Text = "";
 				break;
 				
 			}
 			
-
-
 			AddChild(NewKey);
 			Keywords.Add(NewKey);
-			GD.Print("SPAWN KEYWORD: " + A.Name);
 
 			index++;
 		}

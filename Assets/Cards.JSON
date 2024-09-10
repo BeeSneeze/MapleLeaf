@@ -308,12 +308,12 @@
         "ID": "303",
         "MatrixName": "Full",
         "Range": "2",
-        "Uses": "10",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Create a Roll card in any ally hand",
         "FlavorText":  "Duck and roll!",
-        "AbilityList":  [{"Name": "Draw", "Effect": "1"}],
+        "AbilityList":  [{"Name": "Create", "Effect": "Roll"}],
         "SecondaryList":  []
     },
     "GOOSE!":
@@ -323,10 +323,10 @@
         "Range": "3",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Friendly",
+        "TargetType": "Area","TargetCell": "Friendly",
         "AbilityText":  "Two ducks",
         "FlavorText":  "RELEASE THE GEESE",
-        "AbilityList":  [],
+        "AbilityList":  [{"Name": "Create", "Effect": "Duck!"}],
         "SecondaryList":  []
     },
     "Distract":
@@ -411,13 +411,13 @@
     {   
         "ID": "313",
         "MatrixName": "Full",
-        "Range": "3",
+        "Range": "1",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText": "",
         "FlavorText":  "Being in the right place at the right time can change everything!",
-        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "AbilityList":  [{"Name": "Draw", "Effect": "1"}],
         "SecondaryList":  []
     },
     "F---!":

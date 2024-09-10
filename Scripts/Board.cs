@@ -107,6 +107,16 @@ public class Board : Node2D
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
 					}
+					if(CID == 51 && Type == "City")
+					{
+						InMat[x,y] = false;
+						PossibleMat[x,y] = true;
+					}
+					if(CID != 51 && Type == "Non-City")
+					{
+						InMat[x,y] = false;
+						PossibleMat[x,y] = true;
+					}
 					if(CID == 0 && Type == "Empty")
 					{
 						InMat[x,y] = false;
@@ -130,7 +140,6 @@ public class Board : Node2D
 	// Visualize what a card does
 	public void ShowMatrix(bool[,] InMat, Card Card)
 	{
-		
 		ClearMarkers();
 
 		Vector2 Center = GetCharPos(Card.PlayerID);
@@ -190,6 +199,7 @@ public class Board : Node2D
 			case "Friendly":
 				Remove(ActionMatrix, Impossible, "Mountain");
 				Remove(ActionMatrix, PossibleMat, "Empty");
+				Remove(ActionMatrix, Impossible, "City");
 				if(Card.PlayerID % 100 < 10)
 				{
 					Remove(ActionMatrix, PossibleMat, "Rat");
