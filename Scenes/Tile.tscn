@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -50,6 +50,8 @@
 [ext_resource path="res://Assets/Visuals/Characters/SparkyRat2.png" type="Texture" id=48]
 [ext_resource path="res://Assets/Visuals/Markers/Support2.png" type="Texture" id=49]
 [ext_resource path="res://Assets/Visuals/Markers/Support3.png" type="Texture" id=50]
+[ext_resource path="res://Assets/Visuals/Markers/Stun1.png" type="Texture" id=51]
+[ext_resource path="res://Assets/Visuals/Markers/Stun2.png" type="Texture" id=52]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -172,6 +174,19 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 51 ), ExtResource( 52 ) ],
+"loop": true,
+"name": "Stunned",
+"speed": 3.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 20 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 20 ) ],
@@ -219,6 +234,10 @@ playing = true
 [node name="Character" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "None"
+playing = true
+
+[node name="Modifier" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
 playing = true
 
 [node name="Effect" type="AnimatedSprite" parent="."]

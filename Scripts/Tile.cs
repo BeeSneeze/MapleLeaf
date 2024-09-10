@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public class Tile : Node2D
 {	
@@ -108,6 +109,8 @@ public class Tile : Node2D
 		CharacterInfo CI = Brd.AllCharacters[CharName];
 		GameManager GM = (GameManager)GetParent().GetParent();
 
+		Char.Modifiers = new List<string>();
+
 		if(CharName != "None")
 		{
 			Char.ID = GM.NewCharacterID(int.Parse(CI.ID));
@@ -122,8 +125,13 @@ public class Tile : Node2D
 				case "Support":
 					Char.ID = 303;
 				break;
+				case "Mountain":
+					Char.Modifiers.Add("Immovable");
+				break;
+				case "City":
+					Char.Modifiers.Add("Immovable");
+				break;
 			}
-			
 		}
 		else
 		{

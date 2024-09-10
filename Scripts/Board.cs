@@ -49,6 +49,8 @@ public class Board : Node2D
 
 				Cell[x,y] = tile;
 
+				tile.Char.Modifiers = new List<string>();
+
 				AddChild(tile);
 			}
 		}
@@ -349,9 +351,10 @@ public class Board : Node2D
 		Character Char1 = Cell[(int)Vec1.x,(int)Vec1.y].Char;
 		Character Char2 = Cell[(int)Vec2.x,(int)Vec2.y].Char;
 
-		if(Char1.ID % 100 == 51 || Char2.ID % 100 == 51)
+		// Immovable objects can, as expected, not be moved
+		if(Char1.Modifiers.Contains("Immovable") || Char2.Modifiers.Contains("Immovable"))
 		{
-			return; // Cities are immovable
+			return; 
 		}
 
 		Cell[(int)Vec1.x,(int)Vec1.y].SetCharacter(Char2);
