@@ -209,7 +209,6 @@ public class GameManager : Node2D
 			CMSoldier.UnClick();
 			CMSniper.UnClick();
 			CMSupport.UnClick();
-			
 		}
 		else
 		{
@@ -230,7 +229,6 @@ public class GameManager : Node2D
 			CMSoldier.ReClick();
 			CMSniper.ReClick();
 			CMSupport.ReClick();
-			
 		}
 		else
 		{
@@ -270,9 +268,33 @@ public class GameManager : Node2D
 					}
 				break;
 				case "Spawn":
-					if(Board.TargetList.Count > 0)
+					foreach(Vector2 Target in Board.TargetList)
 					{
-						Board.Spawn(A.Effect, Board.TargetList[0]);
+						Board.Spawn(A.Effect, Target);
+					}
+				break;
+				case "Draw":
+					foreach(Vector2 Target in Board.TargetList)
+					{
+						GD.Print(Board.Cell[(int)Target.x,(int)Target.y].Char.ID);
+						// Draw card for one of the player characters
+						switch(Board.Cell[(int)Target.x,(int)Target.y].Char.ID)
+						{
+							case 101:
+								CMSoldier.DrawCard();
+							break;
+							case 202:
+								CMSniper.DrawCard();
+							break;
+							case 303:
+								CMSupport.DrawCard();
+							break;
+						}
+						// Draw card for the rats
+						if(Board.Cell[(int)Target.x,(int)Target.y].Char.ID % 100 > 10)
+						{
+							CMRat.DrawCard();
+						}
 					}
 				break;
 				case "Stun":
@@ -300,9 +322,7 @@ public class GameManager : Node2D
 					}
 					foreach(Vector2 Target in Board.TargetList)
 					{	
-						// GOTTA FIGURE OUT HOW TO RESOLVE MULTIPLE PUSHES AT ONCE
 						Board.Push(Target, Target, PushDirection);
-						
 					}
 
 					Board.MoveQueue();
@@ -384,7 +404,7 @@ public class GameManager : Node2D
 	}
 
 
-
+	// Loads an action matrix centered around a character
 	public bool[,] LoadMatrix(string MatrixName, int range)
 	{
 		bool[,] OutMat = new bool[range*2 + 1, range*2 + 1];
@@ -459,7 +479,7 @@ public class GameManager : Node2D
 		}
 	}
 
-
+	// Reset BigMode for all cards
 	public void UnBig()
 	{
 		CMSoldier.UnBig();

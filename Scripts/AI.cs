@@ -200,7 +200,6 @@ public class AI : Node2D
 					if(BestValue >= (float)InMat[x,y] + RandomVal)
 					{
 						BestValue = (float)InMat[x,y] + RandomVal;
-						GD.Print(RandomVal);
 						BestMove = new Vector2(x,y);
 						SuccessfulMove = true;
 					}

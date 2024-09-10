@@ -3,7 +3,7 @@
 
     "Walk":
     {   
-        "CardNum": "1",
+        "ID": "1",
         "MatrixName": "Manhattan",
         "Range": "1",
         "Uses": "2",
@@ -17,7 +17,7 @@
     },
     "Jog":
     {   
-        "CardNum": "2",
+        "ID": "2",
         "MatrixName": "Manhattan",
         "Range": "2",
         "Uses": "2",
@@ -31,7 +31,7 @@
     },
     "Run":
     {   
-        "CardNum": "3",
+        "ID": "3",
         "MatrixName": "Manhattan",
         "Range": "3",
         "Uses": "2",
@@ -44,7 +44,7 @@
     },
     "Sprint":
     {   
-        "CardNum": "4",
+        "ID": "4",
         "MatrixName": "Manhattan",
         "Range": "4",
         "Uses": "2",
@@ -57,7 +57,7 @@
     },
     "Roll":
     {   
-        "CardNum": "5",
+        "ID": "5",
         "MatrixName": "Manhattan",
         "Range": "2",
         "Uses": "1",
@@ -70,7 +70,7 @@
     },
     "Paramedic":
     {   
-        "CardNum": "10",
+        "ID": "10",
         "MatrixName": "Manhattan",
         "Range": "6",
         "Uses": "1",
@@ -83,7 +83,7 @@
     },
     "Backup":
     {   
-        "CardNum": "11",
+        "ID": "11",
         "MatrixName": "Full",
         "Range": "3",
         "Uses": "1",
@@ -99,7 +99,7 @@
 
     "Alpha":
     {   
-        "CardNum": "101",
+        "ID": "101",
         "MatrixName": "Cardinal",
         "Range": "1",
         "Uses": "1",
@@ -113,7 +113,7 @@
     },
     "Bravo":
     {   
-        "CardNum": "103",
+        "ID": "103",
         "MatrixName": "Line",
         "Range": "3",
         "Uses": "1",
@@ -127,7 +127,7 @@
     },
     "Bowling":
     {   
-        "CardNum": "104",
+        "ID": "104",
         "MatrixName": "Line",
         "Range": "5",
         "Uses": "1",
@@ -141,7 +141,7 @@
     },
     "Charlie":
     {   
-        "CardNum": "105",
+        "ID": "105",
         "MatrixName": "Cone",
         "Range": "2",
         "Uses": "1",
@@ -155,7 +155,7 @@
     },
     "Delta":
     {   
-        "CardNum": "107",
+        "ID": "107",
         "MatrixName": "Diagonal",
         "Range": "3",
         "Uses": "1",
@@ -169,7 +169,7 @@
     },
     "Echo":
     {   
-        "CardNum": "109",
+        "ID": "109",
         "MatrixName": "Full",
         "Range": "1",
         "Uses": "1",
@@ -183,7 +183,7 @@
     },
     "Foxtrot":
     {   
-        "CardNum": "111",
+        "ID": "111",
         "MatrixName": "Fox",
         "Range": "2",
         "Uses": "1",
@@ -197,7 +197,7 @@
     },
     "Golf":
     {   
-        "CardNum": "113",
+        "ID": "113",
         "MatrixName": "Dive",
         "Range": "2",
         "Uses": "1",
@@ -215,7 +215,7 @@
 
     "Feint":
     {   
-        "CardNum": "201",
+        "ID": "201",
         "MatrixName": "Line",
         "Range": "5",
         "Uses": "2",
@@ -230,7 +230,7 @@
     },
     "Confound":
     {   
-        "CardNum": "202",
+        "ID": "202",
         "MatrixName": "LineDiagonal",
         "Range": "5",
         "Uses": "3",
@@ -245,7 +245,7 @@
     },
     "Jab":
     {   
-        "CardNum": "203",
+        "ID": "203",
         "MatrixName": "Punch",
         "Range": "2",
         "Uses": "2",
@@ -260,7 +260,7 @@
     },
     "Haymaker":
     {   
-        "CardNum": "204",
+        "ID": "204",
         "MatrixName": "Cone",
         "Range": "1",
         "Uses": "2",
@@ -275,7 +275,7 @@
     },
     "Snipe":
     {   
-        "CardNum": "205",
+        "ID": "205",
         "MatrixName": "Full",
         "Range": "3",
         "Uses": "1",
@@ -292,7 +292,7 @@
 
     "Binoculars":
     {
-        "CardNum": "301",
+        "ID": "301",
         "MatrixName": "Cone",
         "Range": "2",
         "Uses": "1",
@@ -305,20 +305,20 @@
     },
     "Duck!":
     {
-        "CardNum": "303",
+        "ID": "303",
         "MatrixName": "Diagonal",
         "Range": "2",
-        "Uses": "1",
+        "Uses": "10",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Create a Roll card in any ally hand",
         "FlavorText":  "Duck and roll!",
-        "AbilityList":  [],
+        "AbilityList":  [{"Name": "Draw", "Effect": "1"}],
         "SecondaryList":  []
     },
     "GOOSE!":
     {
-        "CardNum": "304",
+        "ID": "304",
         "MatrixName": "Manhattan",
         "Range": "3",
         "Uses": "1",
@@ -331,7 +331,7 @@
     },
     "Distract":
     {   
-        "CardNum": "305",
+        "ID": "305",
         "MatrixName": "Full",
         "Range": "2",
         "Uses": "2",
@@ -344,7 +344,7 @@
     },
     "Bribe":
     {   
-        "CardNum": "307",
+        "ID": "307",
         "MatrixName": "Full",
         "Range": "2",
         "Uses": "2",
@@ -357,7 +357,7 @@
     },
     "Grease":
     {   
-        "CardNum": "308",
+        "ID": "308",
         "MatrixName": "Full",
         "Range": "2",
         "Uses": "2",
@@ -370,7 +370,7 @@
     },
     "Double Agent":
     {   
-        "CardNum": "309",
+        "ID": "309",
         "MatrixName": "Full",
         "Range": "2",
         "Uses": "2",
@@ -383,7 +383,7 @@
     },
     "Mole":
     {   
-        "CardNum": "310",
+        "ID": "310",
         "MatrixName": "Full",
         "Range": "2",
         "Uses": "2",
@@ -396,7 +396,7 @@
     },
     "Switch":
     {   
-        "CardNum": "311",
+        "ID": "311",
         "MatrixName": "Full",
         "Range": "3",
         "Uses": "2",
@@ -412,7 +412,7 @@
 
     "Nap":
     {   
-        "CardNum": "500",
+        "ID": "500",
         "MatrixName": "Line",
         "Range": "1",
         "Uses": "1",
@@ -425,7 +425,7 @@
     },
     "Chomp":
     {   
-        "CardNum": "501",
+        "ID": "501",
         "MatrixName": "Line",
         "Range": "1",
         "Uses": "1",
@@ -439,7 +439,7 @@
     },
     "Overwhelm":
     {   
-        "CardNum": "502",
+        "ID": "502",
         "MatrixName": "Line",
         "Range": "3",
         "Uses": "1",
@@ -453,7 +453,7 @@
     },
     "Scamper":
     {   
-        "CardNum": "503",
+        "ID": "503",
         "MatrixName": "Manhattan",
         "Range": "2",
         "Uses": "1",
@@ -469,7 +469,7 @@
 
     "Tutorial Rat":
     {   
-        "CardNum": "600",
+        "ID": "600",
         "MatrixName": "Global",
         "Range": "7",
         "Uses": "1",
@@ -482,7 +482,7 @@
     },
     "Normal Rat":
     {   
-        "CardNum": "601",
+        "ID": "601",
         "MatrixName": "Global",
         "Range": "7",
         "Uses": "1",
@@ -497,7 +497,7 @@
     },
     "The Swarm":
     {   
-        "CardNum": "602",
+        "ID": "602",
         "MatrixName": "Global",
         "Range": "7",
         "Uses": "3",
@@ -513,7 +513,7 @@
     },
     "The Spark":
     {   
-        "CardNum": "603",
+        "ID": "603",
         "MatrixName": "Global",
         "Range": "7",
         "Uses": "1",
@@ -527,7 +527,7 @@
     },
     "The Lawyer":
     {   
-        "CardNum": "606",
+        "ID": "606",
         "MatrixName": "Global",
         "Range": "7",
         "Uses": "1",

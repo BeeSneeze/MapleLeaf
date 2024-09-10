@@ -80,7 +80,7 @@ public class CardManager : Node2D
 
 		foreach(KeyValuePair<string, CardType> Entry in AllCardsDict)
 		{
-			IdToNameConvert.Add(int.Parse(Entry.Value.CardNum), Entry.Key);
+			IdToNameConvert.Add(int.Parse(Entry.Value.ID), Entry.Key);
 		}
 	}
 
@@ -189,7 +189,7 @@ public class CardManager : Node2D
 	// Adds a new card to the deck, by name
 	public void AddCard(string CardName, int RatID = 0)
 	{
-		int NewID = GM.NewCardID(int.Parse(AllCardsDict[CardName].CardNum));
+		int NewID = GM.NewCardID(int.Parse(AllCardsDict[CardName].ID));
 
 		// Compact card notation
 		CompactCard CC = new CompactCard();
@@ -224,10 +224,10 @@ public class CardManager : Node2D
 		UpdateLabels();
 	}
 
-
-	// Draws the top card from the deck, and puts it in hand
-	public void DrawCard()
+	// Draws a specific card to the hand. Defaults to the top card.
+	public void DrawCard(string CardName = "")
 	{
+		// Reshuffle the deck if out of cards
 		if(Deck.Count == 0)
 		{
 			Deck = new List<int>(Discard);
@@ -235,6 +235,21 @@ public class CardManager : Node2D
 		}
 
 		int TopCard = Deck[0];
+
+		if(CardName != "")
+		{
+			int index = 0;
+			foreach(int CID in Deck)
+			{
+				if(CID % 1000 == int.Parse(AllCardsDict[CardName].ID))
+				{
+					TopCard = Deck[index];
+					break;
+				}
+				index++;
+			}
+		}
+		
 		Deck.Remove(TopCard);
 		Hand.Add(TopCard);
 

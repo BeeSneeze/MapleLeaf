@@ -6,7 +6,7 @@ using System.Collections.Generic;
 // Contains all the information needed about a specific card
 public struct CardType
 {
-	public string CardNum;		// ID end for the card
+	public string ID;		// ID end for the card
 	public string MatrixName;	// What shape of matrix should be loaded
 	public string Range; 		// Stored as a string for the sake of the JSON interpreter
 	public string Uses; 		// How many times can this card be used before being discarded?
