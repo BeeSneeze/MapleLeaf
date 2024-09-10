@@ -163,6 +163,21 @@ public class Tile : Node2D
 
 		NameLabel.Text = Char.Name;
 
+		AnimatedSprite ModAnim = (AnimatedSprite)GetNode("Modifier");
+		ModAnim.Animation = "None";
+
+		foreach(string ModName in Char.Modifiers)
+		{
+			switch(ModName)
+			{
+				case "Stun":
+					ModAnim.Animation = "Stun";
+				break;
+			}
+		}
+		
+
+
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
 
 		AnimSpr.Scale = new Vector2(0.7f,0.7f);
@@ -267,6 +282,23 @@ public class Tile : Node2D
 		{
 			((Node2D)AnimSpr).ZIndex = 0;
 		}
+	}
+
+	public void AddModifier(string ModName)
+	{
+		GD.Print("REACHED TILE");
+		if(!Char.Modifiers.Contains(ModName))
+		{
+			Char.Modifiers.Add(ModName);
+			ShowModifier(ModName);
+		}
+	}
+
+	// ShowModifier
+	public void ShowModifier(string ModName)
+	{
+		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Modifier");
+		AnimSpr.Animation = ModName;
 	}
 
 	// Adds this cell to the list of cells affected by a specific card ability

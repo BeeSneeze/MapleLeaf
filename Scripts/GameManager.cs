@@ -298,9 +298,9 @@ public class GameManager : Node2D
 					}
 				break;
 				case "Stun":
-					if(Board.TargetList.Count > 0)
+					foreach(Vector2 Target in Board.TargetList)
 					{
-						Board.Stun(Board.TargetList[0]);
+						Board.AddModifier(Target, "Stun");
 					}
 				break;
 				case "Push":
@@ -322,7 +322,12 @@ public class GameManager : Node2D
 					}
 					foreach(Vector2 Target in Board.TargetList)
 					{	
-						Board.Push(Target, Target, PushDirection);
+						// Make sure the thing you're trying to push is not immovable
+						if(!Board.Cell[(int)Target.x,(int)Target.y].Char.Modifiers.Contains("Immovable"))
+						{
+							Board.Push(Target, Target, PushDirection);
+						}
+						
 					}
 
 					Board.MoveQueue();

@@ -361,6 +361,12 @@ public class Board : Node2D
 		Cell[(int)Vec2.x,(int)Vec2.y].SetCharacter(Char1);
 	}
 
+	public void AddModifier(Vector2 Target, string ModName)
+	{
+		GD.Print("REACHED BOARD");
+		Cell[(int)Target.x, (int)Target.y].AddModifier(ModName);	
+	}
+
 
 	// Push a character a given amount of squares
 	public bool Push(Vector2 Tile, Vector2 OrignalTile, string Direction)
