@@ -164,15 +164,15 @@ public class CardManager : Node2D
 	// Moves the cards around to suitable positions
 	public void UpdateCardPositions()
 	{
-		int index = 1;
+		int index = 0;
 		
 		foreach(Card C in HandCards)
 		{
 			Node2D CNode = (Node2D)C;
 			if(OwnerName == "Rat")
 			{
-				int Column = ((index-1)%4);
-				int Row = ((index-1) - ((index-1)%4)) / 4;
+				int Column = ((index)%4);
+				int Row = ((index) - ((index)%4)) / 4;
 				// Rat uses several rows for their cards
 				CTween = GetTree().CreateTween();
 				CTween.TweenProperty(CNode, "position", new Vector2(Column*120-25,-220 + Row*240-30), 0.20f);
@@ -180,7 +180,15 @@ public class CardManager : Node2D
 			else
 			{
 				CTween = GetTree().CreateTween();
-				CTween.TweenProperty(CNode, "position", new Vector2((4.0f/(float)Hand.Count) * (index-1)*120-25,-12), 0.20f);
+				if(Hand.Count > 1)
+				{
+					CTween.TweenProperty(CNode, "position", new Vector2((index)*340/((float)Hand.Count-1)-15,-12), 0.20f);
+				}
+				else
+				{
+					CTween.TweenProperty(CNode, "position", new Vector2(170 - 15,-12), 0.20f);
+				}
+				
 			}
 			index++;
 		}
@@ -230,6 +238,10 @@ public class CardManager : Node2D
 		// Reshuffle the deck if out of cards
 		if(Deck.Count == 0)
 		{
+			if(Discard.Count == 0)
+			{
+				return;
+			}
 			Deck = new List<int>(Discard);
 			Discard = new List<int>();
 		}
