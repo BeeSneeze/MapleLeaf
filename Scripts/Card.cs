@@ -30,6 +30,8 @@ public class Card : Sprite
 	public List<Ability> AbilityList {get; private set;}
 	public List<Ability> SecondaryList {get; private set;}
 
+	private string ChosenAbility = "Negative";
+
 	// Loads all the information about the card. This is the only way to edit from outside
 	public void LoadInfo(CardType CardInfo)
 	{
@@ -42,6 +44,105 @@ public class Card : Sprite
 		AbilityText = CardInfo.AbilityText;
 		AbilityList = CardInfo.AbilityList;
 		SecondaryList = CardInfo.SecondaryList;
+	}
+
+	private List<Node2D> Keywords = new List<Node2D>();
+
+	// Shows the appropriate visuals for abilities
+	private void SpawnKeywords()
+	{
+		List<Ability> AllAbilities = new List<Ability>();
+		foreach(Ability A in AbilityList)
+		{
+			AllAbilities.Add(A);
+		}
+		foreach(Ability A in SecondaryList)
+		{
+			AllAbilities.Add(A);
+		}
+
+		if(TargetType == "Area")
+		{
+			Ability AreaA = new Ability();
+			AreaA.Name = "Area";
+			AllAbilities.Add(AreaA);
+		}
+
+		// Check here how many abilities there are that we'll notify
+
+		Vector2[] OnePos = {new Vector2(0,80)};
+		Vector2[] TwoPos = {new Vector2(-50,80), new Vector2(50,80)};
+		Vector2[] ThreePos = {new Vector2(-70,60), new Vector2(0,100), new Vector2(70,60)};
+		Vector2[] FourPos = {new Vector2(10,80), new Vector2(20,80), new Vector2(30,80), new Vector2(40,80)};
+
+		var scene = GD.Load<PackedScene>("res://Scenes/Keyword.tscn");
+
+		int index = 0;
+
+		foreach(Ability A in AllAbilities)
+		{
+			Node2D NewKey = (Node2D)scene.Instance();
+
+			switch(AllAbilities.Count)
+			{
+				case 1:
+					NewKey.Translate(OnePos[index]);
+				break;
+				case 2:
+					NewKey.Translate(TwoPos[index]);
+				break;
+				case 3:
+					NewKey.Translate(ThreePos[index]);
+				break;
+				case 4:
+					NewKey.Translate(FourPos[index]);
+				break;
+			}
+
+
+			Sprite KeySprite = (Sprite)NewKey;
+			if(A.Name == "Exhaust")
+			{
+				KeySprite.Texture = (Texture)GD.Load("res://Assets/Visuals/CardKeywords/" + A.Name + A.Effect + ".png");
+			}
+			else
+			{
+				KeySprite.Texture = (Texture)GD.Load("res://Assets/Visuals/CardKeywords/" + A.Name + ".png");
+			}
+			
+
+			Label KeyText = (Label)NewKey.GetNode("Label");
+			KeyText.Text = A.Effect;
+
+			switch(A.Name)
+			{
+				case "Move":
+					KeyText.Text = Range.ToString();
+				break;
+				case "Push":
+					KeyText.Text = "";
+				break;
+				case "Area":
+					KeyText.Text = "";
+				break;
+				case "Spawn":
+					KeyText.Text = "";
+				break;
+
+				case "Shuffle":
+					//
+				break;
+				
+			}
+			
+
+
+			AddChild(NewKey);
+			Keywords.Add(NewKey);
+			GD.Print("SPAWN KEYWORD: " + A.Name);
+
+			index++;
+		}
 	}
 
 	// Called when the node enters the scene tree for the first time. Executed after LoadInfo
@@ -77,7 +178,7 @@ public class Card : Sprite
 		UpdateLabels();
 
 		// Set the background corresponding to the ability
-		string ChosenAbility = "Negative";
+		
 		foreach(Ability A in AbilityList)
 		{
 			switch(A.Name)
@@ -113,6 +214,9 @@ public class Card : Sprite
 		}
 
 		Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Card" + ChosenAbility + ".png");
+
+		SpawnKeywords();
+
 	}
 
 	// Update all the labels on the card
@@ -226,6 +330,11 @@ public class Card : Sprite
 			ZIndex = 101;
 			Control N2D = (Control)GetNode("FlavorText");
 			N2D.RectScale = new Vector2(1.0f, 1.0f);
+			foreach(Node2D Key in Keywords)
+			{
+				Key.Hide();
+			}
+
 		}
 		else
 		{
@@ -234,6 +343,11 @@ public class Card : Sprite
 			ZIndex = 100;
 			Control N2D = (Control)GetNode("FlavorText");
 			N2D.RectScale = new Vector2(0.0f, 0.0f);
+
+			foreach(Node2D Key in Keywords)
+			{
+				Key.Show();
+			}
 		}
 
 		Big = InBool;

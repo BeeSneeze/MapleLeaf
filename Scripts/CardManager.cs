@@ -161,6 +161,9 @@ public class CardManager : Node2D
 		AddChild(NewCard);
 	}
 
+	private static float Space = 360;
+	private static float Margin = 25;
+
 	// Moves the cards around to suitable positions
 	public void UpdateCardPositions()
 	{
@@ -182,11 +185,11 @@ public class CardManager : Node2D
 				CTween = GetTree().CreateTween();
 				if(Hand.Count > 1)
 				{
-					CTween.TweenProperty(CNode, "position", new Vector2((index)*340/((float)Hand.Count-1)-15,-12), 0.20f);
+					CTween.TweenProperty(CNode, "position", new Vector2((index)* Space /((float)Hand.Count-1) - Margin,-12), 0.20f);
 				}
 				else
 				{
-					CTween.TweenProperty(CNode, "position", new Vector2(170 - 15,-12), 0.20f);
+					CTween.TweenProperty(CNode, "position", new Vector2(Space / 2.0f - Margin,-12), 0.20f);
 				}
 				
 			}
