@@ -4,9 +4,12 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
-outline_size = 2
+outline_size = 5
+outline_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 1 )
 
 [resource]
 default_font = SubResource( 1 )
-Label/colors/font_color = Color( 0, 0, 0, 1 )
+Label/colors/font_color = Color( 0.8, 0.8, 0.8, 1 )

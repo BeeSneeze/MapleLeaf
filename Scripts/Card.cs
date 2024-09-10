@@ -54,7 +54,11 @@ public class Card : Sprite
 		List<Ability> AllAbilities = new List<Ability>();
 		foreach(Ability A in AbilityList)
 		{
-			AllAbilities.Add(A);
+			if(A.Name != "Spawn")
+			{
+				AllAbilities.Add(A);
+			}
+			
 		}
 		foreach(Ability A in SecondaryList)
 		{
@@ -68,12 +72,18 @@ public class Card : Sprite
 			AllAbilities.Add(AreaA);
 		}
 
-		// Check here how many abilities there are that we'll notify
-
+		// The positionings of keywords depending on the amount of abilities
 		Vector2[] OnePos = {new Vector2(0,80)};
-		Vector2[] TwoPos = {new Vector2(-50,80), new Vector2(50,80)};
-		Vector2[] ThreePos = {new Vector2(-70,60), new Vector2(0,100), new Vector2(70,60)};
+		Vector2[] OneScale = {new Vector2(1,1)};
+
+		Vector2[] TwoPos = {new Vector2(-55,80), new Vector2(55,80)};
+		Vector2[] TwoScale = {new Vector2(1,1), new Vector2(1,1)};
+
+		Vector2[] ThreePos = {new Vector2(-80,60), new Vector2(0,100), new Vector2(80,60)};
+		Vector2[] ThreeScale = {new Vector2(0.9f,0.9f), new Vector2(0.9f,0.9f), new Vector2(0.9f,0.9f)};
+
 		Vector2[] FourPos = {new Vector2(10,80), new Vector2(20,80), new Vector2(30,80), new Vector2(40,80)};
+		Vector2[] FourScale = {new Vector2(1,1), new Vector2(1,1), new Vector2(1,1), new Vector2(1,1)};
 
 		var scene = GD.Load<PackedScene>("res://Scenes/Keyword.tscn");
 
@@ -87,15 +97,19 @@ public class Card : Sprite
 			{
 				case 1:
 					NewKey.Translate(OnePos[index]);
+					NewKey.Scale = OneScale[index];
 				break;
 				case 2:
 					NewKey.Translate(TwoPos[index]);
+					NewKey.Scale = TwoScale[index];
 				break;
 				case 3:
 					NewKey.Translate(ThreePos[index]);
+					NewKey.Scale = ThreeScale[index];
 				break;
 				case 4:
 					NewKey.Translate(FourPos[index]);
+					NewKey.Scale = FourScale[index];
 				break;
 			}
 
@@ -123,9 +137,15 @@ public class Card : Sprite
 					KeyText.Text = "";
 				break;
 				case "Area":
-					KeyText.Text = "";
+					KeyText.Text = "!";
 				break;
 				case "Spawn":
+					KeyText.Text = "";
+				break;
+				case "Swap":
+					KeyText.Text = "";
+				break;
+				case "Exhaust":
 					KeyText.Text = "";
 				break;
 

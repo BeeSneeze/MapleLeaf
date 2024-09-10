@@ -306,7 +306,7 @@
     "Duck!":
     {
         "ID": "303",
-        "MatrixName": "Diagonal",
+        "MatrixName": "Full",
         "Range": "2",
         "Uses": "10",
         "Draws": "0",
@@ -416,7 +416,7 @@
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText": "",
-        "FlavorText":  "A little bit can change a lot!",
+        "FlavorText":  "Being in the right place at the right time can change everything!",
         "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
     },
