@@ -7,9 +7,10 @@ public class CardManager : Node2D
 {
 	[Export] public string OwnerName;
 
+	public bool Shuffle = true;
+
 	// Cards as card IDs
 	public List<Card> HandCards = new List<Card>();
-
 	public List<int> Deck = new List<int>();
 	public List<int> Hand = new List<int>();
 	public List<int> Discard = new List<int>();
@@ -235,6 +236,27 @@ public class CardManager : Node2D
 		UpdateLabels();
 	}
 
+	private List<int> ShufflePile(List<int> PileToShuffle)
+	{
+		List<int> OutPile = new List<int>();
+		List<int> ShufflePile = new List<int>(PileToShuffle);
+
+		int N = ShufflePile.Count;
+		int i = 0;
+
+		while(i < N)
+		{
+			Random rnd = new Random();
+			int RandomIndex = rnd.Next(0,N-i);
+			
+			OutPile.Add(ShufflePile[RandomIndex]);
+			ShufflePile.RemoveAt(RandomIndex);
+			
+			i++;
+		}
+		return OutPile;
+	}
+
 	// Draws a specific card to the hand. Defaults to the top card.
 	public void DrawCard(string CardName = "")
 	{
@@ -245,8 +267,19 @@ public class CardManager : Node2D
 			{
 				return;
 			}
-			Deck = new List<int>(Discard);
-			Discard = new List<int>();
+
+			if(Shuffle)
+			{
+				Deck = new List<int>(ShufflePile(Discard));
+				Discard = new List<int>();
+			}
+			else
+			{
+				Deck = new List<int>(Discard);
+				Discard = new List<int>();
+			}
+
+			
 		}
 
 		int TopCard = Deck[0];

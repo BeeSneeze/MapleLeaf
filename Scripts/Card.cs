@@ -82,7 +82,7 @@ public class Card : Sprite
 		Vector2[] ThreePos = {new Vector2(-80,60), new Vector2(0,100), new Vector2(80,60)};
 		Vector2[] ThreeScale = {new Vector2(0.9f,0.9f), new Vector2(0.9f,0.9f), new Vector2(0.9f,0.9f)};
 
-		Vector2[] FourPos = {new Vector2(10,80), new Vector2(20,80), new Vector2(30,80), new Vector2(40,80)};
+		Vector2[] FourPos = {new Vector2(-80,60), new Vector2(-25,100), new Vector2(25,60), new Vector2(80,100)};
 		Vector2[] FourScale = {new Vector2(1,1), new Vector2(1,1), new Vector2(1,1), new Vector2(1,1)};
 
 		var scene = GD.Load<PackedScene>("res://Scenes/Keyword.tscn");
@@ -187,7 +187,6 @@ public class Card : Sprite
 
 		if(Draws == 1)
 		{
-			GD.Print("GOING TO FORCE");
 			Ability A = new Ability();
 			A.Name = "Exhaust";
 			A.Effect = "Forced";
