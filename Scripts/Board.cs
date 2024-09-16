@@ -195,6 +195,19 @@ public class Board : Node2D
 					Remove(ActionMatrix, PossibleMat, "Rat");
 				}
 			break;
+			case "EnemyNoCity":
+				Remove(ActionMatrix, PossibleMat, "Mountain");
+				Remove(ActionMatrix, PossibleMat, "Empty");
+				Remove(ActionMatrix, Impossible, "City");
+				if(Card.PlayerID % 100 < 10)
+				{
+					Remove(ActionMatrix, PossibleMat, "Friendly");
+				}
+				else
+				{
+					Remove(ActionMatrix, PossibleMat, "Rat");
+				}
+			break;
 			case "Friendly":
 				Remove(ActionMatrix, Impossible, "Mountain");
 				Remove(ActionMatrix, PossibleMat, "Empty");

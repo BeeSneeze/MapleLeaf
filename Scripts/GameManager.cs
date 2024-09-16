@@ -70,7 +70,7 @@ public class GameManager : Node2D
 			}
 		}
 
-		RoundStart();
+		LevelStart();
 	}
 
 	public void PlaySFX(string SFXName)
@@ -513,13 +513,13 @@ public class GameManager : Node2D
 	}
 
 	// Everything needed to set up the new round
-	public void RoundStart()
+	public void LevelStart()
 	{
 		SetMode("Draw");
 	}
 	
 	// Everything done after the round is over
-	public void RoundOver()
+	public void LevelEnd()
 	{
 		SetMode("None");
 	}

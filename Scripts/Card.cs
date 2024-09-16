@@ -221,9 +221,6 @@ public class Card : Sprite
 					}
 				break;
 				case "Stun":
-					ChosenAbility = "Harm";
-				break;
-				case "Swap":
 					if(ChosenAbility!="Damage")
 					{
 						ChosenAbility = "Harm";
@@ -232,6 +229,13 @@ public class Card : Sprite
 				case "Damage":
 					ChosenAbility = "Damage";
 				break;
+				case "Swap":
+					if(ChosenAbility!="Damage")
+					{
+						ChosenAbility = "Harm";
+					}
+				break;
+				
 				case "Spawn":
 					ChosenAbility = "Rat";
 				break;
