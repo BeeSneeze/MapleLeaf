@@ -1,0 +1,17 @@
+{
+    "Start":
+    {   
+        "Slides": ["SlideA", "SlideB"],
+        "Text": ["TextA", "TextB"]
+    },
+    "Ending":
+    {   
+        "Slides": ["SlideA", "SlideB"],
+        "Text": ["TextA", "TextB"]
+    },
+    "Credits":
+    {   
+        "Slides": ["SlideA", "SlideB"],
+        "Text": ["TextA", "TextB"]
+    }
+}

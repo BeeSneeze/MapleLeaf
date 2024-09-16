@@ -54,7 +54,7 @@ public class Board : Node2D
 		}
 
 		LoadStage("Calgary");
-		LoadStage("Regina");
+		//LoadStage("Regina");
 
 		LoadTheoretical();
 	}

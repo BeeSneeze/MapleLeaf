@@ -61,6 +61,10 @@ public class LevelManager : Node2D
 			{
 				ChangeLevel("Game");
 			}
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.P)
+			{
+				ChangeLevel("Story");
+			}
 			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
 			{
 				GetTree().Quit();
