@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/SFXManager.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Sound/Punch.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Themes/END TURN.tres" type="Theme" id=9]
+[ext_resource path="res://Assets/Sound/Gunshots.mp3" type="AudioStream" id=10]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -46,6 +47,9 @@ script = ExtResource( 6 )
 
 [node name="Punch" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 8 )
+
+[node name="Gunshots" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 10 )
 
 [node name="NextTurn" type="Button" parent="."]
 margin_left = 1107.0

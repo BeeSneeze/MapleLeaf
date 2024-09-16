@@ -7,14 +7,13 @@ using Newtonsoft.Json;
 public class GameManager : Node2D
 {
 	public Board Board;
-	private AI AI;
 	
+	private AI AI;
 	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
 	private SFXManager SFX;
 	private int CardIDCounter = 0;
 	private int CharacterIDCounter = 0;
 	private Dictionary<string,List<string>> Decks;
-
 	private bool CurrentLoaded = false;
 	private bool[,] UnRotated;
 	private bool[,] CurrentMatrix;
@@ -71,7 +70,7 @@ public class GameManager : Node2D
 			}
 		}
 
-		SetMode("Draw");
+		RoundStart();
 	}
 
 	public void PlaySFX(string SFXName)
@@ -134,12 +133,6 @@ public class GameManager : Node2D
 					// DEBUG SWITCH GAME MODES
 					case (int)KeyList.Z:
 						SetMode("RatMove");
-					break;
-					case (int)KeyList.X:
-						SetMode("Player");
-					break;
-					case (int)KeyList.C:
-						SetMode("RatAttack");
 					break;
 					case (int)KeyList.V:
 						SetMode("Draw");
@@ -517,5 +510,17 @@ public class GameManager : Node2D
 		CMSniper.SkipCard(PID);
 		CMSupport.SkipCard(PID);
 		CMRat.SkipCard(PID);
+	}
+
+	// Everything needed to set up the new round
+	public void RoundStart()
+	{
+		SetMode("Draw");
+	}
+	
+	// Everything done after the round is over
+	public void RoundOver()
+	{
+		SetMode("None");
 	}
 }

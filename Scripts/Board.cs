@@ -16,10 +16,8 @@ public class Board : Node2D
 	public List<Arrow> QueuedMoves = new List<Arrow>();
 
 	private int[,] TheoreticalCellID = new int[8,8];
-
 	private Node2D WASD;
 	private Node2D HelpArrow;
-
 	private GameManager GM;
 
 	public override void _Ready()
@@ -56,6 +54,7 @@ public class Board : Node2D
 		}
 
 		LoadStage("Calgary");
+		LoadStage("Regina");
 
 		LoadTheoretical();
 	}
@@ -499,6 +498,9 @@ public class Board : Node2D
 
 	public void LoadStage(string StageName)
 	{
+
+		GM.RatIDList = new List<int>();
+		
 		File Reader = new File();
 		Reader.Open("res://Assets/Matrices/Stages/" + StageName + ".txt", File.ModeFlags.Read);
 		string Contents = Reader.GetAsText();
@@ -509,11 +511,13 @@ public class Board : Node2D
 
 		foreach(char C in Contents)
 		{
+			
 			// We explicitly check for 1's and 0's, as line ends are two or just one character depending on OS
 			switch(C)
 			{
 				case '0':
-					//Cell[x,y].SetTerrain("Mountains");
+					Cell[x,y].SetTerrain("Grass");
+					Cell[x,y].CreateCharacter("None");
 					x++;
 				break;
 				case '1':
