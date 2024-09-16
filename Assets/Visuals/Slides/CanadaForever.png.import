@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CanadaForever.png-af012095608422091e7e976f8a82d356.stex"
+path="res://.import/CanadaForever.png-55885a099c24adf1d11e274cc2f4994a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Visuals/CanadaForever.png"
-dest_files=[ "res://.import/CanadaForever.png-af012095608422091e7e976f8a82d356.stex" ]
+source_file="res://Assets/Visuals/Slides/CanadaForever.png"
+dest_files=[ "res://.import/CanadaForever.png-55885a099c24adf1d11e274cc2f4994a.stex" ]
 
 [params]
 
