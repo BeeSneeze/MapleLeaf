@@ -19,6 +19,12 @@ public struct CardType
 	public List<Ability> SecondaryList; // List of abilities that work independently
 };
 
+public struct StorySegment
+{
+	public List<string> Slides;
+	public List<string> Text;
+}
+
 // Used to store a unique card in the card manager
 public struct CompactCard
 {

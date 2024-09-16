@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Visuals/StoryBG.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/StorySlide.png" type="Texture" id=2]
@@ -6,13 +6,56 @@
 [ext_resource path="res://Assets/Visuals/Vote2.png" type="Texture" id=4]
 [ext_resource path="res://Themes/Story.tres" type="Theme" id=5]
 [ext_resource path="res://Scripts/Story.cs" type="Script" id=6]
+[ext_resource path="res://Assets/Visuals/CanadaForever.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Visuals/CanadaForever2.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Click.cs" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "1950",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "2050",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "AlbertaRatifies",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "CanadaForever",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "Votes",
+"name": "Elections",
 "speed": 1.5
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Exceptforone",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Independence",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "RatsEatCrops",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "RatsEverywhere",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -30,7 +73,6 @@ texture = ExtResource( 1 )
 [node name="Slides" type="AnimatedSprite" parent="."]
 position = Vector2( 960, 350 )
 frames = SubResource( 1 )
-animation = "Votes"
 playing = true
 
 [node name="Label" type="Label" parent="."]
@@ -39,7 +81,14 @@ margin_top = 650.0
 margin_right = 1410.0
 margin_bottom = 1000.0
 theme = ExtResource( 5 )
-text = "Tired of the horrible treatment they recieve from humans, rats around the world have declared independence"
+text = "But there's nothing bad about that, eh?"
 align = 1
 valign = 1
 autowrap = true
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+script = ExtResource( 9 )
