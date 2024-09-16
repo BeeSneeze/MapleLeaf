@@ -190,7 +190,19 @@ public class Card : Sprite
 			Ability A = new Ability();
 			A.Name = "Exhaust";
 			A.Effect = "Forced";
-			SecondaryList.Add(A);
+			bool ShouldAdd = true;
+			foreach(Ability AExist in SecondaryList)
+			{
+				if(AExist.Name == "Exhaust")
+				{
+					ShouldAdd = false;
+				}
+			}
+			if(ShouldAdd)
+			{
+				SecondaryList.Add(A);
+			}
+			
 		}
 
 		UpdateLabels();

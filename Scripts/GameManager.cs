@@ -23,7 +23,7 @@ public class GameManager : Node2D
 	public Card CurrentCard;
 	public bool PrepMode;
 
-	public string Turn = "Player"; // Whose turn is it? RatMove, Player, RatAttack, None
+	public string Turn = "None"; // Whose turn is it? RatMove, Player, RatAttack, None
 
 	public List<int> RatIDList = new List<int>();
 
@@ -70,17 +70,8 @@ public class GameManager : Node2D
 				}
 			}
 		}
-		
-		// Draw a full hand for each player
-		for(int x = 0; x < 4; x++)
-		{
-			CMSoldier.DrawCard();
-			CMSniper.DrawCard();
-			CMSupport.DrawCard();
-			CMRat.DrawCard();
-			CMRat.DrawCard();
-			CMRat.DrawCard();
-		}
+
+		SetMode("Draw");
 	}
 
 	public void PlaySFX(string SFXName)

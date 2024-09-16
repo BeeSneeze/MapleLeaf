@@ -136,7 +136,7 @@
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "2"}, {"Name":"Stun", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Charlie":
@@ -147,10 +147,10 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "Damage 1",
+        "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"}],
+            {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Delta":
@@ -504,7 +504,7 @@
         "AbilityText":  "",
         "FlavorText":  "There are no rats in Alberta, so we'll be training with these",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
-        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
+        "SecondaryList":  []
     },
     "Normal Rat":
     {   
