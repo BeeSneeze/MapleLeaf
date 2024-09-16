@@ -48,6 +48,12 @@
         "MaxHP": "3",
         "Names":["Zip", "Zap", "Speedy"]
     },
+    "RatChef":
+    {
+        "ID": "14",
+        "MaxHP": "5",
+        "Names":["Rene", "Remi", "Anne", "Maud", "Lise", "Leon"]
+    },
     "Mountain":
     {
         "ID": "50",

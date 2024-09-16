@@ -564,6 +564,20 @@
         "FlavorText":  "I'll sue.",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatLawyer"}],
         "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
+    },
+    "The Chef":
+    {   
+        "ID": "607",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "Draws": "3",
+        "TargetType": "Single",
+        "TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "Hobbies include raising pizza dough and eating turtles",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
+        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
     }
     
 }
