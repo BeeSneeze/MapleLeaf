@@ -60,6 +60,12 @@
         "MaxHP": "2",
         "Names":["???"]
     },
+    "RatMenace":
+    {
+        "ID": "16",
+        "MaxHP": "4",
+        "Names":["Dennis"]
+    },
     "Mountain":
     {
         "ID": "50",

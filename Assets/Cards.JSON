@@ -287,6 +287,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Infuriate":
+    {   
+        "ID": "208",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "You know I'm right.",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
 
 
 
@@ -491,6 +505,20 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
+    "Electrocute":
+    {   
+        "ID": "510",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "BZZZZT",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
 
 
     "Tutorial Rat":
@@ -564,6 +592,20 @@
         "FlavorText":  "Hobbies include raising turtles and eating pizza",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNinja"}],
         "SecondaryList":  []
+    },
+    "The Menace":
+    {   
+        "ID": "605",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "Draws": "3",
+        "TargetType": "Single",
+        "TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "I'll sue.",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatMenace"}],
+        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
     },
     "The Lawyer":
     {   
