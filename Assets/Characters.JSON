@@ -54,6 +54,12 @@
         "MaxHP": "5",
         "Names":["Rene", "Remi", "Anne", "Maud", "Lise", "Leon", "Jean"]
     },
+    "RatNinja":
+    {
+        "ID": "15",
+        "MaxHP": "2",
+        "Names":["???"]
+    },
     "Mountain":
     {
         "ID": "50",

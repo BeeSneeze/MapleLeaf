@@ -551,6 +551,20 @@
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatSparky"}],
         "SecondaryList":  []
     },
+    "The Master":
+    {   
+        "ID": "604",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "Draws": "3",
+        "TargetType": "Single",
+        "TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "Hobbies include raising turtles and eating pizza",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatNinja"}],
+        "SecondaryList":  []
+    },
     "The Lawyer":
     {   
         "ID": "606",

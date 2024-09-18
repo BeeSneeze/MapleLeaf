@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -55,6 +55,8 @@
 [ext_resource path="res://Assets/Visuals/Markers/Stun3.png" type="Texture" id=53]
 [ext_resource path="res://Assets/Visuals/Characters/ChefRat2.png" type="Texture" id=54]
 [ext_resource path="res://Assets/Visuals/Characters/ChefRat1.png" type="Texture" id=55]
+[ext_resource path="res://Assets/Visuals/Characters/RatNinja1.png" type="Texture" id=56]
+[ext_resource path="res://Assets/Visuals/Characters/RatNinja2.png" type="Texture" id=57]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -150,6 +152,11 @@ animations = [ {
 "loop": true,
 "name": "RatLawyer",
 "speed": 2.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 57 ) ],
+"loop": true,
+"name": "RatNinja",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 46 ) ],
 "loop": true,
