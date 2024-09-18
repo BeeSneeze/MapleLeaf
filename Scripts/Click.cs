@@ -1,15 +1,10 @@
 using Godot;
 using System;
 
-
-
-
-
 public class Click : Control
 {
 	public override void _GuiInput(InputEvent @event) // On mouse clicks.
 	{
-		
 		var Parent = GetParent();
 		
 		if (@event is InputEventMouseButton mb)

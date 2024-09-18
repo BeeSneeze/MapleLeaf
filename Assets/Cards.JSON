@@ -356,6 +356,19 @@
         "AbilityList":  [{"Name":"Stun", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Diss Track":
+    {   
+        "ID": "306",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "EnemyNoCity",
+        "AbilityText": "",
+        "FlavorText":  "Dude will never recover from that burn",
+        "AbilityList":  [{"Name":"Stun", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Bribe":
     {   
         "ID": "307",
@@ -603,7 +616,7 @@
         "TargetType": "Single",
         "TargetCell": "Empty",
         "AbilityText":  "",
-        "FlavorText":  "I'll sue.",
+        "FlavorText":  "OH NO",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatMenace"}],
         "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
     },
