@@ -361,6 +361,19 @@
         "AbilityList":  [],
         "SecondaryList":  []
     },
+    "Trinoculars":
+    {
+        "ID": "302",
+        "MatrixName": "Cone",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Friendly",
+        "AbilityText":  "Spy on a card?",
+        "FlavorText":  "How exactly is this supposed to help??",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
     "Duck!":
     {
         "ID": "303",
