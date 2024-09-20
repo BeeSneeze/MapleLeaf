@@ -108,6 +108,7 @@ public class GameManager : Node2D
 				CMSniper.UnClick();
 				CMSupport.UnClick();
 				CMRat.ReClick();
+				AI.StartAttackMode();
 			break;
 			case "Draw":
 				CMSoldier.NewTurn();
@@ -208,7 +209,7 @@ public class GameManager : Node2D
 	// Enables clicking for all cards again, and clears the board
 	public void UnPrep()
 	{
-		if(Turn == "Player")
+		if(Turn == "Player" || Turn == "Draw")
 		{
 			CMSoldier.ReClick();
 			CMSniper.ReClick();

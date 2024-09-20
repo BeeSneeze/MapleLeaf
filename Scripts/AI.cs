@@ -24,8 +24,8 @@ public class AI : Node2D
 	private int CardFlag = 0;
 	private int ClickNum = 0;
 	private bool MoveMode = false;
+	private bool AttackMode = false;
 	private bool SuccessfulAction = false;
-
 	private Random rnd;
 
 	// Called when the node enters the scene tree for the first time.
@@ -54,6 +54,10 @@ public class AI : Node2D
 			{
 				MoveClick();
 			}
+			if(AttackMode)
+			{
+				AttackClick();
+			}
 		}
 	}
 	
@@ -66,10 +70,65 @@ public class AI : Node2D
 		ClickNum = 1;
 	}
 
+	// Prepares to start the attack phase
+	public void StartAttackMode()
+	{
+		//ExaminedCards = new List<int>();
+		//CardFlag = 1;
+		AttackMode = true;
+		ClickNum = 3;
+	}
+
 	// The action loop for the move phase. This includes playing move cards, and spawn cards
 	public void MoveClick()
 	{
-		
+		if(ClickNum == 1)
+		{
+			// CLICK ONE
+			SuccessfulAction = true;
+			CardFlag = ClickMoveCard();
+			ClickNum = 2;
+		}
+		else if(ClickNum == 2)
+		{
+			// CLICK TWO
+			if(CardFlag == 1) // Movement card
+			{
+				SuccessfulAction = MoveBest(MoveRat);
+			}
+			else if (CardFlag == 2) // Attack card
+			{
+				SuccessfulAction = MoveBest(SpawnRat);
+			}
+
+			if(!SuccessfulAction)
+			{
+				ActiveCard.LeftClick();
+				ActiveCard.Skip(true);
+				// UNCLICK CARD BEFORE MOVING ON
+			}
+			else
+			{
+				if(ActiveCard.Uses > 0)
+				{
+					ExaminedCards.Remove(ActiveCard.CardID);
+				}
+				
+			}
+			SuccessfulAction = false;
+			ClickNum = 1;
+			if(CardFlag == 0)
+			{
+				MoveMode = false; // Ran out of cards
+				GM.SetMode("Player");
+			}
+		}
+	}
+
+	public void AttackClick()
+	{
+		AttackMode = false;
+		GM.SetMode("Draw");
 		if(ClickNum == 1)
 		{
 			// CLICK ONE
@@ -108,7 +167,7 @@ public class AI : Node2D
 			if(CardFlag == 0)
 			{
 				MoveMode = false; // Ran out of cards
-				GM.SetMode("Player");
+				GM.SetMode("Draw");
 			}
 		}
 	}
@@ -131,8 +190,6 @@ public class AI : Node2D
 				
 			}
 		}
-
-		
 
 		foreach(Vector2 Pos in PatchPosList)
 		{

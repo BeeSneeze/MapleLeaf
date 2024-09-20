@@ -444,7 +444,8 @@ public class Card : Sprite
 
 	public void RightClick()
 	{
-		if(Clickable && !Skipped)
+		GD.Print("ATTEMPTED CLICK");
+		if(true)
 		{
 			if(Prepped) // Right click to abort play
 			{
