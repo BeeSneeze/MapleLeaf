@@ -301,6 +301,50 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Right Hook":
+    {   
+        "ID": "209",
+        "MatrixName": "RightCone",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "Your right hand is the right tool for the job",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "W"}],
+        "SecondaryList":  []
+    },
+    "Left Hook":
+    {   
+        "ID": "210",
+        "MatrixName": "LeftCone",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "Using your dominant hand helps",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "E"}],
+        "SecondaryList":  []
+    },
+    "Ambush":
+    {   
+        "ID": "214",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "B E H I N D  Y O U",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
 
 
 
@@ -528,6 +572,20 @@
         "TargetType": "Area","TargetCell": "Enemy",
         "AbilityText":  "",
         "FlavorText":  "BZZZZT",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+    "Unionize":
+    {   
+        "ID": "511",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "Working rats of the world, unite!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []

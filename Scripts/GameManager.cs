@@ -318,16 +318,60 @@ public class GameManager : Node2D
 					switch(Rot)
 					{
 						case "Up":
-							PushDirection = "N";
+							PushDirection = A.Effect;
+							
 						break;
 						case "Left":
-							PushDirection = "W";
+							switch(A.Effect)
+							{
+								case "N":
+									PushDirection = "W";
+								break;
+								case "W":
+									PushDirection = "S";
+								break;
+								case "S":
+									PushDirection = "E";
+								break;
+								case "E":
+									PushDirection = "N";
+								break;
+							}
+							
 						break;
 						case "Down":
-							PushDirection = "S";
+							switch(A.Effect)
+							{
+								case "N":
+									PushDirection = "S";
+								break;
+								case "W":
+									PushDirection = "E";
+								break;
+								case "S":
+									PushDirection = "N";
+								break;
+								case "E":
+									PushDirection = "W";
+								break;
+							}
 						break;
 						case "Right":
-							PushDirection = "E";
+							switch(A.Effect)
+							{
+								case "N":
+									PushDirection = "E";
+								break;
+								case "W":
+									PushDirection = "N";
+								break;
+								case "S":
+									PushDirection = "W";
+								break;
+								case "E":
+									PushDirection = "S";
+								break;
+							}
 						break;
 					}
 					foreach(Vector2 Target in Board.TargetList)
