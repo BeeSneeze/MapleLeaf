@@ -403,7 +403,7 @@
     "Distract":
     {   
         "ID": "305",
-        "MatrixName": "Full",
+        "MatrixName": "XFull",
         "Range": "2",
         "Uses": "2",
         "Draws": "0",
@@ -455,7 +455,7 @@
     "Double Agent":
     {   
         "ID": "309",
-        "MatrixName": "Full",
+        "MatrixName": "Manhattan",
         "Range": "2",
         "Uses": "2",
         "Draws": "0",
@@ -469,7 +469,7 @@
     {   
         "ID": "310",
         "MatrixName": "Full",
-        "Range": "2",
+        "Range": "3",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
@@ -478,7 +478,7 @@
         "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
     },
-    "Switch":
+    "Checkmate!":
     {   
         "ID": "311",
         "MatrixName": "Full",
