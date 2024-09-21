@@ -153,6 +153,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Crab":
+    {   
+        "ID": "106",
+        "MatrixName": "Cone",
+        "Range": "2",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Character",
+        "AbilityText": "",
+        "FlavorText":  "The ultimate life form",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "5"}],
+        "SecondaryList":  []
+    },
     "Delta":
     {   
         "ID": "107",
@@ -329,6 +343,20 @@
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
             {"Name":"Push", "Effect": "E"}],
+        "SecondaryList":  []
+    },
+    "Pinpoint":
+    {   
+        "ID": "211",
+        "MatrixName": "LeftCone",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "There!",
+        "AbilityList":  [
+            {"Name":"Stun", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Ambush":
