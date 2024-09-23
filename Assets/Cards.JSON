@@ -301,6 +301,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Debilitate":
+    {   
+        "ID": "206",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "I once shot a needle in a haystack y'know!",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Infuriate":
     {   
         "ID": "208",
@@ -357,6 +371,20 @@
         "FlavorText": "There!",
         "AbilityList":  [
             {"Name":"Stun", "Effect": "1"}],
+        "SecondaryList":  []
+    },
+    "Trap":
+    {   
+        "ID": "213",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "Just a little bit closer...",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Ambush":
@@ -497,7 +525,7 @@
     {   
         "ID": "310",
         "MatrixName": "Full",
-        "Range": "3",
+        "Range": "7",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
