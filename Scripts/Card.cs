@@ -158,6 +158,11 @@ public class Card : Sprite
 					//KeyText.Text = ShuffleStrings[1];
 					KeyText.Text = "";
 				break;
+				case "Create":
+					//string[] ShuffleStrings = (A.Effect).Split(":");
+					//KeyText.Text = ShuffleStrings[1];
+					KeyText.Text = "";
+				break;
 				
 			}
 			
@@ -413,7 +418,7 @@ public class Card : Sprite
 			GM.UnBig(); // Prioritise manager bigmode first
 			CardManager CM = (CardManager)GetParent();
 			CM.BigMode(this);
-			
+
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(1.0f, 1.0f), 0.07f);
 			ZIndex = 101;

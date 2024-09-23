@@ -399,7 +399,28 @@ public class GameManager : Node2D
 							CMRat.AddCard(Effect[1], RatIDList.LastOrDefault());
 						break;
 					}
-					
+				break;
+				case "Create":
+					string[] CEffect = (B.Effect).Split(":");
+					switch(CEffect[0])
+					{
+						case "Soldier":
+							CMSoldier.AddCard(CEffect[1]);
+							CMSoldier.DrawCard(CEffect[1]);
+						break;
+						case "Sniper":
+							CMSniper.AddCard(CEffect[1]);
+							CMSniper.DrawCard(CEffect[1]);
+						break;
+						case "Support":
+							CMSupport.AddCard(CEffect[1]);
+							CMSupport.DrawCard(CEffect[1]);
+						break;
+						case "Rat":
+							CMRat.AddCard(CEffect[1], RatIDList.LastOrDefault());
+							CMRat.DrawCard(CEffect[1]);
+						break;
+					}
 				break;
 			}
 		}

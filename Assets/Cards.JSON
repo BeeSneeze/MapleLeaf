@@ -439,7 +439,7 @@
         "AbilityText": "",
         "FlavorText":  "Woah for real?",
         "AbilityList":  [{"Name":"Stun", "Effect": "2"}],
-        "SecondaryList":  []
+        "SecondaryList":  [{"Name":"Create", "Effect": "Support:Roll"}]
     },
     "Diss Track":
     {   
@@ -510,7 +510,7 @@
     {   
         "ID": "311",
         "MatrixName": "Full",
-        "Range": "3",
+        "Range": "2",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
