@@ -189,18 +189,6 @@ public class GameManager : Node2D
 	// Prepares a card for play
 	public void PrepPlay(Card Card)
 	{
-		if(Turn == "Player")
-		{
-			CMSoldier.UnClick();
-			CMSniper.UnClick();
-			CMSupport.UnClick();
-		}
-		else
-		{
-			CMRat.UnClick();
-		}
-		
-
 		PrepMode = true;
 		Rot = "Up";
 		ShowPlay(Card);
@@ -209,17 +197,6 @@ public class GameManager : Node2D
 	// Enables clicking for all cards again, and clears the board
 	public void UnPrep(bool ForceUnprep = false)
 	{
-		if(Turn == "Player" || Turn == "Draw")
-		{
-			CMSoldier.ReClick();
-			CMSniper.ReClick();
-			CMSupport.ReClick();
-		}
-		else
-		{
-			CMRat.ReClick();
-		}
-
 		if(ForceUnprep)
 		{
 			CMSoldier.UnPrep();

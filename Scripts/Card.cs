@@ -332,6 +332,21 @@ public class Card : Sprite
 
 	// CARD VISUALIZER MODES
 
+	public void NormalMode()
+	{
+		SceneTreeTween tween = GetTree().CreateTween();
+		tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
+		ZIndex = 100;
+			
+		Control N2D = (Control)GetNode("FlavorText");
+		N2D.RectScale = new Vector2(0.0f, 0.0f);
+
+		foreach(Node2D Key in Keywords)
+		{
+			Key.Show();
+		}
+	}
+
 	// Visualizes what a card does, and prepares it for play
 	public void Prep(bool InBool)
 	{
@@ -345,6 +360,15 @@ public class Card : Sprite
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.6f, 0.6f), 0.07f);
 			ZIndex = 101;
+
+			// Make sure the keywords are visible
+			Control N2D = (Control)GetNode("FlavorText");
+			N2D.RectScale = new Vector2(0.0f, 0.0f);
+
+			foreach(Node2D Key in Keywords)
+			{
+				Key.Show();
+			}
 		}
 		else
 		{
@@ -373,9 +397,10 @@ public class Card : Sprite
 		}
 		else
 		{
-			SceneTreeTween tween = GetTree().CreateTween();
-			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
-			ZIndex = 100;
+			if(!Prepped && !Big)
+			{
+				NormalMode();
+			}
 		}
 	}
 
@@ -388,8 +413,7 @@ public class Card : Sprite
 			GM.UnBig(); // Prioritise manager bigmode first
 			CardManager CM = (CardManager)GetParent();
 			CM.BigMode(this);
-
-
+			
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(1.0f, 1.0f), 0.07f);
 			ZIndex = 101;
@@ -403,15 +427,9 @@ public class Card : Sprite
 		}
 		else
 		{
-			SceneTreeTween tween = GetTree().CreateTween();
-			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
-			ZIndex = 100;
-			Control N2D = (Control)GetNode("FlavorText");
-			N2D.RectScale = new Vector2(0.0f, 0.0f);
-
-			foreach(Node2D Key in Keywords)
+			if(!Prepped && !Preview)
 			{
-				Key.Show();
+				NormalMode();
 			}
 		}
 
@@ -483,12 +501,8 @@ public class Card : Sprite
 		}
 		else if(!GM.PrepMode)
 		{
-			Big = !Big;
-			BigMode(Big);
-			if(Big == false)
-			{
-				GM.UnPrep();
-			}
+			Big = true;
+			BigMode(true);
 		}
 	}
 
