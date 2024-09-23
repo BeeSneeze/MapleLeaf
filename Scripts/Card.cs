@@ -7,9 +7,13 @@ public class Card : Sprite
 	public string CardName;
 
 	// Different card visuals
-	public bool Prepped = false;
 	private bool Clickable = true;
-	private bool Big = false;
+	
+	
+	public bool Prepped = false;	// When the player is preparing a play for a card
+	private bool Big = false;		// When the player wants extra info about a card
+	private bool Preview = false; 	// When the player is hovering over a card
+
 
 	private bool Skipped = false; // Card is completely unclickable until its game object is destroyed
 	private GameManager GM;
@@ -284,29 +288,6 @@ public class Card : Sprite
 
 	}
 
-	// Visualizes what a card does, without playing it
-	public void Prep(bool InBool)
-	{
-		if(InBool)
-		{
-			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
-			PrepHalo.Show();
-			GM.PrepPlay(this);
-			SceneTreeTween tween = GetTree().CreateTween();
-			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.6f, 0.6f), 0.07f);
-			ZIndex = 101;
-		}
-		else
-		{
-			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
-			PrepHalo.Hide();
-			GM.UnPrep();
-			SceneTreeTween tween = GetTree().CreateTween();
-			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
-			ZIndex = 100;
-		}
-	}
-
 	// Discard card
 	public void Discard()
 	{
@@ -349,16 +330,62 @@ public class Card : Sprite
 		AnimSpr.Animation = InString;
 	}
 
+	// CARD VISUALIZER MODES
 
-	// BIG MODE BIG MODE BIG MODE BIG MODE BIG MODE
-	public void BigMode(bool InBool)
+	// Visualizes what a card does, and prepares it for play
+	public void Prep(bool InBool)
+	{
+		if(InBool)
+		{
+			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
+			PrepHalo.Show();
+			GM.PrepPlay(this);
+			SceneTreeTween tween = GetTree().CreateTween();
+			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.6f, 0.6f), 0.07f);
+			ZIndex = 101;
+		}
+		else
+		{
+			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
+			PrepHalo.Hide();
+			GM.UnPrep();
+			SceneTreeTween tween = GetTree().CreateTween();
+			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
+			ZIndex = 100;
+		}
+	}
+
+	// Visualizes what a card does, but does *not* prepare it for play
+	public void PreviewMode(bool InBool)
 	{
 		if(InBool)
 		{
 			GM.UnBig(); // Prioritise manager bigmode first
 			GM.ShowPlay(this);
 			CardManager CM = (CardManager)GetParent();
+			SceneTreeTween tween = GetTree().CreateTween();
+			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.55f, 0.55f), 0.07f);
+			ZIndex = 101;
+		}
+		else
+		{
+			SceneTreeTween tween = GetTree().CreateTween();
+			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
+			ZIndex = 100;
+		}
+	}
+
+
+	// Makes a card big and displays helper information
+	public void BigMode(bool InBool)
+	{
+		if(InBool)
+		{
+			GM.UnBig(); // Prioritise manager bigmode first
+			CardManager CM = (CardManager)GetParent();
 			CM.BigMode(this);
+
+
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(1.0f, 1.0f), 0.07f);
 			ZIndex = 101;
@@ -444,7 +471,6 @@ public class Card : Sprite
 
 	public void RightClick()
 	{
-		GD.Print("ATTEMPTED CLICK");
 		if(true)
 		{
 			if(Prepped) // Right click to abort play
@@ -467,17 +493,21 @@ public class Card : Sprite
 
 	public void MouseEnter()
 	{
-		if(!Skipped)
+		if(!GM.PrepMode)
 		{
-			//Prep(true);
+			Preview = true;
+			PreviewMode(true);
 		}
+		
 	}
 
 	public void MouseExit()
 	{
-		if(!Skipped)
+		if(!GM.PrepMode)
 		{
-			//Prep(false);
+			Preview = false;
+			PreviewMode(false);
+			GM.UnPrep();
 		}
 	}
 }

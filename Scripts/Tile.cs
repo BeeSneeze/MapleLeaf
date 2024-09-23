@@ -269,6 +269,11 @@ public class Tile : Node2D
 			((Node2D)AnimSpr).ZIndex = -10;
 		}
 
+		if(InString == "None")
+		{
+			return;
+		}
+
 		if(GM.CurrentCard.TargetType == "Area" && InString != "SelectClickable")
 		{
 			Clickable = false; // Only allow the select marker to be clicked if it's an area attack
