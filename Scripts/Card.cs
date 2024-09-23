@@ -335,8 +335,10 @@ public class Card : Sprite
 	// Visualizes what a card does, and prepares it for play
 	public void Prep(bool InBool)
 	{
+		
 		if(InBool)
 		{
+			GM.UnPrep(true);
 			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
 			PrepHalo.Show();
 			GM.PrepPlay(this);
@@ -346,13 +348,15 @@ public class Card : Sprite
 		}
 		else
 		{
+			GM.UnPrep();
 			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
 			PrepHalo.Hide();
-			GM.UnPrep();
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
 			ZIndex = 100;
 		}
+
+		Prepped = InBool;
 	}
 
 	// Visualizes what a card does, but does *not* prepare it for play
@@ -471,23 +475,20 @@ public class Card : Sprite
 
 	public void RightClick()
 	{
-		if(true)
+
+		if(Prepped) // Right click to abort play
 		{
-			if(Prepped) // Right click to abort play
+			Prepped = false;
+			Prep(false);
+		}
+		else if(!GM.PrepMode)
+		{
+			Big = !Big;
+			BigMode(Big);
+			if(Big == false)
 			{
-				Prepped = false;
-				Prep(false);
+				GM.UnPrep();
 			}
-			else
-			{
-				Big = !Big;
-				BigMode(Big);
-				if(Big == false)
-				{
-					GM.UnPrep();
-				}
-			}
-			
 		}
 	}
 
@@ -508,6 +509,7 @@ public class Card : Sprite
 			Preview = false;
 			PreviewMode(false);
 			GM.UnPrep();
+			BigMode(false);
 		}
 	}
 }

@@ -343,6 +343,15 @@ public class CardManager : Node2D
 		GD.Print("MANAGER BIGMODE");
 	}
 
+	// UnPreps all cards
+	public void UnPrep()
+	{
+		foreach(Card C in HandCards)
+		{
+			C.Prep(false);
+		}
+	}
+
 	// Turns all cards in hand to the small visual
 	public void UnBig()
 	{

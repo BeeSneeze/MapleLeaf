@@ -207,7 +207,7 @@ public class GameManager : Node2D
 	}
 
 	// Enables clicking for all cards again, and clears the board
-	public void UnPrep()
+	public void UnPrep(bool ForceUnprep = false)
 	{
 		if(Turn == "Player" || Turn == "Draw")
 		{
@@ -219,6 +219,15 @@ public class GameManager : Node2D
 		{
 			CMRat.ReClick();
 		}
+
+		if(ForceUnprep)
+		{
+			CMSoldier.UnPrep();
+			CMSniper.UnPrep();
+			CMSupport.UnPrep();
+			CMRat.UnPrep();
+		}
+		
 
 		Board.ClearMarkers();
 		CurrentLoaded = false;
