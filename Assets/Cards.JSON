@@ -697,6 +697,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Plagiarize":
+    {   
+        "ID": "512",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "Hey look at this thing I made!",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
 
 
     "Tutorial Rat":
