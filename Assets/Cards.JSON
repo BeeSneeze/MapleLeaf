@@ -111,6 +111,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Air strike":
+    {   
+        "ID": "102",
+        "MatrixName": "Cardinal",
+        "Range": "7",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Character",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "5"}],
+        "SecondaryList":  []
+    },
     "Bravo":
     {   
         "ID": "103",
@@ -237,11 +251,39 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Flamenco":
+    {   
+        "ID": "112",
+        "MatrixName": "Fox",
+        "Range": "2",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Character",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Golf":
     {   
         "ID": "113",
         "MatrixName": "Dive",
         "Range": "2",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Character",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+    "Grapeshot":
+    {   
+        "ID": "114",
+        "MatrixName": "Dive",
+        "Range": "4",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",

@@ -2,7 +2,8 @@
     "Start":
     {   
         "Slides": ["1950", "RatsEatCrops", "AlbertaRatifies", "2050", "Independence", "Elections", "RatsEverywhere", "Exceptforone"],
-        "Text": ["The year is 1950",
+        "Text": [
+        "The year is 1950",
         "Due to rising fears over the economic cost of rats eating crops, and neighboring Saskatchewan’s rising rat population…",
         "…Alberta officially declares the Rat as a pest and starts an extensive anti-rat program to keep the state rat free.", 
         "The year is 2050",
@@ -14,7 +15,9 @@
     "Ending":
     {   
         "Slides": ["SlideA", "SlideB"],
-        "Text": ["TextA", "TextB"]
+        "Text": [
+        "TextA", 
+        "TextB"]
     },
     "Credits":
     {   
