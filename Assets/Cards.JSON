@@ -224,9 +224,6 @@
         "SecondaryList":  []
     },
 
-
-
-
     "Feint":
     {   
         "ID": "201",
@@ -235,7 +232,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
-        "AbilityText": "Damage 1, Swap with target",
+        "AbilityText": "Damage 1, Swap place with target",
         "FlavorText":  "",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
@@ -315,6 +312,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Taunt":
+    {   
+        "ID": "207",
+        "MatrixName": "Full",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Infuriate":
     {   
         "ID": "208",
@@ -362,6 +373,20 @@
     "Pinpoint":
     {   
         "ID": "211",
+        "MatrixName": "LeftCone",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText": "There!",
+        "AbilityList":  [
+            {"Name":"Stun", "Effect": "1"}],
+        "SecondaryList":  []
+    },
+    "Pin down":
+    {   
+        "ID": "212",
         "MatrixName": "LeftCone",
         "Range": "3",
         "Uses": "1",
@@ -544,6 +569,19 @@
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText": "",
         "FlavorText":  "Your turn!",
+        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "Checkers mate!":
+    {   
+        "ID": "312",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "10",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Friendly",
+        "AbilityText": "",
+        "FlavorText":  "The easiest way to win is to cheat",
         "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
     },

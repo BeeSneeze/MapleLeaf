@@ -1,12 +1,12 @@
 {
     "Soldier": ["Walk", "Alpha", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Echo", "Foxtrot", "Golf"],
-    "Sniper": ["Jog", "Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Trap", "Ambush"],
-    "Support": ["Run", "Duck!", "Distract", "Diss Track", "Run", "Bribe", "GOOSE!", "Binoculars", "Trinoculars", "Double Agent", "Mole", "Checkmate!"],
+    "Sniper": ["Jog", "Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Taunt", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Pin down", "Trap", "Ambush"],
+    "Support": ["Run", "Binoculars", "Trinoculars", "Duck!", "GOOSE!", "Distract", "Diss Track", "Bribe", "Grease", "Double Agent", "Mole", "Checkmate!", "Checkers mate!", "Luck", "F---!"],
     "Rat": ["Normal Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Chef", "Unionize",  "Electrocute", "Scamper", "Overwhelm", "Scamper", "The Swarm", "Normal Rat", "Tutorial Rat", "The Lawyer"],
     
     "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
     "PoolSoldier": [],
-    "PoolSniper": [],
-    "PoolSupport": [],
+    "PoolSniper": ["Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Taunt", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Pin Down", "Trap", "Ambush"],
+    "PoolSupport": ["Binoculars", "Trinoculars", "Duck!", "GOOSE!", "Distract", "Diss Track", "Bribe", "Grease", "Double Agent", "Mole", "Checkmate!", "Checkers mate!", "Luck", "F---!"],
     "PoolRatSpawn": []
 }
