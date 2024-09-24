@@ -47,7 +47,7 @@ public class Board : Node2D
 
 				Cell[x,y] = tile;
 
-				tile.Char.Modifiers = new List<string>();
+				tile.Char.ModifierData = new List<Modifier>();
 
 				AddChild(tile);
 			}
@@ -57,6 +57,18 @@ public class Board : Node2D
 		//LoadStage("Regina");
 
 		LoadTheoretical();
+	}
+
+
+	public void NewTurn()
+	{
+		for(int x = 0; x < MaxSize; x++)
+		{
+			for(int y = 0; y < MaxSize; y++)
+			{
+				Cell[x,y].NewTurn();
+			}
+		}
 	}
 
 	
@@ -374,7 +386,7 @@ public class Board : Node2D
 		Character Char2 = Cell[(int)Vec2.x,(int)Vec2.y].Char;
 
 		// Immovable objects can, as expected, not be moved
-		if(Char1.Modifiers.Contains("Immovable") || Char2.Modifiers.Contains("Immovable"))
+		if(Char1.ContainsModifier("Immovable") || Char2.ContainsModifier("Immovable"))
 		{
 			return; 
 		}
@@ -383,10 +395,10 @@ public class Board : Node2D
 		Cell[(int)Vec2.x,(int)Vec2.y].SetCharacter(Char1);
 	}
 
-	public void AddModifier(Vector2 Target, string ModName)
+	public void AddModifier(Vector2 Target, string ModName, int ModTime)
 	{
 		GD.Print("REACHED BOARD");
-		Cell[(int)Target.x, (int)Target.y].AddModifier(ModName);	
+		Cell[(int)Target.x, (int)Target.y].AddModifier(ModName, ModTime);	
 	}
 
 

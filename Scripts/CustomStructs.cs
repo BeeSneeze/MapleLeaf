@@ -43,11 +43,61 @@ public struct Ability
 // Information about a specific character. Each tile has one.
 public struct Character
 {
-	public int HP, MaxHP;			// How much damage can this character take before it dies?
-	public int ID; 					// % 100 on the ID to get the character type. For instance 101 % 100 = 1, which is the soldier
-	public string Name; 			// The name associated with a given ID. Only used for labeling purposes
-	public Vector2 QueuedMove; 		// Where is this character about to move?
-	public List<string> Modifiers; 	// Has the character been stunned, is it immovable etc.?
+	public int HP, MaxHP;				// How much damage can this character take before it dies?
+	public int ID; 						// % 100 on the ID to get the character type. For instance 101 % 100 = 1, which is the soldier
+	public string Name; 				// The name associated with a given ID. Only used for labeling purposes
+	public Vector2 QueuedMove; 			// Where is this character about to move?
+	public List<Modifier> ModifierData;	// Contains a list of modifiers and how long they last
+
+	public void AddModifier(string MName, int MTime = 10000)
+	{
+		Modifier M = new Modifier();
+		M.Name = MName;
+		M.Time = MTime;
+		ModifierData.Add(M);
+	}
+
+	public void AdvanceModifiers()
+	{
+		List<int> DoneMods = new List<int>();
+		for(int i = 0; i < ModifierData.Count; i++)
+		{
+			Modifier M = ModifierData[i];
+
+			M.Time = ModifierData[i].Time - 1;
+
+			ModifierData[i] = M;
+			if(ModifierData[i].Time < 1)
+			{
+				DoneMods.Add(i);
+			}
+		}
+
+		DoneMods.Reverse(); // Check in reverse order, since elements are being removed
+
+		foreach(int index in DoneMods)
+		{
+			ModifierData.RemoveAt(index);
+		}
+	}
+
+	public bool ContainsModifier(string InString)
+	{
+		foreach(Modifier M in ModifierData)
+		{
+			if(M.Name == InString)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+}
+
+public struct Modifier
+{
+	public string Name;
+	public int Time;
 }
 
 // Character info as saved in the JSON files

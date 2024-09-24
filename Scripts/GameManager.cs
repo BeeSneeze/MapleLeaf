@@ -111,6 +111,7 @@ public class GameManager : Node2D
 				AI.StartAttackMode();
 			break;
 			case "Draw":
+				Board.NewTurn();
 				CMSoldier.NewTurn();
 				CMSniper.NewTurn();
 				CMSupport.NewTurn();
@@ -297,7 +298,7 @@ public class GameManager : Node2D
 				case "Stun":
 					foreach(Vector2 Target in Board.TargetList)
 					{
-						Board.AddModifier(Target, "Stun");
+						Board.AddModifier(Target, "Stun", int.Parse(A.Effect));
 					}
 				break;
 				case "Push":
@@ -364,7 +365,7 @@ public class GameManager : Node2D
 					foreach(Vector2 Target in Board.TargetList)
 					{	
 						// Make sure the thing you're trying to push is not immovable
-						if(!Board.Cell[(int)Target.x,(int)Target.y].Char.Modifiers.Contains("Immovable"))
+						if(!Board.Cell[(int)Target.x,(int)Target.y].Char.ContainsModifier("Immovable"))
 						{
 							Board.Push(Target, Target, PushDirection);
 						}

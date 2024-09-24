@@ -109,7 +109,7 @@ public class Tile : Node2D
 		CharacterInfo CI = Brd.AllCharacters[CharName];
 		GameManager GM = (GameManager)GetParent().GetParent();
 
-		Char.Modifiers = new List<string>();
+		Char.ModifierData = new List<Modifier>();
 
 		if(CharName != "None")
 		{
@@ -126,10 +126,10 @@ public class Tile : Node2D
 					Char.ID = 303;
 				break;
 				case "Mountain":
-					Char.Modifiers.Add("Immovable");
+					Char.AddModifier("Immovable");
 				break;
 				case "City":
-					Char.Modifiers.Add("Immovable");
+					Char.AddModifier("Immovable");
 				break;
 			}
 		}
@@ -166,17 +166,15 @@ public class Tile : Node2D
 		AnimatedSprite ModAnim = (AnimatedSprite)GetNode("Modifier");
 		ModAnim.Animation = "None";
 
-		foreach(string ModName in Char.Modifiers)
+		foreach(Modifier M in Char.ModifierData)
 		{
-			switch(ModName)
+			switch(M.Name)
 			{
 				case "Stun":
 					ModAnim.Animation = "Stun";
 				break;
 			}
 		}
-		
-
 
 		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
 
@@ -298,12 +296,11 @@ public class Tile : Node2D
 		}
 	}
 
-	public void AddModifier(string ModName)
+	public void AddModifier(string ModName, int ModTime)
 	{
-		GD.Print("REACHED TILE");
-		if(!Char.Modifiers.Contains(ModName))
+		if(!Char.ContainsModifier(ModName))
 		{
-			Char.Modifiers.Add(ModName);
+			Char.AddModifier(ModName, ModTime);
 			ShowModifier(ModName);
 		}
 	}
@@ -320,6 +317,28 @@ public class Tile : Node2D
 	{
 		Board Brd = (Board)GetParent();
 		Brd.AddTarget(new Vector2(X,Y));
+	}
+
+
+	public void NewTurn()
+	{
+		Char.AdvanceModifiers();
+
+		bool NoModifiers = true;
+		
+		foreach(Modifier M in Char.ModifierData)
+		{
+			if(M.Name != "Immovable")
+			{
+				ShowModifier(M.Name);
+				NoModifiers = false;
+			}
+		}
+
+		if(NoModifiers)
+		{
+			ShowModifier("None");
+		}
 	}
 
 

@@ -2,5 +2,11 @@
     "Soldier": ["Walk", "Alpha", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Echo", "Foxtrot", "Golf"],
     "Sniper": ["Jog", "Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Trap", "Ambush"],
     "Support": ["Run", "Duck!", "Distract", "Diss Track", "Run", "Bribe", "GOOSE!", "Binoculars", "Trinoculars", "Double Agent", "Mole", "Checkmate!"],
-    "Rat": ["Normal Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Chef", "Unionize",  "Electrocute", "Scamper", "Overwhelm", "Scamper", "The Swarm", "Normal Rat", "Tutorial Rat", "The Lawyer"]
+    "Rat": ["Normal Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Chef", "Unionize",  "Electrocute", "Scamper", "Overwhelm", "Scamper", "The Swarm", "Normal Rat", "Tutorial Rat", "The Lawyer"],
+    
+    "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
+    "PoolSoldier": [],
+    "PoolSniper": [],
+    "PoolSupport": [],
+    "PoolRatSpawn": []
 }
