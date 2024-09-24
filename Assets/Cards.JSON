@@ -76,7 +76,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Empty",
-        "AbilityText":  "Does nothing",
+        "AbilityText":  "Does nothing, use to remove",
         "FlavorText":  "Stay still please...",
         "AbilityList":  [],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
@@ -181,9 +181,37 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Delegate":
+    {   
+        "ID": "108",
+        "MatrixName": "Diagonal",
+        "Range": "3",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Character",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Echo":
     {   
         "ID": "109",
+        "MatrixName": "Full",
+        "Range": "1",
+        "Uses": "2",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Character",
+        "AbilityText": "Damage 2",
+        "FlavorText":  "",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+    "Elk":
+    {   
+        "ID": "110",
         "MatrixName": "Full",
         "Range": "1",
         "Uses": "2",
@@ -678,7 +706,7 @@
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Enemy",
         "AbilityText":  "",
-        "FlavorText":  "BZZZZT",
+        "FlavorText":  "\n BZZZZT",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
