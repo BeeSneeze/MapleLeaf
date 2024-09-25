@@ -189,10 +189,10 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "Damage 2",
+        "AbilityText": "Three damage in a diagonal line",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "3"}],
         "SecondaryList":  []
     },
     "Delegate":
@@ -358,7 +358,7 @@
     {   
         "ID": "205",
         "MatrixName": "Full",
-        "Range": "3",
+        "Range": "4",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Enemy",
@@ -372,28 +372,30 @@
     {   
         "ID": "206",
         "MatrixName": "Full",
-        "Range": "3",
+        "Range": "4",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Enemy",
         "AbilityText": "",
-        "FlavorText": "I once shot a needle in a haystack y'know!",
+        "FlavorText": "A precise shot can mean the difference between a flesh wound and life long injury",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "2"},
+            {"Name":"Stun", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Taunt":
     {   
         "ID": "207",
-        "MatrixName": "Full",
-        "Range": "3",
+        "MatrixName": "Line",
+        "Range": "5",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
+        "TargetType": "Single","TargetCell": "Enemy",
         "AbilityText": "",
         "FlavorText": "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "2"},
+            {"Name":"Push", "Effect": "S"}],
         "SecondaryList":  []
     },
     "Infuriate":

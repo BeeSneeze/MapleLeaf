@@ -8,5 +8,7 @@
     "PoolSoldier": ["Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],
     "PoolSniper": ["Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Taunt", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Pin Down", "Trap", "Ambush"],
     "PoolSupport": ["Binoculars", "Trinoculars", "Duck!", "GOOSE!", "Distract", "Diss Track", "Bribe", "Grease", "Double Agent", "Mole", "Checkmate!", "Checkers mate!", "Luck", "F---!"],
-    "PoolRatSpawn": []
+    "PoolRatSpawn": [],
+    "PoolRatMove": [],
+    "PoolRatAttack": []
 }
