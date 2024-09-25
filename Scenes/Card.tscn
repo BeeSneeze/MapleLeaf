@@ -35,19 +35,6 @@ animations = [ {
 size = 34
 font_data = ExtResource( 5 )
 
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "None",
-"speed": 5.0
-}, {
-"frames": [ null, null, null, ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ) ],
-"loop": false,
-"name": "Use",
-"speed": 15.0
-} ]
-
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 18 ) ],
@@ -91,6 +78,19 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "None",
+"speed": 5.0
+}, {
+"frames": [ null, null, null, ExtResource( 9 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "Use",
+"speed": 15.0
+} ]
+
 [node name="Card" type="Sprite"]
 z_index = 100
 texture = ExtResource( 1 )
@@ -100,7 +100,6 @@ script = ExtResource( 4 )
 visible = false
 z_index = -1
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="Picture" type="Sprite" parent="."]
@@ -172,6 +171,10 @@ text = "10"
 align = 1
 valign = 1
 
+[node name="LabelCover" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "111"
+
 [node name="Overlay" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 14 )
@@ -190,10 +193,6 @@ margin_right = -139.0
 margin_bottom = -216.0
 mouse_filter = 1
 script = ExtResource( 6 )
-
-[node name="LabelCover" type="AnimatedSprite" parent="."]
-frames = SubResource( 4 )
-animation = "111"
 
 [connection signal="mouse_entered" from="CardClick" to="CardClick" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="CardClick" to="CardClick" method="OnMouseExit"]

@@ -214,7 +214,7 @@ public class Card : Sprite
 			
 		}
 
-		UpdateLabels();
+		
 
 		// Set the background corresponding to the ability
 		
@@ -260,6 +260,7 @@ public class Card : Sprite
 
 		SpawnKeywords();
 
+		UpdateLabels();
 	}
 
 	// Update all the labels on the card
@@ -290,6 +291,68 @@ public class Card : Sprite
 		{
 			MLabel.Text = "";
 		}
+
+		CoverLabels();
+
+	}
+
+	// Covers the bottom labels on the card that are not in use
+	private void CoverLabels()
+	{
+		string AmmoOn = "1";
+		string MiddleOn = "1";
+		string RangeOn = "1";
+
+		AnimatedSprite Cover = (AnimatedSprite)GetNode("LabelCover");
+
+
+		if(Uses == 1)
+		{
+			AmmoOn = "0";
+		}
+
+		if(OwnerID < 400)
+		{
+			MiddleOn = "0";
+		}
+
+		if(MatrixName == "Global")
+		{
+			RangeOn = "0";
+		}
+
+		Cover.Animation = AmmoOn + MiddleOn + RangeOn;
+
+		CanvasItem CoverNode = (CanvasItem)Cover;
+
+		switch(ChosenAbility)
+		{
+			case "Damage":
+				CoverNode.Modulate = new Color(0.7764f,0.3608f,0.3608f,1);
+			break;
+			case "Move":
+				CoverNode.Modulate = new Color(0.4627f,0.6706f,0.8510f,1);
+			break;
+			case "MoveRat":
+				CoverNode.Modulate = new Color(0.4627f,0.6706f,0.8510f,1);
+			break;
+			case "Harm":
+				CoverNode.Modulate = new Color(0.9490f,0.6196f,0.2f,1);
+			break;
+			case "Support":
+				CoverNode.Modulate = new Color(0.4902f,0.7490f,0.2431f,1);
+			break;
+			case "Negative":
+				CoverNode.Modulate = new Color(0.3804f,0.3804f,0.3804f,1);
+			break;
+			case "Rat":
+				CoverNode.Modulate = new Color(0.7059f,0.7059f,0.7059f,1);
+			break;
+		}
+		
+
+
+
 
 	}
 
@@ -337,6 +400,7 @@ public class Card : Sprite
 
 	// CARD VISUALIZER MODES
 
+	// Go back to normal
 	public void NormalMode()
 	{
 		SceneTreeTween tween = GetTree().CreateTween();
@@ -409,7 +473,6 @@ public class Card : Sprite
 		}
 	}
 
-
 	// Makes a card big and displays helper information
 	public void BigMode(bool InBool)
 	{
@@ -454,7 +517,6 @@ public class Card : Sprite
 			((CardManager)GetParent()).LoadCardEffect("Unplayable", this);
 		}
 	}
-
 
 	public void ToggleClickable(bool InBool)
 	{
