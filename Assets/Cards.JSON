@@ -361,7 +361,7 @@
         "Range": "4",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Enemy",
+        "TargetType": "Single","TargetCell": "EnemyNoCity",
         "AbilityText": "",
         "FlavorText": "I once shot a needle in a haystack y'know!",
         "AbilityList":  [
@@ -375,7 +375,7 @@
         "Range": "4",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Enemy",
+        "TargetType": "Single","TargetCell": "EnemyNoCity",
         "AbilityText": "",
         "FlavorText": "A precise shot can mean the difference between a flesh wound and life long injury",
         "AbilityList":  [
@@ -390,7 +390,7 @@
         "Range": "5",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Enemy",
+        "TargetType": "Single","TargetCell": "Character",
         "AbilityText": "",
         "FlavorText": "",
         "AbilityList":  [
@@ -405,7 +405,7 @@
         "Range": "3",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
+        "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
         "FlavorText": "You know I'm right.",
         "AbilityList":  [
@@ -439,6 +439,7 @@
         "FlavorText": "Using your dominant hand helps",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
+            {"Name":"Stun", "Effect": "1"},
             {"Name":"Push", "Effect": "E"}],
         "SecondaryList":  []
     },

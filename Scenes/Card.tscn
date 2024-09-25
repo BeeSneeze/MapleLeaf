@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Visuals/Cards/CardRat.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Cards/The Swarm.png" type="Texture" id=2]
@@ -14,6 +14,14 @@
 [ext_resource path="res://Assets/Visuals/Cards/Use4.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Visuals/Markers/Empty.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Visuals/Cards/Skipped.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Visuals/Cards/CardCover101.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Visuals/Cards/CardCover111.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Visuals/Cards/CardCover100.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Visuals/Cards/CardCover000.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Visuals/Cards/CardCover001.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Visuals/Cards/CardCover110.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Visuals/Cards/CardCover010.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Visuals/Cards/CardCover011.png" type="Texture" id=22]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -38,6 +46,49 @@ animations = [ {
 "loop": false,
 "name": "Use",
 "speed": 15.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "000",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "001",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "010",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "011",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "100",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "101",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "110",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "111",
+"speed": 5.0
 } ]
 
 [node name="Card" type="Sprite"]
@@ -139,6 +190,10 @@ margin_right = -139.0
 margin_bottom = -216.0
 mouse_filter = 1
 script = ExtResource( 6 )
+
+[node name="LabelCover" type="AnimatedSprite" parent="."]
+frames = SubResource( 4 )
+animation = "111"
 
 [connection signal="mouse_entered" from="CardClick" to="CardClick" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="CardClick" to="CardClick" method="OnMouseExit"]
