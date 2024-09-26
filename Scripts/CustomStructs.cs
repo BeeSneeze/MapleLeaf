@@ -74,7 +74,6 @@ public struct Character
 		}
 
 		DoneMods.Reverse(); // Check in reverse order, since elements are being removed
-
 		foreach(int index in DoneMods)
 		{
 			ModifierData.RemoveAt(index);

@@ -214,8 +214,6 @@ public class Card : Sprite
 			
 		}
 
-		
-
 		// Set the background corresponding to the ability
 		
 		foreach(Ability A in AbilityList)
@@ -316,7 +314,7 @@ public class Card : Sprite
 			MiddleOn = "0";
 		}
 
-		if(MatrixName == "Global")
+		if(MatrixName == "Global" || MatrixName == "None")
 		{
 			RangeOn = "0";
 		}

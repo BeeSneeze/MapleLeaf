@@ -163,7 +163,7 @@ animations = [ {
 "frames": [ ExtResource( 56 ), ExtResource( 57 ) ],
 "loop": true,
 "name": "RatNinja",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 46 ) ],
 "loop": true,

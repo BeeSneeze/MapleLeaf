@@ -71,8 +71,8 @@
     "Paramedic":
     {   
         "ID": "10",
-        "MatrixName": "Manhattan",
-        "Range": "6",
+        "MatrixName": "None",
+        "Range": "1",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Empty",

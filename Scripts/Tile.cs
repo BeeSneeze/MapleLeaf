@@ -9,10 +9,8 @@ public class Tile : Node2D
 	public bool Clickable = false;
 	public Character Char = new Character(); // The character currently on the tile
 
-
 	private string Terrain;
 	private string Marker;
-
 	private Label NameLabel;
 	private ColorRect LabelBox;
 	private Node2D HPNode;
@@ -56,23 +54,32 @@ public class Tile : Node2D
 			{
 				PlayEffect("Explosion"); 
 			}
-
 			return;
 		}
 		
 		Char.HP -= Dmg;
 		if(Char.HP < 1) // Character dies
 		{
-
-			if(Char.ID % 100 > 9 && Char.ID % 100 < 50)
+			if(Char.ID % 100 < 10) // Player characters just get stunned
 			{
-				GM.RatIDList.Remove(Char.ID);
+				PlayEffect("Explosion"); 
+				AddModifier("Stun", 2);
+				Char.HP = Char.MaxHP;
+			}
+			else // Everyone else actually dies
+			{
+				if(Char.ID % 100 > 9 && Char.ID % 100 < 50)
+				{
+					GM.RatIDList.Remove(Char.ID);
+				}
+
+				GM.SkipCard(Char.ID);
+
+				PlayEffect("Death");
+				CreateCharacter("None");
 			}
 
-			GM.SkipCard(Char.ID);
-			
-			PlayEffect("Death");
-			CreateCharacter("None");
+
 		}
 		else
 		{
