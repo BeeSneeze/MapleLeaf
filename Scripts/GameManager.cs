@@ -27,12 +27,14 @@ public class GameManager : Node2D
 	public List<int> RatIDList = new List<int>();
 
 	private bool AreYouWinningSon = false;
+	private Node2D WinScreen;
 
 	public Dictionary<int, string> RatIDToName = new Dictionary<int,string>(); // Used to convert from a rat id to a rat name
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		WinScreen = (Node2D)GetNode("WinScreen");
 		SFX = (SFXManager)GetNode("SFX");
 		Board = (Board)GetNode("Board");
 		CMSoldier = (CardManager)GetNode("CardsSoldier");
@@ -585,6 +587,14 @@ public class GameManager : Node2D
 		GD.Print("LEVEL ENDED!");
 		SetMode("None");
 		AreYouWinningSon = false;
+		WinScreen.Show();
+	}
+
+	public void MoveToWorldMap()
+	{
+		LevelManager LM = (LevelManager)GetParent();
+		LM.ChangeLevel("WorldMap");
+		WinScreen.Hide();
 	}
 
 	// Checks if there are no more rats, and no more spawn cards left
@@ -617,8 +627,8 @@ public class GameManager : Node2D
 				return;
 			}
 		}
-
-
+		
+		// Level does not immediately change, but is rather resolved at the end of the turn
 		AreYouWinningSon = true;
 
 	}

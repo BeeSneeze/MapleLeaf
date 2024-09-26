@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Sound/Punch.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Themes/END TURN.tres" type="Theme" id=9]
 [ext_resource path="res://Assets/Sound/Gunshots.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Assets/Visuals/LevelComplete.png" type="Texture" id=11]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -60,4 +61,18 @@ theme = ExtResource( 9 )
 text = "END TURN"
 icon_align = 1
 
+[node name="WinScreen" type="Sprite" parent="."]
+visible = false
+position = Vector2( 960, 540 )
+z_index = 1000
+texture = ExtResource( 11 )
+
+[node name="WinButton" type="Button" parent="WinScreen"]
+margin_left = -200.0
+margin_top = 150.0
+margin_right = 200.0
+margin_bottom = 300.0
+text = "MOVE FORWARD"
+
 [connection signal="pressed" from="NextTurn" to="." method="SetMode" binds= [ "RatAttack" ]]
+[connection signal="pressed" from="WinScreen/WinButton" to="." method="MoveToWorldMap"]
