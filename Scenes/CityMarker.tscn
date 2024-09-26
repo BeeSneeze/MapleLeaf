@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Visuals/Circle1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Circle2.png" type="Texture" id=2]
@@ -8,9 +8,17 @@
 [ext_resource path="res://Assets/Visuals/Cross3.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/CityMarker.cs" type="Script" id=7]
 [ext_resource path="res://Scripts/Click.cs" type="Script" id=8]
+[ext_resource path="res://Assets/Visuals/Boss2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Visuals/Boss1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Visuals/Boss3.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Boss",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Circle",

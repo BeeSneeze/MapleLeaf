@@ -10,6 +10,7 @@ public class WorldMap : Node2D
 
 	List<CityMarker> CityList;
 	int CurrentIndex = 1;
+	bool FinalCity = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -31,8 +32,27 @@ public class WorldMap : Node2D
 
 	public void NextCity()
 	{
-		CityList[CurrentIndex++].DeactivateCity();
-		CityList[CurrentIndex].ActivateCity();
+		if(!FinalCity)
+		{
+			CityList[CurrentIndex++].DeactivateCity();
+			CityList[CurrentIndex].ActivateCity();
+			FinalCity = CurrentIndex == 10;
+
+		}
+		
+
+	}
+
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event is InputEventKey eventKey)
+		{
+			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Q)
+			{
+				NextCity();
+			}
+			
+		}	
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
