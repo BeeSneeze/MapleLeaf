@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -11,6 +11,14 @@
 [ext_resource path="res://Themes/END TURN.tres" type="Theme" id=9]
 [ext_resource path="res://Assets/Sound/Gunshots.mp3" type="AudioStream" id=10]
 [ext_resource path="res://Assets/Visuals/LevelComplete.png" type="Texture" id=11]
+[ext_resource path="res://Themes/Miracode.ttf" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 12 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -72,6 +80,7 @@ margin_left = -200.0
 margin_top = 150.0
 margin_right = 200.0
 margin_bottom = 300.0
+theme = SubResource( 2 )
 text = "MOVE FORWARD"
 
 [connection signal="pressed" from="NextTurn" to="." method="SetMode" binds= [ "RatAttack" ]]

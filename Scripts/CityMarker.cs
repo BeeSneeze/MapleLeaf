@@ -16,6 +16,18 @@ public class CityMarker : AnimatedSprite
 		GM = (GameManager)LM.GetNode("Game");
 	}
 
+	public void ActivateCity()
+	{
+		Show();
+	}
+
+	public void DeactivateCity(){
+		Animation = "Cross";
+		CanvasItem C = (CanvasItem)GetNode("Control");
+		C.Hide();
+	}
+
+
 	public void LeftClick()
 	{
 		GD.Print(CityName);

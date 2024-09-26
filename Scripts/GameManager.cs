@@ -593,6 +593,8 @@ public class GameManager : Node2D
 	public void MoveToWorldMap()
 	{
 		LevelManager LM = (LevelManager)GetParent();
+		WorldMap WM = (WorldMap)LM.GetNode("WorldMap");
+		WM.NextCity();
 		LM.ChangeLevel("WorldMap");
 		WinScreen.Hide();
 	}

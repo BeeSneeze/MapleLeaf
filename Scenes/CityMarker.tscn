@@ -24,8 +24,7 @@ animations = [ {
 
 [node name="CityMarker" type="AnimatedSprite"]
 frames = SubResource( 1 )
-animation = "Cross"
-frame = 1
+animation = "Circle"
 playing = true
 script = ExtResource( 7 )
 
