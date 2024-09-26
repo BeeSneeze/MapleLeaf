@@ -784,6 +784,20 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Cheese":
+    {   
+        "ID": "513",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "Yum!",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
 
 
     "Tutorial Rat":
@@ -897,6 +911,34 @@
         "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Hobbies include raising pizza dough and eating turtles",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
+        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
+    },
+    "The President":
+    {   
+        "ID": "608",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "Draws": "4",
+        "TargetType": "Single",
+        "TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "Fight against the tyrrany of man! Fight for the freedom of your fellow rat!",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
+        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
+    },
+    "Second Term":
+    {   
+        "ID": "609",
+        "MatrixName": "Global",
+        "Range": "7",
+        "Uses": "1",
+        "Draws": "4",
+        "TargetType": "Single",
+        "TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "Democracy will never die!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
         "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
     }
