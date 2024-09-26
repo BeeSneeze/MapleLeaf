@@ -116,7 +116,7 @@
         "ID": "102",
         "MatrixName": "Cardinal",
         "Range": "7",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "Damage 2",

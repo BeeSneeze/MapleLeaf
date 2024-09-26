@@ -26,6 +26,8 @@ public class GameManager : Node2D
 
 	public List<int> RatIDList = new List<int>();
 
+	private bool AreYouWinningSon = false;
+
 	public Dictionary<int, string> RatIDToName = new Dictionary<int,string>(); // Used to convert from a rat id to a rat name
 
 	// Called when the node enters the scene tree for the first time.
@@ -429,6 +431,12 @@ public class GameManager : Node2D
 
 		CurrentCard.Discard();
 		UnPrep();
+
+		// Only end the level after finishing the turn
+		if(AreYouWinningSon)
+		{
+			LevelEnd();
+		}
 	}
 
 	// Visualizes what a card does, but without playing it
@@ -574,6 +582,44 @@ public class GameManager : Node2D
 	// Everything done after the round is over
 	public void LevelEnd()
 	{
+		GD.Print("LEVEL ENDED!");
 		SetMode("None");
+		AreYouWinningSon = false;
+	}
+
+	// Checks if there are no more rats, and no more spawn cards left
+	// if there is neither, the player wins!
+	public void CheckWin()
+	{
+		if(RatIDList.Count > 0)
+		{
+			return;
+		}
+		
+		foreach(int CID in CMRat.Deck)
+		{
+			if(CID % 1000 >= 600)
+			{
+				return;
+			}
+		}
+		foreach(int CID in CMRat.Deck)
+		{
+			if(CID % 1000 >= 600)
+			{
+				return;
+			}
+		}
+		foreach(int CID in CMRat.Deck)
+		{
+			if(CID % 1000 >= 600)
+			{
+				return;
+			}
+		}
+
+
+		AreYouWinningSon = true;
+
 	}
 }
