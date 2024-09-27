@@ -86,10 +86,12 @@ public class GameManager : Node2D
 	//  RatMove->Player->RatAttack->Draw->RatMove etc.
 	public void SetMode(string ModeName)
 	{
+		// Only start AI turns when appropriate
 		if(ModeName == "RatAttack" && Turn != "Player")
-		{
 			return;
-		}
+		if(ModeName == "RatMove" && Turn != "Draw")
+			return;
+		
 		GD.Print("SET MODE: " + ModeName);
 		Turn = ModeName;
 		switch(ModeName)
@@ -137,9 +139,6 @@ public class GameManager : Node2D
 				switch(eventKey2.Scancode)
 				{
 					// DEBUG SWITCH GAME MODES
-					case (int)KeyList.Z:
-						SetMode("RatMove");
-					break;
 					case (int)KeyList.V:
 						SetMode("Draw");
 					break;
@@ -293,9 +292,33 @@ public class GameManager : Node2D
 							break;
 						}
 						// Draw card for the rats
-						if(Board.Cell[(int)Target.x,(int)Target.y].Char.ID % 100 > 10)
+						if(Board.Cell[(int)Target.x,(int)Target.y].Char.ID % 100 > 9 && Board.Cell[(int)Target.x,(int)Target.y].Char.ID % 100 < 50)
 						{
-							CMRat.DrawCard();
+							CMRat.AddCard(A.Effect);
+							CMRat.DrawCard(A.Effect);
+						}
+					}
+				break;
+				case "Shuffle":
+					foreach(Vector2 Target in Board.TargetList)
+					{
+						// Draw card for one of the player characters
+						switch(Board.Cell[(int)Target.x,(int)Target.y].Char.ID)
+						{
+							case 101:
+								CMSoldier.AddCard(A.Effect);
+							break;
+							case 202:
+								CMSniper.AddCard(A.Effect);
+							break;
+							case 303:
+								CMSupport.AddCard(A.Effect);
+							break;
+						}
+						// Draw card for the rats
+						if(Board.Cell[(int)Target.x,(int)Target.y].Char.ID % 100 > 9 && Board.Cell[(int)Target.x,(int)Target.y].Char.ID % 100 < 50)
+						{
+							CMRat.AddCard(A.Effect);
 						}
 					}
 				break;
@@ -578,6 +601,7 @@ public class GameManager : Node2D
 	// Everything needed to set up the new round
 	public void LevelStart()
 	{
+		GD.Print("LEVEL STARTED!");
 		SetMode("Draw");
 	}
 	

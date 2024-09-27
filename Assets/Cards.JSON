@@ -798,6 +798,21 @@
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
+    "Sneeze":
+    {   
+        "ID": "514",
+        "MatrixName": "Cone",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "Sneezing is not normal, I never sneeze",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Shuffle", "Effect": "Sneeze"}],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
+    },
 
 
     "Tutorial Rat":

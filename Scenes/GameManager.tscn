@@ -78,10 +78,30 @@ theme = ExtResource( 9 )
 text = "END TURN"
 icon_align = 1
 
+[node name="NextTurn2" type="Button" parent="."]
+margin_left = 600.0
+margin_top = 955.0
+margin_right = 844.0
+margin_bottom = 1036.0
+theme = ExtResource( 9 )
+text = "End Draw"
+icon_align = 1
+
 [node name="WinScreen" type="Sprite" parent="."]
+visible = false
 position = Vector2( 960, 540 )
 z_index = 1000
 texture = ExtResource( 11 )
+
+[node name="Cover" type="ColorRect" parent="WinScreen"]
+modulate = Color( 0.196078, 0.196078, 0.196078, 0.196078 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -960.0
+margin_top = -540.0
+margin_right = -40.0
+margin_bottom = 40.0
 
 [node name="WinButton" type="Button" parent="WinScreen"]
 margin_left = -200.0
@@ -92,4 +112,5 @@ theme = SubResource( 2 )
 text = "MOVE FORWARD"
 
 [connection signal="pressed" from="NextTurn" to="." method="SetMode" binds= [ "RatAttack" ]]
+[connection signal="pressed" from="NextTurn2" to="." method="SetMode" binds= [ "RatMove" ]]
 [connection signal="pressed" from="WinScreen/WinButton" to="." method="MoveToWorldMap"]
