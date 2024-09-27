@@ -8,10 +8,12 @@ public class CityMarker : AnimatedSprite
 
 	private GameManager GM;
 	private LevelManager LM;
+	private WorldMap WM;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		WM = (WorldMap)GetParent();
 		LM = (LevelManager)GetParent().GetParent();
 		GM = (GameManager)LM.GetNode("Game");
 	}

@@ -813,7 +813,7 @@
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
         "SecondaryList":  []
     },
-    "Normal Rat":
+    "The Rat":
     {   
         "ID": "601",
         "MatrixName": "Global",

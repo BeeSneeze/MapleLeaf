@@ -65,6 +65,7 @@ CityName = "Montreal"
 [node name="New York City" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1650, 837.6 )
 animation = "Boss"
+frame = 1
 CityName = "New York City"
 
 [node name="Button" type="Button" parent="."]
