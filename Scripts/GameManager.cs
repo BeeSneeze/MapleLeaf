@@ -7,16 +7,6 @@ using Newtonsoft.Json;
 public class GameManager : Node2D
 {
 	public Board Board;
-	
-	private AI AI;
-	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
-	private SFXManager SFX;
-	private int CardIDCounter = 0;
-	private int CharacterIDCounter = 0;
-	private Dictionary<string,List<string>> Decks;
-	private bool CurrentLoaded = false;
-	private bool[,] UnRotated;
-	private bool[,] CurrentMatrix;
 
 	public string Rot = "Up";
 	public Card CurrentCard;
@@ -26,14 +16,28 @@ public class GameManager : Node2D
 
 	public List<int> RatIDList = new List<int>();
 
+	public Dictionary<int, string> RatIDToName = new Dictionary<int,string>(); // Used to convert from a rat id to a rat name
+
+	private AI AI;
+	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
+	private SFXManager SFX;
+	private int CardIDCounter = 0;
+	private int CharacterIDCounter = 0;
+	private Dictionary<string,List<string>> Decks;
+	private bool CurrentLoaded = false;
+	private bool[,] UnRotated, CurrentMatrix;
+	private Button EndTurnButton;
+
+	
+
 	private bool AreYouWinningSon = false;
 	private Node2D WinScreen;
 
-	public Dictionary<int, string> RatIDToName = new Dictionary<int,string>(); // Used to convert from a rat id to a rat name
-
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		EndTurnButton = (Button)GetNode("NextTurn");
 		WinScreen = (Node2D)GetNode("WinScreen");
 		SFX = (SFXManager)GetNode("SFX");
 		Board = (Board)GetNode("Board");
@@ -450,6 +454,24 @@ public class GameManager : Node2D
 						break;
 					}
 				break;
+				case "Draw":
+					// Draw card for one of the player characters
+					switch(B.Effect)
+					{
+						case "Soldier":
+							CMSoldier.DrawCard();
+						break;
+						case "Sniper":
+							CMSniper.DrawCard();
+						break;
+						case "Support":
+							CMSupport.DrawCard();
+						break;
+						case "Rat":
+							CMRat.DrawCard();
+						break;
+					}
+				break;
 			}
 		}
 
@@ -657,5 +679,19 @@ public class GameManager : Node2D
 		// Level does not immediately change, but is rather resolved at the end of the turn
 		AreYouWinningSon = true;
 
+	}
+
+	public void TurnButtonClicked()
+	{
+		if(Turn == "Draw")
+		{
+			EndTurnButton.Text = "End Turn";
+			SetMode("RatMove");
+		}
+		else if(Turn == "Player")
+		{
+			EndTurnButton.Text = "End Draw";
+			SetMode("RatAttack");
+		}
 	}
 }

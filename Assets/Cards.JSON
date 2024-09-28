@@ -198,16 +198,18 @@
     "Delegate":
     {   
         "ID": "108",
-        "MatrixName": "Diagonal",
-        "Range": "3",
-        "Uses": "2",
+        "MatrixName": "AllDiagonal",
+        "Range": "7",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "Damage 2",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
+            {"Name":"Damage", "Effect": "1"}],
+        "SecondaryList":  [
+            {"Name": "Draw", "Effect": "Sniper"},
+            {"Name": "Draw", "Effect": "Support"}]
     },
     "Echo":
     {   
@@ -232,7 +234,7 @@
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "Damage 2",
-        "FlavorText":  "",
+        "FlavorText":  "A noble steed, indeed",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []

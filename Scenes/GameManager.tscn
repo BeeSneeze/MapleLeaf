@@ -78,15 +78,6 @@ theme = ExtResource( 9 )
 text = "END TURN"
 icon_align = 1
 
-[node name="NextTurn2" type="Button" parent="."]
-margin_left = 600.0
-margin_top = 955.0
-margin_right = 844.0
-margin_bottom = 1036.0
-theme = ExtResource( 9 )
-text = "End Draw"
-icon_align = 1
-
 [node name="WinScreen" type="Sprite" parent="."]
 visible = false
 position = Vector2( 960, 540 )
@@ -111,6 +102,5 @@ margin_bottom = 350.0
 theme = SubResource( 2 )
 text = "MOVE FORWARD"
 
-[connection signal="pressed" from="NextTurn" to="." method="SetMode" binds= [ "RatAttack" ]]
-[connection signal="pressed" from="NextTurn2" to="." method="SetMode" binds= [ "RatMove" ]]
+[connection signal="pressed" from="NextTurn" to="." method="TurnButtonClicked"]
 [connection signal="pressed" from="WinScreen/WinButton" to="." method="MoveToWorldMap"]
