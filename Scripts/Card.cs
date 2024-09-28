@@ -16,7 +16,7 @@ public class Card : Sprite
 
 
 	private bool Skipped = false; // Card is completely unclickable until its game object is destroyed
-	private GameManager GM;
+	public GameManager GM;
 
 	// Card specifics
 	public int CardID; // Unique identifier. Do % 1000 to get the specific card type
@@ -62,8 +62,6 @@ public class Card : Sprite
 		ZIndex = 100;
 		Control N2D = (Control)GetNode("FlavorText");
 		N2D.RectScale = new Vector2(0.0f, 0.0f);
-
-		GM = (GameManager)GetParent().GetParent();
 
 		// Load the card picture
 		Sprite Image = (Sprite)GetNode("Picture");
@@ -362,8 +360,6 @@ public class Card : Sprite
 		if(--Uses < 1) // Ran out of uses
 		{
 			bool ShouldExhaust = false;
-
-			CardManager CM = (CardManager)GetParent();
 			foreach(Ability A in SecondaryList)
 			{
 				if(A.Name == "Exhaust")
@@ -372,13 +368,15 @@ public class Card : Sprite
 				}
 			}
 
+			var CM = GetParent();
+
 			if(ShouldExhaust)
 			{
-				CM.ExhaustCard(this);
+				CM.CallDeferred("ExhaustCard", this);
 			}
 			else
 			{
-				CM.DiscardCard(this);
+				CM.CallDeferred("DiscardCard", this);
 			}
 		}
 		else // Still have some amount of uses left
@@ -459,7 +457,6 @@ public class Card : Sprite
 		{
 			GM.UnBig(); // Prioritise manager bigmode first
 			GM.ShowPlay(this);
-			CardManager CM = (CardManager)GetParent();
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.55f, 0.55f), 0.07f);
 			ZIndex = 101;
@@ -479,8 +476,8 @@ public class Card : Sprite
 		if(InBool)
 		{
 			GM.UnBig(); // Prioritise manager bigmode first
-			CardManager CM = (CardManager)GetParent();
-			CM.BigMode(this);
+			var CM = GetParent();
+			CM.CallDeferred("BigMode", this);
 
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(1.0f, 1.0f), 0.07f);

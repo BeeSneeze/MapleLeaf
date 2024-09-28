@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-public class CardManager : Node2D
+public class CardShop : Node2D
 {
-	[Export] public string OwnerName;
+	private string OwnerName = "Shop";
 
 	public bool Shuffle = true;
 
@@ -28,7 +28,7 @@ public class CardManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		GM = (GameManager)GetParent();
+		GM = (GameManager)((GetParent().GetParent()).GetNode("Game"));
 		
 		// Manager Visuals
 		Sprite SprOwner = (Sprite)GetNode("Owner");
@@ -38,39 +38,10 @@ public class CardManager : Node2D
 		DiscardLabel = (Label)GetNode("Discard").GetNode("Label");
 		DrawLabel = (Label)GetNode("Draw").GetNode("Label");
 
-		SprOwner.Texture = (Texture)GD.Load("res://Assets/Visuals/Characters/" + OwnerName + ".png");
-
-		switch(OwnerName)
-		{
-			case "Soldier":
-				BG.Modulate = new Color(0.0f, 0.8f, 0.0f, 0.6f);
-				Discard.Modulate = new Color(0.0f, 0.8f, 0.0f, 1.0f);
-				Draw.Modulate = new Color(0.0f, 0.8f, 0.0f, 1.0f);
-			break;
-			case "Sniper":
-				BG.Modulate = new Color(1.0f, 0.6f, 0.3f, 0.7f);
-				Discard.Modulate = new Color(1.0f, 0.6f, 0.3f, 1.0f);
-				Draw.Modulate = new Color(1.0f, 0.6f, 0.3f, 1.0f);
-			break;
-			case "Support":
-				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
-				BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
-				Discard.Modulate = new Color(0.4f, 0.4f, 1.0f, 1.0f);
-				Draw.Modulate = new Color(0.4f, 0.4f, 1.0f, 1.0f);
-			break;
-			case "Rat":
-				BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGRat.png");
-				Node2D SOwner = (Node2D)SprOwner;
-				SOwner.Translate(new Vector2(450,-250));
-				SOwner.Scale = new Vector2(0.9f,0.9f);
-				BG.Modulate = new Color(1.0f, 1.0f, 1.0f, 0.6f);
-
-				Discard.Modulate = new Color(0.8f, 0.8f, 0.8f, 1.0f);
-				Draw.Modulate = new Color(0.8f, 0.8f, 0.8f, 1.0f);
-				Discard.Translate(new Vector2(-350,-245));
-				Draw.Translate(new Vector2(-350,-245));
-			break;
-		}
+		BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
+		BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
+		Discard.Modulate = new Color(0.4f, 0.4f, 1.0f, 1.0f);
+		Draw.Modulate = new Color(0.4f, 0.4f, 1.0f, 1.0f);
 
 		// Load AllCardsDict
 		File Reader = new File();
@@ -83,17 +54,15 @@ public class CardManager : Node2D
 		{
 			IdToNameConvert.Add(int.Parse(Entry.Value.ID), Entry.Key);
 		}
-	}
 
-	// Update the labels at the top of the Card Manager
-	private void UpdateLabels()
-	{
-		if(DrawLabel != null)
-		{
-			DrawLabel.Text = (Deck.Count).ToString();
-			DiscardLabel.Text = (Discard.Count).ToString();
-		}
-		
+		AddCard("Duck!");
+		AddCard("Duck!");
+		AddCard("Duck!");
+		AddCard("Duck!");
+		DrawCard();
+		DrawCard();
+		DrawCard();
+		DrawCard();
 	}
 
 	public void LoadCardEffect(string EffectName, Card InCard)
@@ -174,26 +143,14 @@ public class CardManager : Node2D
 		foreach(Card C in HandCards)
 		{
 			Node2D CNode = (Node2D)C;
-			if(OwnerName == "Rat")
+			CTween = GetTree().CreateTween();
+			if(Hand.Count > 1)
 			{
-				int Column = ((index)%4);
-				int Row = ((index) - ((index)%4)) / 4;
-				// Rat uses several rows for their cards
-				CTween = GetTree().CreateTween();
-				CTween.TweenProperty(CNode, "position", new Vector2(Column*120-25,-220 + Row*240-30), 0.20f);
+				CTween.TweenProperty(CNode, "position", new Vector2((index)* Space /((float)Hand.Count-1) - Margin,-12), 0.20f);
 			}
 			else
 			{
-				CTween = GetTree().CreateTween();
-				if(Hand.Count > 1)
-				{
-					CTween.TweenProperty(CNode, "position", new Vector2((index)* Space /((float)Hand.Count-1) - Margin,-12), 0.20f);
-				}
-				else
-				{
-					CTween.TweenProperty(CNode, "position", new Vector2(Space / 2.0f - Margin,-12), 0.20f);
-				}
-				
+				CTween.TweenProperty(CNode, "position", new Vector2(Space / 2.0f - Margin,-12), 0.20f);
 			}
 			index++;
 		}
@@ -234,7 +191,6 @@ public class CardManager : Node2D
 		
 		ActiveCards[NewID] = CC;
 		Deck.Add(NewID);
-		UpdateLabels();
 	}
 
 	private List<int> ShufflePile(List<int> PileToShuffle)
@@ -303,7 +259,6 @@ public class CardManager : Node2D
 		Hand.Add(TopCard);
 
 		CreateCardObject(TopCard);
-		UpdateLabels();
 		UpdateCardPositions();
 	}
 
@@ -319,7 +274,6 @@ public class CardManager : Node2D
 		HandCards.Remove(InCard);
 
 		InCard.QueueFree();
-		UpdateLabels();
 		UpdateCardPositions();
 	}
 
@@ -334,7 +288,6 @@ public class CardManager : Node2D
 		LoadCardEffect("Exhaust", InCard);
 
 		InCard.QueueFree();
-		UpdateLabels();
 		UpdateCardPositions();
 	}
 
@@ -397,46 +350,6 @@ public class CardManager : Node2D
 				C.Skip();
 			}
 		}
-	}
-
-	// Discard all remaining cards, and draw a new full hand
-	public void NewTurn()
-	{	
-		// Discard all cards
-		while(HandCards.Count > 0)
-		{
-			bool ForceExhaust = false;
-
-			foreach(Ability A in HandCards[0].SecondaryList)
-			{
-				if(A.Name == "Exhaust" && A.Effect == "Forced")
-				{
-					ForceExhaust = true;
-				}
-			}
-
-			if(ForceExhaust)
-			{
-				GD.Print("FORCED EXHAUST");
-				HandCards[0].Discard();
-			}
-			else
-			{
-				DiscardCard(HandCards[0]);
-			}
-		}
-
-		// Draw new cards
-		for(int x = 0; x < 4; x++)
-		{
-			DrawCard();
-			if(OwnerName == "Rat")
-			{
-				DrawCard();
-				DrawCard();
-			}
-		}
-		
 	}
 
 }

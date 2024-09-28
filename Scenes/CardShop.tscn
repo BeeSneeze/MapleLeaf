@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/CardShop.cs" type="Script" id=1]
+[ext_resource path="res://Assets/Visuals/Characters/Support.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Visuals/CardManagerBG.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Visuals/Discard.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Visuals/Draw.png" type="Texture" id=5]
+[ext_resource path="res://Themes/CardManager.tres" type="Theme" id=6]
+
+[node name="Node2D" type="Sprite"]
+z_index = 100
+script = ExtResource( 1 )
+
+[node name="CardManagerBG" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.392157 )
+position = Vector2( 155, -25 )
+texture = ExtResource( 3 )
+
+[node name="Owner" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0.947266, 0.947266, 0.947266, 1 )
+position = Vector2( -70, -165 )
+scale = Vector2( -0.84, 0.84 )
+texture = ExtResource( 2 )
+
+[node name="Discard" type="Sprite" parent="."]
+visible = false
+position = Vector2( 300, -168 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="Discard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -42.0
+margin_right = -50.0
+margin_bottom = -50.0
+theme = ExtResource( 6 )
+text = "12"
+align = 1
+valign = 1
+
+[node name="Draw" type="Sprite" parent="."]
+visible = false
+position = Vector2( 365, -168 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Draw"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -50.0
+margin_top = -44.0
+margin_right = -50.0
+margin_bottom = -50.0
+theme = ExtResource( 6 )
+text = "12"
+align = 1
+valign = 1
