@@ -63,6 +63,11 @@ public class CardShop : Node2D
 		DrawCard();
 		DrawCard();
 		DrawCard();
+
+		foreach(Card C in HandCards)
+		{
+			C.Clickable = false;
+		}
 	}
 
 	public void LoadCardEffect(string EffectName, Card InCard)

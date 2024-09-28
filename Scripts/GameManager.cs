@@ -136,24 +136,6 @@ public class GameManager : Node2D
 	public override void _UnhandledInput(InputEvent @event)
 	{
 
-		if (@event is InputEventKey eventKey2)
-		{
-			if(eventKey2.Pressed)
-			{
-				switch(eventKey2.Scancode)
-				{
-					// DEBUG SWITCH GAME MODES
-					case (int)KeyList.V:
-						SetMode("Draw");
-					break;
-					case (int)KeyList.N:
-						SetMode("None");
-					break;
-
-				}
-			}
-		}
-
 		if(!CurrentLoaded)
 			return;
 

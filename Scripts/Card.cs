@@ -7,7 +7,7 @@ public class Card : Sprite
 	public string CardName;
 
 	// Different card visuals
-	private bool Clickable = true;
+	public bool Clickable = true;
 	
 	
 	public bool Prepped = false;	// When the player is preparing a play for a card
@@ -348,10 +348,6 @@ public class Card : Sprite
 			break;
 		}
 		
-
-
-
-
 	}
 
 	// Discard card
