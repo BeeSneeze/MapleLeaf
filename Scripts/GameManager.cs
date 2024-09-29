@@ -213,6 +213,11 @@ public class GameManager : Node2D
 			switch(A.Name)
 			{
 				case "Damage":
+					if(CurrentCard.TargetType == "Area")
+					{
+						PlaySFX("Gunshots");
+					}
+
 					foreach(Vector2 Target in Board.TargetList)
 					{
 						Board.Damage(Target, int.Parse(A.Effect));

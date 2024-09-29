@@ -65,11 +65,9 @@ script = ExtResource( 6 )
 
 [node name="Punch" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 8 )
-volume_db = -80.0
 
 [node name="Gunshots" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 10 )
-volume_db = -80.0
 
 [node name="NextTurn" type="Button" parent="."]
 margin_left = 1107.0

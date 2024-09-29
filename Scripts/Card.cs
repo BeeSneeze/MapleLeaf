@@ -69,7 +69,15 @@ public class Card : Sprite
 
 		// Set the flavortext
 		RichTextLabel RichLabel = (RichTextLabel)GetNode("FlavorText");
-		RichLabel.AppendBbcode("[center]" + FlavorText + "\n [u]" + AbilityText);
+		if(AbilityText != "")
+		{
+			RichLabel.AppendBbcode("[center]" + FlavorText + "\n [i](" + AbilityText + ")");
+		}
+		else
+		{
+			RichLabel.AppendBbcode("[center]" + FlavorText);
+		}
+		
 
 		if(Draws == 1)
 		{
