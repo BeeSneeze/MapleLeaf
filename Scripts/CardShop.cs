@@ -23,11 +23,17 @@ public class CardShop : Node2D
 	private Dictionary<int, string> IdToNameConvert = new Dictionary<int, string>(); // Used to convert from ID to name
 	private Dictionary<int, CompactCard> ActiveCards = new Dictionary<int, CompactCard>(); // Contains supplementary info about all the cards managed by this class
 
+	private Dictionary<string,List<string>> Decks;
+
+	private Random rnd;
+
 	private SceneTreeTween CTween;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		rnd = new Random();
+
 		GM = (GameManager)((GetParent().GetParent()).GetNode("Game"));
 		
 		// Manager Visuals
@@ -50,15 +56,25 @@ public class CardShop : Node2D
 		AllCardsDict = JsonConvert.DeserializeObject<Dictionary<string,CardType>>(Contents);
 		Reader.Close();
 
+		// Load starting decks
+		Reader = new File();
+		Reader.Open("res://Assets/Decks.JSON", File.ModeFlags.Read);
+		Contents = Reader.GetAsText();
+		Decks = JsonConvert.DeserializeObject<Dictionary<string,List<string>>>(Contents);
+		Reader.Close();
+
 		foreach(KeyValuePair<string, CardType> Entry in AllCardsDict)
 		{
 			IdToNameConvert.Add(int.Parse(Entry.Value.ID), Entry.Key);
 		}
 
-		AddCard("Duck!");
-		AddCard("Duck!");
-		AddCard("Duck!");
-		AddCard("Duck!");
+		
+
+		AddCard(Decks["PoolSoldier"][rnd.Next(0,Decks["PoolSoldier"].Count)]);
+		AddCard(Decks["PoolSniper"][rnd.Next(0,Decks["PoolSniper"].Count)]);
+		AddCard(Decks["PoolSupport"][rnd.Next(0,Decks["PoolSupport"].Count)]);
+		AddCard(Decks["PoolRatSpawn"][rnd.Next(0,Decks["PoolRatSpawn"].Count)]);
+
 		DrawCard();
 		DrawCard();
 		DrawCard();

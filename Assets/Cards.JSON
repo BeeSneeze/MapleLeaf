@@ -807,7 +807,7 @@
         "Range": "2",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
+        "TargetType": "Area","TargetCell": "EnemyNoCity",
         "AbilityText":  "",
         "FlavorText":  "Sneezing is not normal, I never sneeze",
         "AbilityList":  [
