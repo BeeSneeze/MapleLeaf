@@ -6,8 +6,7 @@ using Newtonsoft.Json;
 public class CardManager : Node2D
 {
 	[Export] public string OwnerName;
-
-	public bool Shuffle = true;
+	[Export] public bool Shuffle = true;
 
 	// Cards as card IDs
 	public List<Card> HandCards = new List<Card>();
@@ -237,7 +236,7 @@ public class CardManager : Node2D
 		UpdateLabels();
 	}
 
-	private List<int> ShufflePile(List<int> PileToShuffle)
+	public List<int> ShufflePile(List<int> PileToShuffle)
 	{
 		List<int> OutPile = new List<int>();
 		List<int> ShufflePile = new List<int>(PileToShuffle);

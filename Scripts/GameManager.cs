@@ -78,6 +78,23 @@ public class GameManager : Node2D
 			}
 		}
 
+		if(CMSoldier.Shuffle)
+		{
+			CMSoldier.Deck = CMSoldier.ShufflePile(CMSoldier.Deck);
+		}
+		if(CMSniper.Shuffle)
+		{
+			CMSniper.Deck = CMSniper.ShufflePile(CMSniper.Deck);
+		}
+		if(CMSupport.Shuffle)
+		{
+			CMSupport.Deck = CMSupport.ShufflePile(CMSupport.Deck);
+		}
+		if(CMRat.Shuffle)
+		{
+			CMRat.Deck = CMRat.ShufflePile(CMRat.Deck);
+		}
+
 		LevelStart();
 	}
 
