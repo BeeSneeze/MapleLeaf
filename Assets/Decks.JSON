@@ -2,7 +2,7 @@
     "Soldier": ["Walk", "Paramedic", "Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],
     "Sniper": ["Run", "Run", "Sneeze", "Feint", "Jab", "Snipe", "Taunt", "Right Hook", "Pinpoint", "Pin down", "Trap"],
     "Support": ["Jog", "Jog", "Binoculars", "Duck!", "Distract", "Bribe", "Double Agent", "Checkmate!", "Luck", "Double Agent"],
-    "Rat": ["The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Chef", "The President", "Second Term", "Unionize", "Plagiarize", "Electrocute", "Sneeze", "Scamper", "Overwhelm", "Cheese", "Scamper", "The Swarm", "The Rat", "Tutorial Rat", "The Lawyer"],
+    "Rat": ["Tutorial Rat", "The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The President", "Second Term", "Unionize", "Plagiarize", "Electrocute", "Sneeze", "Scamper", "Overwhelm", "Cheese", "Scamper", "The Swarm", "The Rat", "Tutorial Rat", "The Lawyer"],
     
     "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
     "PoolSoldier": ["Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],

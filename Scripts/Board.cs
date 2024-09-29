@@ -16,7 +16,6 @@ public class Board : Node2D
 	public List<Arrow> QueuedMoves = new List<Arrow>();
 
 	private int[,] TheoreticalCellID = new int[8,8];
-	private Node2D WASD;
 	private Node2D HelpArrow;
 	private GameManager GM;
 
@@ -24,7 +23,6 @@ public class Board : Node2D
 	{
 		GM = (GameManager)GetParent();
 
-		WASD = GetNode<Node2D>("WASD");
 		HelpArrow = GetNode<Node2D>("HelpArrow");
 
 		// Load Character Info
@@ -154,13 +152,6 @@ public class Board : Node2D
 
 		Vector2 Center = GetCharPos(Card.PlayerID);
 		Patch(InMat, ActionMatrix, Center);
-
-		// Show the helper keyboard if you can rotate the matrix
-		if(Card.MatrixName != "Global" && Card.MatrixName != "Manhattan" && Card.MatrixName != "Cardinal" && Card.MatrixName != "Full")
-		{
-			WASD.Show();
-			WASD.Position = new Vector2(-250,-267) + Center*88f;
-		}
 
 		if(Card.TargetType == "Area")
 		{
@@ -314,7 +305,7 @@ public class Board : Node2D
 	// Remove all of the markers, and resets the target list
 	public void ClearMarkers()
 	{
-		WASD.Hide();
+
 		HelpArrow.Hide();
 
 		TargetList = new List<Vector2>();
@@ -462,7 +453,7 @@ public class Board : Node2D
 			}
 			
 		}
-		
+
 		Arrow NewArr;
 		NewArr.From = OrignalTile;
 		NewArr.To = new Vector2(TargetX,TargetY);

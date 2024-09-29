@@ -133,8 +133,6 @@ public class GameManager : Node2D
 
 	public override void _Process(float delta)
 	{
-		
-
 		if(CurrentLoaded)
 		{
 			Vector2 CPos = Board.GetCharPos(CurrentCard.PlayerID);
@@ -177,12 +175,7 @@ public class GameManager : Node2D
 					Board.ShowMatrix(CurrentMatrix, CurrentCard);
 				}
 			}
-
 		}
-
-		
-
-
 	}
 
 	// Prepares a card for play
