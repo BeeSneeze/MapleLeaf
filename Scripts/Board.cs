@@ -24,8 +24,8 @@ public class Board : Node2D
 	{
 		GM = (GameManager)GetParent();
 
-		WASD = (Node2D)GetNode("WASD");
-		HelpArrow = (Node2D)GetNode("HelpArrow");
+		WASD = GetNode<Node2D>("WASD");
+		HelpArrow = GetNode<Node2D>("HelpArrow");
 
 		// Load Character Info
 		File Reader = new File();

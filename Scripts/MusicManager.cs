@@ -14,10 +14,10 @@ public class MusicManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		PauseMenu = (AudioStreamPlayer)GetNode("PauseMenu");
-		MainMenu = (AudioStreamPlayer)GetNode("MainMenu");
-		WorldMap = (AudioStreamPlayer)GetNode("WorldMap");
-		Game = (AudioStreamPlayer)GetNode("Game");
+		PauseMenu = GetNode<AudioStreamPlayer>("PauseMenu");
+		MainMenu = GetNode<AudioStreamPlayer>("MainMenu");
+		WorldMap = GetNode<AudioStreamPlayer>("WorldMap");
+		Game = GetNode<AudioStreamPlayer>("Game");
 	}
 
 	public void PlayMusic(string InString)

@@ -17,7 +17,7 @@ public class SFXManager : Node2D
 
 	public void PlaySFX(string SFXName)
 	{
-		Sound = (AudioStreamPlayer)GetNode(SFXName);
+		Sound = GetNode<AudioStreamPlayer>(SFXName);
 		Sound.Play();
 	}
 }

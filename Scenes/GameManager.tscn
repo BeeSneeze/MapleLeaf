@@ -75,7 +75,7 @@ margin_top = 955.0
 margin_right = 1351.0
 margin_bottom = 1036.0
 theme = ExtResource( 9 )
-text = "END TURN"
+text = "End Draw"
 icon_align = 1
 
 [node name="WinScreen" type="Sprite" parent="."]

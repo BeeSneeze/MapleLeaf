@@ -31,12 +31,12 @@ public class CardShop : Node2D
 		GM = (GameManager)((GetParent().GetParent()).GetNode("Game"));
 		
 		// Manager Visuals
-		Sprite SprOwner = (Sprite)GetNode("Owner");
-		Sprite BG = (Sprite)GetNode("CardManagerBG");
-		Sprite Discard = (Sprite)GetNode("Discard");
-		Sprite Draw = (Sprite)GetNode("Draw");
-		DiscardLabel = (Label)GetNode("Discard").GetNode("Label");
-		DrawLabel = (Label)GetNode("Draw").GetNode("Label");
+		Sprite SprOwner = GetNode<Sprite>("Owner");
+		Sprite BG = GetNode<Sprite>("CardManagerBG");
+		Sprite Discard = GetNode<Sprite>("Discard");
+		Sprite Draw = GetNode<Sprite>("Draw");
+		DiscardLabel = GetNode("Discard").GetNode<Label>("Label");
+		DrawLabel = GetNode("Draw").GetNode<Label>("Label");
 
 		BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
 		BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
@@ -329,7 +329,6 @@ public class CardShop : Node2D
 			if(!C.Prepped)
 			{
 				C.ToggleClickable(false);
-				//((Control)(C.GetNode("CardClick"))).MouseFilter = (Godot.Control.MouseFilterEnum)2;
 			}
 			
 		}
@@ -341,7 +340,6 @@ public class CardShop : Node2D
 		foreach(Card C in HandCards)
 		{
 			C.ToggleClickable(true);
-			//((Control)(C.GetNode("CardClick"))).MouseFilter = (Godot.Control.MouseFilterEnum)1;
 		}
 	}
 

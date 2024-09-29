@@ -28,7 +28,7 @@ public class LevelManager : Node2D
 		{
 			child.Hide();
 		}
-		Node2D NewLevel = (Node2D)GetNode(InString);
+		Node2D NewLevel = GetNode<Node2D>(InString);
 		NewLevel.Show();
 
 		MM.PlayMusic(InString);

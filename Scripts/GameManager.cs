@@ -37,15 +37,15 @@ public class GameManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		EndTurnButton = (Button)GetNode("NextTurn");
-		WinScreen = (Node2D)GetNode("WinScreen");
-		SFX = (SFXManager)GetNode("SFX");
-		Board = (Board)GetNode("Board");
-		CMSoldier = (CardManager)GetNode("CardsSoldier");
-		CMSniper = (CardManager)GetNode("CardsSniper");
-		CMSupport = (CardManager)GetNode("CardsSupport");
-		CMRat = (CardManager)GetNode("CardsRat");
-		AI = (AI)GetNode("AI");
+		EndTurnButton = GetNode<Button>("NextTurn");
+		WinScreen = GetNode<Node2D>("WinScreen");
+		SFX = GetNode<SFXManager>("SFX");
+		Board = GetNode<Board>("Board");
+		CMSoldier = GetNode<CardManager>("CardsSoldier");
+		CMSniper = GetNode<CardManager>("CardsSniper");
+		CMSupport = GetNode<CardManager>("CardsSupport");
+		CMRat = GetNode<CardManager>("CardsRat");
+		AI = GetNode<AI>("AI");
 
 		// Load starting decks
 		File Reader = new File();

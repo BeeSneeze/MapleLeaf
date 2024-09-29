@@ -28,19 +28,19 @@
     {
         "ID": "10",
         "MaxHP": "2",
-        "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
+        "Names":["Jim", "Bob", "Cal", "Max", "Mark", "Joe", "Jake", "Ben"]
     },
     "RatNormal":
     {
         "ID": "11",
         "MaxHP": "3",
-        "Names":["Jim", "Bob", "Cal", "Max", "Mark", "Joe", "Ben"]
+        "Names":["Jim", "Bob", "Cal", "Max", "Mark", "Joe", "Ben", "Dan"]
     },
     "RatLawyer":
     {
         "ID": "12",
         "MaxHP": "3",
-        "Names":["Jim", "Monty", "Ratbert", "Walter", "Ralph"]
+        "Names":["Saul"]
     },
     "RatSparky":
     {

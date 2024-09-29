@@ -28,8 +28,8 @@ public class Story : Node2D
 		Reader.Close();
 
 
-		Image = (AnimatedSprite)GetNode("Slides");
-		BottomText = (Label)GetNode("Label");
+		Image = GetNode<AnimatedSprite>("Slides");
+		BottomText = GetNode<Label>("Label");
 
 		StartStory("Start");
 	}

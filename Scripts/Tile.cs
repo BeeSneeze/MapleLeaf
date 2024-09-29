@@ -20,10 +20,10 @@ public class Tile : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{	
-		HPNode = (Node2D)GetNode("HealthBar");
-		GM = (GameManager)GetParent().GetParent();
+		HPNode = GetNode<Node2D>("HealthBar");
+		GM = GetParent().GetParent<GameManager>();
 		LabelBox = (ColorRect)GetNode("LabelBox");
-		NameLabel = (Label)GetNode("LabelBox").GetNode("Label");
+		NameLabel = GetNode("LabelBox").GetNode<Label>("Label");
 
 		LabelBox.Hide();
 		Terrain = "Grass";
@@ -35,7 +35,7 @@ public class Tile : Node2D
 	public void SetTerrain(string InString)
 	{
 		Terrain = InString;
-		Sprite spr = (Sprite)GetNode("Terrain");
+		Sprite spr = GetNode<Sprite>("Terrain");
 		spr.Texture = (Texture)GD.Load("res://Assets/Visuals/Terrain/" + InString + ".png");
 		if(InString == "Mountains")
 		{
@@ -171,7 +171,7 @@ public class Tile : Node2D
 
 		NameLabel.Text = Char.Name;
 
-		AnimatedSprite ModAnim = (AnimatedSprite)GetNode("Modifier");
+		AnimatedSprite ModAnim = GetNode<AnimatedSprite>("Modifier");
 		ModAnim.Animation = "None";
 
 		foreach(Modifier M in Char.ModifierData)
@@ -184,7 +184,7 @@ public class Tile : Node2D
 			}
 		}
 
-		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Character");
+		AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Character");
 
 		AnimSpr.Scale = new Vector2(0.7f,0.7f);
 
@@ -253,7 +253,7 @@ public class Tile : Node2D
 	{
 		Marker = InString;
 		// Change the animated sprite
-		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Marker");
+		AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Marker");
 		AnimSpr.Animation = InString;
 
 		if(((GameManager)GetParent().GetParent()).PrepMode)
@@ -290,7 +290,7 @@ public class Tile : Node2D
 	// Plays a visual effect to coincide with stuff like dying, taking damage, etc.
 	public void PlayEffect(string InString)
 	{
-		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Effect");
+		AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Effect");
 		AnimSpr.Animation = "None";
 		AnimSpr.Animation = InString;
 		
@@ -316,7 +316,7 @@ public class Tile : Node2D
 	// ShowModifier
 	public void ShowModifier(string ModName)
 	{
-		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Modifier");
+		AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Modifier");
 		AnimSpr.Animation = ModName;
 	}
 

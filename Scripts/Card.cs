@@ -60,11 +60,11 @@ public class Card : Sprite
 		SceneTreeTween tween = GetTree().CreateTween();
 		tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.20f);
 		ZIndex = 100;
-		Control N2D = (Control)GetNode("FlavorText");
+		Control N2D = GetNode<Control>("FlavorText");
 		N2D.RectScale = new Vector2(0.0f, 0.0f);
 
 		// Load the card picture
-		Sprite Image = (Sprite)GetNode("Picture");
+		Sprite Image = GetNode<Sprite>("Picture");
 		Image.Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/" + CardName + ".png");
 
 		// Set the flavortext
@@ -265,18 +265,18 @@ public class Card : Sprite
 	public void UpdateLabels()
 	{
 		// Set the title of the card to the name
-		Label Title = (Label)GetNode("Title");
+		Label Title = GetNode<Label>("Title");
 		Title.Text = CardName;
 
 		// Set the range of the card
-		Label RLabel = (Label)GetNode("Range");
+		Label RLabel = GetNode<Label>("Range");
 		RLabel.Text = Range.ToString();
 
 		// Set the amount of uses of the card
-		Label ULabel = (Label)GetNode("Uses");
+		Label ULabel = GetNode<Label>("Uses");
 		ULabel.Text = Uses.ToString();
 
-		Label MLabel = (Label)GetNode("MiddleLabel");
+		Label MLabel = GetNode<Label>("MiddleLabel");
 		if(Draws > 0) // If it has limited draws, show the draws
 		{
 			MLabel.Text = Draws.ToString();
@@ -301,7 +301,7 @@ public class Card : Sprite
 		string MiddleOn = "1";
 		string RangeOn = "1";
 
-		AnimatedSprite Cover = (AnimatedSprite)GetNode("LabelCover");
+		AnimatedSprite Cover = GetNode<AnimatedSprite>("LabelCover");
 
 
 		if(Uses == 1)
@@ -387,7 +387,7 @@ public class Card : Sprite
 	// Show a visual effect of some kind
 	private void PlayEffect(string InString)
 	{
-		AnimatedSprite AnimSpr = (AnimatedSprite)GetNode("Effect");
+		AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Effect");
 		AnimSpr.Animation = "None";
 		AnimSpr.Animation = InString;
 	}
@@ -401,7 +401,7 @@ public class Card : Sprite
 		tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
 		ZIndex = 100;
 			
-		Control N2D = (Control)GetNode("FlavorText");
+		Control N2D = GetNode<Control>("FlavorText");
 		N2D.RectScale = new Vector2(0.0f, 0.0f);
 
 		foreach(Node2D Key in Keywords)
@@ -417,7 +417,7 @@ public class Card : Sprite
 		if(InBool)
 		{
 			GM.UnPrep(true);
-			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
+			Node2D PrepHalo = GetNode<Node2D>("PrepHalo");
 			PrepHalo.Show();
 			GM.PrepPlay(this);
 			SceneTreeTween tween = GetTree().CreateTween();
@@ -425,7 +425,7 @@ public class Card : Sprite
 			ZIndex = 101;
 
 			// Make sure the keywords are visible
-			Control N2D = (Control)GetNode("FlavorText");
+			Control N2D = GetNode<Control>("FlavorText");
 			N2D.RectScale = new Vector2(0.0f, 0.0f);
 
 			foreach(Node2D Key in Keywords)
@@ -436,7 +436,7 @@ public class Card : Sprite
 		else
 		{
 			GM.UnPrep();
-			Node2D PrepHalo = (Node2D)GetNode("PrepHalo");
+			Node2D PrepHalo = GetNode<Node2D>("PrepHalo");
 			PrepHalo.Hide();
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
@@ -478,7 +478,7 @@ public class Card : Sprite
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(1.0f, 1.0f), 0.07f);
 			ZIndex = 101;
-			Control N2D = (Control)GetNode("FlavorText");
+			Control N2D = GetNode<Control>("FlavorText");
 			N2D.RectScale = new Vector2(1.0f, 1.0f);
 			foreach(Node2D Key in Keywords)
 			{
@@ -500,7 +500,7 @@ public class Card : Sprite
 	// Skip a card for this turn, making it unplayable
 	public void Skip(bool Unplayable = false)
 	{
-		Sprite Overlay = (Sprite)GetNode("Overlay");
+		Sprite Overlay = GetNode<Sprite>("Overlay");
 		Overlay.Show();
 		Overlay.Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Skipped.png");
 		Skipped = true;
@@ -516,12 +516,12 @@ public class Card : Sprite
 		Clickable = InBool;
 		if(Clickable && !Skipped)
 		{
-			Sprite Overlay = (Sprite)GetNode("Overlay");
+			Sprite Overlay = GetNode<Sprite>("Overlay");
 			Overlay.Hide();
 		}
 		if(!Clickable && !Skipped)
 		{
-			Sprite Overlay = (Sprite)GetNode("Overlay");
+			Sprite Overlay = GetNode<Sprite>("Overlay");
 			Overlay.Show();
 			Overlay.Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/UnClickable.png");
 		}
