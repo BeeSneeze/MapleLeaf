@@ -401,8 +401,12 @@ public class CardManager : Node2D
 	public void NewTurn()
 	{	
 		// Discard all cards
+		int failsafe = 50; // How many times to run this loop before we stop
+
 		while(HandCards.Count > 0)
 		{
+			if(failsafe-- <= 0)
+				break;
 			bool ForceExhaust = false;
 
 			foreach(Ability A in HandCards[0].SecondaryList)
@@ -416,7 +420,7 @@ public class CardManager : Node2D
 			if(ForceExhaust)
 			{
 				GD.Print("FORCED EXHAUST");
-				HandCards[0].Discard();
+				ExhaustCard(HandCards[0]);
 			}
 			else
 			{

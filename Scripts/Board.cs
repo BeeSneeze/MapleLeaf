@@ -441,26 +441,17 @@ public class Board : Node2D
 
 		if(TargetX < 0 || TargetX > 7 || TargetY < 0 || TargetY > 7)
 		{
-			GD.Print("OOB");
-			GD.Print(OrignalTile);
-			GD.Print(new Vector2(TargetX,TargetY));
 			return false; // Out of bounds, hit the board border
 		}
 
 		if(TheoreticalCellID[TargetX,TargetY] % 100 > 49)
 		{
-			GD.Print("SOLID OBJECT");
-			GD.Print(OrignalTile);
-			GD.Print(new Vector2(TargetX,TargetY));
 			return false; // Hit an immovable object
 		}
 
 
 		if(TheoreticalCellID[TargetX,TargetY] != 0)
 		{
-			GD.Print("CHARACTER PUSH");
-			GD.Print(OrignalTile);
-			GD.Print(new Vector2(TargetX,TargetY));
 			// Recurse over the found character
 			bool Result = false;
 			Result = Push(new Vector2(TargetX, TargetY), new Vector2(TargetX, TargetY), Direction);
@@ -471,7 +462,7 @@ public class Board : Node2D
 			}
 			
 		}
-		GD.Print("ENDED PUSH");
+		
 		Arrow NewArr;
 		NewArr.From = OrignalTile;
 		NewArr.To = new Vector2(TargetX,TargetY);
