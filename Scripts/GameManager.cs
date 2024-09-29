@@ -131,49 +131,58 @@ public class GameManager : Node2D
 		}
 	}
 
-
-	// Rotating matrices using WASD
-	public override void _UnhandledInput(InputEvent @event)
+	public override void _Process(float delta)
 	{
+		
 
-		if(!CurrentLoaded)
-			return;
-
-		if (@event is InputEventKey eventKey)
+		if(CurrentLoaded)
 		{
-			if(eventKey.Pressed)
-			{
-				switch(eventKey.Scancode)
-				{
-					case (int)KeyList.W:
-						Rot = "Up";
-						CurrentMatrix = (bool[,])UnRotated.Clone();
-						Board.ShowMatrix(CurrentMatrix, CurrentCard);
-					break;
-					case (int)KeyList.A:
-						Rot = "Left";
-						CurrentMatrix = (bool[,])UnRotated.Clone();
-						RotCounter(CurrentMatrix);
-						Board.ShowMatrix(CurrentMatrix, CurrentCard);
-					break;
-					case (int)KeyList.S:
-						Rot = "Down";
-						CurrentMatrix = (bool[,])UnRotated.Clone();
-						RotCounter(CurrentMatrix);
-						RotCounter(CurrentMatrix);
-						Board.ShowMatrix(CurrentMatrix, CurrentCard);
-					break;
-					case (int)KeyList.D:
-						Rot = "Right";
-						CurrentMatrix = (bool[,])UnRotated.Clone();
-						RotClock(CurrentMatrix);
-						Board.ShowMatrix(CurrentMatrix, CurrentCard);
-					break;
+			Vector2 CPos = Board.GetCharPos(CurrentCard.PlayerID);
 
-					
+			Vector2 TilePos = new Vector2(CPos.x*88-88*4+42+2 + 960 ,CPos.y*88-88*4+42+2 + 540);
+
+			Vector2 Diff = GetGlobalMousePosition() - TilePos;
+
+			if(Diff.x > Diff.y)
+			{
+				if(Diff.x * (-1) < Diff.y)
+				{
+					Rot = "Right";
+					CurrentMatrix = (bool[,])UnRotated.Clone();
+					RotClock(CurrentMatrix);
+					Board.ShowMatrix(CurrentMatrix, CurrentCard);
+				}
+				else
+				{
+					Rot = "Up";
+					CurrentMatrix = (bool[,])UnRotated.Clone();
+					Board.ShowMatrix(CurrentMatrix, CurrentCard);
 				}
 			}
-		}	
+			else
+			{
+				if(Diff.x * (-1) < Diff.y)
+				{
+					Rot = "Down";
+					CurrentMatrix = (bool[,])UnRotated.Clone();
+					RotCounter(CurrentMatrix);
+					RotCounter(CurrentMatrix);
+					Board.ShowMatrix(CurrentMatrix, CurrentCard);
+				}
+				else
+				{
+					Rot = "Left";
+					CurrentMatrix = (bool[,])UnRotated.Clone();
+					RotCounter(CurrentMatrix);
+					Board.ShowMatrix(CurrentMatrix, CurrentCard);
+				}
+			}
+
+		}
+
+		
+
+
 	}
 
 	// Prepares a card for play
