@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/CardShop.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Visuals/Characters/Support.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Visuals/Discard.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Visuals/Draw.png" type="Texture" id=5]
 [ext_resource path="res://Themes/CardManager.tres" type="Theme" id=6]
+[ext_resource path="res://Themes/CardShop.tres" type="Theme" id=7]
 
 [node name="Node2D" type="Sprite"]
 z_index = 100
@@ -58,3 +59,16 @@ theme = ExtResource( 6 )
 text = "12"
 align = 1
 valign = 1
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 432.0
+margin_top = -73.0
+margin_right = 640.0
+margin_bottom = 135.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 7 )
+align = 1
+icon_align = 1
+expand_icon = true
+
+[connection signal="pressed" from="CheckBox" to="." method="CheckPressed"]

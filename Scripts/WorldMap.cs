@@ -28,6 +28,15 @@ public class WorldMap : Node2D
 		}
 
 		CityList[0].DeactivateCity();
+
+		CardShop ShopA = GetNode<CardShop>("ShopA");
+		CardShop ShopB = GetNode<CardShop>("ShopB");
+
+		ShopA.OtherShop = ShopB;
+		ShopB.OtherShop = ShopA;
+
+		CheckBox CBoxA = GetNode("ShopA").GetNode<CheckBox>("CheckBox");
+		CBoxA.Pressed = true;
 	}
 
 	public void NextCity()

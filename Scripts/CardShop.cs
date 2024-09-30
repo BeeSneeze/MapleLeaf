@@ -7,6 +7,9 @@ public class CardShop : Node2D
 {
 	private string OwnerName = "Shop";
 
+
+	public CardShop OtherShop;
+
 	public bool Shuffle = true;
 
 	// Cards as card IDs
@@ -29,9 +32,12 @@ public class CardShop : Node2D
 
 	private SceneTreeTween CTween;
 
+	private CheckBox CBox;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		CBox = GetNode<CheckBox>("CheckBox");
 		rnd = new Random();
 
 		GM = (GameManager)((GetParent().GetParent()).GetNode("Game"));
@@ -41,13 +47,9 @@ public class CardShop : Node2D
 		Sprite BG = GetNode<Sprite>("CardManagerBG");
 		Sprite Discard = GetNode<Sprite>("Discard");
 		Sprite Draw = GetNode<Sprite>("Draw");
-		DiscardLabel = GetNode("Discard").GetNode<Label>("Label");
-		DrawLabel = GetNode("Draw").GetNode<Label>("Label");
 
 		BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
-		BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
-		Discard.Modulate = new Color(0.4f, 0.4f, 1.0f, 1.0f);
-		Draw.Modulate = new Color(0.4f, 0.4f, 1.0f, 1.0f);
+		//BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
 
 		// Load AllCardsDict
 		File Reader = new File();
@@ -318,15 +320,6 @@ public class CardShop : Node2D
 		GD.Print("MANAGER BIGMODE");
 	}
 
-	// UnPreps all cards
-	public void UnPrep()
-	{
-		foreach(Card C in HandCards)
-		{
-			C.Prep(false);
-		}
-	}
-
 	// Turns all cards in hand to the small visual
 	public void UnBig()
 	{
@@ -371,4 +364,19 @@ public class CardShop : Node2D
 		}
 	}
 
+	public void CheckPressed()
+	{
+		GD.Print("CHECKBOX CLICKED!");
+		OtherShop.ToggleCheck(!CBox.Pressed);
+	}
+
+	public void ToggleCheck(bool InBool)
+	{
+		CheckBox CBox = GetNode<CheckBox>("CheckBox");
+		CBox.Pressed = InBool;
+	}
+
 }
+
+
+

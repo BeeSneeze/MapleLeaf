@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Visuals/WorldMap1080.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/CityMarker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/WorldMap.cs" type="Script" id=4]
 [ext_resource path="res://Scenes/CardShop.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Visuals/PickOne.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="WorldMap" type="Node2D"]
 script = ExtResource( 4 )
@@ -62,17 +71,23 @@ frame = 2
 CityName = "New York City"
 
 [node name="Button" type="Button" parent="."]
-margin_left = 1265.0
-margin_top = 310.0
-margin_right = 1653.0
-margin_bottom = 407.0
+margin_left = 218.0
+margin_top = 874.0
+margin_right = 606.0
+margin_bottom = 971.0
 rect_pivot_offset = Vector2( -2647, -573 )
 text = "Next Level"
 
 [node name="PauseButton" parent="." instance=ExtResource( 3 )]
 
 [node name="ShopA" parent="." instance=ExtResource( 5 )]
-position = Vector2( 275, 599 )
+position = Vector2( 291, 632 )
 
 [node name="ShopB" parent="." instance=ExtResource( 5 )]
-position = Vector2( 299, 925 )
+position = Vector2( 1211, 387 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 902, 446 )
+rotation = -0.300197
+z_index = 100
+frames = SubResource( 1 )
