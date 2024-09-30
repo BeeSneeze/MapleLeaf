@@ -236,7 +236,6 @@ public class GameManager : Node2D
 			switch(A.Name)
 			{
 				case "Damage":
-					AreYouWinningSon = true;
 					if(CurrentCard.TargetType == "Area")
 					{
 						PlaySFX("Gunshots");

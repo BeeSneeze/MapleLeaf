@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Visuals/PauseMenuBG.png" type="Texture" id=1]
 [ext_resource path="res://Themes/PauseMenu.tres" type="Theme" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/Visuals/Coffee Break BG.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/BackButton.cs" type="Script" id=6]
 [ext_resource path="res://Assets/Visuals/ExitSign.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Visuals/Mug1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Visuals/Mug2.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -14,6 +16,14 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Coffee",
+"speed": 1.0
 } ]
 
 [node name="Pause Menu" type="Node2D"]
@@ -37,6 +47,7 @@ ticks_on_borders = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 980, 150 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="AnimatedSprite"]
@@ -55,3 +66,42 @@ script = ExtResource( 6 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 1764, 101 )
 texture = ExtResource( 7 )
+
+[node name="Mug" type="AnimatedSprite" parent="."]
+position = Vector2( 334, 683 )
+scale = Vector2( -1, 1 )
+frames = SubResource( 2 )
+animation = "Coffee"
+frame = 1
+playing = true
+
+[node name="Mug2" type="AnimatedSprite" parent="."]
+position = Vector2( 619, 678 )
+frames = SubResource( 2 )
+animation = "Coffee"
+frame = 1
+speed_scale = 0.9
+playing = true
+
+[node name="Mug3" type="AnimatedSprite" parent="."]
+position = Vector2( 1597, 690 )
+frames = SubResource( 2 )
+animation = "Coffee"
+frame = 1
+speed_scale = 1.1
+playing = true
+
+[node name="Mug4" type="AnimatedSprite" parent="."]
+position = Vector2( 1350, 923 )
+scale = Vector2( -0.5, 0.5 )
+frames = SubResource( 2 )
+animation = "Coffee"
+playing = true
+
+[node name="Mug5" type="AnimatedSprite" parent="."]
+position = Vector2( 1472, 930 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+animation = "Coffee"
+speed_scale = 0.8
+playing = true
