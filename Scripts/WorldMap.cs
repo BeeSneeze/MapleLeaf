@@ -60,8 +60,30 @@ public class WorldMap : Node2D
 			{
 				NextCity();
 			}
+			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.W)
+			{
+				StartLevel();
+			}
 			
 		}	
+	}
+
+	public void StartLevel()
+	{
+		LevelManager LM = GetParent<LevelManager>();
+
+		CheckBox CBoxA = GetNode("ShopA").GetNode<CheckBox>("CheckBox");
+
+		if(CBoxA.Pressed)
+		{
+			// Add Shop A's cards to the game
+		}
+		else
+		{
+			// B
+		}
+
+		LM.ChangeLevel("Game");
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -11,8 +11,11 @@ public class CardManager : Node2D
 	// Cards as card IDs
 	public List<Card> HandCards = new List<Card>();
 	public List<int> Deck = new List<int>();
+	public List<int> TrueDeck = new List<int>(); // What should the deck reset to inbetween rounds?
 	public List<int> Hand = new List<int>();
 	public List<int> Discard = new List<int>();
+
+	public bool SettingUp = true;
 	
 	private GameManager GM;
 	private Label DrawLabel;
@@ -233,6 +236,12 @@ public class CardManager : Node2D
 		
 		ActiveCards[NewID] = CC;
 		Deck.Add(NewID);
+
+		if(SettingUp)
+		{
+			TrueDeck.Add(NewID);
+		}
+
 		UpdateLabels();
 	}
 
@@ -438,6 +447,12 @@ public class CardManager : Node2D
 			}
 		}
 		
+	}
+
+	public void ResetDeck()
+	{
+		SettingUp = true;
+		Deck = new List<int>(TrueDeck);
 	}
 
 }

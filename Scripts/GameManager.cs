@@ -629,6 +629,11 @@ public class GameManager : Node2D
 	// Everything needed to set up the new round
 	public void LevelStart()
 	{
+		CMSoldier.SettingUp = false;
+		CMSniper.SettingUp = false;
+		CMSupport.SettingUp = false;
+		CMRat.SettingUp = false;
+
 		GD.Print("LEVEL STARTED!");
 		SetMode("Draw");
 	}
@@ -638,6 +643,7 @@ public class GameManager : Node2D
 	{
 		GD.Print("LEVEL ENDED!");
 		SetMode("None");
+		
 		AreYouWinningSon = false;
 		WinScreen.Show();
 	}
