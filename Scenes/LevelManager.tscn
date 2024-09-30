@@ -11,6 +11,7 @@
 script = ExtResource( 4 )
 
 [node name="Game" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="WorldMap" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -22,4 +23,3 @@ visible = false
 visible = false
 
 [node name="Story" parent="." instance=ExtResource( 6 )]
-visible = false

@@ -9,7 +9,7 @@ public class LevelManager : Node2D
 
 	public MusicManager MM;
 
-	private string CurrentLevel = "MainMenu";
+	private string CurrentLevel = "Story";
 	private string PreviousLevel = "MainMenu";
 
 	// Called when the node enters the scene tree for the first time.

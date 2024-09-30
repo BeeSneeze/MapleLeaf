@@ -19,7 +19,7 @@ public class Story : Node2D
 	private string CurrentText;
 	private int CurrentChar;
 
-	private const float CharTime = 0.04f;
+	private const float CharTime = 0.03f;
 	private float CurrTime = 0.0f;
 
 	// Called when the node enters the scene tree for the first time.
