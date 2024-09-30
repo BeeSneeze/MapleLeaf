@@ -17,6 +17,7 @@ public class LevelManager : Node2D
 	{
 		MM = (MusicManager)GetParent().GetNode("MusicManager");
 		EventManager.Instance.Connect("LevelChange", this, "ChangeLevel");
+		EventManager.Instance.Connect("BackTrack", this, "BackTrack");
 	}
 
 	public void ChangeLevel(string InString)

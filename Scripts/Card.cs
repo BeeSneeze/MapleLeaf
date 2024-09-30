@@ -8,12 +8,13 @@ public class Card : Sprite
 
 	// Different card visuals
 	public bool Clickable = true;
+
+	public bool CanQueue = false;
 	
 	
 	public bool Prepped = false;	// When the player is preparing a play for a card
 	private bool Big = false;		// When the player wants extra info about a card
 	private bool Preview = false; 	// When the player is hovering over a card
-
 
 	private bool Skipped = false; // Card is completely unclickable until its game object is destroyed
 	public GameManager GM;
@@ -541,6 +542,13 @@ public class Card : Sprite
 	{
 		if(Clickable && !Skipped)
 		{
+			if(CanQueue)
+			{
+				GD.Print("TRYING TO QUEUE");
+				return;
+			}
+
+
 			if(Prepped) // Click the second time to execute the play
 			{
 				//GM.ExecutePlay();

@@ -118,6 +118,9 @@ public class GameManager : Node2D
 		switch(ModeName)
 		{
 			case "RatMove":
+				CMSoldier.ToggleQueueMode(false);
+				CMSniper.ToggleQueueMode(false);
+				CMSupport.ToggleQueueMode(false);
 				CMSoldier.UnClick();
 				CMSniper.UnClick();
 				CMSupport.UnClick();
@@ -144,6 +147,9 @@ public class GameManager : Node2D
 				CMSupport.NewTurn();
 				CMRat.NewTurn();
 				CMRat.UnClick();
+				CMSoldier.ToggleQueueMode(true);
+				CMSniper.ToggleQueueMode(true);
+				CMSupport.ToggleQueueMode(true);
 			break;
 		}
 	}

@@ -334,8 +334,6 @@ public class CardManager : Node2D
 	// Completely remove a card from play
 	public void ExhaustCard(Card InCard)
 	{
-		GD.Print("ATTEMPTED TO EXHAUST");
-
 		Hand.Remove(InCard.CardID);
 		HandCards.Remove(InCard);
 
@@ -402,6 +400,14 @@ public class CardManager : Node2D
 			{
 				C.Skip();
 			}
+		}
+	}
+
+	public void ToggleQueueMode(bool InBool)
+	{
+		foreach(Card C in HandCards)
+		{
+			C.CanQueue = InBool;
 		}
 	}
 

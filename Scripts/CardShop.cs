@@ -366,7 +366,6 @@ public class CardShop : Node2D
 
 	public void CheckPressed()
 	{
-		GD.Print("CHECKBOX CLICKED!");
 		OtherShop.ToggleCheck(!CBox.Pressed);
 	}
 
