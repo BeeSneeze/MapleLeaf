@@ -411,6 +411,26 @@ public class CardManager : Node2D
 		}
 	}
 
+	public void ReRoll()
+	{
+
+		int index = HandCards.Count-1;
+		while(index>=0)
+		{
+			if(HandCards[index].ReRolled)
+			{
+				GD.Print("CARD REROLLED");
+				DiscardCard(HandCards[index]);
+				DrawCard();
+				index = HandCards.Count-1;
+			}
+			else
+			{
+				index--;
+			}
+		}
+	}
+
 	// Discard all remaining cards, and draw a new full hand
 	public void NewTurn()
 	{	
@@ -454,6 +474,8 @@ public class CardManager : Node2D
 		}
 		
 	}
+
+	
 
 	public void ResetDeck()
 	{

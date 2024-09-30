@@ -121,6 +121,9 @@ public class GameManager : Node2D
 				CMSoldier.ToggleQueueMode(false);
 				CMSniper.ToggleQueueMode(false);
 				CMSupport.ToggleQueueMode(false);
+				CMSoldier.ReRoll();
+				CMSniper.ReRoll();
+				CMSupport.ReRoll();
 				CMSoldier.UnClick();
 				CMSniper.UnClick();
 				CMSupport.UnClick();

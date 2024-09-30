@@ -9,7 +9,7 @@ public class AI : Node2D
 	private int[,] SpawnRat = new int[8,8];
 
 	private float Timer = 0;
-	static float TurnTime = 0.2f; // How long inbetween AI Clicks
+	static float TurnTime = 0.6f; // How long inbetween AI Clicks
 	static float RandomVariation = 0.1f;
 
 	private GameManager GM;

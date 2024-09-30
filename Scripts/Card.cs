@@ -17,6 +17,7 @@ public class Card : Sprite
 	private bool Preview = false; 	// When the player is hovering over a card
 
 	private bool Skipped = false; // Card is completely unclickable until its game object is destroyed
+	public bool ReRolled = false; // Going to ReRoll this card upon draw end
 	public GameManager GM;
 
 	// Card specifics
@@ -520,6 +521,23 @@ public class Card : Sprite
 		}
 	}
 
+	// Toggle reroll of card
+	public void ToggleReroll()
+	{
+		ReRolled = !ReRolled;
+		Sprite Overlay = GetNode<Sprite>("Overlay");
+		
+		if(ReRolled)
+		{
+			Overlay.Show();
+			Overlay.Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/ReRoll.png");
+		}
+		else
+		{
+			Overlay.Hide();
+		}
+	}
+
 	public void ToggleClickable(bool InBool)
 	{
 		Clickable = InBool;
@@ -545,6 +563,7 @@ public class Card : Sprite
 			if(CanQueue)
 			{
 				GD.Print("TRYING TO QUEUE");
+				ToggleReroll();
 				return;
 			}
 
