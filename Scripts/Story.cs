@@ -16,6 +16,12 @@ public class Story : Node2D
 	private string ActiveStory;
 	private int CurrentSlide;
 
+	private string CurrentText;
+	private int CurrentChar;
+
+	private const float CharTime = 0.04f;
+	private float CurrTime = 0.0f;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -26,6 +32,8 @@ public class Story : Node2D
 		string Contents = Reader.GetAsText();
 		StoryDict = JsonConvert.DeserializeObject<Dictionary<string,StorySegment>>(Contents);
 		Reader.Close();
+
+		CurrentChar = 10000000;
 
 
 		Image = GetNode<AnimatedSprite>("Slides");
@@ -46,9 +54,12 @@ public class Story : Node2D
 	{
 		if(StoryDict[ActiveStory].Slides.Count > CurrentSlide)
 		{
+			BottomText.Text = "";
 			Image.Animation = StoryDict[ActiveStory].Slides[CurrentSlide];
-			BottomText.Text = StoryDict[ActiveStory].Text[CurrentSlide];
+			CurrentText = StoryDict[ActiveStory].Text[CurrentSlide];
+			CurrentChar = 0;
 			CurrentSlide++;
+			AdvanceText();
 		}
 		else
 		{
@@ -62,10 +73,33 @@ public class Story : Node2D
 		}
 	}
 
+	public void AdvanceText()
+	{
+		BottomText.Text += CurrentText[CurrentChar];
+	}
+
 	public void LeftClick()
 	{
 		AdvanceStory();
 	}
+
+	public override void _Process(float delta)
+	{
+		CurrTime += delta;
+
+		if(CurrTime > CharTime)
+		{
+			CurrTime = 0;
+			if(++CurrentChar < CurrentText.Length)
+			{
+				AdvanceText();
+			}
+		}
+		
+		
+	}
+
+
 	public void RightClick()
 	{
 		

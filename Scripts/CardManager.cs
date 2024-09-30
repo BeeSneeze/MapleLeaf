@@ -453,6 +453,27 @@ public class CardManager : Node2D
 	{
 		SettingUp = true;
 		Deck = new List<int>(TrueDeck);
+
+		if(Shuffle)
+		{
+			Deck = ShufflePile(Deck);
+		}
+
+		Hand = new List<int>();
+		Discard = new List<int>();
+
+		int failsafe = 50; // How many times to run this loop before we stop
+
+		while(HandCards.Count > 0)
+		{
+			if(failsafe-- <= 0)
+				break;
+			bool ForceExhaust = false;
+
+			ExhaustCard(HandCards[0]);
+		}
+
+
 	}
 
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Visuals/StoryBG.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Slides/StorySlide.png" type="Texture" id=2]
@@ -13,13 +13,16 @@
 [ext_resource path="res://Assets/Visuals/Slides/1950.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Visuals/Slides/RatsForever.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Visuals/Slides/ExceptForOne.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Visuals/Slides/RatsEatCrops.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Visuals/Slides/19502.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Visuals/Slides/RatsEatCrops2.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "1950",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
@@ -51,10 +54,10 @@ animations = [ {
 "name": "Independence",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "RatsEatCrops",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
@@ -87,7 +90,6 @@ margin_bottom = 1000.0
 theme = ExtResource( 5 )
 text = "But there's nothing bad about that, eh?"
 align = 1
-valign = 1
 autowrap = true
 
 [node name="Control" type="Control" parent="."]

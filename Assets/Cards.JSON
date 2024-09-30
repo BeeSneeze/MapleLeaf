@@ -422,7 +422,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Enemy",
-        "AbilityText": "",
+        "AbilityText": "Push to the left",
         "FlavorText": "Your right hand is the right tool for the job",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
@@ -437,7 +437,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Enemy",
-        "AbilityText": "",
+        "AbilityText": "Push to the right, and stun",
         "FlavorText": "Using your dominant hand helps",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
