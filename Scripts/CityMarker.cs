@@ -21,12 +21,16 @@ public class CityMarker : AnimatedSprite
 	public void ActivateCity()
 	{
 		Show();
+		Node2D Flag = GetNode<Node2D>("Flag");
+		Flag.Hide();
 	}
 
 	public void DeactivateCity(){
 		Animation = "Cross";
 		CanvasItem C = (CanvasItem)GetNode("Control");
 		C.Hide();
+		Node2D Flag = GetNode<Node2D>("Flag");
+		Flag.Show();
 	}
 
 

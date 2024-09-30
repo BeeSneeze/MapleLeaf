@@ -11,10 +11,12 @@ public class WorldMap : Node2D
 	List<CityMarker> CityList;
 	int CurrentIndex = 1;
 	bool FinalCity = false;
+	private GameManager GM;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GM = GetParent().GetNode<GameManager>("Game");
 		CityList = new List<CityMarker>();
 		int index = 0;
 		for(int i = 1; i < 12; i++)
@@ -83,6 +85,7 @@ public class WorldMap : Node2D
 			// B
 		}
 
+		GM.LevelStart();
 		LM.ChangeLevel("Game");
 	}
 

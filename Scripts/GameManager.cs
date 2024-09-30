@@ -230,6 +230,7 @@ public class GameManager : Node2D
 			switch(A.Name)
 			{
 				case "Damage":
+					AreYouWinningSon = true;
 					if(CurrentCard.TargetType == "Area")
 					{
 						PlaySFX("Gunshots");
@@ -635,7 +636,9 @@ public class GameManager : Node2D
 		CMRat.SettingUp = false;
 
 		GD.Print("LEVEL STARTED!");
+		
 		SetMode("Draw");
+		EndTurnButton.Text = "End Draw";
 	}
 	
 	// Everything done after the round is over
@@ -643,11 +646,11 @@ public class GameManager : Node2D
 	{
 		GD.Print("LEVEL ENDED!");
 		SetMode("None");
-		
 		AreYouWinningSon = false;
 		WinScreen.Show();
 	}
 
+	// When changing to the world map from the game
 	public void MoveToWorldMap()
 	{
 		LevelManager LM = (LevelManager)GetParent();
@@ -655,6 +658,11 @@ public class GameManager : Node2D
 		WM.NextCity();
 		LM.ChangeLevel("WorldMap");
 		WinScreen.Hide();
+
+		CMSoldier.ResetDeck();
+		CMSniper.ResetDeck();
+		CMSupport.ResetDeck();
+		CMRat.ResetDeck();
 	}
 
 	// Checks if there are no more rats, and no more spawn cards left
