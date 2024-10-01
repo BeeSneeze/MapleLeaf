@@ -197,6 +197,8 @@ public class CardManager : Node2D
 				}
 				
 			}
+			CNode.ZIndex = index + 100;
+			C.Layer = index;
 			index++;
 		}
 	}

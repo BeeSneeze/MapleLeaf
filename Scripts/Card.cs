@@ -10,6 +10,8 @@ public class Card : Sprite
 	public bool Clickable = true;
 
 	public bool CanQueue = false;
+
+	public int Layer = 0;
 	
 	
 	public bool Prepped = false;	// When the player is preparing a play for a card
@@ -61,7 +63,7 @@ public class Card : Sprite
 
 		SceneTreeTween tween = GetTree().CreateTween();
 		tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.20f);
-		ZIndex = 100;
+		ZIndex = 100 + Layer;
 		Control N2D = GetNode<Control>("FlavorText");
 		N2D.RectScale = new Vector2(0.0f, 0.0f);
 
@@ -409,7 +411,7 @@ public class Card : Sprite
 	{
 		SceneTreeTween tween = GetTree().CreateTween();
 		tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
-		ZIndex = 100;
+		ZIndex = 100 + Layer;
 			
 		Control N2D = GetNode<Control>("FlavorText");
 		N2D.RectScale = new Vector2(0.0f, 0.0f);
@@ -432,7 +434,7 @@ public class Card : Sprite
 			GM.PrepPlay(this);
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.6f, 0.6f), 0.07f);
-			ZIndex = 101;
+			ZIndex = 110 + Layer;
 
 			// Make sure the keywords are visible
 			Control N2D = GetNode<Control>("FlavorText");
@@ -450,7 +452,7 @@ public class Card : Sprite
 			PrepHalo.Hide();
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.5f, 0.5f), 0.07f);
-			ZIndex = 100;
+			ZIndex = 100 + Layer;
 		}
 
 		Prepped = InBool;
@@ -465,7 +467,7 @@ public class Card : Sprite
 			GM.ShowPlay(this);
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(0.55f, 0.55f), 0.07f);
-			ZIndex = 101;
+			ZIndex = 110 + Layer;
 		}
 		else
 		{
@@ -487,7 +489,7 @@ public class Card : Sprite
 
 			SceneTreeTween tween = GetTree().CreateTween();
 			tween.TweenProperty((Sprite)this, "scale", new Vector2(1.0f, 1.0f), 0.07f);
-			ZIndex = 101;
+			ZIndex = 110 + Layer;
 			Control N2D = GetNode<Control>("FlavorText");
 			N2D.RectScale = new Vector2(1.0f, 1.0f);
 			foreach(Node2D Key in Keywords)
