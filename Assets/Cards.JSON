@@ -815,6 +815,21 @@
             {"Name":"Shuffle", "Effect": "Sneeze"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
+    "Gerrymander":
+    {   
+        "ID": "515",
+        "MatrixName": "Cone",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "EnemyNoCity",
+        "AbilityText":  "",
+        "FlavorText":  "Sometimes democracy needs a nudge in the right direction",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Shuffle", "Effect": "Sneeze"}],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
+    },
 
 
     "Tutorial Rat":
