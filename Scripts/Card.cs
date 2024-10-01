@@ -338,7 +338,7 @@ public class Card : Sprite
 		switch(ChosenAbility)
 		{
 			case "Damage":
-				CoverNode.Modulate = new Color(0.7764f,0.3608f,0.3608f,1);
+				CoverNode.Modulate = new Color(0.8353f,0.3451f,0.3451f,1);
 			break;
 			case "Move":
 				CoverNode.Modulate = new Color(0.4627f,0.6706f,0.8510f,1);
