@@ -744,6 +744,34 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
+    "Scurry":
+    {   
+        "ID": "504",
+        "MatrixName": "Manhattan",
+        "Range": "4",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "We move as one!",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
+    "Scram":
+    {   
+        "ID": "505",
+        "MatrixName": "Manhattan",
+        "Range": "6",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Empty",
+        "AbilityText":  "",
+        "FlavorText":  "We move as one!",
+        "AbilityList":  [
+            {"Name":"Move", "Effect": "-"}],
+        "SecondaryList":  []
+    },
     "Electrocute":
     {   
         "ID": "510",
