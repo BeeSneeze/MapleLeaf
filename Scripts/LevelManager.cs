@@ -36,6 +36,12 @@ public class LevelManager : Node2D
 		NewLevel.Show();
 
 		MM.PlayMusic(InString);
+
+		PauseMenu PauseMenu = GetNode<PauseMenu>("PauseMenu");
+		if(InString != "PauseMenu")
+		{
+			PauseMenu.ToggleMainMenuButton(InString != "MainMenu");
+		}
 	}
 
 	public void BackTrack()
