@@ -14,10 +14,11 @@
     },
     "Ending":
     {   
-        "Slides": ["SlideA", "SlideB"],
+        "Slides": ["SlideA", "SlideB", "CanadaForever"],
         "Text": [
         "TextA", 
-        "TextB"]
+        "TextB",
+        "But there is nothing bad about that, eh?"]
     },
     "Credits":
     {   

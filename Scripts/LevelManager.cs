@@ -12,9 +12,12 @@ public class LevelManager : Node2D
 	private string CurrentLevel = "Story";
 	private string PreviousLevel = "MainMenu";
 
+	private Story SM;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		SM = GetNode<Story>("Story");
 		MM = (MusicManager)GetParent().GetNode("MusicManager");
 		EventManager.Instance.Connect("LevelChange", this, "ChangeLevel");
 		EventManager.Instance.Connect("BackTrack", this, "BackTrack");
@@ -52,9 +55,15 @@ public class LevelManager : Node2D
 			}
 			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.U)
 			{
+				SM.StartStory("Start");
 				ChangeLevel("Story");
-			}			
+			}
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.P)
+			{
+				SM.StartStory("Ending");
+				ChangeLevel("Story");
+			}
 		}	
 	}
-	
+
 }

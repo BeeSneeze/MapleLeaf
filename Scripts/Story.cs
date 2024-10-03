@@ -63,10 +63,13 @@ public class Story : Node2D
 		}
 		else
 		{
+			LevelManager LM = (LevelManager)GetParent();
 			switch(ActiveStory)
 			{
 				case "Start":
-					LevelManager LM = (LevelManager)GetParent();
+					LM.ChangeLevel("MainMenu");
+				break;
+				case "Ending":
 					LM.ChangeLevel("MainMenu");
 				break;
 			}

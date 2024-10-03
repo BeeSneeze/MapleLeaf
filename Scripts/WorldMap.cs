@@ -62,10 +62,6 @@ public class WorldMap : Node2D
 			{
 				NextCity();
 			}
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.W)
-			{
-				StartLevel();
-			}
 			
 		}	
 	}
