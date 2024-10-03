@@ -46,39 +46,15 @@ public class LevelManager : Node2D
 	{
 		if (@event is InputEventKey eventKey)
 		{
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Y)
-			{
-				EventManager.Instance.EmitSignal("LevelChange", "WorldMap");
-			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.U)
-			{
-				BackTrack();
-			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.I)
+			if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.Y)
 			{
 				ChangeLevel("MainMenu");
 			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.O)
-			{
-				ChangeLevel("Game");
-			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.P)
+			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.U)
 			{
 				ChangeLevel("Story");
-			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.Escape)
-			{
-				GetTree().Quit();
-			}
-			
+			}			
 		}	
 	}
-
 	
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }

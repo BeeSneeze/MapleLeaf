@@ -85,6 +85,8 @@ public class WorldMap : Node2D
 			// B
 		}
 
+		GM.Board.LoadStage(CityList[CurrentIndex].CityName);
+
 		GM.LevelStart();
 		LM.ChangeLevel("Game");
 	}

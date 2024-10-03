@@ -98,6 +98,18 @@ public class GameManager : Node2D
 		LevelStart();
 	}
 
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event is InputEventKey eventKey)
+		{
+			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.G)
+			{
+				AreYouWinningSon = true;
+			}
+			
+		}	
+	}
+
 	public void PlaySFX(string SFXName)
 	{
 		SFX.PlaySFX(SFXName);
