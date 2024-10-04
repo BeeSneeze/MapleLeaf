@@ -945,7 +945,10 @@
         "AbilityText":  "",
         "FlavorText":  "Hobbies include raising turtles and eating pizza",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNinja"}],
-        "SecondaryList":  []
+        "SecondaryList":  [
+            {"Name":"Shuffle", "Effect": "Rat:Scram"},
+            {"Name":"Shuffle", "Effect": "Rat:Scram"}
+        ]
     },
     "The Menace":
     {   
