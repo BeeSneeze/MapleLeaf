@@ -39,8 +39,6 @@ public class AI : Node2D
 		EvaluateBoard();
 	}
 
-	
-
 	// Called every frame
 	public override void _Process(float delta)
 	{
