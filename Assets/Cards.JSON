@@ -134,7 +134,7 @@
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
-        "FlavorText":  "",
+        "FlavorText":  "A job well done!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
@@ -148,7 +148,7 @@
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
-        "FlavorText":  "",
+        "FlavorText":  "Stuns every rat it hits",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}, {"Name":"Stun", "Effect": "2"}],
         "SecondaryList":  []
