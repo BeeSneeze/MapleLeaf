@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TheSwarmIsComing (1).mp3-2db115da65fc8a895d9e1220c368c173.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/TheSwarmIsComing (1).mp3"
+dest_files=[ "res://.import/TheSwarmIsComing (1).mp3-2db115da65fc8a895d9e1220c368c173.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

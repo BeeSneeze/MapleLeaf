@@ -858,6 +858,21 @@
             {"Name":"Shuffle", "Effect": "Sneeze"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
+    "Coffee":
+    {   
+        "ID": "516",
+        "MatrixName": "Cone",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "Even rats need a pick-me-up",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Shuffle", "Effect": "Sneeze"}],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
+    },
 
 
     "Tutorial Rat":

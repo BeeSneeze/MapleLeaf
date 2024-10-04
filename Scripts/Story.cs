@@ -67,7 +67,10 @@ public class Story : Node2D
 			switch(ActiveStory)
 			{
 				case "Start":
+					AudioStreamPlayer SMusic = GetNode<AudioStreamPlayer>("StartMusic");
+					SMusic.Stop();
 					LM.ChangeLevel("MainMenu");
+
 				break;
 				case "Ending":
 					LM.ChangeLevel("MainMenu");
