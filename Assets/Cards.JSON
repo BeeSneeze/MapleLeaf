@@ -102,7 +102,7 @@
         "ID": "101",
         "MatrixName": "Cardinal",
         "Range": "1",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -144,7 +144,7 @@
         "ID": "104",
         "MatrixName": "Line",
         "Range": "5",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -158,7 +158,7 @@
         "ID": "105",
         "MatrixName": "Cone",
         "Range": "2",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -172,7 +172,7 @@
         "ID": "106",
         "MatrixName": "Cone",
         "Range": "2",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -186,7 +186,7 @@
         "ID": "107",
         "MatrixName": "Diagonal",
         "Range": "3",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "Three damage in a diagonal line",
@@ -216,7 +216,7 @@
         "ID": "109",
         "MatrixName": "Full",
         "Range": "1",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -230,7 +230,7 @@
         "ID": "110",
         "MatrixName": "Full",
         "Range": "1",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -244,7 +244,7 @@
         "ID": "111",
         "MatrixName": "Fox",
         "Range": "2",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -258,7 +258,7 @@
         "ID": "112",
         "MatrixName": "Fox",
         "Range": "2",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -272,7 +272,7 @@
         "ID": "113",
         "MatrixName": "Dive",
         "Range": "2",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -286,7 +286,7 @@
         "ID": "114",
         "MatrixName": "Dive",
         "Range": "4",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -390,7 +390,7 @@
         "ID": "207",
         "MatrixName": "Line",
         "Range": "5",
-        "Uses": "1",
+        "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
         "AbilityText": "",
@@ -405,7 +405,7 @@
         "ID": "208",
         "MatrixName": "Full",
         "Range": "3",
-        "Uses": "1",
+        "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
@@ -869,7 +869,7 @@
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Enemy",
         "AbilityText":  "",
-        "FlavorText":  "Even rats need a pick-me-up",
+        "FlavorText":  "Even rats need a pick-me-up sometimes",
         "AbilityList":  [],
         "SecondaryList":  [
             {"Name":"Draw", "Effect": "Rat"},
@@ -902,8 +902,8 @@
         "FlavorText":  "Even the most ordinary rat can overcome extraordinary things!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  [
-        {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
-        {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
+            {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
+            {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
     },
     "The Swarm":
     {   
@@ -918,8 +918,8 @@
         "FlavorText":  "With the power of friendship, we can accomplish anything!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  [
-        {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
-        {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
+            {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
+            {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
     },
     "The Spark":
     {   
@@ -932,8 +932,11 @@
         "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "More powerful than a AA battery!",
-        "AbilityList":  [{"Name":"Spawn", "Effect": "RatSparky"}],
-        "SecondaryList":  []
+        "AbilityList":  [
+            {"Name":"Spawn", "Effect": "RatSparky"}],
+        "SecondaryList":  [
+            {"Name":"Shuffle", "Effect": "Rat:Electrocute"},
+            {"Name":"Shuffle", "Effect": "Rat:Electrocute"}]
     },
     "The Master":
     {   
@@ -963,7 +966,8 @@
         "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "OH NO",
-        "AbilityList":  [{"Name":"Spawn", "Effect": "RatMenace"}],
+        "AbilityList":  [
+            {"Name":"Spawn", "Effect": "RatMenace"}],
         "SecondaryList":  []
     },
     "The Lawyer":
@@ -977,8 +981,10 @@
         "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "I'll sue.",
-        "AbilityList":  [{"Name":"Spawn", "Effect": "RatLawyer"}],
-        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Plagiarize"}]
+        "AbilityList":  [
+            {"Name":"Spawn", "Effect": "RatLawyer"}],
+        "SecondaryList":  [
+            {"Name":"Shuffle", "Effect": "Rat:Plagiarize"}]
     },
     "The Chef":
     {   
@@ -991,8 +997,11 @@
         "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Hobbies include raising pizza dough and eating turtles",
-        "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
-        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Cheese"}, {"Name":"Shuffle", "Effect": "Rat:Coffee"}]
+        "AbilityList":  [
+            {"Name":"Spawn", "Effect": "RatChef"}],
+        "SecondaryList":  [
+            {"Name":"Shuffle", "Effect": "Rat:Cheese"}, 
+            {"Name":"Shuffle", "Effect": "Rat:Coffee"}]
     },
     "The President":
     {   
