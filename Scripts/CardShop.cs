@@ -121,9 +121,7 @@ public class CardShop : Node2D
 		Card NewCard = (Card)scene.Instance();
 
 		NewCard.OwnerID = ActiveCards[InID].OwnerID;
-
-		GD.Print(InID);
-
+		
 		string ShopCardOwner = "";
 
 		if(100 < InID % 1000 && InID % 1000 <= 200)
@@ -322,8 +320,6 @@ public class CardShop : Node2D
 	// Completely remove a card from play
 	public void ExhaustCard(Card InCard)
 	{
-		GD.Print("ATTEMPTED TO EXHAUST");
-
 		Hand.Remove(InCard.CardID);
 		HandCards.Remove(InCard);
 

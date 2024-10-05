@@ -962,7 +962,7 @@
         "AbilityText":  "",
         "FlavorText":  "OH NO",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatMenace"}],
-        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
+        "SecondaryList":  []
     },
     "The Lawyer":
     {   
@@ -976,7 +976,7 @@
         "AbilityText":  "",
         "FlavorText":  "I'll sue.",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatLawyer"}],
-        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
+        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Plagiarize"}]
     },
     "The Chef":
     {   
@@ -990,7 +990,7 @@
         "AbilityText":  "",
         "FlavorText":  "Hobbies include raising pizza dough and eating turtles",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
-        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
+        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Cheese"}, {"Name":"Shuffle", "Effect": "Rat:Coffee"}]
     },
     "The President":
     {   
@@ -1004,7 +1004,7 @@
         "AbilityText":  "",
         "FlavorText":  "Fight against the tyrrany of man! Fight for the freedom of your fellow rat!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
-        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
+        "SecondaryList":  []
     },
     "Second Term":
     {   
@@ -1018,7 +1018,7 @@
         "AbilityText":  "",
         "FlavorText":  "Democracy will never die!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
-        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Roll"}, {"Name":"Shuffle", "Effect": "Rat:Roll"}]
+        "SecondaryList":  []
     }
     
 }
