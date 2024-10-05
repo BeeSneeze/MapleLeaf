@@ -166,7 +166,7 @@ public class GameManager : Node2D
 	// Rotating attacks around the mouse pointer
 	public override void _Process(float delta)
 	{
-		if(CurrentLoaded)
+		if(CurrentLoaded && (Turn == "Player" || Turn == "Draw"))
 		{
 			Vector2 CPos = Board.GetCharPos(CurrentCard.PlayerID);
 
