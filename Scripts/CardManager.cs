@@ -15,7 +15,7 @@ public class CardManager : Node2D
 	public List<int> Hand = new List<int>();
 	public List<int> Discard = new List<int>();
 
-	public bool SettingUp = true;
+	public bool SettingUp = true; // When true, cards added to the deck are also added to the true deck
 	
 	private GameManager GM;
 	private Label DrawLabel;
@@ -455,7 +455,6 @@ public class CardManager : Node2D
 
 			if(ForceExhaust)
 			{
-				GD.Print("FORCED EXHAUST");
 				ExhaustCard(HandCards[0]);
 			}
 			else
@@ -498,7 +497,6 @@ public class CardManager : Node2D
 		{
 			if(failsafe-- <= 0)
 				break;
-			bool ForceExhaust = false;
 
 			ExhaustCard(HandCards[0]);
 		}

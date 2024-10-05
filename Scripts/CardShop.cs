@@ -29,9 +29,7 @@ public class CardShop : Node2D
 	private Dictionary<string,List<string>> Decks;
 
 	private Random rnd;
-
 	private SceneTreeTween CTween;
-
 	private CheckBox CBox;
 
 	// Called when the node enters the scene tree for the first time.
@@ -72,20 +70,25 @@ public class CardShop : Node2D
 
 		
 
-		AddCard(Decks["PoolSoldier"][rnd.Next(0,Decks["PoolSoldier"].Count)]);
-		AddCard(Decks["PoolSniper"][rnd.Next(0,Decks["PoolSniper"].Count)]);
-		AddCard(Decks["PoolSupport"][rnd.Next(0,Decks["PoolSupport"].Count)]);
-		AddCard(Decks["PoolRatSpawn"][rnd.Next(0,Decks["PoolRatSpawn"].Count)]);
-
-		DrawCard();
-		DrawCard();
-		DrawCard();
-		DrawCard();
+		LoadShop();
 
 		foreach(Card C in HandCards)
 		{
 			C.Clickable = false;
 		}
+	}
+
+	// Loads new cards from the card pool
+	public void LoadShop()
+	{
+		AddCard(Decks["PoolSoldier"][rnd.Next(0,Decks["PoolSoldier"].Count)]);
+		AddCard(Decks["PoolSniper"][rnd.Next(0,Decks["PoolSniper"].Count)]);
+		AddCard(Decks["PoolSupport"][rnd.Next(0,Decks["PoolSupport"].Count)]);
+		AddCard(Decks["PoolRatSpawn"][rnd.Next(0,Decks["PoolRatSpawn"].Count)]);
+		DrawCard();
+		DrawCard();
+		DrawCard();
+		DrawCard();
 	}
 
 	public void LoadCardEffect(string EffectName, Card InCard)
@@ -118,27 +121,43 @@ public class CardShop : Node2D
 		Card NewCard = (Card)scene.Instance();
 
 		NewCard.OwnerID = ActiveCards[InID].OwnerID;
-		
 
-		switch(OwnerName)
+		GD.Print(InID);
+
+		string ShopCardOwner = "";
+
+		if(100 < InID % 1000 && InID % 1000 <= 200)
+		{
+			ShopCardOwner = "Soldier";
+		}
+		else if(200 < InID % 1000 && InID % 1000 <= 300)
+		{
+			ShopCardOwner = "Sniper";
+		}
+		else if(300 < InID % 1000 && InID % 1000 <= 400)
+		{
+			ShopCardOwner = "Support";
+		}
+		else if(500 < InID % 1000 && InID % 1000 <= 700)
+		{
+			ShopCardOwner = "Rat";
+		}
+
+
+
+		switch(ShopCardOwner)
 		{
 			case "Soldier":
-				NewCard.PlayerID = 101;
+				NewCard.PlayerID = 1;
 			break;
 			case "Sniper":
-				NewCard.PlayerID = 202;
+				NewCard.PlayerID = 2;
 			break;
 			case "Support":
-				NewCard.PlayerID = 303;
+				NewCard.PlayerID = 3;
 			break;
 			case "Rat":
-				// RAT ID ASSIGNMENT
-				Random rnd = new Random();
-				NewCard.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
-				if(GM.RatIDList.Contains(NewCard.OwnerID))
-				{
-					NewCard.RatName = GM.RatIDToName[NewCard.OwnerID];
-				}
+				NewCard.PlayerID = 4;
 			break;
 		}
 
@@ -363,6 +382,46 @@ public class CardShop : Node2D
 			}
 		}
 	}
+
+	// Puts cards into their respective true decks
+	public void Ratify()
+	{
+		foreach(Card C in HandCards)
+		{
+			switch(C.PlayerID)
+			{
+				case 1:
+					GM.CMSoldier.AddCard(C.CardName);
+				break;
+				case 2:
+					GM.CMSniper.AddCard(C.CardName);
+				break;
+				case 3:
+					GM.CMSupport.AddCard(C.CardName);
+				break;
+				case 4:
+					GM.CMRat.AddCard(C.CardName);
+				break;
+			}
+		}
+	}
+	
+	// Removes all the cards from the shop
+	public void ResetShop()
+	{
+		int failsafe = 10;
+
+		while(HandCards.Count > 0)
+		{
+			if(failsafe-- <= 0)
+				break;
+
+			ExhaustCard(HandCards[0]);
+		}
+
+		LoadShop();
+	}
+
 
 	public void CheckPressed()
 	{

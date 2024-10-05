@@ -19,7 +19,7 @@ public class GameManager : Node2D
 	public Dictionary<int, string> RatIDToName = new Dictionary<int,string>(); // Used to convert from a rat id to a rat name
 
 	private AI AI;
-	private CardManager CMSoldier, CMSniper, CMSupport, CMRat;
+	public CardManager CMSoldier, CMSniper, CMSupport, CMRat;
 	private SFXManager SFX;
 	private int CardIDCounter = 0;
 	private int CharacterIDCounter = 0;
@@ -239,7 +239,6 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
-		GD.Print(Rot);
 		foreach(Ability A in CurrentCard.AbilityList)
 		{
 			Board.LoadTheoretical();

@@ -357,7 +357,6 @@ public class Tile : Node2D
 	{
 		if(Clickable)
 		{
-			GD.Print("Tile left clicked!");
 			if(Marker != "SelectClickable")
 			{
 				AddTarget();

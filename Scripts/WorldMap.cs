@@ -12,6 +12,7 @@ public class WorldMap : Node2D
 	int CurrentIndex = 1;
 	bool FinalCity = false;
 	private GameManager GM;
+	CardShop ShopA, ShopB;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -31,8 +32,8 @@ public class WorldMap : Node2D
 
 		CityList[0].DeactivateCity();
 
-		CardShop ShopA = GetNode<CardShop>("ShopA");
-		CardShop ShopB = GetNode<CardShop>("ShopB");
+		ShopA = GetNode<CardShop>("ShopA");
+		ShopB = GetNode<CardShop>("ShopB");
 
 		ShopA.OtherShop = ShopB;
 		ShopB.OtherShop = ShopA;
@@ -73,12 +74,15 @@ public class WorldMap : Node2D
 
 		if(CBoxA.Pressed)
 		{
-			// Add Shop A's cards to the game
+			ShopA.Ratify();
 		}
 		else
 		{
-			// B
+			ShopB.Ratify();
 		}
+
+		ShopA.ResetShop();
+		ShopB.ResetShop();
 
 		GM.Board.LoadStage(CityList[CurrentIndex].CityName);
 
