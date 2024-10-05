@@ -178,6 +178,9 @@ public class GameManager : Node2D
 			{
 				if(Diff.x * (-1) < Diff.y)
 				{
+					if(Rot == "Right") 
+						return; // Avoid uneccesary rotations
+
 					Rot = "Right";
 					CurrentMatrix = (bool[,])UnRotated.Clone();
 					RotClock(CurrentMatrix);
@@ -185,6 +188,8 @@ public class GameManager : Node2D
 				}
 				else
 				{
+					if(Rot == "Up")
+						return; // Avoid uneccesary rotations
 					Rot = "Up";
 					CurrentMatrix = (bool[,])UnRotated.Clone();
 					Board.ShowMatrix(CurrentMatrix, CurrentCard);
@@ -194,6 +199,8 @@ public class GameManager : Node2D
 			{
 				if(Diff.x * (-1) < Diff.y)
 				{
+					if(Rot == "Down")
+						return; // Avoid uneccesary rotations
 					Rot = "Down";
 					CurrentMatrix = (bool[,])UnRotated.Clone();
 					RotCounter(CurrentMatrix);
@@ -202,6 +209,8 @@ public class GameManager : Node2D
 				}
 				else
 				{
+					if(Rot == "Left")
+						return; // Avoid uneccesary rotations
 					Rot = "Left";
 					CurrentMatrix = (bool[,])UnRotated.Clone();
 					RotCounter(CurrentMatrix);

@@ -651,7 +651,7 @@
     {   
         "ID": "312",
         "MatrixName": "Full",
-        "Range": "2",
+        "Range": "3",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
@@ -952,8 +952,7 @@
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNinja"}],
         "SecondaryList":  [
             {"Name":"Shuffle", "Effect": "Rat:Scram"},
-            {"Name":"Shuffle", "Effect": "Rat:Scram"}
-        ]
+            {"Name":"Shuffle", "Effect": "Rat:Scram"}]
     },
     "The Menace":
     {   
