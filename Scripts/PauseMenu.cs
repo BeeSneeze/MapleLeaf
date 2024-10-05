@@ -26,12 +26,10 @@ public class PauseMenu : Node2D
 	{
 		if(InBool)
 		{
-			GD.Print("SHOWING BUTTON");
 			MainMenuButton.Show();
 		}
 		else
 		{
-			GD.Print("HIDING BUTTON");
 			MainMenuButton.Hide();
 		}
 		

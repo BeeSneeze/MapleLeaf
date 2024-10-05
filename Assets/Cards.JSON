@@ -652,13 +652,15 @@
         "ID": "312",
         "MatrixName": "Full",
         "Range": "2",
-        "Uses": "10",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText": "",
         "FlavorText":  "The easiest way to win is to cheat",
-        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
-        "SecondaryList":  []
+        "AbilityList":  [
+            {"Name":"Create", "Effect": "Checkers mate!"},
+            {"Name":"Swap", "Effect": "-"}],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
     "Luck":
     {   

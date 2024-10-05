@@ -261,12 +261,6 @@ public class GameManager : Node2D
 						Board.Swap(Board.TargetList[0], Board.GetCharPos(CurrentCard.PlayerID));
 					}
 				break;
-				case "Swap":
-					if(Board.TargetList.Count > 0)
-					{
-						Board.Swap(Board.TargetList[0], Board.GetCharPos(CurrentCard.PlayerID));
-					}
-				break;
 				case "Spawn":
 					foreach(Vector2 Target in Board.TargetList)
 					{
@@ -427,6 +421,12 @@ public class GameManager : Node2D
 					Board.MoveQueue();
 					PlaySFX("Punch");
 					
+				break;
+				case "Swap":
+					if(Board.TargetList.Count > 0)
+					{
+						Board.Swap(Board.TargetList[0], Board.GetCharPos(CurrentCard.PlayerID));
+					}
 				break;
 			}
 		}
