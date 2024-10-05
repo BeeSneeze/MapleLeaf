@@ -564,7 +564,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
-        "AbilityText": "",
+        "AbilityText": "Create a roll card in hand",
         "FlavorText":  "Woah for real?",
         "AbilityList":  [{"Name":"Stun", "Effect": "2"}],
         "SecondaryList":  [{"Name":"Create", "Effect": "Support:Roll"}]
@@ -868,10 +868,10 @@
         "TargetType": "Area","TargetCell": "Enemy",
         "AbilityText":  "",
         "FlavorText":  "Even rats need a pick-me-up",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"},
-            {"Name":"Shuffle", "Effect": "Sneeze"}],
-        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
+        "AbilityList":  [],
+        "SecondaryList":  [
+            {"Name":"Draw", "Effect": "Rat"},
+            {"Name":"Exhaust", "Effect": "Safe"}]
     },
 
 

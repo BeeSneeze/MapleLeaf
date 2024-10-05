@@ -55,16 +55,7 @@ public class LevelManager : Node2D
 	{
 		if (@event is InputEventKey eventKey)
 		{
-			if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.Y)
-			{
-				ChangeLevel("MainMenu");
-			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.U)
-			{
-				SM.StartStory("Start");
-				ChangeLevel("Story");
-			}
-			else if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.P)
+			if(eventKey.Pressed && eventKey.Scancode == (int)KeyList.P)
 			{
 				SM.StartStory("Ending");
 				ChangeLevel("Story");

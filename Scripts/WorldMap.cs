@@ -62,7 +62,6 @@ public class WorldMap : Node2D
 			{
 				NextCity();
 			}
-			
 		}	
 	}
 
