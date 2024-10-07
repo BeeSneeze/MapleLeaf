@@ -29,6 +29,9 @@ public class AI : Node2D
 	private bool SuccessfulAction = false;
 	private Random rnd;
 
+	private List<Card> QueuedActions = new List<Card>();
+	private List<string> QueuedRotations = new List<string>();
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -67,6 +70,8 @@ public class AI : Node2D
 	public void StartMoveMode()
 	{
 		ExaminedCards = new List<int>();
+		QueuedActions = new List<Card>();
+		QueuedRotations = new List<string>();
 		CardFlag = 1;
 		MoveMode = true;
 		ClickNum = 1;
@@ -75,10 +80,8 @@ public class AI : Node2D
 	// Prepares to start the attack phase
 	public void StartAttackMode()
 	{
-		//ExaminedCards = new List<int>();
-		//CardFlag = 1;
 		AttackMode = true;
-		ClickNum = 3;
+		ClickNum = 1;
 	}
 
 	// The action loop for the move phase. This includes playing move cards, and spawn cards
@@ -127,48 +130,27 @@ public class AI : Node2D
 		}
 	}
 
+
+	// The action loop for the attack phase. This means clicking all remaining cards in hand
 	public void AttackClick()
 	{
-		AttackMode = false;
-		GM.SetMode("Draw");
+		GD.Print(ClickNum);
 		if(ClickNum == 1)
 		{
 			// CLICK ONE
-			SuccessfulAction = true;
-			CardFlag = ClickMoveCard();
 			ClickNum = 2;
+			QueuedActions[0].LeftClick();
+			QueuedActions.RemoveAt(0);
+
+			
 		}
 		else if(ClickNum == 2)
 		{
 			// CLICK TWO
-			if(CardFlag == 1)
-			{
-				SuccessfulAction = MoveBest(MoveRat);
-			}
-			else if (CardFlag == 2)
-			{
-				SuccessfulAction = MoveBest(SpawnRat);
-			}
-
-			if(!SuccessfulAction)
-			{
-				ActiveCard.LeftClick();
-				ActiveCard.Skip(true);
-				// UNCLICK CARD BEFORE MOVING ON
-			}
-			else
-			{
-				if(ActiveCard.Uses > 0)
-				{
-					ExaminedCards.Remove(ActiveCard.CardID);
-				}
-				
-			}
-			SuccessfulAction = false;
 			ClickNum = 1;
-			if(CardFlag == 0)
+			if(QueuedActions.Count == 0)
 			{
-				MoveMode = false; // Ran out of cards
+				AttackMode = false; // Ran out of cards
 				GM.SetMode("Draw");
 			}
 		}
@@ -223,16 +205,29 @@ public class AI : Node2D
 					return 1;
 					
 				}
-				if(A.Name == "Spawn")
+				else if(A.Name == "Spawn")
 				{
 					C.LeftClick();
 					ActiveCard = C;
 					return 2;
 				}
 			}
+
+			// Card contains neither move, nor spawn
+			ExamineActionCard(C);
 			
 		}
 		return 0;
+	}
+
+	// This examines (but does not click!) an action card in the move phase
+	// The examination determines which direction the rat should face when using the card
+	public void ExamineActionCard(Card C)
+	{
+		GD.Print("FOUND AN ACTION CARD");
+		QueuedActions.Add(C);
+
+		QueuedRotations.Add("Left");
 	}
 
 	public void ClickTile(Vector2 TilePos)

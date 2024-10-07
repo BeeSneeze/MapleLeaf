@@ -188,19 +188,13 @@ public class GameManager : Node2D
 				{
 					if(Rot == "Right") 
 						return; // Avoid uneccesary rotations
-
-					Rot = "Right";
-					CurrentMatrix = (bool[,])UnRotated.Clone();
-					RotClock(CurrentMatrix);
-					Board.ShowMatrix(CurrentMatrix, CurrentCard);
+					Rotate("Right");
 				}
 				else
 				{
 					if(Rot == "Up")
 						return; // Avoid uneccesary rotations
-					Rot = "Up";
-					CurrentMatrix = (bool[,])UnRotated.Clone();
-					Board.ShowMatrix(CurrentMatrix, CurrentCard);
+					Rotate("Up");
 				}
 			}
 			else
@@ -209,22 +203,44 @@ public class GameManager : Node2D
 				{
 					if(Rot == "Down")
 						return; // Avoid uneccesary rotations
-					Rot = "Down";
-					CurrentMatrix = (bool[,])UnRotated.Clone();
-					RotCounter(CurrentMatrix);
-					RotCounter(CurrentMatrix);
-					Board.ShowMatrix(CurrentMatrix, CurrentCard);
+					Rotate("Down");
 				}
 				else
 				{
 					if(Rot == "Left")
 						return; // Avoid uneccesary rotations
-					Rot = "Left";
-					CurrentMatrix = (bool[,])UnRotated.Clone();
-					RotCounter(CurrentMatrix);
-					Board.ShowMatrix(CurrentMatrix, CurrentCard);
+					Rotate("Left");
 				}
 			}
+		}
+	}
+
+	// Rotate the currently active matrix in a particular direction
+	public void Rotate(string RotDir)
+	{
+		Rot = RotDir;
+		switch(RotDir)
+		{
+			case "Up":
+				CurrentMatrix = (bool[,])UnRotated.Clone();
+				Board.ShowMatrix(CurrentMatrix, CurrentCard);
+			break;
+			case "Left":
+				CurrentMatrix = (bool[,])UnRotated.Clone();
+				RotCounter(CurrentMatrix);
+				Board.ShowMatrix(CurrentMatrix, CurrentCard);
+			break;
+			case "Down":
+				CurrentMatrix = (bool[,])UnRotated.Clone();
+				RotCounter(CurrentMatrix);
+				RotCounter(CurrentMatrix);
+				Board.ShowMatrix(CurrentMatrix, CurrentCard);
+			break;
+			case "Right":
+				CurrentMatrix = (bool[,])UnRotated.Clone();
+				RotClock(CurrentMatrix);
+				Board.ShowMatrix(CurrentMatrix, CurrentCard);
+			break;
 		}
 	}
 
