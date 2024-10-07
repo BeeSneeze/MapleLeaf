@@ -9,15 +9,21 @@ public class PauseMenu : Node2D
 	
 	CanvasItem MainMenuButton;
 
+	private GameManager GM;
+	private LevelManager LM;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		LM = GetParent<LevelManager>();
+		GM = LM.GetNode<GameManager>("Game");
 		MainMenuButton = GetNode<CanvasItem>("MainMenuButton");
+
 	}
 
 	public void BackToMain()
 	{
-		LevelManager LM = GetParent<LevelManager>();
+		LM = GetParent<LevelManager>();
 		LM.ChangeLevel("MainMenu");
 		
 	}
@@ -32,6 +38,30 @@ public class PauseMenu : Node2D
 		{
 			MainMenuButton.Hide();
 		}
+		
+	}
+
+	public void UpdateAnimationSpeed(int InInt)
+	{
+		switch(InInt)
+		{
+			case 0:
+				GM.AI.TurnTime = 1.5f;
+			break;
+			case 1:
+				GM.AI.TurnTime = 0.9f;
+			break;
+			case 2:
+				GM.AI.TurnTime = 0.6f;
+			break;
+			case 3:
+				GM.AI.TurnTime = 0.2f;
+			break;
+			case 4:
+				GM.AI.TurnTime = 0.05f;
+			break;
+		}
+
 		
 	}
 

@@ -42,6 +42,10 @@ public class LevelManager : Node2D
 		{
 			PauseMenu.ToggleMainMenuButton(InString != "MainMenu");
 		}
+
+		GameManager GM = GetNode<GameManager>("Game");
+
+		GM.AI.Paused = InString != "Game";
 	}
 
 	public void BackTrack()

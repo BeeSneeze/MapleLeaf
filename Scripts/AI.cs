@@ -9,7 +9,8 @@ public class AI : Node2D
 	private int[,] SpawnRat = new int[8,8];
 
 	private float Timer = 0;
-	static float TurnTime = 0.8f; // How long inbetween AI Clicks
+	public float TurnTime = 0.6f; // How long inbetween AI Clicks
+	public bool Paused = false;
 	static float RandomVariation = 0.1f;
 
 	private GameManager GM;
@@ -42,6 +43,9 @@ public class AI : Node2D
 	// Called every frame
 	public override void _Process(float delta)
 	{
+		if(Paused)
+			return;
+
 		Timer += delta;
 
 		if(Timer > TurnTime)

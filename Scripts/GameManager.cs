@@ -18,7 +18,7 @@ public class GameManager : Node2D
 
 	public Dictionary<int, string> RatIDToName = new Dictionary<int,string>(); // Used to convert from a rat id to a rat name
 
-	private AI AI;
+	public AI AI;
 	public CardManager CMSoldier, CMSniper, CMSupport, CMRat;
 	private SFXManager SFX;
 	private int CardIDCounter = 0;
