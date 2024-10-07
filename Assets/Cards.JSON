@@ -477,14 +477,14 @@
     {   
         "ID": "213",
         "MatrixName": "Full",
-        "Range": "2",
+        "Range": "1",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Enemy",
         "AbilityText": "",
         "FlavorText": "Just a little bit closer...",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Ambush":
