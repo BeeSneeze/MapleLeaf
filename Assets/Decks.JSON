@@ -1,8 +1,8 @@
 {
-    "Soldier": ["Walk", "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Flamenco", "Golf"],
+    "Soldier": ["Walk", "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf"],
     "Sniper": ["Run", "Run", "Feint", "Jab", "Snipe", "Taunt", "Right Hook", "Pinpoint", "Trap"],
-    "Support": ["Checkers mate!", "Jog", "Binoculars", "Duck!", "Distract", "Bribe", "Double Agent", "Checkmate!", "Luck"],
-    "Rat": ["Scamper", "Scurry", "Scram", "Tutorial Rat", "The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The President", "Second Term", "Gerrymander", "Unionize", "Plagiarize", "Electrocute", "Sneeze", "Scamper", "Overwhelm",  "Scamper"],
+    "Support": ["Jog", "Binoculars", "Duck!", "Distract", "Bribe", "Double Agent", "Checkmate!", "Luck"],
+    "Rat": ["Scamper", "Scurry", "Scram", "Tutorial Rat", "The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The President", "Second Term", "Gerrymander", "Unionize", "Sneeze", "Overwhelm",  "Scamper"],
     
     "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
     "PoolSoldier": ["Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],

@@ -28,6 +28,8 @@ public class GameManager : Node2D
 	private bool[,] UnRotated, CurrentMatrix;
 	private Button EndTurnButton;
 
+	private Label TopLabel;
+
 	
 
 	private bool AreYouWinningSon = false;
@@ -46,6 +48,8 @@ public class GameManager : Node2D
 		CMSupport = GetNode<CardManager>("CardsSupport");
 		CMRat = GetNode<CardManager>("CardsRat");
 		AI = GetNode<AI>("AI");
+
+		TopLabel = GetNode<Label>("TopLabel");
 
 		// Load starting decks
 		File Reader = new File();
@@ -124,6 +128,7 @@ public class GameManager : Node2D
 		switch(ModeName)
 		{
 			case "RatMove":
+				TopLabel.Text = "Rats are on the move...";
 				CMSoldier.ToggleQueueMode(false);
 				CMSniper.ToggleQueueMode(false);
 				CMSupport.ToggleQueueMode(false);
@@ -137,12 +142,14 @@ public class GameManager : Node2D
 				AI.StartMoveMode();
 			break;
 			case "Player":
+				TopLabel.Text = "Play phase: Play cards";
 				CMSoldier.ReClick();
 				CMSniper.ReClick();
 				CMSupport.ReClick();
 				CMRat.UnClick();
 			break;
 			case "RatAttack":
+				TopLabel.Text = "Rats are attacking!!";
 				CMSoldier.UnClick();
 				CMSniper.UnClick();
 				CMSupport.UnClick();
@@ -150,6 +157,7 @@ public class GameManager : Node2D
 				AI.StartAttackMode();
 			break;
 			case "Draw":
+				TopLabel.Text = "Draw Phase: Redraw cards";
 				Board.NewTurn();
 				CMSoldier.NewTurn();
 				CMSniper.NewTurn();
