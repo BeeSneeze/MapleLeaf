@@ -124,6 +124,7 @@ public class AI : Node2D
 			ClickNum = 1;
 			if(CardFlag == 0)
 			{
+				ExamineAllActions();
 				MoveMode = false; // Ran out of cards
 				GM.SetMode("Player");
 			}
@@ -141,13 +142,14 @@ public class AI : Node2D
 			ClickNum = 2;
 			QueuedActions[0].LeftClick();
 			QueuedActions.RemoveAt(0);
-
-			
+			GM.Rotate(QueuedRotations[0]);
+			QueuedRotations.RemoveAt(0);
 		}
 		else if(ClickNum == 2)
 		{
 			// CLICK TWO
 			ClickNum = 1;
+			GM.ExecutePlay();
 			if(QueuedActions.Count == 0)
 			{
 				AttackMode = false; // Ran out of cards
@@ -214,19 +216,25 @@ public class AI : Node2D
 			}
 
 			// Card contains neither move, nor spawn
-			ExamineActionCard(C);
+			QueuedActions.Add(C);
 			
 		}
 		return 0;
+	}
+
+	public void ExamineAllActions()
+	{
+		foreach(Card C in QueuedActions)
+		{
+			ExamineActionCard(C);
+		}
 	}
 
 	// This examines (but does not click!) an action card in the move phase
 	// The examination determines which direction the rat should face when using the card
 	public void ExamineActionCard(Card C)
 	{
-		GD.Print("FOUND AN ACTION CARD");
-		QueuedActions.Add(C);
-
+		GD.Print("EXAMINED AN ACTION CARD");
 		QueuedRotations.Add("Left");
 	}
 

@@ -711,7 +711,7 @@
         "Range": "1",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Enemy",
+        "TargetType": "Area","TargetCell": "Enemy",
         "AbilityText":  "1 Damage",
         "FlavorText":  "Wars may be fought with weapons, but they are won by rats!",
         "AbilityList":  [
