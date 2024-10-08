@@ -611,7 +611,7 @@
     "Double Agent":
     {   
         "ID": "309",
-        "MatrixName": "Manhattan",
+        "MatrixName": "Full",
         "Range": "2",
         "Uses": "2",
         "Draws": "0",
@@ -873,8 +873,7 @@
         "AbilityList":  [],
         "SecondaryList":  [
             {"Name":"Draw", "Effect": "Rat"},
-            {"Name":"Draw", "Effect": "Rat"},
-            {"Name":"Exhaust", "Effect": "Safe"}]
+            {"Name":"Draw", "Effect": "Rat"}]
     },
 
 

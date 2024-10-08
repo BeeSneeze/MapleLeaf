@@ -69,13 +69,17 @@ frames = SubResource( 1 )
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 1317, 824 )
+scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 2 )
+frame = 1
 speed_scale = 0.9
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="."]
 position = Vector2( 1301, 909 )
+scale = Vector2( 0.95, 0.95 )
 frames = SubResource( 2 )
+frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( 97, -41 )
@@ -83,6 +87,7 @@ offset = Vector2( 97, -41 )
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
 position = Vector2( 1491, 916 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
@@ -105,8 +110,8 @@ offset = Vector2( -111.25, 0 )
 position = Vector2( -450, 0 )
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Swarm"]
-position = Vector2( 519, 914 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 520, 894 )
+scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 2 )
 animation = "Rat"
 speed_scale = 0.868
@@ -115,9 +120,10 @@ offset = Vector2( -111.25, 0 )
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Swarm"]
 position = Vector2( 688, 888 )
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 1.15
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -127,13 +133,14 @@ position = Vector2( 794, 972 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.95
 playing = true
 offset = Vector2( -111.25, 0 )
 
 [node name="AnimatedSprite9" type="AnimatedSprite" parent="Swarm"]
-position = Vector2( 878, 887 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 854, 868 )
+scale = Vector2( 0.7, 0.7 )
 z_index = -1
 frames = SubResource( 2 )
 animation = "Rat"
@@ -152,8 +159,8 @@ playing = true
 offset = Vector2( -111.25, 0 )
 
 [node name="AnimatedSprite11" type="AnimatedSprite" parent="Swarm"]
-position = Vector2( 1018, 847 )
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 990, 854 )
+scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 2 )
 animation = "Rat"
 speed_scale = 1.1
@@ -198,6 +205,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.99
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -215,19 +223,21 @@ playing = true
 offset = Vector2( -111.25, 0 )
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Swarm2"]
-position = Vector2( 688, 888 )
+position = Vector2( 669, 888 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 1.15
 playing = true
 offset = Vector2( -111.25, 0 )
 
 [node name="AnimatedSprite8" type="AnimatedSprite" parent="Swarm2"]
-position = Vector2( 794, 972 )
+position = Vector2( 782, 959 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.95
 playing = true
 offset = Vector2( -111.25, 0 )

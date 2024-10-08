@@ -43,6 +43,7 @@ public class PauseMenu : Node2D
 		
 	}
 
+	// Makes the AI play cards faster or slower
 	public void UpdateAnimationSpeed(int InInt)
 	{
 		switch(InInt)

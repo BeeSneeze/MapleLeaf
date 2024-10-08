@@ -18,7 +18,7 @@ public class Card : Sprite
 	private bool Big = false;		// When the player wants extra info about a card
 	private bool Preview = false; 	// When the player is hovering over a card
 
-	private bool Skipped = false; // Card is completely unclickable until its game object is destroyed
+	public bool Skipped = false; // Card is completely unclickable until its game object is destroyed
 	public bool ReRolled = false; // Going to ReRoll this card upon draw end
 	public GameManager GM;
 

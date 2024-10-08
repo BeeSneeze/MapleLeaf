@@ -139,10 +139,34 @@ public class AI : Node2D
 	// The action loop for the attack phase. This means clicking all remaining cards in hand
 	public void AttackClick()
 	{
-		GD.Print(ClickNum);
+
 		if(ClickNum == 1)
 		{
 			// CLICK ONE
+
+			// Remove skipped cards from the list
+			if(QueuedActions.Count > 0)
+			{
+				if(QueuedActions[0].Skipped)
+				{
+					QueuedActions[0].Skip(true);
+					QueuedActions.RemoveAt(0);
+					QueuedRotations.RemoveAt(0);
+					ClickNum = 1;
+					return;
+				}
+			}
+			else
+			{
+				// Ran out of cards early due to skips, terminate attack phase
+				AttackMode = false;
+				GM.SetMode("Draw");
+				return;
+			}
+			
+			
+
+			
 			ClickNum = 2;
 			QueuedActions[0].LeftClick();
 			QueuedActions.RemoveAt(0);
