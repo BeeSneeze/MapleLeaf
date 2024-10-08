@@ -873,6 +873,7 @@
         "AbilityList":  [],
         "SecondaryList":  [
             {"Name":"Draw", "Effect": "Rat"},
+            {"Name":"Draw", "Effect": "Rat"},
             {"Name":"Exhaust", "Effect": "Safe"}]
     },
 

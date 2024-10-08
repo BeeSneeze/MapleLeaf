@@ -105,6 +105,10 @@ public class AI : Node2D
 			{
 				SuccessfulAction = MoveBest(SpawnRat);
 			}
+			else if (CardFlag == 3) // Early Action card
+			{
+				GM.ExecutePlay();
+			}
 
 			if(!SuccessfulAction)
 			{
@@ -215,9 +219,19 @@ public class AI : Node2D
 				}
 			}
 
+			// Specific card exceptions
+
+			if(C.CardName == "Coffee")
+			{
+				C.LeftClick();
+				ActiveCard = C;
+				return 3;
+			}
+
+
+
 			// Card contains neither move, nor spawn
 			QueuedActions.Add(C);
-			
 		}
 		return 0;
 	}
