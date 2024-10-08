@@ -61,8 +61,6 @@ public class PauseMenu : Node2D
 				GM.AI.TurnTime = 0.05f;
 			break;
 		}
-
-		
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

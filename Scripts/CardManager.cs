@@ -374,6 +374,9 @@ public class CardManager : Node2D
 	// Makes all non-prepped cards unclickable
 	public void UnClick()
 	{
+		Modulate = new Color(0.75f, 0.75f, 0.75f, 1.0f);
+		
+
 		foreach(Card C in HandCards)
 		{
 			if(!C.Prepped)
@@ -387,6 +390,8 @@ public class CardManager : Node2D
 	// Makes all cards clickable again
 	public void ReClick()
 	{
+		Modulate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
 		foreach(Card C in HandCards)
 		{
 			C.ToggleClickable(true);
@@ -434,6 +439,8 @@ public class CardManager : Node2D
 	// Discard all remaining cards, and draw a new full hand
 	public void NewTurn()
 	{	
+		Modulate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+
 		// Discard all cards
 		int failsafe = 50; // How many times to run this loop before we stop
 
@@ -474,8 +481,7 @@ public class CardManager : Node2D
 		
 	}
 
-	
-
+	// Resets the deck back to its original state, and clears the hand + the discard
 	public void ResetDeck()
 	{
 		SettingUp = true;
