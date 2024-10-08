@@ -9,6 +9,8 @@ public class SFXManager : Node2D
 
 	AudioStreamPlayer Sound;
 
+	static float SFXVolume = 10.0f;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

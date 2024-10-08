@@ -11,6 +11,7 @@ public class PauseMenu : Node2D
 
 	private GameManager GM;
 	private LevelManager LM;
+	private MusicManager MM;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -18,7 +19,8 @@ public class PauseMenu : Node2D
 		LM = GetParent<LevelManager>();
 		GM = LM.GetNode<GameManager>("Game");
 		MainMenuButton = GetNode<CanvasItem>("MainMenuButton");
-
+		
+		MM = LM.GetParent().GetNode<MusicManager>("MusicManager");
 	}
 
 	public void BackToMain()
@@ -59,6 +61,33 @@ public class PauseMenu : Node2D
 			break;
 			case 4:
 				GM.AI.TurnTime = 0.05f;
+			break;
+		}
+	}
+
+	public void UpdateVolume(float InFloat)
+	{
+		GD.Print((InFloat-100)/5.0f);
+		MM.UpdateVolume((InFloat-100)/5.0f);
+
+		// Maybe not the cleanest way to do this, but personally tweaking the audio scale is kinda important to me
+		// The switch statement is here in case I want to tweak things even further
+		switch(InFloat)
+		{
+			case 0.0f:
+				MM.UpdateVolume(-80.0f);
+			break;
+			case 10.0f:
+				MM.UpdateVolume(-50.0f);
+			break;
+			case 20.0f:
+				MM.UpdateVolume(-30.0f);
+			break;
+			case 30.0f:
+				MM.UpdateVolume(-20.0f);
+			break;
+			case 40.0f:
+				MM.UpdateVolume(-10.0f);
 			break;
 		}
 	}

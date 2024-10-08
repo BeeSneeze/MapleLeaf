@@ -50,5 +50,13 @@ public class MusicManager : Node2D
 
 		ActiveSong = InString;
 	}
+
+	public void UpdateVolume(float Volume)
+	{
+		PauseMenu.VolumeDb = Volume;
+		MainMenu.VolumeDb = Volume;
+		WorldMap.VolumeDb = Volume;
+		Game.VolumeDb = Volume;
+	}
 	
 }
