@@ -78,13 +78,13 @@ position = Vector2( 960, 540 )
 texture = ExtResource( 1 )
 
 [node name="Slides" type="AnimatedSprite" parent="."]
-position = Vector2( 960, 350 )
+position = Vector2( 960, 330 )
 frames = SubResource( 1 )
 playing = true
 
 [node name="Label" type="Label" parent="."]
 margin_left = 510.0
-margin_top = 650.0
+margin_top = 675.0
 margin_right = 1410.0
 margin_bottom = 1000.0
 theme = ExtResource( 5 )
