@@ -514,7 +514,7 @@
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Spy on a card?",
         "FlavorText":  "Four eyes are better than two",
-        "AbilityList":  [],
+        "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Trinoculars":
@@ -527,7 +527,7 @@
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Spy on a card?",
         "FlavorText":  "How exactly is this supposed to help??",
-        "AbilityList":  [],
+        "AbilityList":  [{"Name":"Strong", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Duck!":

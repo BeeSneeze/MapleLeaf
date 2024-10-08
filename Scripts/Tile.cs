@@ -164,7 +164,6 @@ public class Tile : Node2D
 
 	public void SetCharacter(Character InChar)
 	{
-		
 		Char = InChar;
 
 		UpdateHealthBar();
@@ -180,6 +179,9 @@ public class Tile : Node2D
 			{
 				case "Stun":
 					ModAnim.Animation = "Stun";
+				break;
+				case "Strong":
+					ModAnim.Animation = "Strong";
 				break;
 			}
 		}

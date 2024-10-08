@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -62,6 +62,9 @@
 [ext_resource path="res://Assets/Visuals/Characters/Support3.png" type="Texture" id=60]
 [ext_resource path="res://Assets/Visuals/Characters/Support1.png" type="Texture" id=61]
 [ext_resource path="res://Assets/Visuals/Characters/Support4.png" type="Texture" id=62]
+[ext_resource path="res://Assets/Visuals/Markers/Strong3.png" type="Texture" id=63]
+[ext_resource path="res://Assets/Visuals/Markers/Strong1.png" type="Texture" id=64]
+[ext_resource path="res://Assets/Visuals/Markers/Strong2.png" type="Texture" id=65]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -206,6 +209,11 @@ animations = [ {
 "name": "None",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 64 ), ExtResource( 65 ), ExtResource( 63 ) ],
+"loop": true,
+"name": "Strong",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
 "loop": true,
 "name": "Stun",
@@ -263,7 +271,7 @@ playing = true
 
 [node name="Modifier" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
-animation = "None"
+animation = "Strong"
 playing = true
 
 [node name="Effect" type="AnimatedSprite" parent="."]

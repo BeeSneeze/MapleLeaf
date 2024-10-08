@@ -380,6 +380,12 @@ public class GameManager : Node2D
 						Board.AddModifier(Target, "Stun", int.Parse(A.Effect));
 					}
 				break;
+				case "Strong":
+					foreach(Vector2 Target in Board.TargetList)
+					{
+						Board.AddModifier(Target, "Strong", int.Parse(A.Effect));
+					}
+				break;
 				case "Push":
 					string PushDirection = "N";
 					switch(Rot)
