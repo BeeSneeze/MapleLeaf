@@ -12,6 +12,8 @@ public class Card : Sprite
 	public bool CanQueue = false;
 
 	public int Layer = 0;
+
+	public string PreppedRotation = "";
 	
 	
 	public bool Prepped = false;	// When the player is preparing a play for a card

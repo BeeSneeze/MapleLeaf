@@ -300,21 +300,34 @@ public class AI : Node2D
 		int x = (int)Board.GetCharPos(C.PlayerID).x;
 		int y = (int)Board.GetCharPos(C.PlayerID).y;
 
+		bool CardinalRotation = false;
+		bool DiagonalRotation = false;
 
-		GD.Print(AttackRat[0,x,y]);
-		GD.Print(AttackRat[1,x,y]);
-		GD.Print(AttackRat[2,x,y]);
-		GD.Print(AttackRat[3,x,y]);
-		GD.Print(AttackRat[4,x,y]);
-		GD.Print(AttackRat[5,x,y]);
-		GD.Print(AttackRat[6,x,y]);
+		string SelectedDirection = "Left";
 
-		if(AttackRat[1,x,y] % 2 == 0)
+		for(int Range = 0; Range < C.Range; Range++)
 		{
-			GD.Print("ABOVE");
+			GD.Print(AttackRat[Range,x,y]);
+			if(AttackRat[Range,x,y] % 2 == 0)
+			{
+				SelectedDirection = "Down";
+			}
+			if(AttackRat[Range,x,y] % 5 == 0)
+			{
+				SelectedDirection = "Left";
+			}
+			if(AttackRat[Range,x,y] % 11 == 0)
+			{
+				SelectedDirection = "Up";
+			}
+			if(AttackRat[Range,x,y] % 17 == 0)
+			{
+				SelectedDirection = "Right";
+			}
 		}
 
-		QueuedRotations.Add("Left");
+		C.PreppedRotation = SelectedDirection;
+		QueuedRotations.Add(SelectedDirection);
 	}
 
 	public void ClickTile(Vector2 TilePos)
@@ -405,13 +418,8 @@ public class AI : Node2D
 				{
 					if(InMat[x,y] == 0)
 					{
-						GD.Print("WTF");
-					}
-
-					if(InMat[x,y] == 2)
-					{
-						GD.Print("Above from range: ");
-						GD.Print(Range);
+						// This should never happen, and if it does, it needs immediate attention
+						GD.Print("MULTIPLICATION WITH 0 IN RAT MATRIX");
 					}
 
 					AttackRat[Range, x+OffsetX, y+OffsetY] *= InMat[x,y];

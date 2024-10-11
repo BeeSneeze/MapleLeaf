@@ -30,7 +30,7 @@ public class GameManager : Node2D
 
 	private Label TopLabel;
 
-	
+	private bool RatShown = false;
 
 	private bool AreYouWinningSon = false;
 	private Node2D WinScreen;
@@ -174,7 +174,7 @@ public class GameManager : Node2D
 	// Rotating attacks around the mouse pointer
 	public override void _Process(float delta)
 	{
-		if(CurrentLoaded && (Turn == "Player" || Turn == "Draw"))
+		if(CurrentLoaded && (Turn == "Player" || Turn == "Draw") && !RatShown)
 		{
 			Vector2 CPos = Board.GetCharPos(CurrentCard.PlayerID);
 
@@ -218,6 +218,7 @@ public class GameManager : Node2D
 	// Rotate the currently active matrix in a particular direction
 	public void Rotate(string RotDir)
 	{
+		GD.Print("ROTATING");
 		Rot = RotDir;
 		switch(RotDir)
 		{
@@ -569,7 +570,17 @@ public class GameManager : Node2D
 		CurrentLoaded = true;
 		CurrentCard = Card;
 
-		Board.ShowMatrix(CurrentMatrix, CurrentCard);
+		if(Card.PreppedRotation != "")
+		{
+			RatShown = true;
+			GD.Print(Card.PreppedRotation);
+			Rotate(Card.PreppedRotation);
+		}
+		else
+		{
+			RatShown = false;
+			Board.ShowMatrix(CurrentMatrix, CurrentCard);
+		}
 	}
 
 	// Creates a new ID for a card
