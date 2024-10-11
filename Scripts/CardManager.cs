@@ -144,7 +144,13 @@ public class CardManager : Node2D
 			case "Rat":
 				// RAT ID ASSIGNMENT
 				Random rnd = new Random();
-				NewCard.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
+				NewCard.PlayerID = 999;
+
+				if(GM.RatIDList.Count != 0)
+				{
+					NewCard.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
+				}
+				
 				if(GM.RatIDList.Contains(NewCard.OwnerID))
 				{
 					NewCard.RatName = GM.RatIDToName[NewCard.OwnerID];
