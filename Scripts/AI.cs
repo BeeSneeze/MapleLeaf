@@ -201,7 +201,7 @@ public class AI : Node2D
 			for(int y = 0; y < 8; y++)
 			{
 				MoveRat[x,y] = 1000;
-				if(Board.Cell[x,y].Char.ID % 100 < 10 && Board.Cell[x,y].Char.ID != 0)
+				if((Board.Cell[x,y].Char.ID % 100 < 10 || Board.Cell[x,y].Char.ID % 100 == 51) && Board.Cell[x,y].Char.ID != 0)
 				{
 					PatchPosList.Add(new Vector2(x,y));
 				}
@@ -269,15 +269,12 @@ public class AI : Node2D
 			}
 
 			// Specific card exceptions
-
 			if(C.CardName == "Coffee")
 			{
 				C.LeftClick();
 				ActiveCard = C;
 				return 3;
 			}
-
-
 
 			// Card contains neither move, nor spawn
 			QueuedActions.Add(C);
@@ -287,6 +284,7 @@ public class AI : Node2D
 
 	public void ExamineAllActions()
 	{
+		EvaluateBoard();
 		foreach(Card C in QueuedActions)
 		{
 			ExamineActionCard(C);
@@ -408,6 +406,12 @@ public class AI : Node2D
 					if(InMat[x,y] == 0)
 					{
 						GD.Print("WTF");
+					}
+
+					if(InMat[x,y] == 2)
+					{
+						GD.Print("Above from range: ");
+						GD.Print(Range);
 					}
 
 					AttackRat[Range, x+OffsetX, y+OffsetY] *= InMat[x,y];
