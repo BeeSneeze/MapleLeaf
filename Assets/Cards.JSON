@@ -689,6 +689,20 @@
         "SecondaryList":  []
     },
 
+    "DEBUG DMG":
+    {   
+        "ID": "399",
+        "MatrixName": "Full",
+        "Range": "7",
+        "Uses": "100",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "",
+        "AbilityList":  [{"Name":"Damage", "Effect": "1"}],
+        "SecondaryList":  []
+    },
+
     
 
     "Nap":
