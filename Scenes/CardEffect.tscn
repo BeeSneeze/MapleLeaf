@@ -25,7 +25,7 @@ animations = [ {
 
 [node name="Node2D" type="AnimatedSprite"]
 scale = Vector2( 0.6, 0.6 )
-z_index = 100
+z_index = 200
 frames = SubResource( 1 )
 animation = "Shrug"
 script = ExtResource( 4 )
