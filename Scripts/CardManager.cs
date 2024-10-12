@@ -377,7 +377,6 @@ public class CardManager : Node2D
 		}
 	}
 
-
 	// Makes all non-prepped cards unclickable
 	public void UnClick()
 	{

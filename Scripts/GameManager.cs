@@ -182,34 +182,70 @@ public class GameManager : Node2D
 
 			Vector2 Diff = GetGlobalMousePosition() - TilePos;
 
-			if(Diff.x > Diff.y)
+			if(CurrentCard.MatrixName == "Diagonal" || CurrentCard.MatrixName == "Fox")
 			{
-				if(Diff.x * (-1) < Diff.y)
+				if(Diff.x > 0)
 				{
-					if(Rot == "Right") 
-						return; // Avoid uneccesary rotations
-					Rotate("Right");
+					if(Diff.y > 0)
+					{
+						if(Rot == "Down")
+							return; // Avoid uneccesary rotations
+						Rotate("Down");
+					}
+					else
+					{
+						if(Rot == "Right") 
+							return; // Avoid uneccesary rotations
+						Rotate("Right");
+					}
 				}
 				else
 				{
-					if(Rot == "Up")
-						return; // Avoid uneccesary rotations
-					Rotate("Up");
+					if(Diff.y > 0)
+					{
+						if(Rot == "Left")
+							return; // Avoid uneccesary rotations
+						Rotate("Left");
+					}
+					else
+					{
+						if(Rot == "Up")
+							return; // Avoid uneccesary rotations
+						Rotate("Up");
+					}
 				}
 			}
 			else
 			{
-				if(Diff.x * (-1) < Diff.y)
+				if(Diff.x > Diff.y)
 				{
-					if(Rot == "Down")
-						return; // Avoid uneccesary rotations
-					Rotate("Down");
+					if(Diff.x * (-1) < Diff.y)
+					{
+						if(Rot == "Right") 
+							return; // Avoid uneccesary rotations
+						Rotate("Right");
+					}
+					else
+					{
+						if(Rot == "Up")
+							return; // Avoid uneccesary rotations
+						Rotate("Up");
+					}
 				}
 				else
 				{
-					if(Rot == "Left")
-						return; // Avoid uneccesary rotations
-					Rotate("Left");
+					if(Diff.x * (-1) < Diff.y)
+					{
+						if(Rot == "Down")
+							return; // Avoid uneccesary rotations
+						Rotate("Down");
+					}
+					else
+					{
+						if(Rot == "Left")
+							return; // Avoid uneccesary rotations
+						Rotate("Left");
+					}
 				}
 			}
 		}

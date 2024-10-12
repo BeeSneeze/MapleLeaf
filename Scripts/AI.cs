@@ -20,10 +20,7 @@ public class AI : Node2D
 
 	private List<int> ExaminedCards = new List<int>();
 	private int[,] RatPatch = new int[15,15];
-
 	
-	
-
 	private Card ActiveCard;
 	private int CardFlag = 0;
 	private int ClickNum = 0;
@@ -165,10 +162,7 @@ public class AI : Node2D
 				GM.SetMode("Draw");
 				return;
 			}
-			
-			
 
-			
 			ClickNum = 2;
 			QueuedActions[0].LeftClick();
 			QueuedActions.RemoveAt(0);
