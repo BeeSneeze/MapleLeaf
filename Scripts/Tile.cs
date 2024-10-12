@@ -53,6 +53,7 @@ public class Tile : Node2D
 			if(Char.ID % 100 == 51) // Exception for cities
 			{
 				PlayEffect("Explosion"); 
+				GM.CityAttacked(Dmg);
 			}
 			return;
 		}

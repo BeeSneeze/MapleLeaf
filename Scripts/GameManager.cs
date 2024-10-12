@@ -35,10 +35,15 @@ public class GameManager : Node2D
 	private bool AreYouWinningSon = false;
 	private Node2D WinScreen;
 
+	private int LevelHP = 5;
+
+	private Label HPLabel;
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		HPLabel = GetNode<Label>("HP");
 		EndTurnButton = GetNode<Button>("NextTurn");
 		WinScreen = GetNode<Node2D>("WinScreen");
 		SFX = GetNode<SFXManager>("SFX");
@@ -581,6 +586,33 @@ public class GameManager : Node2D
 		{
 			LevelEnd();
 		}
+	}
+
+	public void CityAttacked(int Damage)
+	{
+		
+		LevelHP -= 1;
+		
+		HPLabel.Text = "HP: " + LevelHP.ToString();
+
+		Random rnd = new Random();
+		
+		switch(rnd.Next(0,3))
+		{
+			case 0:
+				GD.Print("CITY DAMAGE: Soldier got a paramedic");
+				CMSoldier.AddCard("Paramedic");
+			break;
+			case 1:
+				GD.Print("CITY DAMAGE: Sniper got a paramedic");
+				CMSniper.AddCard("Paramedic");
+			break;
+			case 2:
+				GD.Print("CITY DAMAGE: Support got a paramedic");
+				CMSupport.AddCard("Paramedic");
+			break;
+		}
+		
 	}
 
 	// Visualizes what a card does, but without playing it

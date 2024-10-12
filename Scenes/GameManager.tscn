@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Themes/Miracode.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Themes/WorldMap.tres" type="Theme" id=13]
 [ext_resource path="res://Assets/Visuals/TopLabelBG.png" type="Texture" id=14]
+[ext_resource path="res://Themes/PauseMenu.tres" type="Theme" id=15]
+[ext_resource path="res://Themes/Keep Cheese.ttf" type="DynamicFontData" id=16]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -58,6 +60,10 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 } ]
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 16 )
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -148,6 +154,17 @@ position = Vector2( 963, 81 )
 z_index = -1
 frames = SubResource( 4 )
 animation = "Draw"
+
+[node name="HP" type="Label" parent="."]
+margin_left = 1341.0
+margin_top = 43.0
+margin_right = 1435.0
+margin_bottom = 129.0
+theme = ExtResource( 15 )
+custom_fonts/font = SubResource( 5 )
+text = "HP: 5"
+align = 1
+valign = 1
 
 [connection signal="pressed" from="NextTurn" to="." method="TurnButtonClicked"]
 [connection signal="pressed" from="WinScreen/WinButton" to="." method="MoveToWorldMap"]
