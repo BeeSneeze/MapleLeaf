@@ -10,7 +10,7 @@ public class AI : Node2D
 	private int[,,] AttackRat = new int[7,8,8];
 
 	private float Timer = 0;
-	public float TurnTime = 0.6f; // How long inbetween AI Clicks
+	public float TurnTime = 0.75f; // How long inbetween AI Clicks
 	public bool Paused = false;
 	static float RandomVariation = 0.1f;
 

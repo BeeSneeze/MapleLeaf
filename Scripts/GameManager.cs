@@ -26,7 +26,7 @@ public class GameManager : Node2D
 	private Dictionary<string,List<string>> Decks;
 	private bool CurrentLoaded = false;
 	private bool[,] UnRotated, CurrentMatrix;
-	private Button EndTurnButton;
+	private CanvasItem EndTurnButton, EndDrawButton;
 
 	private Label TopLabel;
 
@@ -44,7 +44,8 @@ public class GameManager : Node2D
 	public override void _Ready()
 	{
 		HPLabel = GetNode<Label>("HP");
-		EndTurnButton = GetNode<Button>("NextTurn");
+		EndTurnButton = GetNode<CanvasItem>("EndTurn");
+		EndDrawButton = GetNode<CanvasItem>("EndDraw");
 		WinScreen = GetNode<Node2D>("WinScreen");
 		SFX = GetNode<SFXManager>("SFX");
 		Board = GetNode<Board>("Board");
@@ -770,7 +771,8 @@ public class GameManager : Node2D
 		GD.Print("LEVEL STARTED!");
 		
 		SetMode("Draw");
-		EndTurnButton.Text = "End Draw";
+		EndTurnButton.Hide();
+		EndDrawButton.Show();
 	}
 	
 	// Everything done after the round is over
@@ -837,12 +839,14 @@ public class GameManager : Node2D
 	{
 		if(Turn == "Draw")
 		{
-			EndTurnButton.Text = "End Turn";
+			EndTurnButton.Show();
+			EndDrawButton.Hide();
 			SetMode("RatMove");
 		}
 		else if(Turn == "Player")
 		{
-			EndTurnButton.Text = "End Draw";
+			EndTurnButton.Hide();
+			EndDrawButton.Show();
 			SetMode("RatAttack");
 		}
 	}

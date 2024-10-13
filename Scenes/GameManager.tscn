@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/Visuals/TopLabelBG.png" type="Texture" id=14]
 [ext_resource path="res://Themes/PauseMenu.tres" type="Theme" id=15]
 [ext_resource path="res://Themes/Keep Cheese.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://EndDraw.tres" type="Theme" id=17]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -62,7 +63,7 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=5]
-size = 80
+size = 70
 font_data = ExtResource( 16 )
 
 [node name="GameManager" type="Node2D"]
@@ -105,12 +106,22 @@ stream = ExtResource( 8 )
 [node name="Gunshots" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 10 )
 
-[node name="NextTurn" type="Button" parent="."]
+[node name="EndTurn" type="Button" parent="."]
+visible = false
 margin_left = 1107.0
 margin_top = 955.0
-margin_right = 1351.0
-margin_bottom = 1036.0
+margin_right = 1307.0
+margin_bottom = 1035.0
 theme = ExtResource( 9 )
+text = "End Turn"
+icon_align = 1
+
+[node name="EndDraw" type="Button" parent="."]
+margin_left = 1107.0
+margin_top = 955.0
+margin_right = 1307.0
+margin_bottom = 1035.0
+theme = ExtResource( 17 )
 text = "End Draw"
 icon_align = 1
 
@@ -156,15 +167,16 @@ frames = SubResource( 4 )
 animation = "Draw"
 
 [node name="HP" type="Label" parent="."]
-margin_left = 1341.0
-margin_top = 43.0
-margin_right = 1435.0
-margin_bottom = 129.0
+margin_left = 583.0
+margin_top = 962.0
+margin_right = 748.0
+margin_bottom = 1048.0
 theme = ExtResource( 15 )
 custom_fonts/font = SubResource( 5 )
 text = "HP: 5"
 align = 1
 valign = 1
 
-[connection signal="pressed" from="NextTurn" to="." method="TurnButtonClicked"]
+[connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]
+[connection signal="pressed" from="EndDraw" to="." method="TurnButtonClicked"]
 [connection signal="pressed" from="WinScreen/WinButton" to="." method="MoveToWorldMap"]

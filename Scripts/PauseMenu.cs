@@ -52,13 +52,13 @@ public class PauseMenu : Node2D
 				GM.AI.TurnTime = 1.5f;
 			break;
 			case 1:
-				GM.AI.TurnTime = 0.9f;
+				GM.AI.TurnTime = 1.0f;
 			break;
 			case 2:
-				GM.AI.TurnTime = 0.6f;
+				GM.AI.TurnTime = 0.75f;
 			break;
 			case 3:
-				GM.AI.TurnTime = 0.2f;
+				GM.AI.TurnTime = 0.25f;
 			break;
 			case 4:
 				GM.AI.TurnTime = 0.05f;
