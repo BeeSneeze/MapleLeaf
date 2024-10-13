@@ -202,6 +202,7 @@ position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
 animation = "DrawTutorial"
+frame = 1
 playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]

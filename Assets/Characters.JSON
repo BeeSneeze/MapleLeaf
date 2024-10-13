@@ -15,13 +15,13 @@
     "Sniper":
     {   
         "ID": "2",
-        "MaxHP": "5",
+        "MaxHP": "4",
         "Names":["Langdon", "Andersson", "Chavez", "Lee"]
     },
     "Support":
     {
         "ID": "3",
-        "MaxHP": "5",
+        "MaxHP": "3",
         "Names":["Steph", "Stephanie", "Stacy"]
     },
     "RatTutorial":

@@ -396,22 +396,23 @@
         "AbilityText": "",
         "FlavorText": "HEY! LOOK AT ME!!",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"},
+            {"Name":"Damage", "Effect": "1"},
             {"Name":"Push", "Effect": "S"}],
         "SecondaryList":  []
     },
     "Infuriate":
     {   
         "ID": "208",
-        "MatrixName": "Full",
-        "Range": "3",
-        "Uses": "2",
+        "MatrixName": "Line",
+        "Range": "7",
+        "Uses": "4",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "",
         "FlavorText": "You know I'm right.",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "1"},
+            {"Name":"Push", "Effect": "S"}],
         "SecondaryList":  []
     },
     "Right Hook":
@@ -476,29 +477,29 @@
     "Trap":
     {   
         "ID": "213",
-        "MatrixName": "Full",
+        "MatrixName": "Line",
         "Range": "1",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
+        "TargetType": "Single","TargetCell": "Enemy",
         "AbilityText": "",
         "FlavorText": "Just a little bit closer...",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"}],
+            {"Name":"Damage", "Effect": "5"}],
         "SecondaryList":  []
     },
     "Ambush":
     {   
         "ID": "214",
-        "MatrixName": "Full",
-        "Range": "3",
-        "Uses": "2",
+        "MatrixName": "Cardinal",
+        "Range": "1",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Enemy",
         "AbilityText": "",
         "FlavorText": "B E H I N D  Y O U",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "5"}],
         "SecondaryList":  []
     },
 
