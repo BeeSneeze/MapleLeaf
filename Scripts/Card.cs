@@ -40,7 +40,7 @@ public class Card : Sprite
 	public List<Ability> AbilityList {get; private set;}
 	public List<Ability> SecondaryList {get; private set;}
 
-	private string ChosenAbility = "Negative";
+	public string CardFlavor = "Negative";
 
 	// Loads all the information about the card. This is the only way to edit from outside
 	public void LoadInfo(CardType CardInfo)
@@ -112,40 +112,40 @@ public class Card : Sprite
 			switch(A.Name)
 			{
 				case "Move":
-					ChosenAbility = "Move";
+					CardFlavor = "Move";
 					if(((CardManager)GetParent()).OwnerName == "Rat")
 					{
-						ChosenAbility = "MoveRat";
+						CardFlavor = "MoveRat";
 					}
 				break;
 				case "Stun":
-					if(ChosenAbility!="Damage")
+					if(CardFlavor!="Damage")
 					{
-						ChosenAbility = "Harm";
+						CardFlavor = "Harm";
 					}
 				break;
 				case "Damage":
-					ChosenAbility = "Damage";
+					CardFlavor = "Damage";
 				break;
 				case "Swap":
-					if(ChosenAbility!="Damage")
+					if(CardFlavor!="Damage")
 					{
-						ChosenAbility = "Harm";
+						CardFlavor = "Harm";
 					}
 				break;
 				
 				case "Spawn":
-					ChosenAbility = "Rat";
+					CardFlavor = "Rat";
 				break;
 			}
 		}
 
 		if(TargetCell == "Friendly")
 		{
-			ChosenAbility = "Support";
+			CardFlavor = "Support";
 		}
 
-		Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Card" + ChosenAbility + ".png");
+		Texture = (Texture)GD.Load("res://Assets/Visuals/Cards/Card" + CardFlavor + ".png");
 
 		SpawnKeywords();
 
@@ -345,7 +345,7 @@ public class Card : Sprite
 
 		CanvasItem CoverNode = (CanvasItem)Cover;
 
-		switch(ChosenAbility)
+		switch(CardFlavor)
 		{
 			case "Damage":
 				CoverNode.Modulate = new Color(0.8353f,0.3451f,0.3451f,1);

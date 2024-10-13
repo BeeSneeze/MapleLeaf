@@ -322,6 +322,12 @@ public class GameManager : Node2D
 		foreach(Ability A in CurrentCard.AbilityList)
 		{
 			Board.LoadTheoretical();
+
+			if(CurrentCard.CardFlavor == "Support")
+			{
+				PlaySFX("Friendly");
+			}
+
 			switch(A.Name)
 			{
 				case "Damage":
