@@ -39,10 +39,13 @@ public class GameManager : Node2D
 
 	private Label HPLabel;
 
+	private AnimatedSprite TutorialOverlay;
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		TutorialOverlay = GetNode<AnimatedSprite>("TutorialOverlay");
 		HPLabel = GetNode<Label>("HP");
 		EndTurnButton = GetNode<CanvasItem>("EndTurn");
 		EndDrawButton = GetNode<CanvasItem>("EndDraw");
@@ -134,6 +137,7 @@ public class GameManager : Node2D
 		switch(ModeName)
 		{
 			case "RatMove":
+				TutorialOverlay.Animation = "None";
 				TopLabel.Text = "Rats are on the move...";
 				CMSoldier.ToggleQueueMode(false);
 				CMSniper.ToggleQueueMode(false);

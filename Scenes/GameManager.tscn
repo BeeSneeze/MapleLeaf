@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://Themes/PauseMenu.tres" type="Theme" id=15]
 [ext_resource path="res://Themes/Keep Cheese.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://EndDraw.tres" type="Theme" id=17]
+[ext_resource path="res://Assets/Visuals/TutorialA1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Visuals/TutorialA2.png" type="Texture" id=19]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -65,6 +67,24 @@ animations = [ {
 [sub_resource type="DynamicFont" id=5]
 size = 70
 font_data = ExtResource( 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "DrawTutorial",
+"speed": 2.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "None",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -176,6 +196,13 @@ custom_fonts/font = SubResource( 5 )
 text = "HP: 5"
 align = 1
 valign = 1
+
+[node name="TutorialOverlay" type="AnimatedSprite" parent="."]
+position = Vector2( 960, 540 )
+z_index = 1000
+frames = SubResource( 6 )
+animation = "DrawTutorial"
+playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]
 [connection signal="pressed" from="EndDraw" to="." method="TurnButtonClicked"]
