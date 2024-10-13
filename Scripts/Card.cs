@@ -282,6 +282,14 @@ public class Card : Sprite
 		Label Title = GetNode<Label>("Title");
 		Title.Text = CardName;
 
+		if(CardID % 2 == 0 && CardID % 1000 < 400 && CardID % 1000 > 99)
+		{
+			CanvasItem CTitle = (CanvasItem)Title;
+			CTitle.Modulate =  new Color(1,0.95f,0.0f,1);
+			Node2D UpgradeOverlay = GetNode<Node2D>("UpgradeOverlay");
+			UpgradeOverlay.Show();
+		}
+
 		// Set the range of the card
 		Label RLabel = GetNode<Label>("Range");
 		RLabel.Text = Range.ToString();

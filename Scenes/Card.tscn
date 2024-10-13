@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Visuals/Cards/CardRat.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Cards/The Swarm.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Assets/Visuals/Cards/CardCover110.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Visuals/Cards/CardCover010.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Visuals/Cards/CardCover011.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Visuals/Cards/CardUpgrade.png" type="Texture" id=23]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -195,6 +196,10 @@ margin_right = -139.0
 margin_bottom = -216.0
 mouse_filter = 1
 script = ExtResource( 6 )
+
+[node name="UpgradeOverlay" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 23 )
 
 [connection signal="mouse_entered" from="CardClick" to="CardClick" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="CardClick" to="CardClick" method="OnMouseExit"]
