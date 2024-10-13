@@ -319,23 +319,42 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
+
+		switch(CurrentCard.CardFlavor)
+		{
+			case "Support":	
+				PlaySFX("Friendly");
+			break;
+			case "Damage":
+				bool NoPunch = true;
+				foreach(Ability C in CurrentCard.AbilityList)
+				{
+					if(C.Name == "Push")
+					{
+						NoPunch = false;
+					}
+
+				}
+
+
+				if(CurrentCard.TargetType == "Area")
+				{
+					PlaySFX("Gunshots");
+				}
+				else if(NoPunch)
+				{
+					PlaySFX("SingleShot");
+				}
+			break;
+		}
+
+
 		foreach(Ability A in CurrentCard.AbilityList)
 		{
 			Board.LoadTheoretical();
-
-			if(CurrentCard.CardFlavor == "Support")
-			{
-				PlaySFX("Friendly");
-			}
-
 			switch(A.Name)
 			{
 				case "Damage":
-					if(CurrentCard.TargetType == "Area")
-					{
-						PlaySFX("Gunshots");
-					}
-
 					foreach(Vector2 Target in Board.TargetList)
 					{
 						Board.Damage(Target, int.Parse(A.Effect));
