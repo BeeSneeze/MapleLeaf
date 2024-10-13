@@ -89,7 +89,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText":  "",
+        "AbilityText":  "Prevents a city from taking damage, once",
         "FlavorText":  "Two heads are better than one",
         "AbilityList":  [{"Name":"Shield", "Effect": "-"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
@@ -105,8 +105,8 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
-        "FlavorText":  "",
+        "AbilityText": "Area damage",
+        "FlavorText":  "A solid, straightforward option",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
@@ -119,7 +119,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "5"}],
@@ -133,7 +133,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "A job well done!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
@@ -147,7 +147,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "Stuns every rat it hits",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}, {"Name":"Stun", "Effect": "2"}],
@@ -161,7 +161,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
@@ -175,7 +175,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "The ultimate life form",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "5"}],
@@ -189,7 +189,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "Three damage in a diagonal line",
+        "AbilityText": "Area damage",
         "FlavorText":  "",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "3"}],
@@ -203,8 +203,8 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "All other friendlies draw a card",
-        "FlavorText":  "",
+        "AbilityText": "Area damage, all other friendlies draw a card",
+        "FlavorText":  "You, and you, and you, get to work!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  [
@@ -219,8 +219,8 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
-        "FlavorText":  "",
+        "AbilityText": "Area damage",
+        "FlavorText":  "Auditory deja vu",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
@@ -233,7 +233,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "A noble steed, indeed",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
@@ -243,11 +243,11 @@
     {   
         "ID": "111",
         "MatrixName": "Fox",
-        "Range": "2",
+        "Range": "3",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
@@ -257,15 +257,15 @@
     {   
         "ID": "112",
         "MatrixName": "Fox",
-        "Range": "2",
+        "Range": "3",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
+        "SecondaryList":  [{"Name": "Create", "Effect": "Soldier:Roll"}]
     },
     "Golf":
     {   
@@ -275,8 +275,8 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
-        "FlavorText":  "",
+        "AbilityText": "Area damage",
+        "FlavorText":  "FORE!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
@@ -289,7 +289,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Area damage",
         "FlavorText":  "",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
@@ -304,8 +304,8 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
-        "AbilityText": "Damage 1, Swap place with target",
-        "FlavorText":  "",
+        "AbilityText": "Deal damage, Swap place with target",
+        "FlavorText":  "Thoroughly confuse the enemy",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
             {"Name":"Swap", "Effect": "-"}],
@@ -319,8 +319,8 @@
         "Uses": "3",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
-        "AbilityText": "Damage 1, Swap with target",
-        "FlavorText":  "",
+        "AbilityText": "Deal damage, Swap place with target",
+        "FlavorText":  "Completely bamboozle the enemy",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
             {"Name":"Swap", "Effect": "-"}],
@@ -334,7 +334,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Deal damage, push forward",
         "FlavorText": "One-Two!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
@@ -349,7 +349,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Deal damage and push all target squares",
         "FlavorText": "KNOCKOUT!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
@@ -364,7 +364,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
-        "AbilityText": "",
+        "AbilityText": "Deal damage",
         "FlavorText": "I once shot a needle in a haystack y'know!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"}],
@@ -378,7 +378,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
-        "AbilityText": "",
+        "AbilityText": "Deal damage and stun the enemy",
         "FlavorText": "A precise shot can mean the difference between a flesh wound and life long injury",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"},
@@ -393,7 +393,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Deal damage, pull enemy closer",
         "FlavorText": "HEY! LOOK AT ME!!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
@@ -408,7 +408,7 @@
         "Uses": "4",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "",
+        "AbilityText": "Deal damage, pull enemy closer",
         "FlavorText": "You know I'm right.",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
@@ -423,8 +423,8 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Enemy",
-        "AbilityText": "Push to the left",
-        "FlavorText": "Your right hand is the right tool for the job",
+        "AbilityText": "Deal damage, push to the left",
+        "FlavorText": "The right tool for the job",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},
             {"Name":"Push", "Effect": "W"}],
@@ -438,7 +438,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Enemy",
-        "AbilityText": "Push to the right, and stun",
+        "AbilityText": "Deal damage, push to the right, and stun",
         "FlavorText": "Using your dominant hand helps",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"},

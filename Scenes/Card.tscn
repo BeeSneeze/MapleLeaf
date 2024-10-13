@@ -108,6 +108,10 @@ playing = true
 position = Vector2( 0, -76 )
 texture = ExtResource( 2 )
 
+[node name="UpgradeOverlay" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 23 )
+
 [node name="Title" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
@@ -196,10 +200,6 @@ margin_right = -139.0
 margin_bottom = -216.0
 mouse_filter = 1
 script = ExtResource( 6 )
-
-[node name="UpgradeOverlay" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 23 )
 
 [connection signal="mouse_entered" from="CardClick" to="CardClick" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="CardClick" to="CardClick" method="OnMouseExit"]
