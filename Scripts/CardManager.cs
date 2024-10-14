@@ -119,6 +119,11 @@ public class CardManager : Node2D
 		}
 	}
 
+	public string GetOwnerName()
+	{
+		return OwnerName;
+	}
+
 
 	// Creates a new card from a CardID
 	private void CreateCardObject(int InID)
@@ -126,6 +131,8 @@ public class CardManager : Node2D
 		var scene = GD.Load<PackedScene>("res://Scenes/Card.tscn");
 			
 		Card NewCard = (Card)scene.Instance();
+
+		NewCard.OwnerName = OwnerName;
 
 		NewCard.OwnerID = ActiveCards[InID].OwnerID;
 		
@@ -382,7 +389,6 @@ public class CardManager : Node2D
 	{
 		Modulate = new Color(0.75f, 0.75f, 0.75f, 1.0f);
 		
-
 		foreach(Card C in HandCards)
 		{
 			if(!C.Prepped)

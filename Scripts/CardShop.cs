@@ -7,7 +7,6 @@ public class CardShop : Node2D
 {
 	private string OwnerName = "Shop";
 
-
 	public CardShop OtherShop;
 
 	public bool Shuffle = true;
@@ -84,7 +83,9 @@ public class CardShop : Node2D
 		AddCard(Decks["PoolSoldier"][rnd.Next(0,Decks["PoolSoldier"].Count)]);
 		AddCard(Decks["PoolSniper"][rnd.Next(0,Decks["PoolSniper"].Count)]);
 		AddCard(Decks["PoolSupport"][rnd.Next(0,Decks["PoolSupport"].Count)]);
+		AddCard(Decks["PoolRatAction"][rnd.Next(0,Decks["PoolRatAction"].Count)]);
 		AddCard(Decks["PoolRatSpawn"][rnd.Next(0,Decks["PoolRatSpawn"].Count)]);
+		DrawCard();
 		DrawCard();
 		DrawCard();
 		DrawCard();
@@ -119,6 +120,8 @@ public class CardShop : Node2D
 		var scene = GD.Load<PackedScene>("res://Scenes/Card.tscn");
 			
 		Card NewCard = (Card)scene.Instance();
+
+		NewCard.OwnerName = OwnerName;
 
 		NewCard.OwnerID = ActiveCards[InID].OwnerID;
 		
@@ -174,6 +177,11 @@ public class CardShop : Node2D
 		NewCard.Translate(new Vector2(365,-202));
 		UpdateCardPositions();
 		AddChild(NewCard);
+	}
+
+	public string GetOwnerName()
+	{
+		return OwnerName;
 	}
 
 	private static float Space = 360;

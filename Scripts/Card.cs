@@ -28,6 +28,8 @@ public class Card : Sprite
 
 	public AnimatedSprite CornerSprite;
 
+	public string OwnerName;
+
 	// Card specifics
 	public int CardID; // Unique identifier. Do % 1000 to get the specific card type
 	public int OwnerID; // If this person dies, remove the card
@@ -120,7 +122,8 @@ public class Card : Sprite
 			{
 				case "Move":
 					CardFlavor = "Move";
-					if(((CardManager)GetParent()).OwnerName == "Rat")
+
+					if(OwnerName == "Rat")
 					{
 						CardFlavor = "MoveRat";
 					}
@@ -536,7 +539,8 @@ public class Card : Sprite
 
 		if(Unplayable)
 		{
-			((CardManager)GetParent()).LoadCardEffect("Unplayable", this);
+			var CM = GetParent();
+			CM.CallDeferred("LoadCardEffect", "Unplayable", this);
 		}
 	}
 

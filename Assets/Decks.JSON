@@ -10,6 +10,6 @@
     "PoolSupport": ["Binoculars", "Trinoculars", "Duck!", "GOOSE!", "Distract", "Diss Track", "Bribe", "Grease", "Double Agent", "Mole", "Checkmate!", "Checkers mate!", "Luck", "F---!"],
     "PoolRatSpawn": ["Tutorial Rat", "The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The President", "Second Term"],
     "PoolRatMove": ["Scamper", "Scurry", "Scram"],
-    "PoolRatAttack": [],
+    "PoolRatAction": ["Scamper", "Scurry", "Scram", "Sneeze", "Overwhelm"],
     "PoolMisc": ["Paramedic"]
 }

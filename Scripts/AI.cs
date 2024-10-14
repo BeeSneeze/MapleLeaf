@@ -8,6 +8,8 @@ public class AI : Node2D
 	private int[,] MoveRat = new int[8,8];
 	private int[,] SpawnRat = new int[8,8];
 	private int[,,] AttackRat = new int[7,8,8];
+	private int[,,] AttackRatCharacter = new int[7,8,8];
+	private int[,,] AttackRatCity = new int[7,8,8];
 
 	private float Timer = 0;
 	public float TurnTime = 0.75f; // How long inbetween AI Clicks
@@ -29,6 +31,8 @@ public class AI : Node2D
 	private bool SuccessfulAction = false;
 	private Random rnd;
 
+	private List<int[,]> AttackRatPatches = new List<int[,]>();
+
 	private List<Card> QueuedActions = new List<Card>();
 	private List<string> QueuedRotations = new List<string>();
 
@@ -39,6 +43,12 @@ public class AI : Node2D
 		GM = (GameManager)GetParent();
 		CM = (CardManager)GM.GetNode("CardsRat");
 		Board = (Board)GM.GetNode("Board");
+
+		for(int Range = 0; Range < 7; Range++)
+		{
+			LoadPatch("Attack/D" + (Range + 1).ToString());
+			AttackRatPatches.Add((int[,])RatPatch.Clone());
+		}
 	}
 
 	// Called every frame
@@ -185,31 +195,39 @@ public class AI : Node2D
 	// Reevaluates all positions to provide information to the AI about best moves
 	public void EvaluateBoard()
 	{
-		List<Vector2> PatchPosList = new List<Vector2>();
+		List<Vector2> PatchPosListChar = new List<Vector2>();
+		List<Vector2> PatchPosListCity = new List<Vector2>();
 		MoveRat = new int[8,8];
 		SpawnRat = new int[8,8];
 		AttackRat = new int[7,8,8];
+		AttackRatCharacter = new int[7,8,8];
+		AttackRatCity = new int[7,8,8];
 
 		for(int x = 0; x < 8; x++)
 		{
 			for(int y = 0; y < 8; y++)
 			{
 				MoveRat[x,y] = 1000;
-				if((Board.Cell[x,y].Char.ID % 100 < 10 || Board.Cell[x,y].Char.ID % 100 == 51) && Board.Cell[x,y].Char.ID != 0)
+				if((Board.Cell[x,y].Char.ID % 100 < 10) && Board.Cell[x,y].Char.ID != 0)
 				{
-					PatchPosList.Add(new Vector2(x,y));
+					PatchPosListChar.Add(new Vector2(x,y));
+				}
+
+				if(Board.Cell[x,y].Char.ID % 100 == 51)
+				{
+					PatchPosListCity.Add(new Vector2(x,y));
 				}
 
 				for(int Range = 0; Range < 7; Range++)
 				{
 					AttackRat[Range,x,y] = 1; // Since it's based on prime multiplication, set this to one
+					AttackRatCharacter[Range,x,y] = 1;
+					AttackRatCity[Range,x,y] = 1;
 				}
-
-
 			}
 		}
 		
-		foreach(Vector2 Pos in PatchPosList)
+		foreach(Vector2 Pos in PatchPosListChar)
 		{
 			LoadPatch("Move/SpawnNormal");
 			PatchRatMove(RatPatch, SpawnRat, Pos);
@@ -217,21 +235,41 @@ public class AI : Node2D
 			PatchRatMove(RatPatch, MoveRat, Pos);
 			
 			// Attack patching
-			LoadPatch("Attack/D1");
-			PatchRatAttack(RatPatch, 0, Pos);
-			LoadPatch("Attack/D2");
-			PatchRatAttack(RatPatch, 1, Pos);
-			LoadPatch("Attack/D3");
-			PatchRatAttack(RatPatch, 2, Pos);
-			LoadPatch("Attack/D4");
-			PatchRatAttack(RatPatch, 3, Pos);
-			LoadPatch("Attack/D5");
-			PatchRatAttack(RatPatch, 4, Pos);
-			LoadPatch("Attack/D6");
-			PatchRatAttack(RatPatch, 5, Pos);
-			LoadPatch("Attack/D7");
-			PatchRatAttack(RatPatch, 6, Pos);
+			for(int R = 0; R < 7; R++)
+			{
+				RatPatch = AttackRatPatches[R];
+				PatchRatAttack(RatPatch, R, Pos, "Character");
+			}
+			
+			
 		}
+
+		foreach(Vector2 Pos in PatchPosListCity)
+		{
+			LoadPatch("Move/SpawnNormal");
+			PatchRatMove(RatPatch, SpawnRat, Pos);
+			LoadPatch("Move/MoveNormal");
+			PatchRatMove(RatPatch, MoveRat, Pos);
+			
+			// Attack patching
+			for(int R = 0; R < 7; R++)
+			{
+				RatPatch = AttackRatPatches[R];
+				PatchRatAttack(RatPatch, R, Pos, "City");
+			}
+		}
+
+		for(int x = 0; x < 8; x++)
+		{
+			for(int y = 0; y < 8; y++)
+			{
+				for(int Range = 0; Range < 7; Range++)
+				{
+					AttackRat[Range, x, y] = AttackRatCharacter[Range, x, y] * AttackRatCity[Range, x, y];
+				}
+			}
+		}
+
 	}
 
 	// This clicks a card in the move phase
@@ -394,7 +432,7 @@ public class AI : Node2D
 	}
 
 	// Patches an attack matrix around a city/player character, by multiplying the values
-	public void PatchRatAttack(int[,] InMat, int Range, Vector2 CPos)
+	public void PatchRatAttack(int[,] InMat, int Range, Vector2 CPos, string AType = "Any")
 	{
 		int CIndex = (InMat.GetLength(0) - 1)/2;
 		
@@ -405,8 +443,8 @@ public class AI : Node2D
 		{
 			for(int y = 0; y < InMat.GetLength(0); y++)
 			{
-				bool BoxTestX = x+OffsetX >= 0 && x+OffsetX < AttackRat.GetLength(0);
-				bool BoxTestY = y+OffsetY >= 0 && y+OffsetY < AttackRat.GetLength(1);
+				bool BoxTestX = x+OffsetX >= 0 && x+OffsetX < 8;
+				bool BoxTestY = y+OffsetY >= 0 && y+OffsetY < 8;
 
 				if(BoxTestX && BoxTestY)
 				{
@@ -415,8 +453,17 @@ public class AI : Node2D
 						// This should never happen, and if it does, it needs immediate attention
 						GD.Print("MULTIPLICATION WITH 0 IN RAT MATRIX");
 					}
+					switch(AType)
+					{
+						case "City":
+							AttackRatCity[Range, x+OffsetX, y+OffsetY] *= InMat[x,y];
+						break;
+						case "Character":
+							AttackRatCharacter[Range, x+OffsetX, y+OffsetY] *= InMat[x,y];
+						break;
+					}
 
-					AttackRat[Range, x+OffsetX, y+OffsetY] *= InMat[x,y];
+					
 				}
 			}
 		}
