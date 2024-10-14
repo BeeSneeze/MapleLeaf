@@ -146,15 +146,19 @@ public class CardShop : Node2D
 		switch(ShopCardOwner)
 		{
 			case "Soldier":
+				NewCard.CornerSymbol = "Soldier";
 				NewCard.PlayerID = 1;
 			break;
 			case "Sniper":
+				NewCard.CornerSymbol = "Sniper";
 				NewCard.PlayerID = 2;
 			break;
 			case "Support":
+				NewCard.CornerSymbol = "Support";
 				NewCard.PlayerID = 3;
 			break;
 			case "Rat":
+				NewCard.CornerSymbol = "RatNormal";
 				NewCard.PlayerID = 4;
 			break;
 		}

@@ -24,6 +24,10 @@ public class Card : Sprite
 	public bool ReRolled = false; // Going to ReRoll this card upon draw end
 	public GameManager GM;
 
+	public string CornerSymbol = "None";
+
+	public AnimatedSprite CornerSprite;
+
 	// Card specifics
 	public int CardID; // Unique identifier. Do % 1000 to get the specific card type
 	public int OwnerID; // If this person dies, remove the card
@@ -61,6 +65,9 @@ public class Card : Sprite
 	// Called when the node enters the scene tree for the first time. Executed after LoadInfo
 	public override void _Ready()
 	{
+		CornerSprite = GetNode<AnimatedSprite>("CornerSprite");
+		CornerSprite.Animation = CornerSymbol;
+
 		((Sprite)this).Scale = new Vector2(0.0f,0.0f);
 
 		SceneTreeTween tween = GetTree().CreateTween();

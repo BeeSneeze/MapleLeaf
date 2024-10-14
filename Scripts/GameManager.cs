@@ -333,9 +333,7 @@ public class GameManager : Node2D
 					{
 						NoPunch = false;
 					}
-
 				}
-
 
 				if(CurrentCard.TargetType == "Area")
 				{
