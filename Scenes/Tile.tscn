@@ -174,12 +174,14 @@ playing = true
 
 [node name="Character" type="AnimatedSprite" parent="."]
 frames = ExtResource( 3 )
-animation = "None"
+animation = "Rubble"
+frame = 1
 playing = true
 
 [node name="Modifier" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
 animation = "Strong"
+frame = 1
 playing = true
 
 [node name="Effect" type="AnimatedSprite" parent="."]

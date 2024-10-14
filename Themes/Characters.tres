@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=29 format=2]
+[gd_resource type="SpriteFrames" load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Visuals/Characters/Sniper1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Characters/Sniper2.png" type="Texture" id=2]
@@ -28,6 +28,8 @@
 [ext_resource path="res://Assets/Visuals/Characters/Rat2.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Visuals/Characters/Warning2.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Visuals/Characters/Warning1.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Visuals/Characters/Rubble1.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Visuals/Characters/Rubble2.png" type="Texture" id=30]
 
 [resource]
 animations = [ {
@@ -80,6 +82,11 @@ animations = [ {
 "loop": true,
 "name": "RatTutorial",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "Rubble",
+"speed": 2.5
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 25 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ) ],
 "loop": true,

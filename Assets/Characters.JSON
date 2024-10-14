@@ -75,6 +75,12 @@
     "City":
     {
         "ID": "51",
+        "MaxHP": "2",
+        "Names":["Steve", "Steven"]
+    },
+    "Rubble":
+    {
+        "ID": "52",
         "MaxHP": "0",
         "Names":["Steve", "Steven"]
     }

@@ -67,6 +67,11 @@ public class Tile : Node2D
 				AddModifier("Stun", 2);
 				Char.HP = Char.MaxHP;
 			}
+			if(Char.ID % 100 == 51) // Cities spawn some rubble
+			{
+				PlayEffect("Explosion");
+				CreateCharacter("Rubble");
+			}
 			else // Everyone else actually dies
 			{
 				if(Char.ID % 100 > 9 && Char.ID % 100 < 50)
@@ -138,6 +143,9 @@ public class Tile : Node2D
 					Char.AddModifier("Immovable");
 				break;
 				case "City":
+					Char.AddModifier("Immovable");
+				break;
+				case "Rubble":
 					Char.AddModifier("Immovable");
 				break;
 			}
@@ -246,6 +254,10 @@ public class Tile : Node2D
 			case 51:
 				LabelBox.Hide();
 				AnimSpr.Animation = "City";
+			break;
+			case 52:
+				LabelBox.Hide();
+				AnimSpr.Animation = "Rubble";
 			break;
 		}
 	}
