@@ -162,14 +162,7 @@ public class Board : Node2D
 
 		if(Card.MatrixName != "Global")
 		{
-			if(Card.TargetType == "Area")
-			{
-				Cell[(int)Center.x,(int)Center.y].SetMarker("SelectClickable");
-			}
-			else
-			{
-				Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
-			}
+			Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
 		}
 		
 

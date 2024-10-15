@@ -296,12 +296,6 @@ public class Tile : Node2D
 		{
 			return;
 		}
-
-		if(GM.CurrentCard.TargetType == "Area" && InString != "SelectClickable")
-		{
-			Clickable = false; // Only allow the select marker to be clicked if it's an area attack
-		}
-		
 	}
 
 	// Plays a visual effect to coincide with stuff like dying, taking damage, etc.
@@ -372,14 +366,20 @@ public class Tile : Node2D
 
 	public void LeftClick()
 	{
+		if(GM.PrepMode)
+		{
+			if(GM.CurrentCard.TargetType == "Area")
+			{
+				GM.ExecutePlay();
+			}
+		}
+
+
 		if(Clickable)
 		{
-			if(Marker != "SelectClickable")
+			if(GM.CurrentCard.TargetType == "Single")
 			{
 				AddTarget();
-			}
-			if(GM.CurrentCard.TargetType == "Single" || Marker == "SelectClickable")
-			{
 				GM.ExecutePlay();
 			}
 		}
