@@ -115,12 +115,12 @@ public class Board : Node2D
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
 					}
-					if(CID == 51 && Type == "City")
+					if((CID == 51 || CID == 52) && Type == "City")
 					{
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;
 					}
-					if(CID != 51 && Type == "Non-City")
+					if((CID != 51 && CID != 52) && Type == "Non-City")
 					{
 						InMat[x,y] = false;
 						PossibleMat[x,y] = true;

@@ -50,12 +50,14 @@ public class Tile : Node2D
 		
 		if(Char.MaxHP == 0) // Character cannot be damaged
 		{
-			if(Char.ID % 100 == 51) // Exception for cities
-			{
-				PlayEffect("Explosion"); 
-				GM.CityAttacked(Dmg);
-			}
+			
 			return;
+		}
+
+		if(Char.ID % 100 == 51) // Exception for cities
+		{
+			PlayEffect("Explosion"); 
+			GM.CityAttacked(Dmg);
 		}
 		
 		Char.HP -= Dmg;
@@ -67,7 +69,7 @@ public class Tile : Node2D
 				AddModifier("Stun", 2);
 				Char.HP = Char.MaxHP;
 			}
-			if(Char.ID % 100 == 51) // Cities spawn some rubble
+			else if(Char.ID % 100 == 51) // Cities spawn some rubble
 			{
 				PlayEffect("Explosion");
 				CreateCharacter("Rubble");
@@ -202,7 +204,7 @@ public class Tile : Node2D
 		SceneTreeTween tween = GetTree().CreateTween();
 		tween.TweenProperty(AnimSpr, "scale", new Vector2(1.0f, 1.0f), 0.07f);
 
-		if(Char.ID != 0)
+		if(Char.ID != 0 && Char.ID != 52)
 		{
 			PlayEffect("Step");
 		}
