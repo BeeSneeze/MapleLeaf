@@ -671,7 +671,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText": "",
+        "AbilityText": "Friend draws a card",
         "FlavorText":  "Being in the right place at the right time can change everything!",
         "AbilityList":  [{"Name": "Draw", "Effect": "1"}],
         "SecondaryList":  []
@@ -685,7 +685,7 @@
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText": "",
-        "FlavorText":  "Being a little sh't can also work",
+        "FlavorText":  "The wrong place at the wrong time",
         "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
     },

@@ -624,23 +624,25 @@ public class GameManager : Node2D
 		HPLabel.Text = "HP: " + LevelHP.ToString();
 
 		Random rnd = new Random();
-		
-		switch(rnd.Next(0,3))
+
+		for(int i = 0; i < (5-LevelHP); i++)
 		{
-			case 0:
-				GD.Print("CITY DAMAGE: Soldier got a paramedic");
-				CMSoldier.AddCard("Paramedic");
-			break;
-			case 1:
-				GD.Print("CITY DAMAGE: Sniper got a paramedic");
-				CMSniper.AddCard("Paramedic");
-			break;
-			case 2:
-				GD.Print("CITY DAMAGE: Support got a paramedic");
-				CMSupport.AddCard("Paramedic");
-			break;
+			switch(rnd.Next(0,3))
+			{
+				case 0:
+					GD.Print("CITY DAMAGE: Soldier got a paramedic");
+					CMSoldier.AddCard("Paramedic");
+				break;
+				case 1:
+					GD.Print("CITY DAMAGE: Sniper got a paramedic");
+					CMSniper.AddCard("Paramedic");
+				break;
+				case 2:
+					GD.Print("CITY DAMAGE: Support got a paramedic");
+					CMSupport.AddCard("Paramedic");
+				break;
+			}
 		}
-		
 	}
 
 	// Visualizes what a card does, but without playing it

@@ -35,7 +35,6 @@ public class Story : Node2D
 
 		CurrentChar = 10000000;
 
-
 		Image = GetNode<AnimatedSprite>("Slides");
 		BottomText = GetNode<Label>("Label");
 
@@ -69,6 +68,8 @@ public class Story : Node2D
 				case "Start":
 					AudioStreamPlayer SMusic = GetNode<AudioStreamPlayer>("StartMusic");
 					SMusic.Stop();
+					MainMenu MM = LM.GetNode<MainMenu>("MainMenu");
+					MM.StartCountDown();
 					LM.ChangeLevel("MainMenu");
 
 				break;

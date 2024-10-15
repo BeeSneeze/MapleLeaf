@@ -36,8 +36,7 @@ public class CityMarker : AnimatedSprite
 
 	public void LeftClick()
 	{
-		GD.Print(CityName);
-		//GM.Board.LoadStage(CityName);
+		
 	}
 
 	public void RightClick()

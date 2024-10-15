@@ -7,10 +7,14 @@ public class MainMenu : Node2D
 	// private int a = 2;
 	// private string b = "text";
 
+	private float CountDownTime = 0.0f;
+	private bool CountingDown = false;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		Node2D FirstTimeCover = GetNode<Node2D>("Blackness");
+		FirstTimeCover.Show();
 	}
 
 	public void StartButton()
@@ -19,11 +23,27 @@ public class MainMenu : Node2D
 		LM.ChangeLevel("Game");
 	}
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+	public void StartCountDown()
+	{
+		CountDownTime = 1.5f;
+		CountingDown = true;
+	}
+
+	public override void _Process(float delta)
+	{
+		if(CountingDown)
+		{
+			CountDownTime-=delta;
+		}
+
+		if(CountDownTime < 0)
+		{
+			Node2D FirstTimeCover = GetNode<Node2D>("Blackness");
+			FirstTimeCover.Hide();
+			CountingDown = false;
+			CountDownTime = 1.0f;
+		}	
+	}
 }
 
 

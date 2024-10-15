@@ -204,10 +204,8 @@ public class Tile : Node2D
 		SceneTreeTween tween = GetTree().CreateTween();
 		tween.TweenProperty(AnimSpr, "scale", new Vector2(1.0f, 1.0f), 0.07f);
 
-		if(Char.ID != 0 && Char.ID != 52)
-		{
+		if(Char.ID != 0 && Char.ID % 100 != 52)
 			PlayEffect("Step");
-		}
 
 		AnimSpr.FlipH = X < 4 && Char.ID % 100 < 50;
 
@@ -259,6 +257,7 @@ public class Tile : Node2D
 			break;
 			case 52:
 				LabelBox.Hide();
+				HPNode.Hide();
 				AnimSpr.Animation = "Rubble";
 			break;
 		}
@@ -373,8 +372,6 @@ public class Tile : Node2D
 				GM.ExecutePlay();
 			}
 		}
-
-
 		if(Clickable)
 		{
 			if(GM.CurrentCard.TargetType == "Single")
@@ -383,23 +380,11 @@ public class Tile : Node2D
 				GM.ExecutePlay();
 			}
 		}
-		else
-		{
-
-		}
-		
 	}
 	
 	public void RightClick()
 	{	
-		if(Clickable)
-		{
-			
-		}
-		else
-		{
 
-		}
 	}
 
 	public void MouseEnter()
