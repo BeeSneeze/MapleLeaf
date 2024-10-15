@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/MusicManager.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Sound/Coffee_Break.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Sound/Moving_Forward.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sound/Instant_Ratification.mp3" type="AudioStream" id=4]
 
 [node name="MusicManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -11,6 +12,7 @@ script = ExtResource( 1 )
 stream = ExtResource( 2 )
 
 [node name="MainMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [node name="WorldMap" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
