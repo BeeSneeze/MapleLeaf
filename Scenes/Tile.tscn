@@ -171,6 +171,7 @@ texture = ExtResource( 1 )
 z_index = -10
 frames = SubResource( 2 )
 animation = "Select"
+frame = 1
 playing = true
 
 [node name="Character" type="AnimatedSprite" parent="."]
@@ -181,6 +182,7 @@ playing = true
 [node name="Modifier" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
 animation = "Immovable"
+frame = 1
 playing = true
 
 [node name="Effect" type="AnimatedSprite" parent="."]

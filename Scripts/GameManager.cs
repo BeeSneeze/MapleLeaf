@@ -39,6 +39,8 @@ public class GameManager : Node2D
 
 	private AnimatedSprite TutorialOverlay;
 
+	private bool FinalLevel = false;
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -118,6 +120,7 @@ public class GameManager : Node2D
 	// Performs all the setup for the final level of the game
 	public void LoadBossFight()
 	{
+		FinalLevel = true;
 		GD.Print("BOSS FIGHT LOADED!!!");
 	}
 
@@ -342,6 +345,9 @@ public class GameManager : Node2D
 		{
 			case "Support":	
 				PlaySFX("Friendly");
+			break;
+			case "Harm":	
+				PlaySFX("Harm");
 			break;
 			case "Damage":
 				bool NoPunch = true;
@@ -648,7 +654,15 @@ public class GameManager : Node2D
 		// Only end the level after finishing the turn
 		if(AreYouWinningSon)
 		{
-			LevelEnd();
+			if(FinalLevel)
+			{
+				GameWon();
+			}
+			else
+			{
+				LevelEnd();
+			}
+			
 		}
 	}
 
@@ -868,6 +882,17 @@ public class GameManager : Node2D
 		WinScreen.Show();
 	}
 
+	public void GameWon()
+	{
+		GD.Print("GAME WIN SEQUENCE");
+
+		LevelManager LM = (LevelManager)GetParent();
+
+		Story SM = LM.GetNode<Story>("Story");
+		SM.StartStory("Ending");
+		LM.ChangeLevel("Story");
+	}
+
 	// When changing to the world map from the game
 	public void MoveToWorldMap()
 	{
@@ -887,7 +912,6 @@ public class GameManager : Node2D
 		{
 			LoadFirstLevel();
 		}
-
 	}
 
 	// Checks if there are no more rats, and no more spawn cards left

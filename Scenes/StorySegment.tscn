@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Visuals/StoryBG.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Slides/StorySlide.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/Visuals/Slides/1950.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Visuals/Slides/RatsForever.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Visuals/Slides/ExceptForOne.png" type="Texture" id=13]
+[ext_resource path="res://Themes/PauseMenu.tres" type="Theme" id=14]
 [ext_resource path="res://Assets/Visuals/Slides/19502.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Visuals/Slides/20492.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Visuals/Slides/2049.png" type="Texture" id=18]
@@ -102,3 +103,12 @@ script = ExtResource( 9 )
 [node name="StartMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 autoplay = true
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 1601.0
+margin_top = 981.0
+margin_right = 1857.0
+margin_bottom = 1025.0
+theme = ExtResource( 14 )
+custom_colors/font_color = Color( 0.882353, 0.913725, 0.262745, 0.454902 )
+text = "Click to advance"

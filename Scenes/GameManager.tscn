@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Assets/Visuals/TutorialA2.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Sound/Friendly_boost.mp3" type="AudioStream" id=20]
 [ext_resource path="res://Assets/Sound/Single_Shot.mp3" type="AudioStream" id=21]
+[ext_resource path="res://Assets/Sound/Harm.mp3" type="AudioStream" id=22]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -133,6 +134,9 @@ stream = ExtResource( 20 )
 
 [node name="SingleShot" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 21 )
+
+[node name="Harm" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 22 )
 
 [node name="EndTurn" type="Button" parent="."]
 visible = false

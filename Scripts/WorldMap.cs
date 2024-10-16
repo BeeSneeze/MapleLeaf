@@ -10,7 +10,7 @@ public class WorldMap : Node2D
 
 	List<CityMarker> CityList;
 	public int CurrentIndex = 1;
-	bool FinalCity = false;
+	public bool FinalCity = false;
 	private GameManager GM;
 	CardShop ShopA, ShopB;
 
@@ -50,9 +50,11 @@ public class WorldMap : Node2D
 			CityList[CurrentIndex].ActivateCity();
 			FinalCity = CurrentIndex == 10;
 
+			if(FinalCity)
+			{
+				GM.LoadBossFight();
+			}
 		}
-		
-
 	}
 
 	public override void _UnhandledInput(InputEvent @event)
