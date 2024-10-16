@@ -590,10 +590,8 @@ public class Card : Sprite
 				return;
 			}
 
-
 			if(Prepped) // Click the second time to execute the play
 			{
-				//GM.ExecutePlay();
 				Prepped = false;
 				Prep(false);
 			}

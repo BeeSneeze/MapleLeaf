@@ -80,6 +80,43 @@ public struct Character
 		}
 	}
 
+
+	// Advances time for a specific modifier
+	public void AdvanceModifier(string ModName)
+	{
+		if(!ContainsModifier(ModName))
+		{
+			return;
+		}
+
+		List<int> DoneMods = new List<int>();
+		
+		for(int i = 0; i < ModifierData.Count; i++)
+		{
+			Modifier M = ModifierData[i];
+
+			if(M.Name != ModName)
+			{
+				continue;
+			}
+
+			M.Time = ModifierData[i].Time - 1;
+
+			ModifierData[i] = M;
+			
+			if(ModifierData[i].Time < 1)
+			{
+				DoneMods.Add(i);
+			}
+		}
+
+		DoneMods.Reverse(); // Check in reverse order, since elements are being removed
+		foreach(int index in DoneMods)
+		{
+			ModifierData.RemoveAt(index);
+		}
+	}
+
 	public bool ContainsModifier(string InString)
 	{
 		foreach(Modifier M in ModifierData)

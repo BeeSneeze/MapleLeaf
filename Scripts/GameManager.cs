@@ -606,6 +606,18 @@ public class GameManager : Node2D
 		}
 
 
+		Vector2 PPos = Board.GetCharPos(CurrentCard.PlayerID);
+		Tile PTile = Board.Cell[(int)PPos.x,(int)PPos.y];
+		
+		if(PTile.Char.ContainsModifier("Strong"))
+		{
+			PTile.Char.AdvanceModifier("Strong");
+			if(!PTile.Char.ContainsModifier("Strong"))
+			{
+				PTile.ShowModifier("None");
+			}
+		}
+
 		CurrentCard.Discard();
 		UnPrep();
 
@@ -662,15 +674,12 @@ public class GameManager : Node2D
 		else
 		{
 			Vector2 PPos = Board.GetCharPos(Card.PlayerID);
-			GD.Print(PPos);
 			Tile PTile = Board.Cell[(int)PPos.x,(int)PPos.y];
-			
+		
 			int MatRange = Card.Range;
-
 			if(PTile.Char.ContainsModifier("Strong"))
 			{
 				MatRange += 1;
-				
 			}
 
 			if(MatRange > 7)

@@ -508,12 +508,12 @@
     "Binoculars":
     {
         "ID": "301",
-        "MatrixName": "Cone",
-        "Range": "2",
+        "MatrixName": "Full",
+        "Range": "1",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText":  "Spy on a card?",
+        "AbilityText":  "Boost the range of a friend for one attack",
         "FlavorText":  "Four eyes are better than two",
         "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
         "SecondaryList":  []
@@ -521,12 +521,12 @@
     "Trinoculars":
     {
         "ID": "302",
-        "MatrixName": "Cone",
-        "Range": "2",
+        "MatrixName": "Full",
+        "Range": "1",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText":  "Spy on a card?",
+        "AbilityText":  "",
         "FlavorText":  "How exactly is this supposed to help??",
         "AbilityList":  [{"Name":"Strong", "Effect": "2"}],
         "SecondaryList":  []
