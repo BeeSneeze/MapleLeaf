@@ -16,14 +16,11 @@ public class Board : Node2D
 	public List<Arrow> QueuedMoves = new List<Arrow>();
 
 	private int[,] TheoreticalCellID = new int[8,8];
-	private Node2D HelpArrow;
 	private GameManager GM;
 
 	public override void _Ready()
 	{
 		GM = (GameManager)GetParent();
-
-		HelpArrow = GetNode<Node2D>("HelpArrow");
 
 		// Load Character Info
 		File Reader = new File();
@@ -152,14 +149,7 @@ public class Board : Node2D
 
 		Vector2 Center = GetCharPos(Card.PlayerID);
 		Patch(InMat, ActionMatrix, Center);
-
-		if(Card.TargetType == "Area")
-		{
-			HelpArrow.Show();
-			HelpArrow.Position = new Vector2(-240,-375) + Center*88f;
-		}
 		
-
 		if(Card.MatrixName != "Global")
 		{
 			Cell[(int)Center.x,(int)Center.y].SetMarker("Select");
@@ -298,8 +288,6 @@ public class Board : Node2D
 	// Remove all of the markers, and resets the target list
 	public void ClearMarkers()
 	{
-
-		HelpArrow.Hide();
 
 		TargetList = new List<Vector2>();
 		ActionMatrix = new bool[8,8];

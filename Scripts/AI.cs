@@ -186,9 +186,13 @@ public class AI : Node2D
 			GM.ExecutePlay();
 			if(QueuedActions.Count == 0)
 			{
-				AttackMode = false; // Ran out of cards
-				GM.SetMode("Draw");
+				ClickNum = 3;
 			}
+		}
+		else if(ClickNum == 3)
+		{
+			AttackMode = false; // Ran out of cards
+			GM.SetMode("Draw");
 		}
 	}
 

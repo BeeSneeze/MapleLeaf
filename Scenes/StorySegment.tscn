@@ -110,5 +110,5 @@ margin_top = 981.0
 margin_right = 1857.0
 margin_bottom = 1025.0
 theme = ExtResource( 14 )
-custom_colors/font_color = Color( 0.882353, 0.913725, 0.262745, 0.454902 )
+custom_colors/font_color = Color( 1, 1, 1, 0.2 )
 text = "Click to advance"

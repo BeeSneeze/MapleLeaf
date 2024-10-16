@@ -25,7 +25,7 @@ public class MainMenu : Node2D
 
 	public void StartCountDown()
 	{
-		CountDownTime = 1.5f;
+		CountDownTime = 1.4f;
 		CountingDown = true;
 	}
 
