@@ -624,7 +624,7 @@ public class Card : Sprite
 
 	public void MouseEnter()
 	{
-		if(!GM.PrepMode)
+		if(!GM.PrepMode && !Skipped)
 		{
 			Preview = true;
 			PreviewMode(true);
