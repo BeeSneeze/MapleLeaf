@@ -346,6 +346,12 @@ public class GameManager : Node2D
 			case "Support":	
 				PlaySFX("Friendly");
 			break;
+			case "Move":	
+				PlaySFX("Move");
+			break;
+			case "MoveRat":	
+				PlaySFX("MoveRat");
+			break;
 			case "Harm":	
 				PlaySFX("Harm");
 			break;

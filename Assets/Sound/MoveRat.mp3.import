@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MoveRat.mp3-0e95b2c68faa3e1ae69e7616a78a8b42.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/MoveRat.mp3"
+dest_files=[ "res://.import/MoveRat.mp3-0e95b2c68faa3e1ae69e7616a78a8b42.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
