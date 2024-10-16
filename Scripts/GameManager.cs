@@ -661,7 +661,24 @@ public class GameManager : Node2D
 		}
 		else
 		{
-			CurrentMatrix = LoadMatrix(Card.MatrixName, Card.Range);
+			Vector2 PPos = Board.GetCharPos(Card.PlayerID);
+			GD.Print(PPos);
+			Tile PTile = Board.Cell[(int)PPos.x,(int)PPos.y];
+			
+			int MatRange = Card.Range;
+
+			if(PTile.Char.ContainsModifier("Strong"))
+			{
+				MatRange += 1;
+				
+			}
+
+			if(MatRange > 7)
+			{
+				MatRange = 7;
+			}
+
+			CurrentMatrix = LoadMatrix(Card.MatrixName, MatRange);
 		}
 		
 		UnRotated = (bool[,])CurrentMatrix.Clone();

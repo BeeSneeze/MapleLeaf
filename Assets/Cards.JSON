@@ -203,7 +203,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "Area damage, all other friendlies draw a card",
+        "AbilityText": "Area damage, all other friends draw a card",
         "FlavorText":  "You, and you, and you, get to work!",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"}],
