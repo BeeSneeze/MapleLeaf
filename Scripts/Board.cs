@@ -508,6 +508,8 @@ public class Board : Node2D
 		int x = 0;
 		int y = 0;
 
+		int CityCount = 0;
+
 		foreach(char C in Contents)
 		{
 			
@@ -533,6 +535,7 @@ public class Board : Node2D
 				break;
 				case '4':
 					Cell[x,y].CreateCharacter("City");
+					CityCount++;
 					x++;
 				break;
 				case '5':
@@ -551,6 +554,8 @@ public class Board : Node2D
 			}
 
 		}
+
+		GM.SetHP(CityCount);
 	}
 
 }

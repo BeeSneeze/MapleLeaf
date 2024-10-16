@@ -37,8 +37,6 @@ public class GameManager : Node2D
 
 	private int LevelHP = 5;
 
-	private Label HPLabel;
-
 	private AnimatedSprite TutorialOverlay;
 
 	
@@ -46,7 +44,6 @@ public class GameManager : Node2D
 	public override void _Ready()
 	{
 		TutorialOverlay = GetNode<AnimatedSprite>("TutorialOverlay");
-		HPLabel = GetNode<Label>("HP");
 		EndTurnButton = GetNode<CanvasItem>("EndTurn");
 		EndDrawButton = GetNode<CanvasItem>("EndDraw");
 		WinScreen = GetNode<Node2D>("WinScreen");
@@ -67,7 +64,7 @@ public class GameManager : Node2D
 		Decks = JsonConvert.DeserializeObject<Dictionary<string,List<string>>>(Contents);
 		Reader.Close();
 
-		string[] CMnames = {"Soldier", "Sniper", "Support", "Rat"};
+		string[] CMnames = {"Soldier", "Sniper", "Support", "Tutorial"};
 
 		foreach(string CMName in CMnames)
 		{
@@ -84,7 +81,7 @@ public class GameManager : Node2D
 					case "Support":
 						CMSupport.AddCard(Cstring);
 					break;
-					case "Rat":
+					case "Tutorial":
 						CMRat.AddCard(Cstring);
 					break;
 				}
@@ -101,6 +98,21 @@ public class GameManager : Node2D
 			CMRat.Deck = CMRat.ShufflePile(CMRat.Deck);
 
 		LevelStart();
+	}
+
+	// Performs all the setup for the first level after the tutorial
+	public void LoadFirstLevel()
+	{
+		CMRat.Deck = new List<int>();
+		CMRat.TrueDeck = new List<int>();
+		CMRat.Hand = new List<int>();
+		CMRat.Discard = new List<int>();
+
+		foreach(string Cstring in Decks["Rat"])
+		{
+			GD.Print(Cstring);
+			CMRat.AddCard(Cstring);
+		}
 	}
 
 	public override void _UnhandledInput(InputEvent @event)
@@ -631,9 +643,7 @@ public class GameManager : Node2D
 	public void CityAttacked(int Damage)
 	{
 		
-		LevelHP -= 1;
-		
-		HPLabel.Text = "HP: " + LevelHP.ToString();
+		SetHP(LevelHP-1);
 
 		Random rnd = new Random();
 
@@ -815,6 +825,13 @@ public class GameManager : Node2D
 		CMRat.SkipCard(PID);
 	}
 
+	public void SetHP(int InHP)
+	{
+		LevelHP = InHP;
+		Label HPLabel = GetNode<Label>("HP");
+		HPLabel.Text = "HP: " + LevelHP.ToString();
+	}
+
 	// Everything needed to set up the new round
 	public void LevelStart()
 	{
@@ -844,6 +861,7 @@ public class GameManager : Node2D
 	{
 		LevelManager LM = (LevelManager)GetParent();
 		WorldMap WM = (WorldMap)LM.GetNode("WorldMap");
+
 		WM.NextCity();
 		LM.ChangeLevel("WorldMap");
 		WinScreen.Hide();
@@ -852,6 +870,12 @@ public class GameManager : Node2D
 		CMSniper.ResetDeck();
 		CMSupport.ResetDeck();
 		CMRat.ResetDeck();
+
+		if(WM.CurrentIndex == 2)
+		{
+			LoadFirstLevel();
+		}
+
 	}
 
 	// Checks if there are no more rats, and no more spawn cards left

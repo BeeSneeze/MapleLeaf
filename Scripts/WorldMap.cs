@@ -9,7 +9,7 @@ public class WorldMap : Node2D
 	// private string b = "text";
 
 	List<CityMarker> CityList;
-	int CurrentIndex = 1;
+	public int CurrentIndex = 1;
 	bool FinalCity = false;
 	private GameManager GM;
 	CardShop ShopA, ShopB;
