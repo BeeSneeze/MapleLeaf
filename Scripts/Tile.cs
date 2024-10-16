@@ -267,6 +267,9 @@ public class Tile : Node2D
 	// Shows the action marker, move, attack etc.
 	public void SetMarker(string InString)
 	{
+		Node2D WARNING = GetNode<Node2D>("Warning");
+		WARNING.Hide();
+
 		Marker = InString;
 		// Change the animated sprite
 		AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Marker");
@@ -291,10 +294,11 @@ public class Tile : Node2D
 			((Node2D)AnimSpr).ZIndex = -10;
 		}
 
-		if(InString == "None")
+		if(InString == "Attack" && Char.ID % 100 == 51 && GM.CurrentCard.TargetType == "Area")
 		{
-			return;
+			WARNING.Show();
 		}
+
 	}
 
 	// Plays a visual effect to coincide with stuff like dying, taking damage, etc.
@@ -402,6 +406,12 @@ public class Tile : Node2D
 
 	public void MouseEnter()
 	{
+		if(Marker == "Attack" && Char.ID % 100 == 51 && GM.CurrentCard.TargetType == "Single")
+		{
+			Node2D WARNING = GetNode<Node2D>("Warning");
+			WARNING.Show();
+		}
+
 		if(Char.MaxHP != 0)
 		{
 			LabelBox.Show();
@@ -411,6 +421,13 @@ public class Tile : Node2D
 
 	public void MouseExit()
 	{
+
+		if(Marker == "Attack" && Char.ID % 100 == 51 && GM.CurrentCard.TargetType == "Single")
+		{
+			Node2D WARNING = GetNode<Node2D>("Warning");
+			WARNING.Hide();
+		}
+
 		if(Char.MaxHP != 0)
 		{
 			LabelBox.Hide();

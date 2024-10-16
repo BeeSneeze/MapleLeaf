@@ -561,6 +561,8 @@ public class Card : Sprite
 		}
 	}
 
+
+	// Makes a card clickable or not (used when changing modes, Player vs Ratmove vs RatAttack etc)
 	public void ToggleClickable(bool InBool)
 	{
 		Clickable = InBool;
@@ -609,7 +611,6 @@ public class Card : Sprite
 
 	public void RightClick()
 	{
-
 		if(Prepped) // Right click to abort play
 		{
 			Prepped = false;

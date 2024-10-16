@@ -666,6 +666,13 @@ public class GameManager : Node2D
 		}
 	}
 
+	public void GameOver()
+	{
+		LevelManager LM = GetParent<LevelManager>();
+		LM.ChangeLevel("GameOver");
+	}
+
+
 	public void CityAttacked(int Damage)
 	{
 		
@@ -856,6 +863,11 @@ public class GameManager : Node2D
 		LevelHP = InHP;
 		Label HPLabel = GetNode<Label>("HP");
 		HPLabel.Text = "HP: " + LevelHP.ToString();
+
+		if(LevelHP <= 0)
+		{
+			GameOver();
+		}
 	}
 
 	// Everything needed to set up the new round
