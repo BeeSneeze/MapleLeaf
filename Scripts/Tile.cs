@@ -320,6 +320,12 @@ public class Tile : Node2D
 		{
 			Char.AddModifier(ModName, ModTime);
 			ShowModifier(ModName);
+
+			if(ModName == "Immovable")
+			{
+				AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Character");
+				AnimSpr.Playing = false;
+			}
 		}
 	}
 
@@ -341,6 +347,13 @@ public class Tile : Node2D
 	public void NewTurn()
 	{
 		Char.AdvanceModifiers();
+
+		AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Character");
+		if(!Char.ContainsModifier("Immovable"))
+		{
+			AnimSpr.Playing = true;
+		}
+		
 
 		bool NoModifiers = true;
 		

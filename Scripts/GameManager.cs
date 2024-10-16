@@ -115,6 +115,12 @@ public class GameManager : Node2D
 		}
 	}
 
+	// Performs all the setup for the final level of the game
+	public void LoadBossFight()
+	{
+		GD.Print("BOSS FIGHT LOADED!!!");
+	}
+
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey eventKey)
@@ -466,6 +472,12 @@ public class GameManager : Node2D
 					foreach(Vector2 Target in Board.TargetList)
 					{
 						Board.AddModifier(Target, "Strong", int.Parse(A.Effect));
+					}
+				break;
+				case "Immovable":
+					foreach(Vector2 Target in Board.TargetList)
+					{
+						Board.AddModifier(Target, "Immovable", int.Parse(A.Effect));
 					}
 				break;
 				case "Push":

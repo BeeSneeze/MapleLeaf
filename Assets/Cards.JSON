@@ -591,9 +591,11 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
-        "AbilityText": "",
+        "AbilityText": "Stuns and makes target immovable for a turn",
         "FlavorText":  "All is fair in love and war",
-        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "AbilityList":  [
+            {"Name":"Stun", "Effect": "1"},
+            {"Name":"Immovable", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Grease":
