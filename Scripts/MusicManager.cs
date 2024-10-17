@@ -18,6 +18,7 @@ public class MusicManager : Node2D
 		MainMenu = GetNode<AudioStreamPlayer>("MainMenu");
 		WorldMap = GetNode<AudioStreamPlayer>("WorldMap");
 		Game = GetNode<AudioStreamPlayer>("Game");
+		UpdateVolume(0.0f);
 	}
 
 	public void PlayMusic(string InString)
@@ -51,12 +52,14 @@ public class MusicManager : Node2D
 		ActiveSong = InString;
 	}
 
+	private float[] HardCodedModifiers = {-1.0f,-3.0f,0.0f,0.0f};
+
 	public void UpdateVolume(float Volume)
 	{
-		PauseMenu.VolumeDb = Volume;
-		MainMenu.VolumeDb = Volume;
-		WorldMap.VolumeDb = Volume;
-		Game.VolumeDb = Volume;
+		PauseMenu.VolumeDb = Volume + HardCodedModifiers[0];
+		MainMenu.VolumeDb = Volume + HardCodedModifiers[1];
+		WorldMap.VolumeDb = Volume + HardCodedModifiers[2];
+		Game.VolumeDb = Volume + HardCodedModifiers[3];
 	}
 	
 }

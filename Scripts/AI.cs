@@ -341,7 +341,6 @@ public class AI : Node2D
 
 		for(int Range = 0; Range < C.Range; Range++)
 		{
-			GD.Print(AttackRat[Range,x,y]);
 			if(AttackRat[Range,x,y] % 2 == 0)
 			{
 				SelectedDirection = "Down";

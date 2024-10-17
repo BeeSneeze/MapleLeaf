@@ -3,10 +3,6 @@ using System;
 
 public class MainMenu : Node2D
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
-
 	private float CountDownTime = 0.0f;
 	private bool CountingDown = false;
 

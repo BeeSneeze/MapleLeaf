@@ -4,15 +4,12 @@ using System.Collections.Generic;
 
 public class WorldMap : Node2D
 {
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
-
-	List<CityMarker> CityList;
 	public int CurrentIndex = 1;
 	public bool FinalCity = false;
+	
+	private List<CityMarker> CityList;
 	private GameManager GM;
-	CardShop ShopA, ShopB;
+	private CardShop ShopA, ShopB;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -57,17 +54,6 @@ public class WorldMap : Node2D
 		}
 	}
 
-	public override void _UnhandledInput(InputEvent @event)
-	{
-		if (@event is InputEventKey eventKey)
-		{
-			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.Q)
-			{
-				NextCity();
-			}
-		}	
-	}
-
 	public void StartLevel()
 	{
 		LevelManager LM = GetParent<LevelManager>();
@@ -91,10 +77,4 @@ public class WorldMap : Node2D
 		GM.LevelStart();
 		LM.ChangeLevel("Game");
 	}
-
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }

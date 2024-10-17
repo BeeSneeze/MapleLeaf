@@ -27,30 +27,7 @@ public class CityMarker : AnimatedSprite
 
 	public void DeactivateCity(){
 		Animation = "Cross";
-		CanvasItem C = (CanvasItem)GetNode("Control");
-		C.Hide();
 		Node2D Flag = GetNode<Node2D>("Flag");
 		Flag.Show();
-	}
-
-
-	public void LeftClick()
-	{
-		
-	}
-
-	public void RightClick()
-	{
-		
-	}
-
-	public void MouseEnter()
-	{
-		
-	}
-
-	public void MouseExit()
-	{
-		
 	}
 }

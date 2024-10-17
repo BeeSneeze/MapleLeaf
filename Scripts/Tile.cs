@@ -346,6 +346,7 @@ public class Tile : Node2D
 		Brd.AddTarget(new Vector2(X,Y));
 	}
 
+	// Check if characters are stunned, and skip their cards
 	public void StunCheck()
 	{
 		foreach(Modifier M in Char.ModifierData)

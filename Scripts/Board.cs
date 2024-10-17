@@ -445,11 +445,6 @@ public class Board : Node2D
 		return true; // Successful push!
 	}
 
-	public void Stun(Vector2 Position)
-	{
-
-	}
-
 	public void Spawn(string SpawnName, Vector2 Pos)
 	{
 		Cell[(int)Pos.x,(int)Pos.y].CreateCharacter(SpawnName);

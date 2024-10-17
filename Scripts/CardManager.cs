@@ -167,7 +167,6 @@ public class CardManager : Node2D
 
 		NewCard.CardID = InID;
 		NewCard.CardName = IdToNameConvert[InID % 1000];
-		GD.Print(ActiveCards[InID].DrawCount);
 		NewCard.Draws = int.Parse(AllCardsDict[NewCard.CardName].Draws) - ActiveCards[InID].DrawCount; 
 
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
