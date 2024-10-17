@@ -7,19 +7,16 @@ using Newtonsoft.Json;
 public class GameManager : Node2D
 {
 	public Board Board;
-
 	public string Rot = "Up";
 	public Card CurrentCard;
 	public bool PrepMode;
-
 	public string Turn = "None"; // Whose turn is it? RatMove, Player, RatAttack, None
-
 	public List<int> RatIDList = new List<int>();
-
 	public Dictionary<int, string> RatIDToName = new Dictionary<int,string>(); // Used to convert from a rat id to a rat name
-
 	public AI AI;
 	public CardManager CMSoldier, CMSniper, CMSupport, CMRat;
+
+
 	private SFXManager SFX;
 	private int CardIDCounter = 0;
 	private int CharacterIDCounter = 0;
@@ -29,16 +26,11 @@ public class GameManager : Node2D
 	private CanvasItem EndTurnButton, EndDrawButton;
 
 	private Label TopLabel;
-
 	private bool RatShown = false;
-
 	private bool AreYouWinningSon = false;
 	private Node2D WinScreen;
-
 	private int LevelHP = 5;
-
 	private AnimatedSprite TutorialOverlay;
-
 	private bool FinalLevel = false;
 
 	
@@ -340,7 +332,6 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
-
 		switch(CurrentCard.CardFlavor)
 		{
 			case "Support":	
