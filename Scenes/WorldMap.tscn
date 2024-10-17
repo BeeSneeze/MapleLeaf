@@ -26,58 +26,48 @@ texture = ExtResource( 1 )
 
 [node name="Edmonton" parent="." instance=ExtResource( 2 )]
 position = Vector2( 244.8, 150 )
-frame = 0
 CityName = "Edmonton"
 
 [node name="Calgary" parent="." instance=ExtResource( 2 )]
 position = Vector2( 226.8, 294 )
-frame = 0
 CityName = "Calgary"
 
 [node name="Regina" parent="." instance=ExtResource( 2 )]
 position = Vector2( 537.6, 334.8 )
-frame = 0
 CityName = "Regina"
 
 [node name="Winnipeg" parent="." instance=ExtResource( 2 )]
 position = Vector2( 817.2, 352.8 )
-frame = 0
 CityName = "Winnipeg"
 
 [node name="Minneapolis" parent="." instance=ExtResource( 2 )]
 position = Vector2( 962.4, 628.8 )
-frame = 0
 CityName = "Minneapolis"
 
 [node name="Kansas City" parent="." instance=ExtResource( 2 )]
 position = Vector2( 902.4, 937.2 )
-frame = 0
 CityName = "Kansas City"
 
 [node name="Indianapolis" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1204.8, 864 )
-frame = 0
 CityName = "Indianapolis"
 
 [node name="Toronto" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1441.2, 693.6 )
-frame = 0
 CityName = "Toronto"
 
 [node name="Ottawa" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1561.2, 602.4 )
-frame = 0
 CityName = "Ottawa"
 
 [node name="Montreal" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1653.6, 590.4 )
-frame = 0
 CityName = "Montreal"
 
 [node name="New York City" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1650, 837.6 )
 animation = "Boss"
-frame = 2
+frame = 1
 CityName = "New York City"
 
 [node name="Button" type="Button" parent="."]
@@ -92,14 +82,14 @@ text = "Next Level"
 [node name="PauseButton" parent="." instance=ExtResource( 3 )]
 
 [node name="ShopA" parent="." instance=ExtResource( 5 )]
-position = Vector2( 293, 668.669 )
+position = Vector2( 454, 668 )
 
 [node name="ShopB" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1205, 317 )
+position = Vector2( 1486, 286 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 910, 433 )
-rotation = -0.300197
+position = Vector2( 971, 459 )
+rotation = -0.95644
 scale = Vector2( 0.9, 0.9 )
 z_index = 100
 frames = SubResource( 1 )

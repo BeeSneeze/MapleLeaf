@@ -34,7 +34,16 @@ public class CardShop : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		
 		CBox = GetNode<CheckBox>("CheckBox");
+
+		if(Name == "ShopB")
+		{
+			Control CBoxNode = (Control)CBox;
+			CBoxNode.RectPosition = new Vector2(-470.0f,-52.0f);
+		}
+
+
 		rnd = new Random();
 
 		GM = (GameManager)((GetParent().GetParent()).GetNode("Game"));
@@ -45,7 +54,6 @@ public class CardShop : Node2D
 		Sprite Discard = GetNode<Sprite>("Discard");
 		Sprite Draw = GetNode<Sprite>("Draw");
 
-		BG.Texture = (Texture)GD.Load("res://Assets/Visuals/CardManagerBGSupport.png");
 		//BG.Modulate = new Color(0.1f, 0.1f, 0.9f, 0.5f);
 
 		// Load AllCardsDict
@@ -66,8 +74,6 @@ public class CardShop : Node2D
 		{
 			IdToNameConvert.Add(int.Parse(Entry.Value.ID), Entry.Key);
 		}
-
-		
 
 		LoadShop();
 
@@ -187,26 +193,25 @@ public class CardShop : Node2D
 		return OwnerName;
 	}
 
-	private static float Space = 360;
-	private static float Margin = 25;
+	private static float Space = 450;
+	private static float Margin = 265;
 
 	// Moves the cards around to suitable positions
 	public void UpdateCardPositions()
 	{
 		int index = 0;
+		float BetweenPadding = 0.0f;
 		
 		foreach(Card C in HandCards)
 		{
+			if(index > 2)
+			{
+				BetweenPadding = 80.0f;
+			}
+
 			Node2D CNode = (Node2D)C;
 			CTween = GetTree().CreateTween();
-			if(Hand.Count > 1)
-			{
-				CTween.TweenProperty(CNode, "position", new Vector2((index)* Space /((float)Hand.Count-1) - Margin,-12), 0.20f);
-			}
-			else
-			{
-				CTween.TweenProperty(CNode, "position", new Vector2(Space / 2.0f - Margin,-12), 0.20f);
-			}
+			CTween.TweenProperty(CNode, "position", new Vector2(BetweenPadding + (index)* Space /((float)Hand.Count-1) - Margin, 12), 0.20f);
 			index++;
 		}
 	}
