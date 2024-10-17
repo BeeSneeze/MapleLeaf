@@ -95,6 +95,46 @@
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
 
+    "DEBUG AREA DMG":
+    {   
+        "ID": "90",
+        "MatrixName": "Full",
+        "Range": "7",
+        "Uses": "100",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "",
+        "AbilityList":  [{"Name":"Damage", "Effect": "1"}],
+        "SecondaryList":  []
+    },
+    "DEBUG SINGLE DMG":
+    {   
+        "ID": "91",
+        "MatrixName": "Full",
+        "Range": "7",
+        "Uses": "100",
+        "Draws": "0",
+        "TargetType": "Single","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "",
+        "AbilityList":  [{"Name":"Damage", "Effect": "1"}],
+        "SecondaryList":  []
+    },
+    "DEBUG WIN":
+    {   
+        "ID": "99",
+        "MatrixName": "Full",
+        "Range": "7",
+        "Uses": "100",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText": "",
+        "FlavorText":  "Literally just win",
+        "AbilityList":  [],
+        "SecondaryList":  [{"Name":"Win", "Effect": "-"}]
+    },
+
 
 
     "Alpha":
@@ -449,7 +489,7 @@
     "Pinpoint":
     {   
         "ID": "211",
-        "MatrixName": "LeftCone",
+        "MatrixName": "Diagonal",
         "Range": "3",
         "Uses": "2",
         "Draws": "0",
@@ -463,7 +503,7 @@
     "Pin down":
     {   
         "ID": "212",
-        "MatrixName": "LeftCone",
+        "MatrixName": "Diagonal",
         "Range": "3",
         "Uses": "2",
         "Draws": "0",
@@ -574,7 +614,7 @@
     {   
         "ID": "306",
         "MatrixName": "Full",
-        "Range": "2",
+        "Range": "4",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "EnemyNoCity",
@@ -615,7 +655,7 @@
     {   
         "ID": "309",
         "MatrixName": "Full",
-        "Range": "2",
+        "Range": "3",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
@@ -692,19 +732,7 @@
         "SecondaryList":  []
     },
 
-    "DEBUG DMG":
-    {   
-        "ID": "399",
-        "MatrixName": "Full",
-        "Range": "7",
-        "Uses": "100",
-        "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText": "",
-        "FlavorText":  "",
-        "AbilityList":  [{"Name":"Damage", "Effect": "1"}],
-        "SecondaryList":  []
-    },
+    
 
     
 

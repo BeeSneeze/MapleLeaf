@@ -83,8 +83,11 @@ public class CardShop : Node2D
 		AddCard(Decks["PoolSoldier"][rnd.Next(0,Decks["PoolSoldier"].Count)]);
 		AddCard(Decks["PoolSniper"][rnd.Next(0,Decks["PoolSniper"].Count)]);
 		AddCard(Decks["PoolSupport"][rnd.Next(0,Decks["PoolSupport"].Count)]);
-		AddCard(Decks["PoolRatAction"][rnd.Next(0,Decks["PoolRatAction"].Count)]);
-		AddCard(Decks["PoolRatSpawn"][rnd.Next(0,Decks["PoolRatSpawn"].Count)]);
+		AddCard(Decks["PoolRatActionA"][rnd.Next(0,Decks["PoolRatActionA"].Count)]);
+		AddCard(Decks["PoolRatActionB"][rnd.Next(0,Decks["PoolRatActionB"].Count)]);
+		WorldMap WM = GetParent<WorldMap>();
+		AddCard(Decks["PoolRatSpawn"][WM.CurrentIndex-1]); // Move through the rats in order
+		DrawCard();
 		DrawCard();
 		DrawCard();
 		DrawCard();

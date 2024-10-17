@@ -121,7 +121,13 @@ public class GameManager : Node2D
 		{
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.G)
 			{
-				AreYouWinningSon = true;
+				CMSupport.AddCard("DEBUG AREA DMG");
+				CMSupport.AddCard("DEBUG SINGLE DMG");
+				CMSupport.AddCard("DEBUG WIN");
+				CMSupport.DrawCard("DEBUG AREA DMG");
+				CMSupport.DrawCard("DEBUG SINGLE DMG");
+				CMSupport.DrawCard("DEBUG WIN");
+
 			}
 			
 		}	
@@ -569,6 +575,9 @@ public class GameManager : Node2D
 		{
 			switch(B.Name)
 			{
+				case "Win":
+					AreYouWinningSon = true;
+				break;
 				case "Shuffle":
 					string[] Effect = (B.Effect).Split(":");
 					switch(Effect[0])
