@@ -68,7 +68,6 @@ public class PauseMenu : Node2D
 
 	public void UpdateVolume(float InFloat)
 	{
-		GD.Print((InFloat-100)/5.0f);
 		MM.UpdateVolume((InFloat-100)/5.0f);
 
 		// Maybe not the cleanest way to do this, but personally tweaking the audio scale is kinda important to me

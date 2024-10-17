@@ -49,17 +49,10 @@ public class Tile : Node2D
 	{
 		
 		if(Char.MaxHP == 0) // Character cannot be damaged
-		{
-			
+		{			
 			return;
 		}
 
-		if(Char.ID % 100 == 51) // Exception for cities
-		{
-			PlayEffect("Explosion"); 
-			GM.CityAttacked(Dmg);
-		}
-		
 		Char.HP -= Dmg;
 		if(Char.HP < 1) // Character dies
 		{
@@ -72,6 +65,7 @@ public class Tile : Node2D
 			else if(Char.ID % 100 == 51) // Cities spawn some rubble
 			{
 				PlayEffect("Explosion");
+				GM.CityAttacked(1);
 				CreateCharacter("Rubble");
 			}
 			else // Everyone else actually dies
@@ -330,6 +324,11 @@ public class Tile : Node2D
 				AnimatedSprite AnimSpr = GetNode<AnimatedSprite>("Character");
 				AnimSpr.Playing = false;
 			}
+
+			if(ModName == "Stun")
+			{
+				GM.SkipCard(Char.ID);
+			}
 		}
 	}
 
@@ -345,6 +344,18 @@ public class Tile : Node2D
 	{
 		Board Brd = (Board)GetParent();
 		Brd.AddTarget(new Vector2(X,Y));
+	}
+
+	public void StunCheck()
+	{
+		foreach(Modifier M in Char.ModifierData)
+		{
+			if(M.Name == "Stun")
+			{
+				// Do something to prevent this rat from getting a card assigned
+				//GM.RatIDList.Remove(Char.ID);
+			}
+		}
 	}
 
 

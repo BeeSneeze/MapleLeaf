@@ -893,6 +893,20 @@
             {"Name":"Draw", "Effect": "Rat"}]
     },
 
+    "Evil Scheming":
+    {   
+        "ID": "517",
+        "MatrixName": "Line",
+        "Range": "1",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "Does nothing",
+        "FlavorText":  "The rats are contemplating their moves, look out!",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
+
 
     "Tutorial Rat":
     {   

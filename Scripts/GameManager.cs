@@ -104,7 +104,6 @@ public class GameManager : Node2D
 
 		foreach(string Cstring in Decks["Rat"])
 		{
-			GD.Print(Cstring);
 			CMRat.AddCard(Cstring);
 		}
 	}
@@ -131,7 +130,6 @@ public class GameManager : Node2D
 	public void PlaySFX(string SFXName)
 	{
 		SFX.PlaySFX(SFXName);
-		GD.Print("ATTEMPTED TO PLAY SFX: " + SFXName);
 	}
 
 	//  RatMove->Player->RatAttack->Draw->RatMove etc.

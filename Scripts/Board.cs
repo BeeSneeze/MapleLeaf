@@ -368,7 +368,6 @@ public class Board : Node2D
 
 	public void AddModifier(Vector2 Target, string ModName, int ModTime)
 	{
-		GD.Print("REACHED BOARD");
 		Cell[(int)Target.x, (int)Target.y].AddModifier(ModName, ModTime);	
 	}
 
@@ -527,7 +526,15 @@ public class Board : Node2D
 					x++;
 				break;
 				case '5':
-					Cell[x,y].CreateCharacter("RatNormal");
+					if(StageName != "Calgary") // Calgary is the tutorial
+					{
+						Cell[x,y].CreateCharacter("RatNormal");
+					}
+					else
+					{
+						Cell[x,y].CreateCharacter("RatTutorial");
+					}
+					
 					x++;
 				break;
 				case '6':

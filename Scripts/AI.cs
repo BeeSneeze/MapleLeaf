@@ -331,8 +331,6 @@ public class AI : Node2D
 	// The examination determines which direction the rat should face when using the card
 	public void ExamineActionCard(Card C)
 	{
-		GD.Print("EXAMINED AN ACTION CARD");
-
 		int x = (int)Board.GetCharPos(C.PlayerID).x;
 		int y = (int)Board.GetCharPos(C.PlayerID).y;
 
