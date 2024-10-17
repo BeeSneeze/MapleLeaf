@@ -135,7 +135,6 @@ public class CardManager : Node2D
 		NewCard.OwnerName = OwnerName;
 
 		NewCard.OwnerID = ActiveCards[InID].OwnerID;
-		
 
 		switch(OwnerName)
 		{
@@ -168,6 +167,7 @@ public class CardManager : Node2D
 
 		NewCard.CardID = InID;
 		NewCard.CardName = IdToNameConvert[InID % 1000];
+		GD.Print(ActiveCards[InID].DrawCount);
 		NewCard.Draws = int.Parse(AllCardsDict[NewCard.CardName].Draws) - ActiveCards[InID].DrawCount; 
 
 		NewCard.LoadInfo(AllCardsDict[NewCard.CardName]);
@@ -515,6 +515,13 @@ public class CardManager : Node2D
 				break;
 
 			ExhaustCard(HandCards[0]);
+		}
+
+		foreach(int DeckCardID in Deck)
+		{
+			CompactCard CC = ActiveCards[DeckCardID];
+			CC.DrawCount = 0;
+			ActiveCards[DeckCardID] = CC;
 		}
 
 
