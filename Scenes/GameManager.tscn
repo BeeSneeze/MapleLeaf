@@ -235,7 +235,6 @@ align = 1
 valign = 1
 
 [node name="TutorialOverlay" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )

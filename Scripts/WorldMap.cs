@@ -60,6 +60,10 @@ public class WorldMap : Node2D
 
 		CheckBox CBoxA = GetNode("ShopA").GetNode<CheckBox>("CheckBox");
 
+		Node2D PickOne = GetNode<Node2D>("PickOne");
+		PickOne.Hide();
+
+
 		if(CBoxA.Pressed)
 		{
 			ShopA.Ratify();

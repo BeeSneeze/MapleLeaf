@@ -94,7 +94,7 @@ public class GameManager : Node2D
 			CMRat.Deck = CMRat.ShufflePile(CMRat.Deck);
 
 		LevelStart();
-		TurnButtonClicked();
+		//TurnButtonClicked();
 	}
 
 	// Performs all the setup for the first level after the tutorial

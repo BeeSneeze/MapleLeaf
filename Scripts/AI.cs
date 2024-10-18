@@ -60,7 +60,7 @@ public class AI : Node2D
 
 		if(TutorialSlowdown)
 		{
-			Timer += delta * 0.5f;
+			Timer += delta * 0.7f;
 		}
 		else
 		{

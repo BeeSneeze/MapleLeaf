@@ -10,10 +10,10 @@ texture = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="BackToMain" type="Button" parent="."]
-margin_left = -709.0
-margin_top = -120.0
-margin_right = -425.0
-margin_bottom = -70.0
+margin_left = -306.0
+margin_top = 425.0
+margin_right = -22.0
+margin_bottom = 475.0
 theme = ExtResource( 2 )
 text = "Back to main menu"
 
