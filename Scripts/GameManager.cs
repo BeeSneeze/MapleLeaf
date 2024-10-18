@@ -30,6 +30,7 @@ public class GameManager : Node2D
 	private bool AreYouWinningSon = false;
 	private Node2D WinScreen;
 	private int LevelHP = 5;
+	private int MaxLevelHP;
 	private AnimatedSprite TutorialOverlay;
 	private bool FinalLevel = false;
 
@@ -870,6 +871,11 @@ public class GameManager : Node2D
 		Label HPLabel = GetNode<Label>("HP");
 		HPLabel.Text = "HP: " + LevelHP.ToString();
 
+		if(Turn == "None")
+		{
+			MaxLevelHP = InHP;
+		}
+
 		if(LevelHP <= 0)
 		{
 			GameOver();
@@ -895,6 +901,7 @@ public class GameManager : Node2D
 	public void LevelEnd()
 	{
 		GD.Print("LEVEL ENDED!");
+		GD.Print(MaxLevelHP - LevelHP);
 		SetMode("None");
 		AreYouWinningSon = false;
 		WinScreen.Show();
@@ -905,7 +912,6 @@ public class GameManager : Node2D
 		GD.Print("GAME WIN SEQUENCE");
 
 		LevelManager LM = (LevelManager)GetParent();
-
 		Story SM = LM.GetNode<Story>("Story");
 		SM.StartStory("Ending");
 		LM.ChangeLevel("Story");

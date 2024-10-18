@@ -540,9 +540,9 @@
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Enemy",
         "AbilityText": "",
-        "FlavorText": "Just a little bit closer...",
+        "FlavorText": "Just a liiiiiiittle bit closer...",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "5"}],
+            {"Name":"Damage", "Effect": "4"}],
         "SecondaryList":  []
     },
     "Ambush":
@@ -698,7 +698,7 @@
     {   
         "ID": "311",
         "MatrixName": "Full",
-        "Range": "2",
+        "Range": "3",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
@@ -711,7 +711,7 @@
     {   
         "ID": "312",
         "MatrixName": "Full",
-        "Range": "3",
+        "Range": "4",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
@@ -751,8 +751,32 @@
 
     
 
-    
-
+    "Right Click":
+    {   
+        "ID": "531",
+        "MatrixName": "Global",
+        "Range": "1",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "If you right click cards, you get a detailed explanation for what they do!",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
+    "Bonk":
+    {   
+        "ID": "530",
+        "MatrixName": "Line",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "Does no damage",
+        "FlavorText":  "Look out, the rats are attacking!",
+        "AbilityList":  [{"Name": "Damage", "Effect": "0"}],
+        "SecondaryList":  []
+    },
     "Nap":
     {   
         "ID": "500",
@@ -952,6 +976,8 @@
         "SecondaryList":  []
     },
 
+    
+
 
     "Tutorial Rat":
     {   
@@ -959,12 +985,12 @@
         "MatrixName": "Global",
         "Range": "7",
         "Uses": "1",
-        "Draws": "1",
+        "Draws": "2",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "There are no rats in Alberta, so we'll be training with these",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
-        "SecondaryList":  []
+        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Bonk"}]
     },
     "The Rat":
     {   

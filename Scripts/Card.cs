@@ -512,11 +512,11 @@ public class Card : Sprite
 			ZIndex = 110 + Layer;
 			Control N2D = GetNode<Control>("FlavorText");
 			N2D.RectScale = new Vector2(1.0f, 1.0f);
+			
 			foreach(Node2D Key in Keywords)
 			{
 				Key.Hide();
 			}
-
 		}
 		else
 		{
