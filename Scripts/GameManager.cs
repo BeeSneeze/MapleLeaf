@@ -112,6 +112,9 @@ public class GameManager : Node2D
 		{
 			CMRat.AddCard(Cstring);
 		}
+
+		CMRat.Deck = CMRat.ShufflePile(CMRat.Deck);
+
 	}
 
 	// Performs all the setup for the final level of the game

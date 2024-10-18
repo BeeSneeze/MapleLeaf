@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 public class CardManager : Node2D
 {
 	[Export] public string OwnerName;
-	[Export] public bool Shuffle = true;
+	public bool Shuffle = false;
 
 	// Cards as card IDs
 	public List<Card> HandCards = new List<Card>();
@@ -256,6 +256,12 @@ public class CardManager : Node2D
 		{
 			TrueDeck.Add(NewID);
 		}
+		else
+		{
+			Deck = ShufflePile(Deck); // Give it a good shuffle after adding the cards
+		}
+
+		
 
 		UpdateLabels();
 	}
@@ -510,8 +516,10 @@ public class CardManager : Node2D
 	}
 
 	// Resets the deck back to its original state, and clears the hand + the discard
+	// Used inbetween levels, so it also turns on shuffle (as the tutorial is *not* shuffled)
 	public void ResetDeck()
 	{
+		Shuffle = true;
 		SettingUp = true;
 		Deck = new List<int>(TrueDeck);
 

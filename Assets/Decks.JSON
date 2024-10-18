@@ -4,7 +4,7 @@
     "Support": ["Jog", "Jog", "Binoculars", "Duck!", "Distract", "Bribe", "Double Agent", "Checkmate!", "Luck"],
     "Rat": ["Scamper", "Scurry", "Scram", "Tutorial Rat", "The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The President", "Second Term", "Gerrymander", "Unionize", "Sneeze", "Overwhelm",  "Scamper"],
     
-    "Tutorial": ["Evil Scheming", "Evil Scheming","Evil Scheming", "Scamper", "Scamper", "Scurry", "Scram", "Tutorial Rat", "Tutorial Rat", "Tutorial Rat", "Tutorial Rat", "Tutorial Rat", "Tutorial Rat", "Right Click"],
+    "Tutorial": ["Tutorial Rat", "Evil Scheming", "Tutorial Rat", "Evil Scheming", "Tutorial Rat", "Tutorial Rat", "Tutorial Rat", "Tutorial Rat", "Right Click"],
 
     "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
     "PoolSoldier": ["Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],
