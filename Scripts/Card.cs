@@ -179,7 +179,7 @@ public class Card : Sprite
 			AllAbilities.Add(A);
 		}
 
-		if(TargetType == "Area")
+		if(TargetType == "Area" && CardFlavor != "Negative")
 		{
 			Ability AreaA = new Ability();
 			AreaA.Name = "Area";
@@ -373,7 +373,7 @@ public class Card : Sprite
 				CoverNode.Modulate = new Color(0.4902f,0.7490f,0.2431f,1);
 			break;
 			case "Negative":
-				CoverNode.Modulate = new Color(0.3804f,0.3804f,0.3804f,1);
+				CoverNode.Modulate = new Color(0.4235f,0.4235f,0.4235f,1);
 			break;
 			case "Rat":
 				CoverNode.Modulate = new Color(0.7059f,0.7059f,0.7059f,1);

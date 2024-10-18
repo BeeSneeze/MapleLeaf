@@ -281,7 +281,6 @@ public class GameManager : Node2D
 	// Rotate the currently active matrix in a particular direction
 	public void Rotate(string RotDir)
 	{
-		GD.Print("ROTATING");
 		Rot = RotDir;
 		switch(RotDir)
 		{
@@ -684,21 +683,24 @@ public class GameManager : Node2D
 
 		Random rnd = new Random();
 
-		for(int i = 0; i < (5-LevelHP); i++)
+		for(int i = 0; i < 2; i++)
 		{
 			switch(rnd.Next(0,3))
 			{
 				case 0:
 					GD.Print("CITY DAMAGE: Soldier got a paramedic");
-					CMSoldier.AddCard("Paramedic");
+					CMSoldier.AddCard("Mourn");
+					CMSoldier.DrawCard("Mourn");
 				break;
 				case 1:
 					GD.Print("CITY DAMAGE: Sniper got a paramedic");
-					CMSniper.AddCard("Paramedic");
+					CMSniper.AddCard("Mourn");
+					CMSniper.DrawCard("Mourn");
 				break;
 				case 2:
 					GD.Print("CITY DAMAGE: Support got a paramedic");
-					CMSupport.AddCard("Paramedic");
+					CMSupport.AddCard("Mourn");
+					CMSupport.DrawCard("Mourn");
 				break;
 			}
 		}

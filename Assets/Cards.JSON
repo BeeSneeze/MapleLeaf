@@ -94,6 +94,21 @@
         "AbilityList":  [{"Name":"Shield", "Effect": "-"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
+    "Mourn":
+    {   
+        "ID": "12",
+        "MatrixName": "None",
+        "Range": "1",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Empty",
+        "AbilityText":  "Does nothing",
+        "FlavorText":  "All we can do is mourn...",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
+
+
 
     "DEBUG AREA DMG":
     {   
@@ -336,6 +351,8 @@
         "SecondaryList":  []
     },
 
+
+
     "Feint":
     {   
         "ID": "201",
@@ -493,8 +510,8 @@
         "Range": "3",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Enemy",
-        "AbilityText": "",
+        "TargetType": "Single","TargetCell": "EnemyNoCity",
+        "AbilityText": "Stun a single enemy, skipping their turn",
         "FlavorText": "There!",
         "AbilityList":  [
             {"Name":"Stun", "Effect": "1"}],
@@ -503,13 +520,13 @@
     "Pin down":
     {   
         "ID": "212",
-        "MatrixName": "Diagonal",
-        "Range": "3",
+        "MatrixName": "Full",
+        "Range": "7",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Enemy",
-        "AbilityText": "",
-        "FlavorText": "There!",
+        "TargetType": "Single","TargetCell": "EnemyNoCity",
+        "AbilityText": "Stun a single enemy, skipping their turn",
+        "FlavorText": "Allll the way over there!",
         "AbilityList":  [
             {"Name":"Stun", "Effect": "1"}],
         "SecondaryList":  []
@@ -614,7 +631,7 @@
     {   
         "ID": "306",
         "MatrixName": "Full",
-        "Range": "4",
+        "Range": "3",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "EnemyNoCity",
