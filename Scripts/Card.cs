@@ -411,7 +411,7 @@ public class Card : Sprite
 		{
 			PlayEffect("Use");
 			UpdateLabels();
-			Prep(false);
+			Prep(false, false);
 			Prepped = false;
 		}
 	}
@@ -443,12 +443,11 @@ public class Card : Sprite
 	}
 
 	// Visualizes what a card does, and prepares it for play
-	public void Prep(bool InBool)
+	public void Prep(bool InBool, bool RemoveActionText = true)
 	{
-		
 		if(InBool)
 		{
-			GM.UnPrep(true);
+			GM.UnPrep(true, false);
 			Node2D PrepHalo = GetNode<Node2D>("PrepHalo");
 			PrepHalo.Show();
 			GM.PrepPlay(this);
@@ -467,7 +466,7 @@ public class Card : Sprite
 		}
 		else
 		{
-			GM.UnPrep();
+			GM.UnPrep(false, RemoveActionText);
 			Node2D PrepHalo = GetNode<Node2D>("PrepHalo");
 			PrepHalo.Hide();
 			SceneTreeTween tween = GetTree().CreateTween();
@@ -639,7 +638,7 @@ public class Card : Sprite
 		{
 			Preview = false;
 			PreviewMode(false);
-			GM.UnPrep();
+			GM.UnPrep(false, false);
 			BigMode(false);
 		}
 	}

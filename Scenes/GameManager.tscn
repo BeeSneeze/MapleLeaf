@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Assets/Sound/Harm.mp3" type="AudioStream" id=22]
 [ext_resource path="res://Assets/Sound/Move.mp3" type="AudioStream" id=23]
 [ext_resource path="res://Assets/Sound/MoveRat.mp3" type="AudioStream" id=24]
+[ext_resource path="res://Themes/honchokomono-normal-regular.otf" type="DynamicFontData" id=25]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -72,6 +73,10 @@ animations = [ {
 [sub_resource type="DynamicFont" id=5]
 size = 70
 font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+font_data = ExtResource( 25 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
@@ -148,19 +153,19 @@ stream = ExtResource( 24 )
 
 [node name="EndTurn" type="Button" parent="."]
 visible = false
-margin_left = 1107.0
-margin_top = 955.0
-margin_right = 1307.0
-margin_bottom = 1035.0
+margin_left = 1207.0
+margin_top = 960.0
+margin_right = 1407.0
+margin_bottom = 1040.0
 theme = ExtResource( 9 )
 text = "End Turn"
 icon_align = 1
 
 [node name="EndDraw" type="Button" parent="."]
-margin_left = 1107.0
-margin_top = 955.0
-margin_right = 1307.0
-margin_bottom = 1035.0
+margin_left = 1207.0
+margin_top = 960.0
+margin_right = 1407.0
+margin_bottom = 1040.0
 theme = ExtResource( 17 )
 text = "End Draw"
 icon_align = 1
@@ -217,12 +222,24 @@ text = "HP: 5"
 align = 1
 valign = 1
 
+[node name="ActionLabel" type="Label" parent="."]
+margin_left = 867.0
+margin_top = 917.0
+margin_right = 1077.0
+margin_bottom = 1058.0
+theme = ExtResource( 15 )
+custom_fonts/font = SubResource( 7 )
+text = "Unionize
+selected"
+align = 1
+valign = 1
+
 [node name="TutorialOverlay" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
 animation = "DrawTutorial"
-frame = 1
 playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]

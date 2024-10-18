@@ -25,7 +25,7 @@ public class GameManager : Node2D
 	private bool[,] UnRotated, CurrentMatrix;
 	private CanvasItem EndTurnButton, EndDrawButton;
 
-	private Label TopLabel;
+	private Label TopLabel, ActionLabel;
 	private bool RatShown = false;
 	private bool AreYouWinningSon = false;
 	private Node2D WinScreen;
@@ -51,6 +51,7 @@ public class GameManager : Node2D
 		AI = GetNode<AI>("AI");
 
 		TopLabel = GetNode<Label>("TopLabel");
+		ActionLabel = GetNode<Label>("ActionLabel");
 
 		// Load starting decks
 		File Reader = new File();
@@ -93,11 +94,15 @@ public class GameManager : Node2D
 			CMRat.Deck = CMRat.ShufflePile(CMRat.Deck);
 
 		LevelStart();
+		TurnButtonClicked();
 	}
 
 	// Performs all the setup for the first level after the tutorial
 	public void LoadFirstLevel()
 	{
+		AI AI = GetNode<AI>("AI");
+		AI.TutorialSlowdown = false;
+
 		CMRat.Deck = new List<int>();
 		CMRat.TrueDeck = new List<int>();
 		CMRat.Hand = new List<int>();
@@ -155,6 +160,7 @@ public class GameManager : Node2D
 		switch(ModeName)
 		{
 			case "RatMove":
+				CMRat.PreventPlayerClicks(true);
 				TutorialOverlay.Animation = "None";
 				TopLabel.Text = "Rats are on the move...";
 				CMSoldier.ToggleQueueMode(false);
@@ -170,6 +176,7 @@ public class GameManager : Node2D
 				AI.StartMoveMode();
 			break;
 			case "Player":
+				CMRat.PreventPlayerClicks(false);
 				TopLabel.Text = "Play phase: Play cards";
 				CMSoldier.ReClick();
 				CMSniper.ReClick();
@@ -177,6 +184,7 @@ public class GameManager : Node2D
 				CMRat.UnClick();
 			break;
 			case "RatAttack":
+				CMRat.PreventPlayerClicks(true);
 				TopLabel.Text = "Rats are attacking!!";
 				CMSoldier.UnClick();
 				CMSniper.UnClick();
@@ -185,6 +193,7 @@ public class GameManager : Node2D
 				AI.StartAttackMode();
 			break;
 			case "Draw":
+				CMRat.PreventPlayerClicks(false);
 				TopLabel.Text = "Draw Phase: Redraw cards";
 				Board.NewTurn();
 				CMSoldier.NewTurn();
@@ -311,13 +320,14 @@ public class GameManager : Node2D
 	// Prepares a card for play
 	public void PrepPlay(Card Card)
 	{
+		ActionLabel.Text = Card.CardName + "\n" + " selected";
 		PrepMode = true;
 		Rot = "Up";
 		ShowPlay(Card);
 	}
 
 	// Enables clicking for all cards again, and clears the board
-	public void UnPrep(bool ForceUnprep = false)
+	public void UnPrep(bool ForceUnprep = false, bool RemoveActionText = true)
 	{
 		if(ForceUnprep)
 		{
@@ -327,6 +337,10 @@ public class GameManager : Node2D
 			CMRat.UnPrep();
 		}
 		
+		if(RemoveActionText)
+		{
+			ActionLabel.Text = "";
+		}
 
 		Board.ClearMarkers();
 		CurrentLoaded = false;
@@ -336,6 +350,8 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
+		ActionLabel.Text = CurrentCard.CardName + "\n" + " played!";
+
 		switch(CurrentCard.CardFlavor)
 		{
 			case "Support":	
@@ -653,7 +669,7 @@ public class GameManager : Node2D
 		}
 
 		CurrentCard.Discard();
-		UnPrep();
+		UnPrep(false, false);
 
 		// Only end the level after finishing the turn
 		if(AreYouWinningSon)
@@ -910,7 +926,6 @@ public class GameManager : Node2D
 	public void GameWon()
 	{
 		GD.Print("GAME WIN SEQUENCE");
-
 		LevelManager LM = (LevelManager)GetParent();
 		Story SM = LM.GetNode<Story>("Story");
 		SM.StartStory("Ending");

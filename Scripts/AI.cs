@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class AI : Node2D
 {
+	public bool TutorialSlowdown = true;
 
 	private int[,] MoveRat = new int[8,8];
 	private int[,] SpawnRat = new int[8,8];
@@ -57,7 +58,15 @@ public class AI : Node2D
 		if(Paused)
 			return;
 
-		Timer += delta;
+		if(TutorialSlowdown)
+		{
+			Timer += delta * 0.5f;
+		}
+		else
+		{
+			Timer += delta;
+		}
+		
 
 		if(Timer > TurnTime)
 		{

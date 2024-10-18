@@ -365,6 +365,23 @@ public class CardManager : Node2D
 		GD.Print("MANAGER BIGMODE");
 	}
 
+	public void PreventPlayerClicks(bool Prevent)
+	{
+		foreach(Card C in HandCards)
+		{
+			CanvasItem CClick = C.GetNode<CanvasItem>("CardClick");
+			if(Prevent)
+			{
+				CClick.Hide(); // Ignore
+			}
+			else
+			{
+				CClick.Show(); // Pass
+			}
+			
+		}
+	}
+
 	// UnPreps all cards
 	public void UnPrep()
 	{
