@@ -596,7 +596,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText":  "Create a Roll card in any ally hand",
+        "AbilityText":  "Create a Roll card in any friend's hand",
         "FlavorText":  "Duck and roll!",
         "AbilityList":  [{"Name": "Create", "Effect": "Roll"}],
         "SecondaryList":  []
@@ -609,7 +609,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Friendly",
-        "AbilityText":  "Two ducks",
+        "AbilityText":  "Give both your friends duck cards",
         "FlavorText":  "RELEASE THE GEESE",
         "AbilityList":  [{"Name": "Create", "Effect": "Duck!"}],
         "SecondaryList":  []
@@ -622,7 +622,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
-        "AbilityText": "Create a roll card in hand",
+        "AbilityText": "Stun target, create a roll card in hand",
         "FlavorText":  "Woah for real?",
         "AbilityList":  [{"Name":"Stun", "Effect": "2"}],
         "SecondaryList":  [{"Name":"Create", "Effect": "Support:Roll"}]
@@ -635,7 +635,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "EnemyNoCity",
-        "AbilityText": "",
+        "AbilityText": "Stun all targets in range",
         "FlavorText":  "Dude will never recover from that burn",
         "AbilityList":  [{"Name":"Stun", "Effect": "2"}],
         "SecondaryList":  []
@@ -664,8 +664,10 @@
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
         "AbilityText": "",
-        "FlavorText":  "All is fair in love and war",
-        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "FlavorText":  "A little bit of love, and a lot of lard",
+        "AbilityList":  [
+            {"Name":"Stun", "Effect": "1"},
+            {"Name":"Immovable", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Double Agent":
@@ -702,7 +704,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText": "",
+        "AbilityText": "Swap places with a friend",
         "FlavorText":  "Your turn!",
         "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
@@ -715,7 +717,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText": "",
+        "AbilityText": "Swap places with a friend",
         "FlavorText":  "The easiest way to win is to cheat",
         "AbilityList":  [
             {"Name":"Create", "Effect": "Checkers mate!"},
@@ -745,7 +747,7 @@
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText": "",
         "FlavorText":  "The wrong place at the wrong time",
-        "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
+        "AbilityList":  [{"Name": "Draw", "Effect": "1"}],
         "SecondaryList":  []
     },
 
@@ -990,7 +992,9 @@
         "AbilityText":  "",
         "FlavorText":  "There are no rats in Alberta, so we'll be training with these",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
-        "SecondaryList":  [{"Name":"Shuffle", "Effect": "Rat:Bonk"}]
+        "SecondaryList":  [
+            {"Name":"Shuffle", "Effect": "Rat:Bonk"},
+            {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
     },
     "The Rat":
     {   
@@ -1114,9 +1118,9 @@
         "TargetType": "Single",
         "TargetCell": "Empty",
         "AbilityText":  "",
-        "FlavorText":  "Fight against the tyrrany of man! Fight for the freedom of your fellow rat!",
-        "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
-        "SecondaryList":  []
+        "FlavorText":  "Fight for the freedom of your fellow rat!",
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatBodyGuard"}],
+        "SecondaryList":  [{"Name":"President", "Effect": "-"}]
     },
     "Second Term":
     {   
@@ -1129,7 +1133,7 @@
         "TargetCell": "Empty",
         "AbilityText":  "",
         "FlavorText":  "Democracy will never die!",
-        "AbilityList":  [{"Name":"Spawn", "Effect": "RatChef"}],
+        "AbilityList":  [{"Name":"Spawn", "Effect": "RatBodyGuard"}],
         "SecondaryList":  []
     }
     

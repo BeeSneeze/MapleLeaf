@@ -248,6 +248,12 @@ public class Tile : Node2D
 			case 16:
 				AnimSpr.Animation = "RatMenace";
 			break;
+			case 17:
+				AnimSpr.Animation = "RatBodyGuard";
+			break;
+			case 18:
+				AnimSpr.Animation = "RatPresident";
+			break;
 			case 50:
 				LabelBox.Hide();
 				AnimSpr.Animation = "Mountain";

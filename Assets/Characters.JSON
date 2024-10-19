@@ -66,6 +66,18 @@
         "MaxHP": "4",
         "Names":["Dave", "Germ", "Jake"]
     },
+    "RatBodyGuard":
+    {
+        "ID": "17",
+        "MaxHP": "4",
+        "Names":["Mr. A", "Mr. B", "Mr. C", "Ms. D", "Ms. E", "Ms. F"]
+    },
+    "RatPresident":
+    {
+        "ID": "18",
+        "MaxHP": "10",
+        "Names":["Prez"]
+    },
     "Mountain":
     {
         "ID": "50",

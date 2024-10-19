@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=31 format=2]
+[gd_resource type="SpriteFrames" load_steps=35 format=2]
 
 [ext_resource path="res://Assets/Visuals/Characters/Sniper1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Characters/Sniper2.png" type="Texture" id=2]
@@ -30,6 +30,10 @@
 [ext_resource path="res://Assets/Visuals/Characters/Warning1.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Visuals/Characters/Rubble1.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Visuals/Characters/Rubble2.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Visuals/Characters/RatBodyGuard2.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Visuals/Characters/RatBodyGuard1.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Visuals/Characters/RatPresident1.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Visuals/Characters/RatPresident2.png" type="Texture" id=34]
 
 [resource]
 animations = [ {
@@ -47,6 +51,11 @@ animations = [ {
 "loop": true,
 "name": "None",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "RatBodyGuard",
+"speed": 0.8
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 12 ) ],
 "loop": true,
@@ -71,6 +80,11 @@ animations = [ {
 "frames": [ ExtResource( 21 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "RatNormal",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "RatPresident",
 "speed": 2.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 8 ) ],

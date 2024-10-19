@@ -74,6 +74,9 @@ public class Story : Node2D
 
 				break;
 				case "Ending":
+					StartStory("Credits");
+				break;
+				case "Credits":
 					LM.ChangeLevel("MainMenu");
 				break;
 			}
