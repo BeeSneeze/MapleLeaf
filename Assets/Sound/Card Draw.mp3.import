@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Card Draw.mp3-be9904b3bf9c618f979d88bc0a5d8c43.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Card Draw.mp3"
+dest_files=[ "res://.import/Card Draw.mp3-be9904b3bf9c618f979d88bc0a5d8c43.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

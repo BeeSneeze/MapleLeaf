@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GettingTheJobDone.mp3-06982acdcaf04430b235fa32db7c62c2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/GettingTheJobDone.mp3"
+dest_files=[ "res://.import/GettingTheJobDone.mp3-06982acdcaf04430b235fa32db7c62c2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

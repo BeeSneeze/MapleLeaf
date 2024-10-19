@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://Assets/Sound/Move.mp3" type="AudioStream" id=23]
 [ext_resource path="res://Assets/Sound/MoveRat.mp3" type="AudioStream" id=24]
 [ext_resource path="res://Themes/honchokomono-normal-regular.otf" type="DynamicFontData" id=25]
+[ext_resource path="res://Assets/Sound/Card Draw.mp3" type="AudioStream" id=26]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -150,6 +151,9 @@ stream = ExtResource( 23 )
 
 [node name="MoveRat" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 24 )
+
+[node name="Draw" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 26 )
 
 [node name="EndTurn" type="Button" parent="."]
 visible = false

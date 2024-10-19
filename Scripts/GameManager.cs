@@ -16,7 +16,6 @@ public class GameManager : Node2D
 	public AI AI;
 	public CardManager CMSoldier, CMSniper, CMSupport, CMRat;
 
-
 	private SFXManager SFX;
 	private int CardIDCounter = 0;
 	private int CharacterIDCounter = 0;
@@ -196,6 +195,11 @@ public class GameManager : Node2D
 				AI.StartAttackMode();
 			break;
 			case "Draw":
+				if(Visible)
+				{
+					PlaySFX("Draw");
+				}
+				
 				CMRat.PreventPlayerClicks(false);
 				TopLabel.Text = "Draw Phase: Redraw cards";
 				Board.NewTurn();

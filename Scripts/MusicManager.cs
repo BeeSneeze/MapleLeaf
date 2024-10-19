@@ -52,7 +52,7 @@ public class MusicManager : Node2D
 		ActiveSong = InString;
 	}
 
-	private float[] HardCodedModifiers = {-1.0f,-3.0f,0.0f,0.0f};
+	private float[] HardCodedModifiers = {-1.0f,-3.0f,-3.0f,-3.0f};
 
 	public void UpdateVolume(float Volume)
 	{
