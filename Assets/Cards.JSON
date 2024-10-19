@@ -583,7 +583,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText":  "",
+        "AbilityText":  "Boost the range of a friend for two attacks",
         "FlavorText":  "How exactly is this supposed to help??",
         "AbilityList":  [{"Name":"Strong", "Effect": "2"}],
         "SecondaryList":  []
