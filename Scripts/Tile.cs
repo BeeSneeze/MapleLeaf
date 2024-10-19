@@ -16,10 +16,12 @@ public class Tile : Node2D
 	private Node2D HPNode;
 	private bool HPToggle = false;
 	private GameManager GM;
+	Node2D WARNING;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{	
+		WARNING = GetNode<Node2D>("Warning");
 		HPNode = GetNode<Node2D>("HealthBar");
 		GM = GetParent().GetParent<GameManager>();
 		LabelBox = (ColorRect)GetNode("LabelBox");
@@ -203,6 +205,8 @@ public class Tile : Node2D
 
 		AnimSpr.FlipH = X < 4 && Char.ID % 100 < 50;
 
+		AnimatedSprite WAnim = (AnimatedSprite)WARNING;
+
 		// Character IDs: 0 = Nothing, 1-9 = friendly characters, 10-49 = enemy characters, 50+ = misc.
 		switch(Char.ID % 100)
 		{
@@ -213,12 +217,15 @@ public class Tile : Node2D
 			break;
 			case 1:
 				AnimSpr.Animation = "Soldier";
+				WAnim.Animation = "Player";
 			break;
 			case 2:
 				AnimSpr.Animation = "Sniper";
+				WAnim.Animation = "Player";
 			break;
 			case 3:
 				AnimSpr.Animation = "Support";
+				WAnim.Animation = "Player";
 			break;
 			case 10:
 				AnimSpr.Animation = "RatTutorial";
@@ -248,6 +255,7 @@ public class Tile : Node2D
 			case 51:
 				LabelBox.Hide();
 				AnimSpr.Animation = "City";
+				WAnim.Animation = "City";
 			break;
 			case 52:
 				LabelBox.Hide();
@@ -261,7 +269,6 @@ public class Tile : Node2D
 	// Shows the action marker, move, attack etc.
 	public void SetMarker(string InString)
 	{
-		Node2D WARNING = GetNode<Node2D>("Warning");
 		WARNING.Hide();
 
 		Marker = InString;
@@ -288,7 +295,7 @@ public class Tile : Node2D
 			((Node2D)AnimSpr).ZIndex = -10;
 		}
 
-		if(InString == "Attack" && Char.ID % 100 == 51 && GM.CurrentCard.TargetType == "Area")
+		if(InString == "Attack" && (Char.ID % 100 == 51 || Char.ID % 100 < 10) && GM.CurrentCard.TargetType == "Area")
 		{
 			WARNING.Show();
 		}
@@ -418,9 +425,8 @@ public class Tile : Node2D
 
 	public void MouseEnter()
 	{
-		if(Marker == "Attack" && Char.ID % 100 == 51 && GM.CurrentCard.TargetType == "Single")
+		if(Marker == "Attack" && (Char.ID % 100 == 51 || Char.ID % 100 < 10)  && GM.CurrentCard.TargetType == "Single")
 		{
-			Node2D WARNING = GetNode<Node2D>("Warning");
 			WARNING.Show();
 		}
 
@@ -434,9 +440,8 @@ public class Tile : Node2D
 	public void MouseExit()
 	{
 
-		if(Marker == "Attack" && Char.ID % 100 == 51 && GM.CurrentCard.TargetType == "Single")
+		if(Marker == "Attack" && (Char.ID % 100 == 51 || Char.ID % 100 < 10) && GM.CurrentCard.TargetType == "Single")
 		{
-			Node2D WARNING = GetNode<Node2D>("Warning");
 			WARNING.Hide();
 		}
 

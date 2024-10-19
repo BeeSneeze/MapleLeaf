@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Assets/Visuals/Terrain/Grass.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tile.cs" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/Visuals/Markers/Sleep2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Visuals/Characters/Warning1.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Visuals/Characters/Warning2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Visuals/Characters/WarningB1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Visuals/Characters/WarningB2.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Visuals/Markers/Attack2.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Visuals/Markers/Attack1.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/Click.cs" type="Script" id=13]
@@ -158,8 +160,13 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "default",
+"name": "City",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Player",
+"speed": 2.0
 } ]
 
 [node name="Tile" type="Node2D"]
@@ -191,6 +198,7 @@ playing = true
 [node name="Modifier" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
 animation = "Immovable"
+frame = 1
 playing = true
 
 [node name="Effect" type="AnimatedSprite" parent="."]
@@ -240,7 +248,7 @@ valign = 1
 [node name="Warning" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 5 )
-frame = 1
+animation = "City"
 playing = true
 
 [connection signal="mouse_entered" from="TileClick" to="TileClick" method="OnMouseEntered"]
