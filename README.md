@@ -1,14 +1,10 @@
 # Instant Ratification
 
 This is the repository for my in progress game "Instant Ratification".
-As of now, the build is still in a pre-alpha state, so no version numbering is active yet.
+This is version 0.3
 
 CONTROLS
-WASD -> Rotate selected attack
-Mouse input for everything else, left and right click to interact with cards
+Mouse for everything
 
 DEBUG ACTIONS
-Y, U, I, O, P -> Swapping between various menus
-Z, X, C, V -> Draw a new set of cards for each of the four decks
-
-Esc -> Terminate the application
+G->Spawns all the debug cards in the Suppport character's hand

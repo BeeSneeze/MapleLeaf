@@ -14,12 +14,22 @@ public class SFXManager : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
+		UpdateVolume(0.0f);
 	}
 
 	public void PlaySFX(string SFXName)
 	{
 		Sound = GetNode<AudioStreamPlayer>(SFXName);
 		Sound.Play();
+	}
+
+	public void UpdateVolume(float Volume)
+	{
+		for(int i = 1; i < 8; i++)
+		{
+			AudioStreamPlayer SoundByte = GetChild<AudioStreamPlayer>(i);
+
+			SoundByte.VolumeDb = Volume - 3.0f;
+		}
 	}
 }

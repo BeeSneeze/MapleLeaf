@@ -41,7 +41,7 @@ public class GameManager : Node2D
 		EndTurnButton = GetNode<CanvasItem>("EndTurn");
 		EndDrawButton = GetNode<CanvasItem>("EndDraw");
 		WinScreen = GetNode<Node2D>("WinScreen");
-		SFX = GetNode<SFXManager>("SFX");
+		SFX = GetNode("/root").GetNode("Game Run").GetNode<SFXManager>("SFX");
 		Board = GetNode<Board>("Board");
 		CMSoldier = GetNode<CardManager>("CardsSoldier");
 		CMSniper = GetNode<CardManager>("CardsSniper");
