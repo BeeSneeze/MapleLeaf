@@ -14,15 +14,17 @@
     },
     "Ending":
     {   
-        "Slides": ["SlideA", "SlideB", "CanadaForever"],
+        "Slides": ["EndingA", "EndingB", "EndingC", "EndingD", "CanadaForever"],
         "Text": [
-        "TextA", 
-        "TextB",
+        "The war was over.", 
+        "After the battle of New York City, the rat UN unconditionally surrendered",
+        "Humanity once again became the dominant species, and the world went back to normal",
+        "Well, mostly normal. There were some minor changes here and there...",
         "But there is nothing bad about that, eh?"]
     },
     "Credits":
     {   
-        "Slides": ["SlideA", "SlideB"],
-        "Text": ["TextA", "TextB"]
+        "Slides": ["Credits1", "Credits2", "Fonts", "Images"],
+        "Text": ["TextA", "TextB", "Fonts used: ","Alberta government page"]
     }
 }
