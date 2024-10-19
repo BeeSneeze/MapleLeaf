@@ -375,16 +375,7 @@ public class CardManager : Node2D
 	{
 		foreach(Card C in HandCards)
 		{
-			CanvasItem CClick = C.GetNode<CanvasItem>("CardClick");
-			if(Prevent)
-			{
-				CClick.Hide(); // Ignore
-			}
-			else
-			{
-				CClick.Show(); // Pass
-			}
-			
+			C.PreventPlayerClicks = Prevent;
 		}
 	}
 

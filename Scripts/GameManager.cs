@@ -32,6 +32,7 @@ public class GameManager : Node2D
 	private int MaxLevelHP;
 	private AnimatedSprite TutorialOverlay;
 	private bool FinalLevel = false;
+	private bool TutorialShowing = true;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -102,6 +103,9 @@ public class GameManager : Node2D
 		AI AI = GetNode<AI>("AI");
 		AI.TutorialSlowdown = false;
 
+		TutorialShowing = false;
+		TutorialOverlay.Animation = "None";
+
 		CMRat.Deck = new List<int>();
 		CMRat.TrueDeck = new List<int>();
 		CMRat.Hand = new List<int>();
@@ -135,9 +139,7 @@ public class GameManager : Node2D
 				CMSupport.DrawCard("DEBUG AREA DMG");
 				CMSupport.DrawCard("DEBUG SINGLE DMG");
 				CMSupport.DrawCard("DEBUG WIN");
-
 			}
-			
 		}	
 	}
 
@@ -162,8 +164,13 @@ public class GameManager : Node2D
 		switch(ModeName)
 		{
 			case "RatMove":
+				if(TutorialShowing)
+				{
+					TutorialOverlay.Animation = "RatMove";
+				}
+				CanvasItem CIBoard = (CanvasItem)Board;
+				CIBoard.Modulate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 				CMRat.PreventPlayerClicks(true);
-				TutorialOverlay.Animation = "None";
 				TopLabel.Text = "Rats are on the move...";
 				CMSoldier.ToggleQueueMode(false);
 				CMSniper.ToggleQueueMode(false);
@@ -178,6 +185,10 @@ public class GameManager : Node2D
 				AI.StartMoveMode();
 			break;
 			case "Player":
+				if(TutorialShowing)
+				{
+					TutorialOverlay.Animation = "Player";
+				}
 				CMRat.PreventPlayerClicks(false);
 				TopLabel.Text = "Play phase: Play cards";
 				CMSoldier.ReClick();
@@ -186,6 +197,10 @@ public class GameManager : Node2D
 				CMRat.UnClick();
 			break;
 			case "RatAttack":
+				if(TutorialShowing)
+				{
+					TutorialOverlay.Animation = "RatAttack";
+				}
 				CMRat.PreventPlayerClicks(true);
 				TopLabel.Text = "Rats are attacking!!";
 				CMSoldier.UnClick();
@@ -195,6 +210,10 @@ public class GameManager : Node2D
 				AI.StartAttackMode();
 			break;
 			case "Draw":
+				if(TutorialShowing)
+				{
+					TutorialOverlay.Animation = "Draw";
+				}
 				if(Visible)
 				{
 					PlaySFX("Draw");

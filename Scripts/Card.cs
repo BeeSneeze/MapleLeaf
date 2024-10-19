@@ -30,6 +30,8 @@ public class Card : Sprite
 
 	public string OwnerName;
 
+	public bool PreventPlayerClicks = false;
+
 	// Card specifics
 	public int CardID; // Unique identifier. Do % 1000 to get the specific card type
 	public int OwnerID; // If this person dies, remove the card
@@ -579,8 +581,8 @@ public class Card : Sprite
 	}
 
 
-	// MOUSE ACTIONS
-	public void LeftClick()
+	// When the AI Left Clicks cards
+	public void AILeftClick()
 	{
 		if(Clickable && !Skipped)
 		{
@@ -608,23 +610,62 @@ public class Card : Sprite
 		}
 	}
 
+
+	// MOUSE ACTIONS
+	public void LeftClick()
+	{
+		if(Clickable && !Skipped && !PreventPlayerClicks)
+		{
+			if(CanQueue)
+			{
+				GD.Print("TRYING TO QUEUE");
+				ToggleReroll();
+				return;
+			}
+
+			if(Prepped) // Click the second time to execute the play
+			{
+				Prepped = false;
+				Prep(false);
+			}
+			else // The first click preps the play
+			{
+				Big = false;
+				GM.UnBig();
+				BigMode(Big);
+				Prepped = true;
+				Prep(Prepped);
+			}
+			
+		}
+	}
+
 	public void RightClick()
 	{
-		if(Prepped) // Right click to abort play
-		{
-			Prepped = false;
-			Prep(false);
-		}
-		else if(!GM.PrepMode)
+		if(PreventPlayerClicks)
 		{
 			Big = true;
 			BigMode(true);
 		}
+		else
+		{
+			if(Prepped) // Right click to abort play
+			{
+				Prepped = false;
+				Prep(false);
+			}
+			else if(!GM.PrepMode)
+			{
+				Big = true;
+				BigMode(true);
+			}
+		}
+		
 	}
 
 	public void MouseEnter()
 	{
-		if(!GM.PrepMode && !Skipped)
+		if(!GM.PrepMode && !Skipped && !PreventPlayerClicks)
 		{
 			Preview = true;
 			PreviewMode(true);
@@ -634,7 +675,7 @@ public class Card : Sprite
 
 	public void MouseExit()
 	{
-		if(!GM.PrepMode)
+		if(!GM.PrepMode && !PreventPlayerClicks)
 		{
 			Preview = false;
 			PreviewMode(false);

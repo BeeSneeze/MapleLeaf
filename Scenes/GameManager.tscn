@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Assets/Visuals/GameBG.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scripts/AI.cs" type="Script" id=6]
+[ext_resource path="res://Assets/Visuals/TutorialDraw1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Visuals/TutorialDraw2.png" type="Texture" id=8]
 [ext_resource path="res://Themes/END TURN.tres" type="Theme" id=9]
 [ext_resource path="res://Assets/Visuals/LevelComplete.png" type="Texture" id=11]
 [ext_resource path="res://Themes/Miracode.ttf" type="DynamicFontData" id=12]
@@ -72,6 +74,11 @@ font_data = ExtResource( 25 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "Draw",
+"speed": 1.0
+}, {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "DrawTutorial",
@@ -80,6 +87,21 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "None",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Player",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "RatAttack",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "RatMove",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -97,6 +119,7 @@ z_index = -1000
 texture = ExtResource( 4 )
 
 [node name="Board" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.533333, 0.533333, 0.533333, 1 )
 position = Vector2( 960, 540 )
 
 [node name="CardsSoldier" parent="." instance=ExtResource( 3 )]
@@ -207,7 +230,7 @@ valign = 1
 position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
-animation = "DrawTutorial"
+animation = "Player"
 playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]

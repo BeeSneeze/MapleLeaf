@@ -130,7 +130,7 @@ public class AI : Node2D
 
 			if(!SuccessfulAction)
 			{
-				ActiveCard.LeftClick();
+				ActiveCard.AILeftClick();
 				ActiveCard.Skip(true);
 				// UNCLICK CARD BEFORE MOVING ON
 			}
@@ -183,7 +183,7 @@ public class AI : Node2D
 			}
 
 			ClickNum = 2;
-			QueuedActions[0].LeftClick();
+			QueuedActions[0].AILeftClick();
 			QueuedActions.RemoveAt(0);
 			GM.Rotate(QueuedRotations[0]);
 			QueuedRotations.RemoveAt(0);
@@ -300,14 +300,14 @@ public class AI : Node2D
 			{
 				if(A.Name == "Move")
 				{
-					C.LeftClick();
+					C.AILeftClick();
 					ActiveCard = C;
 					return 1;
 					
 				}
 				else if(A.Name == "Spawn")
 				{
-					C.LeftClick();
+					C.AILeftClick();
 					ActiveCard = C;
 					return 2;
 				}
@@ -316,7 +316,7 @@ public class AI : Node2D
 			// Specific card exceptions
 			if(C.CardName == "Coffee")
 			{
-				C.LeftClick();
+				C.AILeftClick();
 				ActiveCard = C;
 				return 3;
 			}
