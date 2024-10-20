@@ -4,7 +4,7 @@
     "Support": ["Jog", "Binoculars", "Duck!", "Distract", "Jog", "Double Agent", "Checkmate!", "Luck"],
     "Rat": ["Scamper", "Scurry", "Scram", "The Rat", "The Master", "The Chef", "The President", "Second Term", "Gerrymander", "Unionize", "Overwhelm",  "Scamper"],
     
-    "Tutorial": ["Right Click", "Tutorial Rat", "Scamper", "Tutorial Rat", "Scamper", "Scamper", "Nap", "Tutorial Rat", "Scamper", "Nap", "Scamper", "Tutorial Rat", "Scamper", "Right Click", "Scamper"],
+    "Tutorial": ["Right Click", "Tutorial Rat", "Scamper", "Tutorial Rat", "Scamper", "Scamper", "Bonk", "Tutorial Rat", "Scamper", "Bonk", "Scamper", "Tutorial Rat", "Bonk", "Right Click", "Scamper"],
 
     "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
     "PoolSoldier": ["Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],

@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Visuals/StoryBG.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Visuals/Slides/StorySlide.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Visuals/Slides/Election4.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Visuals/Slides/NeighborFears.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Visuals/Slides/CanadaForever1.png" type="Texture" id=4]
 [ext_resource path="res://Themes/Story.tres" type="Theme" id=5]
@@ -19,6 +19,11 @@
 [ext_resource path="res://Assets/Visuals/Slides/20492.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Visuals/Slides/2049.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Visuals/Slides/EndingC.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Visuals/Slides/RatRevolution.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Visuals/Slides/RatRevolution1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Visuals/Slides/Election2.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Visuals/Slides/Election3.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Visuals/Slides/Election1.png" type="Texture" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -42,10 +47,10 @@ animations = [ {
 "name": "CanadaForever",
 "speed": 1.2
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 24 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "Elections",
-"speed": 1.5
+"speed": 6.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -72,10 +77,10 @@ animations = [ {
 "name": "Exceptforone",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "Independence",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
@@ -87,7 +92,7 @@ animations = [ {
 "name": "RatsEverywhere",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -103,8 +108,7 @@ texture = ExtResource( 1 )
 [node name="Slides" type="AnimatedSprite" parent="."]
 position = Vector2( 960, 330 )
 frames = SubResource( 1 )
-animation = "EndingD"
-frame = 1
+animation = "Elections"
 playing = true
 
 [node name="Label" type="Label" parent="."]
