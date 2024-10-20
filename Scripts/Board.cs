@@ -505,18 +505,22 @@ public class Board : Node2D
 				break;
 				case '1':
 					Cell[x,y].CreateCharacter("Soldier");
+					Cell[x,y].SetTerrain("Grass");
 					x++;
 				break;
 				case '2':
 					Cell[x,y].CreateCharacter("Sniper");
+					Cell[x,y].SetTerrain("Grass");
 					x++;
 				break;
 				case '3':
 					Cell[x,y].CreateCharacter("Support");
+					Cell[x,y].SetTerrain("Grass");
 					x++;
 				break;
 				case '4':
 					Cell[x,y].CreateCharacter("City");
+					Cell[x,y].SetTerrain("Urban");
 					CityCount++;
 					x++;
 				break;
@@ -524,10 +528,12 @@ public class Board : Node2D
 					if(StageName != "Calgary") // Calgary is the tutorial
 					{
 						Cell[x,y].CreateCharacter("RatNormal");
+						Cell[x,y].SetTerrain("Grass");
 					}
 					else
 					{
 						Cell[x,y].CreateCharacter("RatTutorial");
+						Cell[x,y].SetTerrain("Grass");
 					}
 					
 					x++;

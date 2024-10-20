@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Visuals/TutorialDraw1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Visuals/TutorialDraw2.png" type="Texture" id=8]
 [ext_resource path="res://Themes/END TURN.tres" type="Theme" id=9]
+[ext_resource path="res://Assets/Visuals/TutorialRatMove1.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Visuals/LevelComplete.png" type="Texture" id=11]
 [ext_resource path="res://Themes/Miracode.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Themes/WorldMap.tres" type="Theme" id=13]
@@ -18,6 +19,7 @@
 [ext_resource path="res://EndDraw.tres" type="Theme" id=17]
 [ext_resource path="res://Assets/Visuals/TutorialA1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Visuals/TutorialA2.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Visuals/TutorialRatMove2.png" type="Texture" id=20]
 [ext_resource path="res://Themes/honchokomono-normal-regular.otf" type="DynamicFontData" id=25]
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -76,7 +78,7 @@ font_data = ExtResource( 25 )
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "Draw",
+"name": "Draw1",
 "speed": 1.0
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
@@ -91,18 +93,18 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "Player",
+"name": "Player1",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "RatAttack",
+"name": "RatAttack1",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 10 ), ExtResource( 20 ) ],
 "loop": true,
-"name": "RatMove",
-"speed": 5.0
+"name": "RatMove1",
+"speed": 1.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -230,7 +232,7 @@ valign = 1
 position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
-animation = "Player"
+animation = "Player1"
 playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]

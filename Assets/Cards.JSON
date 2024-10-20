@@ -479,7 +479,7 @@
         "Range": "2",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Enemy",
+        "TargetType": "Single","TargetCell": "Character",
         "AbilityText": "Deal damage, push to the left",
         "FlavorText": "The right tool for the job",
         "AbilityList":  [
@@ -494,7 +494,7 @@
         "Range": "3",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Enemy",
+        "TargetType": "Single","TargetCell": "Character",
         "AbilityText": "Deal damage, push to the right, and stun",
         "FlavorText": "Using your dominant hand helps",
         "AbilityList":  [

@@ -1,16 +1,18 @@
 {
-    "Soldier": ["Walk", "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf"],
-    "Sniper": ["Jog", "Feint", "Jab", "Snipe", "Taunt", "Right Hook", "Pinpoint", "Trap"],
-    "Support": ["Jog", "Jog", "Binoculars", "Duck!", "Distract", "Bribe", "Double Agent", "Checkmate!", "Luck"],
+    "Soldier": ["Walk", "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Golf"],
+    "Sniper": ["Jog", "Feint", "Jab", "Snipe", "Taunt", "Right Hook", "Trap"],
+    "Support": ["Jog", "Binoculars", "Duck!", "Distract", "Jog", "Double Agent", "Checkmate!", "Luck"],
     "Rat": ["Scamper", "Scurry", "Scram", "The Rat", "The Master", "The Chef", "The President", "Second Term", "Gerrymander", "Unionize", "Overwhelm",  "Scamper"],
     
-    "Tutorial": ["Right Click", "Tutorial Rat", "Nap", "Nap", "Scamper", "Nap", "Nap", "Tutorial Rat", "Nap", "Nap", "Scamper", "Tutorial Rat", "Scamper", "Right Click", "Scamper"],
+    "Tutorial": ["Right Click", "Tutorial Rat", "Scamper", "Tutorial Rat", "Scamper", "Scamper", "Nap", "Tutorial Rat", "Scamper", "Nap", "Scamper", "Tutorial Rat", "Scamper", "Right Click", "Scamper"],
 
     "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
     "PoolSoldier": ["Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],
     "PoolSniper": ["Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Taunt", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Pin down", "Trap", "Ambush"],
     "PoolSupport": ["Binoculars", "Trinoculars", "Duck!", "GOOSE!", "Distract", "Diss Track", "Bribe", "Grease", "Double Agent", "Mole", "Checkmate!", "Checkers mate!", "Luck", "F---!"],
+    
     "PoolRatSpawn": ["The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The Rat", "The President", "The President"],
+    
     "PoolRatMove": ["Scamper", "Scurry", "Scram"],
     "PoolRatActionA": ["Scamper", "Scurry", "Scram", "Sneeze", "Overwhelm"],
     "PoolRatActionB": ["Scurry", "Sneeze", "Overwhelm", "Overwhelm"],

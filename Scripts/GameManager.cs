@@ -33,6 +33,7 @@ public class GameManager : Node2D
 	private AnimatedSprite TutorialOverlay;
 	private bool FinalLevel = false;
 	private bool TutorialShowing = true;
+	private int TurnNumber = 1;
 
 	
 	// Called when the node enters the scene tree for the first time.
@@ -94,7 +95,6 @@ public class GameManager : Node2D
 			CMRat.Deck = CMRat.ShufflePile(CMRat.Deck);
 
 		LevelStart();
-		//TurnButtonClicked();
 	}
 
 	// Performs all the setup for the first level after the tutorial
@@ -166,7 +166,7 @@ public class GameManager : Node2D
 			case "RatMove":
 				if(TutorialShowing)
 				{
-					TutorialOverlay.Animation = "RatMove";
+					TutorialOverlay.Animation = "RatMove" + TurnNumber.ToString();
 				}
 				CanvasItem CIBoard = (CanvasItem)Board;
 				CIBoard.Modulate = new Color(1.0f, 1.0f, 1.0f, 1.0f);
@@ -187,7 +187,7 @@ public class GameManager : Node2D
 			case "Player":
 				if(TutorialShowing)
 				{
-					TutorialOverlay.Animation = "Player";
+					TutorialOverlay.Animation = "Player" + TurnNumber.ToString();
 				}
 				CMRat.PreventPlayerClicks(false);
 				TopLabel.Text = "Play phase: Play cards";
@@ -199,7 +199,7 @@ public class GameManager : Node2D
 			case "RatAttack":
 				if(TutorialShowing)
 				{
-					TutorialOverlay.Animation = "RatAttack";
+					TutorialOverlay.Animation = "RatAttack" + TurnNumber.ToString();
 				}
 				CMRat.PreventPlayerClicks(true);
 				TopLabel.Text = "Rats are attacking!!";
@@ -210,9 +210,15 @@ public class GameManager : Node2D
 				AI.StartAttackMode();
 			break;
 			case "Draw":
+				TurnNumber++;
+				if(TurnNumber > 1)
+				{
+					AI.TutorialSuperSlowdown = false;
+				}
+
 				if(TutorialShowing)
 				{
-					TutorialOverlay.Animation = "Draw";
+					TutorialOverlay.Animation = "Draw" + TurnNumber.ToString();
 				}
 				if(Visible)
 				{
@@ -708,7 +714,6 @@ public class GameManager : Node2D
 			{
 				LevelEnd();
 			}
-			
 		}
 	}
 
@@ -813,7 +818,6 @@ public class GameManager : Node2D
 		return CharacterIDCounter * 100 + InInt;
 	}
 
-
 	// Loads an action matrix centered around a character
 	public bool[,] LoadMatrix(string MatrixName, int range)
 	{
@@ -852,12 +856,9 @@ public class GameManager : Node2D
 					y++;
 				break;
 			}
-
 		}
-
 		return OutMat;
 	}
-
 
 	// Rotate a matrix counter clock-wise
 	public void RotCounter(bool[,] InMat)
@@ -927,6 +928,7 @@ public class GameManager : Node2D
 	// Everything needed to set up the new round
 	public void LevelStart()
 	{
+		TurnNumber = 0;
 		CMSoldier.SettingUp = false;
 		CMSniper.SettingUp = false;
 		CMSupport.SettingUp = false;
