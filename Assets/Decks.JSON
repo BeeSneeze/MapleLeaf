@@ -1,5 +1,5 @@
 {
-    "Soldier": ["Walk", "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Golf"],
+    "Soldier": ["Walk", "Alpha", "Bravo", "Delta", "Charlie", "Echo", "Golf"],
     "Sniper": ["Jog", "Feint", "Jab", "Snipe", "Taunt", "Right Hook", "Trap"],
     "Support": ["Jog", "Binoculars", "Duck!", "Distract", "Jog", "Double Agent", "Checkmate!", "Luck"],
     "Rat": ["Scamper", "Scurry", "Scram", "The Rat", "The Master", "The Chef", "The President", "Second Term", "Gerrymander", "Unionize", "Overwhelm",  "Scamper"],

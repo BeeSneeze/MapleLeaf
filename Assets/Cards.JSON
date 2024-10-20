@@ -663,7 +663,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
-        "AbilityText": "",
+        "AbilityText": "Make target movable",
         "FlavorText":  "A little bit of love, and a lot of lard",
         "AbilityList":  [
             {"Name":"Stun", "Effect": "1"},
@@ -678,7 +678,7 @@
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "EnemyNoCity",
-        "AbilityText": "",
+        "AbilityText": "Swap places with a rat",
         "FlavorText":  "They'll never see it coming",
         "AbilityList":  [{"Name":"Swap", "Effect": "-"}],
         "SecondaryList":  []
