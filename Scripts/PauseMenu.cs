@@ -30,7 +30,6 @@ public class PauseMenu : Node2D
 	{
 		LM = GetParent<LevelManager>();
 		LM.ChangeLevel("MainMenu");
-		
 	}
 
 	public void ToggleMainMenuButton(bool InBool)

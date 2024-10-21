@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -20,6 +20,10 @@
 [ext_resource path="res://Assets/Visuals/TutorialA1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Visuals/TutorialA2.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Visuals/TutorialRatMove2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Visuals/TutorialPlayer1.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Visuals/TutorialPlayer2.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Visuals/TutorialRatAttack2.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Visuals/TutorialRatAttack1.png" type="Texture" id=24]
 [ext_resource path="res://Themes/honchokomono-normal-regular.otf" type="DynamicFontData" id=25]
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -91,12 +95,12 @@ animations = [ {
 "name": "None",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "Player1",
-"speed": 5.0
+"speed": 7.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 24 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "RatAttack1",
 "speed": 5.0
@@ -232,7 +236,7 @@ valign = 1
 position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
-animation = "Player1"
+animation = "RatAttack1"
 playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]

@@ -97,12 +97,14 @@ position = Vector2( 334, 683 )
 scale = Vector2( -1, 1 )
 frames = SubResource( 2 )
 animation = "Coffee"
+frame = 1
 playing = true
 
 [node name="Mug2" type="AnimatedSprite" parent="."]
 position = Vector2( 619, 678 )
 frames = SubResource( 2 )
 animation = "Coffee"
+frame = 1
 speed_scale = 0.9
 playing = true
 
@@ -110,7 +112,6 @@ playing = true
 position = Vector2( 1597, 690 )
 frames = SubResource( 2 )
 animation = "Coffee"
-frame = 1
 speed_scale = 1.1
 playing = true
 
@@ -119,7 +120,6 @@ position = Vector2( 1350, 923 )
 scale = Vector2( -0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "Coffee"
-frame = 1
 playing = true
 
 [node name="Mug5" type="AnimatedSprite" parent="."]
@@ -127,7 +127,6 @@ position = Vector2( 1472, 930 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "Coffee"
-frame = 1
 speed_scale = 0.8
 playing = true
 
