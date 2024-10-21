@@ -46,7 +46,7 @@
     {
         "ID": "13",
         "MaxHP": "3",
-        "Names":["Zip", "Zap", "Speedy"]
+        "Names":["Zip", "Zap", "Zep", "Zop", "Zup", "Zwep"]
     },
     "RatChef":
     {
@@ -70,7 +70,7 @@
     {
         "ID": "17",
         "MaxHP": "4",
-        "Names":["Mr. A", "Mr. B", "Mr. C", "Ms. D", "Ms. E", "Ms. F"]
+        "Names":["Mr. A", "Mr. B", "Mr. C", "Ms. D", "Ms. E", "Ms. F", "Mx. G", "Mx. H", "Mx. I"]
     },
     "RatPresident":
     {

@@ -109,7 +109,7 @@ texture = ExtResource( 1 )
 position = Vector2( 960, 330 )
 frames = SubResource( 1 )
 animation = "Elections"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="."]
@@ -118,7 +118,7 @@ margin_top = 675.0
 margin_right = 1410.0
 margin_bottom = 1000.0
 theme = ExtResource( 5 )
-text = "But there's nothing bad about that, eh?"
+text = "Story text here"
 align = 1
 autowrap = true
 

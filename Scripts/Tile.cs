@@ -441,6 +441,10 @@ public class Tile : Node2D
 			LabelBox.Show();
 			HPNode.Show();
 		}
+		if(Char.ID % 100 == 51)
+		{
+			HPNode.Show();
+		}
 	}
 
 	public void MouseExit()

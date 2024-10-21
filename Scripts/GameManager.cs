@@ -784,7 +784,6 @@ public class GameManager : Node2D
 			{
 				MatRange += 1;
 			}
-
 			if(MatRange > 7)
 			{
 				MatRange = 7;
