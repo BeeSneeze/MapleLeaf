@@ -766,32 +766,7 @@
 
     
 
-    "Right Click":
-    {   
-        "ID": "531",
-        "MatrixName": "Global",
-        "Range": "1",
-        "Uses": "1",
-        "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText":  "",
-        "FlavorText":  "If you right click cards, you get a detailed explanation for what they do!",
-        "AbilityList":  [],
-        "SecondaryList":  []
-    },
-    "Bonk":
-    {   
-        "ID": "530",
-        "MatrixName": "Line",
-        "Range": "3",
-        "Uses": "1",
-        "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText":  "Does no damage",
-        "FlavorText":  "Look out, the rats are attacking!",
-        "AbilityList":  [{"Name": "Damage", "Effect": "0"}],
-        "SecondaryList":  []
-    },
+    
     "Nap":
     {   
         "ID": "500",
@@ -875,65 +850,10 @@
             {"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
-    "Electrocute":
-    {   
-        "ID": "510",
-        "MatrixName": "Full",
-        "Range": "2",
-        "Uses": "1",
-        "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText":  "",
-        "FlavorText":  "\n BZZZZT",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
-    },
-    "Unionize":
-    {   
-        "ID": "511",
-        "MatrixName": "Full",
-        "Range": "2",
-        "Uses": "1",
-        "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText":  "",
-        "FlavorText":  "Working rats of the world, unite!",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
-    },
-    "Plagiarize":
-    {   
-        "ID": "512",
-        "MatrixName": "Full",
-        "Range": "2",
-        "Uses": "1",
-        "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText":  "",
-        "FlavorText":  "Hey look at this thing I made!",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
-    },
-    "Cheese":
-    {   
-        "ID": "513",
-        "MatrixName": "Full",
-        "Range": "2",
-        "Uses": "1",
-        "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText":  "",
-        "FlavorText":  "Yum!",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
-    },
+
     "Sneeze":
     {   
-        "ID": "514",
+        "ID": "507",
         "MatrixName": "Cone",
         "Range": "2",
         "Uses": "1",
@@ -946,9 +866,117 @@
             {"Name":"Shuffle", "Effect": "Sneeze"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
+    
+
+    "Right Click":
+    {   
+        "ID": "510",
+        "MatrixName": "Global",
+        "Range": "1",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "If you right click cards, you get a detailed explanation for what they do!",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
+    "Bonk":
+    {   
+        "ID": "511",
+        "MatrixName": "Line",
+        "Range": "3",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "Does no damage",
+        "FlavorText":  "Look out, the rats are attacking!",
+        "AbilityList":  [{"Name": "Damage", "Effect": "0"}],
+        "SecondaryList":  []
+    },
+    "Evil Scheming":
+    {   
+        "ID": "512",
+        "MatrixName": "Line",
+        "Range": "1",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "Does nothing",
+        "FlavorText":  "The rats are contemplating their moves, look out!",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
+
+
+
+    
+    "Electrocute":
+    {   
+        "ID": "520",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "\n BZZZZT",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+    "Catalyze":
+    {   
+        "ID": "521",
+        "MatrixName": "None",
+        "Range": "1",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Friendly",
+        "AbilityText":  "",
+        "FlavorText":  "Energize your allies!",
+        "AbilityList":  [],
+        "SecondaryList":  [
+            {"Name":"Draw", "Effect": "Rat"},
+            {"Name":"Draw", "Effect": "Rat"}]
+    },
+
+
+
+
+    "Unionize":
+    {   
+        "ID": "531",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "Working rats of the world, unite!",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+
+
+    "Plagiarize":
+    {   
+        "ID": "550",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "Hey look at this thing I made!",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Gerrymander":
     {   
-        "ID": "515",
+        "ID": "551",
         "MatrixName": "Cone",
         "Range": "2",
         "Uses": "1",
@@ -961,35 +989,38 @@
             {"Name":"Shuffle", "Effect": "Sneeze"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
+    
+
+    "Cheese":
+    {   
+        "ID": "560",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "Yum!",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
     "Coffee":
     {   
-        "ID": "516",
-        "MatrixName": "Cone",
-        "Range": "2",
+        "ID": "561",
+        "MatrixName": "Full",
+        "Range": "3",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Friendly",
         "AbilityText":  "",
         "FlavorText":  "Even rats need a pick-me-up sometimes",
-        "AbilityList":  [],
+        "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
         "SecondaryList":  [
-            {"Name":"Draw", "Effect": "Rat"},
             {"Name":"Draw", "Effect": "Rat"}]
     },
 
-    "Evil Scheming":
-    {   
-        "ID": "517",
-        "MatrixName": "Line",
-        "Range": "1",
-        "Uses": "1",
-        "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText":  "Does nothing",
-        "FlavorText":  "The rats are contemplating their moves, look out!",
-        "AbilityList":  [],
-        "SecondaryList":  []
-    },
+    
 
     
 
@@ -1055,7 +1086,7 @@
             {"Name":"Spawn", "Effect": "RatSparky"}],
         "SecondaryList":  [
             {"Name":"Shuffle", "Effect": "Rat:Electrocute"},
-            {"Name":"Shuffle", "Effect": "Rat:Electrocute"}]
+            {"Name":"Shuffle", "Effect": "Rat:Catalyze"}]
     },
     "The Master":
     {   

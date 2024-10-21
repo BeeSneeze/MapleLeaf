@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://Assets/Visuals/TutorialRatAttack2.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Visuals/TutorialRatAttack1.png" type="Texture" id=24]
 [ext_resource path="res://Themes/honchokomono-normal-regular.otf" type="DynamicFontData" id=25]
+[ext_resource path="res://Assets/Visuals/TutorialPlayer3.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Visuals/TutorialPlayer4.png" type="Texture" id=27]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -100,7 +102,7 @@ animations = [ {
 "name": "Player1",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 26 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Player2",
 "speed": 5.0

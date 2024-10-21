@@ -322,7 +322,7 @@ public class AI : Node2D
 			}
 
 			// Specific card exceptions
-			if(C.CardName == "Coffee")
+			if(C.CardName == "Coffee" || C.CardName == "Catalyze")
 			{
 				C.AILeftClick();
 				ActiveCard = C;
