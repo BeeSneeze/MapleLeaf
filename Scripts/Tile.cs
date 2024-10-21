@@ -61,7 +61,7 @@ public class Tile : Node2D
 			if(Char.ID % 100 < 10) // Player characters just get stunned
 			{
 				PlayEffect("Explosion"); 
-				AddModifier("Stun", 2);
+				AddModifier("Stun", 1); // Only stun this turn
 				Char.HP = Char.MaxHP;
 			}
 			else if(Char.ID % 100 == 51) // Cities spawn some rubble
