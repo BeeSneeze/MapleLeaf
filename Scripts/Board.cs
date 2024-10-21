@@ -220,21 +220,21 @@ public class Board : Node2D
 				// Show moves that would be possible, if only the right characters were present on those tiles
 				if(PossibleMat[x,y])
 				{
-					switch(Card.AbilityList[0].Name)
+					switch(Card.CardFlavor)
 					{
 						case "Move":
+							Cell[x,y].SetMarker("PossibleMove");
+						break;
+						case "MoveRat":
 							Cell[x,y].SetMarker("PossibleMove");
 						break;
 						case "Damage":
 							Cell[x,y].SetMarker("PossibleAttack");
 						break;
-						case "Stun":
+						case "Harm":
 							Cell[x,y].SetMarker("PossibleHarm");
 						break;
-						case "Swap":
-							Cell[x,y].SetMarker("PossibleHarm");
-						break;
-						case "Spawn":
+						case "Rat":
 							Cell[x,y].SetMarker("PossibleSpawn");
 						break;
 					}
@@ -255,21 +255,21 @@ public class Board : Node2D
 					}
 
 
-					switch(Card.AbilityList[0].Name)
+					switch(Card.CardFlavor)
 					{
 						case "Move":
+							Cell[x,y].SetMarker("Move");
+						break;
+						case "MoveRat":
 							Cell[x,y].SetMarker("Move");
 						break;
 						case "Damage":
 							Cell[x,y].SetMarker("Attack");
 						break;
-						case "Stun":
+						case "Harm":
 							Cell[x,y].SetMarker("Harm");
 						break;
-						case "Swap":
-							Cell[x,y].SetMarker("Harm");
-						break;
-						case "Spawn":
+						case "Rat":
 							Cell[x,y].SetMarker("Spawn");
 						break;
 					}

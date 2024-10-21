@@ -136,6 +136,12 @@ public class Card : Sprite
 						CardFlavor = "Harm";
 					}
 				break;
+				case "Shuffle":
+					if(CardFlavor!="Damage")
+					{
+						CardFlavor = "Harm";
+					}
+				break;
 				case "Damage":
 					CardFlavor = "Damage";
 				break;

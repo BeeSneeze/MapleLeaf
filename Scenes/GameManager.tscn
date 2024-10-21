@@ -73,7 +73,7 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=5]
-size = 70
+size = 40
 font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -217,13 +217,14 @@ frames = SubResource( 4 )
 animation = "Draw"
 
 [node name="HP" type="Label" parent="."]
-margin_left = 583.0
-margin_top = 962.0
-margin_right = 748.0
-margin_bottom = 1048.0
+margin_left = 570.0
+margin_top = 925.0
+margin_right = 833.0
+margin_bottom = 1066.0
 theme = ExtResource( 15 )
 custom_fonts/font = SubResource( 5 )
-text = "HP: 5"
+text = "City strength:
+5/5"
 align = 1
 valign = 1
 
@@ -244,6 +245,7 @@ position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
 animation = "Player2"
+frame = 1
 playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]

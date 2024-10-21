@@ -866,7 +866,7 @@
             {"Name":"Shuffle", "Effect": "Sneeze"}],
         "SecondaryList":  [{"Name":"Exhaust", "Effect": "Safe"}]
     },
-    
+
 
     "Right Click":
     {   
@@ -941,12 +941,42 @@
             {"Name":"Draw", "Effect": "Rat"}]
     },
 
+    "Smoke bomb":
+    {   
+        "ID": "530",
+        "MatrixName": "Full",
+        "Range": "2",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "Shuffles several smoke cards into target deck",
+        "FlavorText":  "At least it *only* hurts your eyes...",
+        "AbilityList":  [
+            {"Name":"Shuffle", "Effect": "Smoke"},
+            {"Name":"Shuffle", "Effect": "Smoke"},
+            {"Name":"Shuffle", "Effect": "Smoke"}],
+        "SecondaryList":  []
+    },
+    "Smoke":
+    {   
+        "ID": "531",
+        "MatrixName": "None",
+        "Range": "1",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "None",
+        "AbilityText":  "Does nothing, remove upon being discarded",
+        "FlavorText":  "It'll disperse quickly",
+        "AbilityList":  [],
+        "SecondaryList":  [{"Name":"Exhaust", "Effect": "Forced"}]
+    },
+
 
 
 
     "Unionize":
     {   
-        "ID": "531",
+        "ID": "538",
         "MatrixName": "Full",
         "Range": "2",
         "Uses": "1",

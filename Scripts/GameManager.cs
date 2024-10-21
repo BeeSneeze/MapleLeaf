@@ -915,14 +915,14 @@ public class GameManager : Node2D
 
 	public void SetHP(int InHP)
 	{
-		LevelHP = InHP;
-		Label HPLabel = GetNode<Label>("HP");
-		HPLabel.Text = "HP: " + LevelHP.ToString();
-
 		if(Turn == "None")
 		{
 			MaxLevelHP = InHP;
 		}
+
+		LevelHP = InHP;
+		Label HPLabel = GetNode<Label>("HP");
+		HPLabel.Text = "City strength:\n" + LevelHP.ToString() + "/" + MaxLevelHP.ToString();
 
 		if(LevelHP <= 0)
 		{
