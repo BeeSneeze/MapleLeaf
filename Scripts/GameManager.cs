@@ -197,6 +197,12 @@ public class GameManager : Node2D
 				CMRat.UnClick();
 			break;
 			case "RatAttack":
+				if(TurnNumber == 2)
+				{
+					TutorialShowing = false;
+					TutorialOverlay.Animation = "None";
+				}
+
 				if(TutorialShowing)
 				{
 					TutorialOverlay.Animation = "RatAttack" + TurnNumber.ToString();
@@ -997,14 +1003,14 @@ public class GameManager : Node2D
 				return;
 			}
 		}
-		foreach(int CID in CMRat.Deck)
+		foreach(int CID in CMRat.Hand)
 		{
 			if(CID % 1000 >= 600)
 			{
 				return;
 			}
 		}
-		foreach(int CID in CMRat.Deck)
+		foreach(int CID in CMRat.Discard)
 		{
 			if(CID % 1000 >= 600)
 			{

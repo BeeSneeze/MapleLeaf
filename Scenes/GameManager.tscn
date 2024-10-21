@@ -17,8 +17,8 @@
 [ext_resource path="res://Themes/PauseMenu.tres" type="Theme" id=15]
 [ext_resource path="res://Themes/Keep Cheese.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://EndDraw.tres" type="Theme" id=17]
-[ext_resource path="res://Assets/Visuals/TutorialA1.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Visuals/TutorialA2.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Visuals/TutorialDraw3.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Visuals/TutorialDraw4.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Visuals/TutorialRatMove2.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Visuals/TutorialPlayer1.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Visuals/TutorialPlayer2.png" type="Texture" id=22]
@@ -87,8 +87,8 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
-"name": "DrawTutorial",
-"speed": 2.0
+"name": "Draw2",
+"speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -99,6 +99,11 @@ animations = [ {
 "loop": true,
 "name": "Player1",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Player2",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ), ExtResource( 23 ) ],
 "loop": true,
@@ -112,7 +117,7 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "default",
+"name": "RatMove2",
 "speed": 5.0
 } ]
 
@@ -236,7 +241,7 @@ valign = 1
 position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
-animation = "RatAttack1"
+animation = "Player2"
 playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]

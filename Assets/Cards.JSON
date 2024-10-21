@@ -107,6 +107,19 @@
         "AbilityList":  [],
         "SecondaryList":  []
     },
+    "Garbage":
+    {   
+        "ID": "13",
+        "MatrixName": "None",
+        "Range": "1",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Empty",
+        "AbilityText":  "Does nothing",
+        "FlavorText":  "Discard this card",
+        "AbilityList":  [],
+        "SecondaryList":  []
+    },
 
 
 
