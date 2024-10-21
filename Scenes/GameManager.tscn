@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -27,6 +27,8 @@
 [ext_resource path="res://Themes/honchokomono-normal-regular.otf" type="DynamicFontData" id=25]
 [ext_resource path="res://Assets/Visuals/TutorialPlayer3.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Visuals/TutorialPlayer4.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Visuals/TutorialCardSelect.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Visuals/TutorialCardPlay.png" type="Texture" id=29]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -120,6 +122,24 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "RatMove2",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "None",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), null ],
+"loop": false,
+"name": "Played",
+"speed": 0.5
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "Selected",
 "speed": 5.0
 } ]
 
@@ -245,7 +265,13 @@ position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
 animation = "Player2"
-frame = 1
+playing = true
+
+[node name="PlayTutorial" type="AnimatedSprite" parent="."]
+position = Vector2( 960, 540 )
+z_index = 1001
+frames = SubResource( 8 )
+animation = "None"
 playing = true
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]

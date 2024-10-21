@@ -35,10 +35,13 @@ public class GameManager : Node2D
 	private bool TutorialShowing = true;
 	private int TurnNumber = 1;
 
+	private AnimatedSprite PlayTutorial;
+
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		PlayTutorial = GetNode<AnimatedSprite>("PlayTutorial");
 		TutorialOverlay = GetNode<AnimatedSprite>("TutorialOverlay");
 		EndTurnButton = GetNode<CanvasItem>("EndTurn");
 		EndDrawButton = GetNode<CanvasItem>("EndDraw");
@@ -358,6 +361,11 @@ public class GameManager : Node2D
 	// Prepares a card for play
 	public void PrepPlay(Card Card)
 	{
+		if(TutorialShowing && TurnNumber == 1 && Turn == "Player")
+		{
+			PlayTutorial.Animation = "Selected";
+		}
+
 		ActionLabel.Text = Card.CardName + "\n" + " selected";
 		PrepMode = true;
 		Rot = "Up";
@@ -378,6 +386,10 @@ public class GameManager : Node2D
 		if(RemoveActionText)
 		{
 			ActionLabel.Text = "";
+			if(TutorialShowing && TurnNumber == 1 && Turn == "Player")
+			{
+				PlayTutorial.Animation = "None";
+			}
 		}
 
 		Board.ClearMarkers();
@@ -388,6 +400,12 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
+
+		if(TutorialShowing && TurnNumber == 1 && Turn == "Player")
+		{
+			PlayTutorial.Animation = "Played";
+		}
+
 		ActionLabel.Text = CurrentCard.CardName + "\n" + " played!";
 
 		switch(CurrentCard.CardFlavor)
@@ -763,6 +781,9 @@ public class GameManager : Node2D
 	// Visualizes what a card does, but without playing it
 	public void ShowPlay(Card Card)
 	{
+		
+
+
 		if(Card.MatrixName == "Global")
 		{
 			CurrentMatrix = new bool[15,15];
