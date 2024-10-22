@@ -33,6 +33,13 @@ public class Tile : Node2D
 		UpdateHealthBar();
 	}
 
+	public void ShowHelp(string InString)
+	{
+		AnimatedSprite HelpArrows = GetNode<AnimatedSprite>("HelpArrows");
+
+		HelpArrows.Animation = InString;
+	}
+
 	// Creates a specific terrain for a tile
 	public void SetTerrain(string InString)
 	{

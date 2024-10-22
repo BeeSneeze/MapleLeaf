@@ -333,6 +333,13 @@ public class GameManager : Node2D
 	public void Rotate(string RotDir)
 	{
 		Rot = RotDir;
+		if(TutorialShowing)
+		{
+			Vector2 PPos = Board.GetCharPos(CurrentCard.PlayerID);
+			Board.Cell[(int)PPos.x, (int)PPos.y].ShowHelp(RotDir);
+		}
+		
+
 		switch(RotDir)
 		{
 			case "Up":
@@ -366,6 +373,8 @@ public class GameManager : Node2D
 			PlayTutorial.Animation = "Selected";
 		}
 
+		
+
 		ActionLabel.Text = Card.CardName + "\n" + " selected";
 		PrepMode = true;
 		Rot = "Up";
@@ -375,6 +384,13 @@ public class GameManager : Node2D
 	// Enables clicking for all cards again, and clears the board
 	public void UnPrep(bool ForceUnprep = false, bool RemoveActionText = true)
 	{
+		if(CurrentLoaded)
+		{
+			Vector2 PlayerPos = Board.GetCharPos(CurrentCard.PlayerID);
+			Board.Cell[(int)PlayerPos.x, (int)PlayerPos.y].ShowHelp("None");
+		}
+		
+
 		if(ForceUnprep)
 		{
 			CMSoldier.UnPrep();
@@ -389,6 +405,7 @@ public class GameManager : Node2D
 			if(TutorialShowing && TurnNumber == 1 && Turn == "Player")
 			{
 				PlayTutorial.Animation = "None";
+				
 			}
 		}
 
@@ -400,6 +417,10 @@ public class GameManager : Node2D
 	// Plays a card and its abilities
 	public void ExecutePlay()
 	{
+
+		Vector2 PlayerPos = Board.GetCharPos(CurrentCard.PlayerID);
+		Board.Cell[(int)PlayerPos.x, (int)PlayerPos.y].ShowHelp("None");
+		
 
 		if(TutorialShowing && TurnNumber == 1 && Turn == "Player")
 		{
