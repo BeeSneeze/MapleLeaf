@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Visuals/MainMenuBG.png" type="Texture" id=1]
 [ext_resource path="res://Themes/MainMenu.tres" type="Theme" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/Visuals/CoverSniper1.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Visuals/CoverSniper3.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Visuals/CoverSniper2.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/DiscordButton.tscn" type="PackedScene" id=21]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -109,7 +110,6 @@ frames = SubResource( 1 )
 position = Vector2( 1317, 824 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 2 )
-frame = 1
 speed_scale = 0.9
 playing = true
 
@@ -117,7 +117,6 @@ playing = true
 position = Vector2( 1301, 909 )
 scale = Vector2( 0.95, 0.95 )
 frames = SubResource( 2 )
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( 97, -41 )
@@ -149,6 +148,7 @@ rotation = -0.675442
 scale = Vector2( 0.260584, 0.253133 )
 frames = SubResource( 2 )
 animation = "TreeRat"
+frame = 1
 speed_scale = 0.868
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -159,7 +159,6 @@ rotation = -0.432842
 scale = Vector2( 0.222405, 0.228903 )
 frames = SubResource( 2 )
 animation = "TreeRat"
-frame = 1
 speed_scale = 0.868
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -170,7 +169,6 @@ rotation = 0.0645772
 scale = Vector2( 0.25828, 0.276142 )
 frames = SubResource( 2 )
 animation = "TreeRat"
-frame = 1
 speed_scale = 0.868
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -181,6 +179,7 @@ rotation = 0.47473
 scale = Vector2( 0.216908, 0.214572 )
 frames = SubResource( 2 )
 animation = "TreeRat"
+frame = 1
 speed_scale = 0.868
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -193,7 +192,6 @@ position = Vector2( 520, 894 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 0.868
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -212,6 +210,7 @@ position = Vector2( 794, 972 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.95
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -231,6 +230,7 @@ position = Vector2( 613, 968 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -240,7 +240,6 @@ position = Vector2( 990, 854 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -251,7 +250,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -262,6 +260,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -272,7 +271,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.07
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -283,6 +281,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.99
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -295,7 +294,6 @@ position = Vector2( 519, 914 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 0.868
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -314,6 +312,7 @@ position = Vector2( 782, 959 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.95
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -332,7 +331,6 @@ position = Vector2( 620, 980 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -357,13 +355,18 @@ margin_top = 24.0
 margin_right = 1893.0
 margin_bottom = 68.0
 theme = ExtResource( 12 )
-text = "Version 0.4"
+text = "Version 0.5"
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="."]
 position = Vector2( 1621, 409 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
+
+[node name="Node2D" parent="." instance=ExtResource( 21 )]
+position = Vector2( 678, 540 )
+scale = Vector2( 0.6, 0.6 )
+frame = 12
 
 [connection signal="pressed" from="Button" to="." method="StartButton"]
