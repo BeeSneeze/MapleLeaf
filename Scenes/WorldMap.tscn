@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Visuals/WorldMap1080.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/CityMarker.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/PauseButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/WorldMap.cs" type="Script" id=4]
 [ext_resource path="res://Scenes/CardShop.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Visuals/PickOne.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Visuals/WorlMapOverlay1.png" type="Texture" id=6]
 [ext_resource path="res://Themes/WorldMap.tres" type="Theme" id=7]
+[ext_resource path="res://Assets/Visuals/WorlMapOverlay2.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -26,48 +27,58 @@ texture = ExtResource( 1 )
 
 [node name="Edmonton" parent="." instance=ExtResource( 2 )]
 position = Vector2( 244.8, 150 )
+frame = 2
 CityName = "Edmonton"
 
 [node name="Calgary" parent="." instance=ExtResource( 2 )]
 position = Vector2( 226.8, 294 )
+frame = 2
 CityName = "Calgary"
 
 [node name="Regina" parent="." instance=ExtResource( 2 )]
 position = Vector2( 537.6, 334.8 )
+frame = 2
 CityName = "Regina"
 
 [node name="Winnipeg" parent="." instance=ExtResource( 2 )]
 position = Vector2( 817.2, 352.8 )
+frame = 2
 CityName = "Winnipeg"
 
 [node name="Minneapolis" parent="." instance=ExtResource( 2 )]
 position = Vector2( 962.4, 628.8 )
+frame = 2
 CityName = "Minneapolis"
 
 [node name="Kansas City" parent="." instance=ExtResource( 2 )]
 position = Vector2( 902.4, 937.2 )
+frame = 2
 CityName = "Kansas City"
 
 [node name="Indianapolis" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1204.8, 864 )
+frame = 2
 CityName = "Indianapolis"
 
 [node name="Toronto" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1441.2, 693.6 )
+frame = 2
 CityName = "Toronto"
 
 [node name="Ottawa" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1561.2, 602.4 )
+frame = 2
 CityName = "Ottawa"
 
 [node name="Montreal" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1653.6, 590.4 )
+frame = 2
 CityName = "Montreal"
 
 [node name="New York City" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1650, 837.6 )
 animation = "Boss"
-frame = 1
+frame = 2
 CityName = "New York City"
 
 [node name="Button" type="Button" parent="."]
@@ -88,10 +99,10 @@ position = Vector2( 454, 668 )
 position = Vector2( 1486, 286 )
 
 [node name="PickOne" type="AnimatedSprite" parent="."]
-position = Vector2( 966, 469 )
-rotation = -0.95644
-scale = Vector2( 0.8, 0.8 )
+position = Vector2( 960, 540 )
 z_index = 100
 frames = SubResource( 1 )
+frame = 1
+playing = true
 
 [connection signal="pressed" from="Button" to="." method="StartLevel"]
