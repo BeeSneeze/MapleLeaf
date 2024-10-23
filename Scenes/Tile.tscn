@@ -220,6 +220,7 @@ texture = ExtResource( 1 )
 z_index = -10
 frames = SubResource( 2 )
 animation = "Select"
+frame = 1
 playing = true
 
 [node name="Character" type="AnimatedSprite" parent="."]
@@ -280,6 +281,7 @@ valign = 1
 visible = false
 frames = SubResource( 5 )
 animation = "City"
+frame = 1
 playing = true
 
 [node name="HelpArrows" type="AnimatedSprite" parent="."]

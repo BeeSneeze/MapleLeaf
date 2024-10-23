@@ -334,7 +334,7 @@ public class Tile : Node2D
 
 	public void AddModifier(string ModName, int ModTime)
 	{
-		if(!Char.ContainsModifier(ModName))
+		if(!Char.ContainsModifier(ModName) && Char.ID % 100 != 0)
 		{
 			Char.AddModifier(ModName, ModTime);
 			ShowModifier(ModName);

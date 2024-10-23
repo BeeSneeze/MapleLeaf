@@ -337,6 +337,11 @@ public class GameManager : Node2D
 		{
 			Vector2 PPos = Board.GetCharPos(CurrentCard.PlayerID);
 			Board.Cell[(int)PPos.x, (int)PPos.y].ShowHelp(RotDir);
+			if(PlayTutorial.Animation == "Selected" && RotDir != "Left")
+			{
+				PlayTutorial.Animation = "Rotated";
+			}
+			
 		}
 		
 
