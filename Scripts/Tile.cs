@@ -82,6 +82,7 @@ public class Tile : Node2D
 				if(Char.ID % 100 > 9 && Char.ID % 100 < 50)
 				{
 					GM.RatIDList.Remove(Char.ID);
+					GM.CMRat.KillOwnerCards(Char.ID);
 					GM.CheckWin();
 				}
 

@@ -35,7 +35,7 @@ public class AI : Node2D
 
 	private List<int[,]> AttackRatPatches = new List<int[,]>();
 
-	private List<Card> QueuedActions = new List<Card>();
+	public List<Card> QueuedActions = new List<Card>();
 	private List<string> QueuedRotations = new List<string>();
 
 	// Called when the node enters the scene tree for the first time.

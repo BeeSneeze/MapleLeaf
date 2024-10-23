@@ -243,7 +243,7 @@ public class CardShop : Node2D
 				}
 				else
 				{
-					CC.OwnerID = 520; // TEMP ID
+					CC.OwnerID = 20; // TEMP ID
 				}
 				
 			break;

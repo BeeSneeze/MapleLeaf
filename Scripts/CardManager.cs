@@ -243,7 +243,7 @@ public class CardManager : Node2D
 				}
 				else
 				{
-					CC.OwnerID = 520; // TEMP ID
+					CC.OwnerID = 20; // TEMP ID
 				}
 				
 			break;
@@ -358,6 +358,11 @@ public class CardManager : Node2D
 		Hand.Remove(InCard.CardID);
 		HandCards.Remove(InCard);
 
+		if(OwnerName == "Rat")
+		{
+			GM.AI.QueuedActions.Remove(InCard);
+		}
+
 		LoadCardEffect("Exhaust", InCard);
 
 		InCard.QueueFree();
@@ -377,6 +382,70 @@ public class CardManager : Node2D
 		{
 			C.PreventPlayerClicks = Prevent;
 		}
+	}
+
+	public void KillOwnerCards(int OwnerID)
+	{
+		GD.Print("Attempted to kill cards: " + OwnerID.ToString());
+
+		// Remove all deck cards
+		List<int> RemoveIDS = new List<int>();
+		foreach(int LID in Deck)
+		{
+			if(ActiveCards[LID].OwnerID == OwnerID)
+			{
+				RemoveIDS.Add(LID);
+				GD.Print("FOUND A CARD TO KILL");
+			}
+		}
+		foreach(int RemoveID in RemoveIDS)
+		{
+			Deck.Remove(RemoveID);
+		}
+
+
+		// Remove all hand cards
+		RemoveIDS = new List<int>();
+		foreach(int LID in Hand)
+		{
+			if(ActiveCards[LID].OwnerID == OwnerID)
+			{
+				RemoveIDS.Add(LID);
+				GD.Print("FOUND A CARD TO KILL");
+			}
+		}
+		foreach(int RemoveID in RemoveIDS)
+		{
+			int n = 0;
+			// Remove the card from the hand
+			while(n < HandCards.Count)
+			{
+				if(HandCards[n].CardID == RemoveID)
+				{
+					ExhaustCard(HandCards[n]);
+					break;
+				}
+				n++;
+			}
+		}
+
+
+		// Remove all discard cards
+		RemoveIDS = new List<int>();
+		foreach(int LID in Discard)
+		{
+			if(ActiveCards[LID].OwnerID == OwnerID)
+			{
+				RemoveIDS.Add(LID);
+				GD.Print("FOUND A CARD TO KILL");
+			}
+		}
+		foreach(int RemoveID in RemoveIDS)
+		{
+			Discard.Remove(RemoveID);
+		}
+
+		UpdateLabels();
 	}
 
 	// UnPreps all cards

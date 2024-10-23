@@ -349,7 +349,7 @@ public class Card : Sprite
 			AmmoOn = "0";
 		}
 
-		if(OwnerID < 400)
+		if(OwnerID < 400 && CardFlavor != "Rat")
 		{
 			MiddleOn = "0";
 		}
