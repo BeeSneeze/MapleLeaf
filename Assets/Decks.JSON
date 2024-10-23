@@ -1,10 +1,10 @@
 {
-    "Soldier": ["Walk", "Alpha", "Bravo", "Delta", "Charlie", "Golf", "Alpha", "Bravo"],
+    "Soldier": ["Flamenco", "Walk", "Alpha", "Bravo", "Delta", "Charlie", "Golf", "Alpha", "Bravo"],
     "Sniper": ["Jog", "Feint", "Jab", "Snipe", "Jab", "Feint", "Trap", "Garbage"],
     "Support": ["Run", "Binoculars", "Duck!", "Distract", "Jog", "Double Agent", "Checkmate!", "Luck"],
-    "Rat": ["Scamper", "Scurry", "Scram", "The Rat", "The Master", "The Chef", "The President", "Second Term", "Gerrymander", "Unionize", "Overwhelm",  "Scamper"],
+    "Rat": ["Scamper", "Scurry", "The Rat", "The Chef", "The President", "Second Term", "Gerrymander", "Unionize", "Overwhelm",  "Scamper"],
     
-    "Tutorial": ["Right Click", "Tutorial Rat", "Scamper", "Bonk", "Bonk", "Scamper", "Bonk", "Tutorial Rat", "Scamper", "Bonk", "Scamper", "Tutorial Rat", "Bonk", "Right Click", "Scamper"],
+    "Tutorial": ["Right Click", "Tutorial Rat", "Scamper", "Tutorial Rat", "Bonk", "Tutorial Rat", "Bonk", "Tutorial Rat", "Scamper", "Bonk", "Scamper", "Tutorial Rat", "Right Click"],
 
     "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
     "PoolSoldier": ["Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],
@@ -13,8 +13,12 @@
     
     "PoolRatSpawn": ["The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The Rat", "The President", "The President"],
     
+    
+    "PoolRatActionA": ["Scurry", "Scurry", "Scram", "Sneeze", "Overwhelm", "Overwhelm"],
+    "PoolRatActionB": ["Scram", "Sneeze", "Overwhelm", "Overwhelm"],
+    
+
+
     "PoolRatMove": ["Scamper", "Scurry", "Scram"],
-    "PoolRatActionA": ["Scamper", "Scurry", "Scram", "Sneeze", "Overwhelm"],
-    "PoolRatActionB": ["Scurry", "Sneeze", "Overwhelm", "Overwhelm"],
     "PoolMisc": ["Paramedic"]
 }
