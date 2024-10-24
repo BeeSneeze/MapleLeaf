@@ -102,17 +102,37 @@ public class Card : Sprite
 			A.Name = "Exhaust";
 			A.Effect = "Forced";
 			bool ShouldAdd = true;
+			bool PresidentFlag = false;
 			foreach(Ability AExist in SecondaryList)
 			{
 				if(AExist.Name == "Exhaust")
 				{
 					ShouldAdd = false;
 				}
+				if(AExist.Name == "President")
+				{
+					PresidentFlag = true;
+				}
+			}
+			if(PresidentFlag)
+			{
+				Ability B = new Ability();
+				B.Name = "Shuffle";
+				B.Effect = "Rat:Second Term";
+				SecondaryList = new List<Ability>();
+				SecondaryList.Add(B);
+
+				AbilityList = new List<Ability>();
+				Ability C = new Ability();
+				C.Name = "Spawn";
+				C.Effect = "RatPresident";
+				AbilityList.Add(C);
 			}
 			if(ShouldAdd)
 			{
 				SecondaryList.Add(A);
 			}
+			
 			
 		}
 
