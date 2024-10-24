@@ -497,6 +497,8 @@ public class GameManager : Node2D
 					foreach(Vector2 Target in Board.TargetList)
 					{
 						GD.Print(Board.Cell[(int)Target.x,(int)Target.y].Char.ID);
+
+						Board.Cell[(int)Target.x,(int)Target.y].PlayEffect("Boost");
 						// Draw card for one of the player characters
 						switch(Board.Cell[(int)Target.x,(int)Target.y].Char.ID)
 						{
@@ -520,6 +522,10 @@ public class GameManager : Node2D
 				case "Create":
 					foreach(Vector2 Target in Board.TargetList)
 					{
+						if(CurrentCard.CardFlavor == "Support")
+						{
+							Board.Cell[(int)Target.x,(int)Target.y].PlayEffect("Boost");
+						}
 						// Draw card for one of the player characters
 						switch(Board.Cell[(int)Target.x,(int)Target.y].Char.ID)
 						{
@@ -547,6 +553,11 @@ public class GameManager : Node2D
 				case "Shuffle":
 					foreach(Vector2 Target in Board.TargetList)
 					{
+						if(CurrentCard.CardFlavor == "Support")
+						{
+							Board.Cell[(int)Target.x,(int)Target.y].PlayEffect("Boost");
+						}
+
 						// Draw card for one of the player characters
 						switch(Board.Cell[(int)Target.x,(int)Target.y].Char.ID)
 						{
@@ -576,6 +587,7 @@ public class GameManager : Node2D
 				case "Strong":
 					foreach(Vector2 Target in Board.TargetList)
 					{
+						Board.Cell[(int)Target.x,(int)Target.y].PlayEffect("Boost");
 						Board.AddModifier(Target, "Strong", int.Parse(A.Effect));
 					}
 				break;

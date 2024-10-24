@@ -592,13 +592,13 @@
     {
         "ID": "302",
         "MatrixName": "Full",
-        "Range": "1",
-        "Uses": "1",
+        "Range": "2",
+        "Uses": "3",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Boost the range of a friend for two attacks",
         "FlavorText":  "How exactly is this supposed to help??",
-        "AbilityList":  [{"Name":"Strong", "Effect": "2"}],
+        "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Duck!":

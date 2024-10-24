@@ -145,7 +145,7 @@ animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 45 ), ExtResource( 46 ), null ],
 "loop": false,
 "name": "Boost",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 20 ) ],
 "loop": false,
@@ -228,6 +228,7 @@ texture = ExtResource( 1 )
 z_index = -10
 frames = SubResource( 2 )
 animation = "Select"
+frame = 1
 playing = true
 
 [node name="Character" type="AnimatedSprite" parent="."]
