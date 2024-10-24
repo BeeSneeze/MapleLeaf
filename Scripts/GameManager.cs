@@ -730,6 +730,16 @@ public class GameManager : Node2D
 						break;
 					}
 				break;
+				case "Copy":
+
+					Random rndcopy = new Random();
+
+					int CopyCard = rndcopy.Next(0,CMSoldier.HandCards.Count);
+					
+					CMRat.AddCard(CMSoldier.HandCards[CopyCard].CardName, RatIDList.LastOrDefault());
+					CMRat.DrawCard(CMSoldier.HandCards[CopyCard].CardName);
+					
+				break;
 				case "Draw":
 					// Draw card for one of the player characters
 					switch(B.Effect)

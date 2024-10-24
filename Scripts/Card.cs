@@ -171,9 +171,18 @@ public class Card : Sprite
 						CardFlavor = "Harm";
 					}
 				break;
-				
 				case "Spawn":
 					CardFlavor = "Rat";
+				break;
+			}
+		}
+
+		foreach(Ability B in SecondaryList)
+		{
+			switch(B.Name)
+			{
+				case "Copy":
+					CardFlavor = "Harm";
 				break;
 			}
 		}

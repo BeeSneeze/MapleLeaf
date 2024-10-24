@@ -583,7 +583,7 @@
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText":  "Boost the range of a friend for one attack",
+        "AbilityText":  "Boost the range of a friend",
         "FlavorText":  "Four eyes are better than two",
         "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
         "SecondaryList":  []
@@ -596,7 +596,7 @@
         "Uses": "3",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
-        "AbilityText":  "Boost the range of a friend for two attacks",
+        "AbilityText":  "Boost the range of a friend",
         "FlavorText":  "How exactly is this supposed to help??",
         "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
         "SecondaryList":  []
@@ -1000,9 +1000,8 @@
         "TargetType": "Area","TargetCell": "Enemy",
         "AbilityText":  "",
         "FlavorText":  "Hey look at this thing I made!",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
+        "AbilityList":  [],
+        "SecondaryList":  [{"Name":"Copy", "Effect": "-"}]
     },
     "Gerrymander":
     {   
@@ -1163,6 +1162,7 @@
         "AbilityList":  [
             {"Name":"Spawn", "Effect": "RatLawyer"}],
         "SecondaryList":  [
+            {"Name":"Shuffle", "Effect": "Rat:Plagiarize"},
             {"Name":"Shuffle", "Effect": "Rat:Plagiarize"}]
     },
     "The Chef":
