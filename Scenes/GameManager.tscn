@@ -271,6 +271,7 @@ position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
 animation = "Player1"
+frame = 1
 playing = true
 
 [node name="PlayTutorial" type="AnimatedSprite" parent="."]

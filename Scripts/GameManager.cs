@@ -448,6 +448,9 @@ public class GameManager : Node2D
 			case "Harm":	
 				PlaySFX("Harm");
 			break;
+			case "Rat":
+				PlaySFX("Spawn");
+			break;
 			case "Damage":
 				bool NoPunch = true;
 				foreach(Ability C in CurrentCard.AbilityList)
@@ -457,7 +460,6 @@ public class GameManager : Node2D
 						NoPunch = false;
 					}
 				}
-
 				if(CurrentCard.TargetType == "Area")
 				{
 					PlaySFX("Gunshots");

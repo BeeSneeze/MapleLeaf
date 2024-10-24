@@ -18,7 +18,7 @@ public class MusicManager : Node2D
 		MainMenu = GetNode<AudioStreamPlayer>("MainMenu");
 		WorldMap = GetNode<AudioStreamPlayer>("WorldMap");
 		Game = GetNode<AudioStreamPlayer>("Game");
-		UpdateVolume(-80.0f);
+		UpdateVolume(0.0f);
 	}
 
 	public void PlayMusic(string InString)

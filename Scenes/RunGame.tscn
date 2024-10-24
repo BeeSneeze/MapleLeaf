@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/LevelManager.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MusicManager.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Sound/Punch.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Assets/Sound/Gunshots.mp3" type="AudioStream" id=10]
 [ext_resource path="res://Assets/Sound/Card Draw.mp3" type="AudioStream" id=11]
+[ext_resource path="res://Assets/Sound/Rat_Spawn.mp3" type="AudioStream" id=12]
 
 [node name="Game Run" type="Node2D"]
 
@@ -43,3 +44,6 @@ stream = ExtResource( 8 )
 
 [node name="Draw" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource( 11 )
+
+[node name="Spawn" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 12 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Rat_Spawn.mp3-3e7a5d2a0697e956fcef287b5643602b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Rat_Spawn.mp3"
+dest_files=[ "res://.import/Rat_Spawn.mp3-3e7a5d2a0697e956fcef287b5643602b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
