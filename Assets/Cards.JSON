@@ -1028,11 +1028,11 @@
         "Range": "2",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
+        "TargetType": "Area","TargetCell": "Friendly",
         "AbilityText":  "",
         "FlavorText":  "Yum!",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "-2"}],
         "SecondaryList":  []
     },
     "Coffee":

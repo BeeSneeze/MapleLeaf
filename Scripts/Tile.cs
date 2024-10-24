@@ -96,7 +96,16 @@ public class Tile : Node2D
 		}
 		else
 		{
-			PlayEffect("Explosion");
+
+			if(Dmg >= 0)
+			{
+				PlayEffect("Explosion");
+			}
+			else
+			{
+				PlayEffect("Boost");
+			}
+			
 		}
 
 		UpdateHealthBar();
@@ -113,7 +122,15 @@ public class Tile : Node2D
 		}
 
 		float TruePercentage = ((float)Char.HP)/((float)Char.MaxHP) * 100f;
+
+		if(TruePercentage > 100)
+		{
+			TruePercentage = 100;
+		}
+
 		int Percentage = ( ((int)TruePercentage/10)) * 10;
+
+		
 
 		HPBar.Texture = (Texture)GD.Load("res://Assets/Visuals/HP/HP" + Percentage.ToString() + ".png");
 
