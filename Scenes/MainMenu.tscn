@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Assets/Visuals/MainMenuBG.png" type="Texture" id=1]
 [ext_resource path="res://Themes/MainMenu.tres" type="Theme" id=2]
@@ -23,6 +23,12 @@
 [ext_resource path="res://Scenes/DiscordButton.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Assets/Visuals/CoverDuck.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Visuals/CoverDuck2.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Visuals/CoverSupport3.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Visuals/CoverSupport2.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Visuals/Characters/RatMenace1.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Visuals/Characters/SparkyRat2.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Visuals/Characters/SparkyRat1.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Visuals/Characters/RatMenace2.png" type="Texture" id=29]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -47,10 +53,10 @@ animations = [ {
 "name": "Rat",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "SupportEdge",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
@@ -79,6 +85,22 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 26 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Main Menu" type="Node2D"]
 script = ExtResource( 5 )
 
@@ -86,6 +108,7 @@ script = ExtResource( 5 )
 position = Vector2( 960, 540 )
 z_index = -100
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -119,7 +142,6 @@ frames = SubResource( 1 )
 position = Vector2( 1317, 824 )
 scale = Vector2( 0.9, 0.9 )
 frames = SubResource( 2 )
-frame = 1
 speed_scale = 0.9
 playing = true
 
@@ -134,13 +156,13 @@ offset = Vector2( 97, -41 )
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="."]
 position = Vector2( 1491, 916 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="."]
 position = Vector2( 1731, 669 )
 frames = SubResource( 2 )
 animation = "SupportEdge"
+frame = 17
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
@@ -222,6 +244,7 @@ position = Vector2( 794, 972 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.95
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -282,7 +305,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.07
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -325,6 +347,7 @@ position = Vector2( 782, 959 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.95
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -373,13 +396,12 @@ text = "Version 0.6"
 position = Vector2( 1621, 409 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 
 [node name="Node2D" parent="." instance=ExtResource( 21 )]
 position = Vector2( 678, 540 )
 scale = Vector2( 0.6, 0.6 )
-frame = 2
+frame = 31
 
 [node name="AnimatedSprite12" type="AnimatedSprite" parent="."]
 position = Vector2( 1815, 990 )
@@ -387,5 +409,30 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
 frame = 1
 playing = true
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="."]
+position = Vector2( 233, 516 )
+rotation = 0.855211
+scale = Vector2( 0.8, 0.8 )
+frames = SubResource( 6 )
+playing = true
+
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="."]
+position = Vector2( 291, 582 )
+rotation = 0.855211
+scale = Vector2( 0.8, 0.8 )
+frames = SubResource( 6 )
+frame = 1
+speed_scale = 1.1
+playing = true
+
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="."]
+position = Vector2( 323, 933 )
+scale = Vector2( 1.9, 1.67143 )
+z_index = -1
+frames = SubResource( 7 )
+frame = 1
+playing = true
+flip_h = true
 
 [connection signal="pressed" from="Button" to="." method="StartButton"]

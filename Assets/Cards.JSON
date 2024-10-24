@@ -370,7 +370,7 @@
     {   
         "ID": "201",
         "MatrixName": "Line",
-        "Range": "5",
+        "Range": "4",
         "Uses": "2",
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Character",
