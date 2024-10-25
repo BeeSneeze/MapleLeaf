@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Board.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Assets/Visuals/TutorialCardSelect.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Visuals/TutorialCardPlay.png" type="Texture" id=29]
 [ext_resource path="res://Assets/Visuals/TutorialCardRotate.png" type="Texture" id=30]
+[ext_resource path="res://Scenes/SanityCheck.tscn" type="PackedScene" id=31]
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
@@ -271,7 +272,6 @@ position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
 animation = "Player1"
-frame = 1
 playing = true
 
 [node name="PlayTutorial" type="AnimatedSprite" parent="."]
@@ -280,6 +280,12 @@ z_index = 1001
 frames = SubResource( 8 )
 animation = "None"
 playing = true
+
+[node name="SanityCheck" parent="." instance=ExtResource( 31 )]
+visible = false
+position = Vector2( 960, 540 )
+scale = Vector2( 1.5, 1.5 )
+z_index = 100
 
 [connection signal="pressed" from="EndTurn" to="." method="TurnButtonClicked"]
 [connection signal="pressed" from="EndDraw" to="." method="TurnButtonClicked"]

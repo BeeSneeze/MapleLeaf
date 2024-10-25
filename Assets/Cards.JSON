@@ -990,6 +990,36 @@
     },
 
 
+    "Violence":
+    {   
+        "ID": "540",
+        "MatrixName": "AllDiagonal",
+        "Range": "7",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "...yikes",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+    "Enabling":
+    {   
+        "ID": "541",
+        "MatrixName": "AllDiagonal",
+        "Range": "7",
+        "Uses": "1",
+        "Draws": "0",
+        "TargetType": "Area","TargetCell": "Enemy",
+        "AbilityText":  "",
+        "FlavorText":  "...yikes",
+        "AbilityList":  [
+            {"Name":"Damage", "Effect": "2"}],
+        "SecondaryList":  []
+    },
+
+
     "Plagiarize":
     {   
         "ID": "550",
@@ -1146,7 +1176,9 @@
         "FlavorText":  "OH NO",
         "AbilityList":  [
             {"Name":"Spawn", "Effect": "RatMenace"}],
-        "SecondaryList":  []
+        "SecondaryList":  [
+            {"Name":"Shuffle", "Effect": "Rat:Violence"},
+            {"Name":"Create", "Effect": "Rat:Violence"}]
     },
     "The Lawyer":
     {   

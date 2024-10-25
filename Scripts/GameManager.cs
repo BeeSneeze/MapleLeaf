@@ -22,7 +22,7 @@ public class GameManager : Node2D
 	private Dictionary<string,List<string>> Decks;
 	private bool CurrentLoaded = false;
 	private bool[,] UnRotated, CurrentMatrix;
-	private CanvasItem EndTurnButton, EndDrawButton;
+	public CanvasItem EndTurnButton, EndDrawButton;
 
 	private Label TopLabel, ActionLabel;
 	private bool RatShown = false;
@@ -797,6 +797,25 @@ public class GameManager : Node2D
 		LM.ChangeLevel("GameOver");
 	}
 
+	// Returns true if it's reasonable to end the turn here
+	public bool SanityCheck()
+	{
+		bool OK = true;
+		if(CMSoldier.HandCards.Count > 2)
+		{
+			OK = false;
+		}
+		if(CMSniper.HandCards.Count > 2)
+		{
+			OK = false;
+		}
+		if(CMSupport.HandCards.Count > 2)
+		{
+			OK = false;
+		}
+		return OK;
+	}
+
 
 	public void CityAttacked(int Damage)
 	{
@@ -1103,9 +1122,19 @@ public class GameManager : Node2D
 		}
 		else if(Turn == "Player")
 		{
-			EndTurnButton.Hide();
-			EndDrawButton.Show();
-			SetMode("RatAttack");
+			if(SanityCheck())
+			{
+				EndTurnButton.Hide();
+				EndDrawButton.Show();
+				SetMode("RatAttack");
+			}
+			else
+			{
+				Node2D Sane = GetNode<Node2D>("SanityCheck");
+				Sane.Show();
+			}
+
+			
 		}
 	}
 }
