@@ -742,19 +742,22 @@ public class GameManager : Node2D
 				break;
 				case "Draw":
 					// Draw card for one of the player characters
-					switch(B.Effect)
+
+					string[] DEffect = (B.Effect).Split(":");
+
+					switch(DEffect[0])
 					{
 						case "Soldier":
-							CMSoldier.DrawCard();
+							CMSoldier.DrawCard(DEffect[1]);
 						break;
 						case "Sniper":
-							CMSniper.DrawCard();
+							CMSniper.DrawCard(DEffect[1]);
 						break;
 						case "Support":
-							CMSupport.DrawCard();
+							CMSupport.DrawCard(DEffect[1]);
 						break;
 						case "Rat":
-							CMRat.DrawCard();
+							CMRat.DrawCard(DEffect[1]);
 						break;
 					}
 				break;

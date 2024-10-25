@@ -297,7 +297,6 @@ public class CardManager : Node2D
 			{
 				return;
 			}
-
 			if(Shuffle)
 			{
 				Deck = new List<int>(ShufflePile(Discard));
@@ -308,8 +307,6 @@ public class CardManager : Node2D
 				Deck = new List<int>(Discard);
 				Discard = new List<int>();
 			}
-
-			
 		}
 
 		int TopCard = Deck[0];

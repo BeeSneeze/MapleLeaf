@@ -276,8 +276,8 @@
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  [
-            {"Name": "Draw", "Effect": "Sniper"},
-            {"Name": "Draw", "Effect": "Support"}]
+            {"Name": "Draw", "Effect": "Sniper:-"},
+            {"Name": "Draw", "Effect": "Support:-"}]
     },
     "Echo":
     {   
@@ -746,7 +746,7 @@
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText": "Friend draws a card",
-        "FlavorText":  "Being in the right place at the right time can change everything!",
+        "FlavorText":  "The right place at the right time!",
         "AbilityList":  [{"Name": "Draw", "Effect": "1"}],
         "SecondaryList":  []
     },
@@ -937,8 +937,8 @@
         "FlavorText":  "Energize your allies!",
         "AbilityList":  [],
         "SecondaryList":  [
-            {"Name":"Draw", "Effect": "Rat"},
-            {"Name":"Draw", "Effect": "Rat"}]
+            {"Name":"Draw", "Effect": "Rat:-"},
+            {"Name":"Draw", "Effect": "Rat:-"}]
     },
 
     "Smoke bomb":
@@ -1004,19 +1004,21 @@
             {"Name":"Damage", "Effect": "4"}],
         "SecondaryList":  []
     },
-    "Enabling":
+    "Enable":
     {   
         "ID": "541",
-        "MatrixName": "AllDiagonal",
-        "Range": "7",
+        "MatrixName": "None",
+        "Range": "1",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
-        "AbilityText":  "",
-        "FlavorText":  "...yikes",
-        "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
-        "SecondaryList":  []
+        "TargetType": "Area","TargetCell": "Friendly",
+        "AbilityText":  "Draw two attack cards, if possible",
+        "FlavorText":  "Moments before disaster",
+        "AbilityList":  [],
+        "SecondaryList":  [
+            {"Name":"Draw", "Effect": "Rat:Violence"},
+            {"Name":"Draw", "Effect": "Rat:Violence"}
+        ]
     },
 
 
@@ -1076,7 +1078,7 @@
         "FlavorText":  "Even rats need a pick-me-up sometimes",
         "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
         "SecondaryList":  [
-            {"Name":"Draw", "Effect": "Rat"}]
+            {"Name":"Draw", "Effect": "Rat:-"}]
     },
 
     
@@ -1178,6 +1180,7 @@
             {"Name":"Spawn", "Effect": "RatMenace"}],
         "SecondaryList":  [
             {"Name":"Shuffle", "Effect": "Rat:Violence"},
+            {"Name":"Shuffle", "Effect": "Rat:Enable"},
             {"Name":"Create", "Effect": "Rat:Violence"}]
     },
     "The Lawyer":

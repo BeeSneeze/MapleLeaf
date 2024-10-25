@@ -17,10 +17,10 @@ margin_bottom = -100.0
 
 [node name="Button" type="Button" parent="."]
 margin_left = -120.0
-margin_top = 55.0
+margin_top = 50.0
 margin_right = -60.0
-margin_bottom = 105.0
-rect_scale = Vector2( 0.3, 0.3 )
+margin_bottom = 100.0
+rect_scale = Vector2( 0.4, 0.4 )
 theme = ExtResource( 3 )
 text = "YES"
 script = ExtResource( 2 )
