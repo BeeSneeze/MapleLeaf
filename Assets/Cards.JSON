@@ -993,15 +993,15 @@
     "Violence":
     {   
         "ID": "540",
-        "MatrixName": "AllDiagonal",
+        "MatrixName": "Diagonal",
         "Range": "7",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Enemy",
+        "TargetType": "Area","TargetCell": "Character",
         "AbilityText":  "",
         "FlavorText":  "...yikes",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "4"}],
         "SecondaryList":  []
     },
     "Enabling":

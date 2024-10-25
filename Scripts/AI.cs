@@ -351,29 +351,56 @@ public class AI : Node2D
 		int x = (int)Board.GetCharPos(C.PlayerID).x;
 		int y = (int)Board.GetCharPos(C.PlayerID).y;
 
-		bool CardinalRotation = false;
-		bool DiagonalRotation = false;
+		bool CardinalRotation = true;
+
+		if(C.MatrixName == "Diagonal")
+		{
+			CardinalRotation = false;
+		}
 
 		string SelectedDirection = "Left";
 
 		for(int Range = 0; Range < C.Range; Range++)
 		{
-			if(AttackRat[Range,x,y] % 2 == 0)
+			if(CardinalRotation)
 			{
-				SelectedDirection = "Down";
+				if(AttackRat[Range,x,y] % 2 == 0)
+				{
+					SelectedDirection = "Down";
+				}
+				if(AttackRat[Range,x,y] % 5 == 0)
+				{
+					SelectedDirection = "Left";
+				}
+				if(AttackRat[Range,x,y] % 11 == 0)
+				{
+					SelectedDirection = "Up";
+				}
+				if(AttackRat[Range,x,y] % 17 == 0)
+				{
+					SelectedDirection = "Right";
+				}
 			}
-			if(AttackRat[Range,x,y] % 5 == 0)
+			else
 			{
-				SelectedDirection = "Left";
+				if(AttackRat[Range,x,y] % 19 == 0)
+				{
+					SelectedDirection = "Down";
+				}
+				if(AttackRat[Range,x,y] % 3 == 0)
+				{
+					SelectedDirection = "Left";
+				}
+				if(AttackRat[Range,x,y] % 7 == 0)
+				{
+					SelectedDirection = "Up";
+				}
+				if(AttackRat[Range,x,y] % 13 == 0)
+				{
+					SelectedDirection = "Right";
+				}
 			}
-			if(AttackRat[Range,x,y] % 11 == 0)
-			{
-				SelectedDirection = "Up";
-			}
-			if(AttackRat[Range,x,y] % 17 == 0)
-			{
-				SelectedDirection = "Right";
-			}
+			
 		}
 
 		C.PreppedRotation = SelectedDirection;

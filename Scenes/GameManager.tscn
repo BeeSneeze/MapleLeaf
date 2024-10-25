@@ -152,6 +152,9 @@ animations = [ {
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -232.0 ]
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 960, 540 )
@@ -272,6 +275,7 @@ position = Vector2( 960, 540 )
 z_index = 1000
 frames = SubResource( 6 )
 animation = "Player1"
+frame = 1
 playing = true
 
 [node name="PlayTutorial" type="AnimatedSprite" parent="."]
