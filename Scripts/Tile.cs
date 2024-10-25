@@ -461,7 +461,7 @@ public class Tile : Node2D
 			WARNING.Show();
 		}
 
-		if(Char.MaxHP != 0 && Char.ID % 100 != 51)
+		if(Char.MaxHP != 0 && Char.ID % 100 != 51 && Char.ID % 100 != 50)
 		{
 			LabelBox.Show();
 			HPNode.Show();

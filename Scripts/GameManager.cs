@@ -109,6 +109,8 @@ public class GameManager : Node2D
 		TutorialShowing = false;
 		TutorialOverlay.Animation = "None";
 
+		CMSniper.RemoveCard("Garbage");
+
 		CMRat.Deck = new List<int>();
 		CMRat.TrueDeck = new List<int>();
 		CMRat.Hand = new List<int>();

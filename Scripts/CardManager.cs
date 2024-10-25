@@ -381,6 +381,33 @@ public class CardManager : Node2D
 		}
 	}
 
+
+	// Removes one instance of a specific card from the decks.
+	// Should be used in the setup phase
+	public void RemoveCard(string CName)
+	{
+		int RemID = int.Parse(AllCardsDict[CName].ID);
+
+		GD.Print("ATTEMPTED TO REMOVE CARD: " +  CName);
+
+		// Remove all deck cards
+		List<int> RemoveIDS = new List<int>();
+		foreach(int LID in Deck)
+		{
+			if(RemID == LID % 1000)
+			{
+				RemoveIDS.Add(LID);
+				GD.Print("FOUND A CARD TO REMOVE");
+			}
+		}
+		foreach(int RemoveID in RemoveIDS)
+		{
+			Deck.Remove(RemoveID);
+			TrueDeck.Remove(RemoveID);
+			return;
+		}
+	}
+
 	public void KillOwnerCards(int OwnerID)
 	{
 		GD.Print("Attempted to kill cards: " + OwnerID.ToString());
