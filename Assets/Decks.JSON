@@ -14,8 +14,8 @@
     "PoolRatSpawn": ["The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The Rat", "The President", "The President"],
     
     
-    "PoolRatActionA": ["Scurry", "Scurry", "Scram", "Sneeze", "Overwhelm", "Overwhelm"],
-    "PoolRatActionB": ["Scram", "Sneeze", "Overwhelm", "Overwhelm", "Violence"],
+    "PoolRatActionA": ["Scurry", "Scurry", "Scram", "Sneeze", "Overwhelm", "Overwhelm", "Chomp", "Chomp"],
+    "PoolRatActionB": ["Scram", "Sneeze", "Overwhelm", "Overwhelm", "Violence", "Unionize"],
 
     "PoolRatMove": ["Scamper", "Scurry", "Scram"],
     "PoolMisc": ["Paramedic"]

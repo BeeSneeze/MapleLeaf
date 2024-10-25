@@ -1163,7 +1163,7 @@
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNinja"}],
         "SecondaryList":  [
             {"Name":"Shuffle", "Effect": "Rat:Scram"},
-            {"Name":"Shuffle", "Effect": "Rat:Scram"}]
+            {"Name":"Shuffle", "Effect": "Rat:Smoke bomb"}]
     },
     "The Menace":
     {   

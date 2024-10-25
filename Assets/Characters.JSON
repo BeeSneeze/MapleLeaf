@@ -88,12 +88,12 @@
     {
         "ID": "51",
         "MaxHP": "2",
-        "Names":["Steve", "Steven"]
+        "Names":["City"]
     },
     "Rubble":
     {
         "ID": "52",
         "MaxHP": "0",
-        "Names":["Steve", "Steven"]
+        "Names":["Rubble"]
     }
 }
