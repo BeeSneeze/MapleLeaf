@@ -585,7 +585,7 @@
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Boost the range of a friend",
         "FlavorText":  "Four eyes are better than two",
-        "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
+        "AbilityList":  [{"Name":"Strong", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Trinoculars":
@@ -598,7 +598,7 @@
         "TargetType": "Single","TargetCell": "Friendly",
         "AbilityText":  "Boost the range of a friend",
         "FlavorText":  "How exactly is this supposed to help??",
-        "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
+        "AbilityList":  [{"Name":"Strong", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Duck!":

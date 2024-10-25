@@ -351,11 +351,26 @@ public class AI : Node2D
 		int x = (int)Board.GetCharPos(C.PlayerID).x;
 		int y = (int)Board.GetCharPos(C.PlayerID).y;
 
-		bool CardinalRotation = true;
+		string[] CardinalMats = {"Cardinal", "Cone", "Full", "LeftCone", "Line", "LineDiagonal", "Manhattan", "RightCone", "Punch"};
+		string[] DiagonalMats = {"Diagonal", "AllDiagonal", "LineDiagonal"};
 
-		if(C.MatrixName == "Diagonal")
+		bool CardinalRotation = false;
+		bool DiagonalRotation = false;
+
+		foreach(string Cmat in CardinalMats)
 		{
-			CardinalRotation = false;
+			if(C.MatrixName == Cmat)
+			{
+				CardinalRotation = true;
+			}
+		}
+
+		foreach(string Dmat in DiagonalMats)
+		{
+			if(C.MatrixName == Dmat)
+			{
+				DiagonalRotation = true;
+			}
 		}
 
 		string SelectedDirection = "Left";
@@ -381,7 +396,8 @@ public class AI : Node2D
 					SelectedDirection = "Right";
 				}
 			}
-			else
+
+			if(DiagonalRotation)
 			{
 				if(AttackRat[Range,x,y] % 19 == 0)
 				{
