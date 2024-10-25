@@ -25,7 +25,8 @@ public class SFXManager : Node2D
 
 	public void UpdateVolume(float Volume)
 	{
-		for(int i = 1; i < 9; i++)
+		// Yes, this is a bit silly hard coding, but it'll have to do
+		for(int i = 1; i < 10; i++)
 		{
 			AudioStreamPlayer SoundByte = GetChild<AudioStreamPlayer>(i);
 

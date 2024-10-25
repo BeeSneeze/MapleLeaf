@@ -22,7 +22,7 @@ margin_right = -60.0
 margin_bottom = 100.0
 rect_scale = Vector2( 0.4, 0.4 )
 theme = ExtResource( 3 )
-text = "YES"
+text = "yes"
 script = ExtResource( 2 )
 Yes = true
 

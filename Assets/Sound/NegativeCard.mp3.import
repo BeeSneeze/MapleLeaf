@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NegativeCard.mp3-72b80304fda3191f42c216cf66d8736f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/NegativeCard.mp3"
+dest_files=[ "res://.import/NegativeCard.mp3-72b80304fda3191f42c216cf66d8736f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

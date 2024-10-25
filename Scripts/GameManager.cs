@@ -448,6 +448,9 @@ public class GameManager : Node2D
 			case "Harm":	
 				PlaySFX("Harm");
 			break;
+			case "Negative":	
+				PlaySFX("Negative");
+			break;
 			case "Rat":
 				PlaySFX("Spawn");
 			break;
