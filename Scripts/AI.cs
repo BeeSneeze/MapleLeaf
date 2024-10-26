@@ -101,6 +101,18 @@ public class AI : Node2D
 		MoveMode = true;
 		ClickNum = 1;
 		EvaluateBoard();
+
+		foreach(Card C in GM.CMRat.HandCards)
+		{
+			if(C.PlayerID == 999)
+			{
+				if(GM.RatIDList.Count > 0)
+				{
+					C.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
+					GD.Print("Replacement rat ID assigned");
+				}
+			}
+		}
 	}
 
 	// Prepares to start the attack phase
@@ -115,6 +127,18 @@ public class AI : Node2D
 	{
 		if(ClickNum == 1)
 		{
+			foreach(Card C in GM.CMRat.HandCards)
+			{
+				if(C.PlayerID == 999)
+				{
+					if(GM.RatIDList.Count > 0)
+					{
+						C.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
+						GD.Print("Replacement rat ID assigned");
+					}
+				}
+			}
+
 			// CLICK ONE
 			SuccessfulAction = true;
 			CardFlag = ClickMoveCard();
@@ -340,6 +364,11 @@ public class AI : Node2D
 		EvaluateBoard();
 		foreach(Card C in QueuedActions)
 		{
+			if(C.PlayerID == 999)
+			{
+				C.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
+				GD.Print("NO RAT FOUND!!");
+			}
 			ExamineActionCard(C);
 		}
 	}

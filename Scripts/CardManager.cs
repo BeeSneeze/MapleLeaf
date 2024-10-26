@@ -161,7 +161,6 @@ public class CardManager : Node2D
 				{
 					NewCard.RatName = GM.RatIDToName[NewCard.OwnerID];
 				}
-				//NewCard.PlayerID = 999;
 			break;
 		}
 
