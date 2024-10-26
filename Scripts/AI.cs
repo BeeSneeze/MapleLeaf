@@ -361,25 +361,39 @@ public class AI : Node2D
 
 	public void ExamineAllActions()
 	{
+		Dictionary<int, int> Bloodlust = new Dictionary<int, int>();
+		foreach(int RatID in GM.RatIDList)
+		{
+			Bloodlust[RatID] = 0;
+		}
+
+
 		EvaluateBoard();
 		foreach(Card C in QueuedActions)
 		{
-			if(C.PlayerID == 999)
-			{
-				C.PlayerID = GM.RatIDList[rnd.Next(0,GM.RatIDList.Count)];
-				GD.Print("NO RAT FOUND!!");
-			}
-			ExamineActionCard(C);
+			ExamineActionCard(C, Bloodlust);
 		}
+	}
+
+	private int SmallestBloodlust(Dictionary<int, int> Bloodlust)
+	{
+		int Smallest = 100000000;
+		int SmallestKey = 0;
+		foreach(KeyValuePair<int,int> KV in Bloodlust)
+		{
+			if(KV.Value < Smallest)
+			{
+				SmallestKey = KV.Key;
+				Smallest = KV.Value;
+			}
+		}
+		return Smallest;
 	}
 
 	// This examines (but does not click!) an action card in the move phase
 	// The examination determines which direction the rat should face when using the card
-	public void ExamineActionCard(Card C)
+	public void ExamineActionCard(Card C, Dictionary<int, int> Bloodlust)
 	{
-		int x = (int)Board.GetCharPos(C.PlayerID).x;
-		int y = (int)Board.GetCharPos(C.PlayerID).y;
-
 		string[] CardinalMats = {"Cardinal", "Cone", "Full", "LeftCone", "Line", "LineDiagonal", "Manhattan", "RightCone", "Punch"};
 		string[] DiagonalMats = {"Diagonal", "AllDiagonal", "LineDiagonal"};
 
@@ -401,6 +415,62 @@ public class AI : Node2D
 				DiagonalRotation = true;
 			}
 		}
+
+		int x = 0;
+		int y = 0;
+
+		bool ExitLoop = false;
+
+		// Assign player ID
+		foreach(int RatID in GM.RatIDList)
+		{
+			if(ExitLoop)
+			{
+				break;
+			}
+
+			for(int Range = 0; Range < C.Range; Range++)
+			{
+				if(ExitLoop)
+				{
+					break;
+				}
+
+				x = (int)Board.GetCharPos(RatID).x;
+				y = (int)Board.GetCharPos(RatID).y;
+
+				if(CardinalRotation)
+				{
+					if(AttackRat[Range,x,y] % 2 == 0 || AttackRat[Range,x,y] % 5 == 0 || AttackRat[Range,x,y] % 11 == 0 || AttackRat[Range,x,y] % 17 == 0)
+					{	
+						if(SmallestBloodlust(Bloodlust) == Bloodlust[RatID])
+						{
+							GD.Print("FOUND CARDINAL!");
+							C.PlayerID = RatID;
+							Bloodlust[RatID] = Bloodlust[RatID] + 1;
+							ExitLoop = true;
+						}
+					}
+				}
+
+				if(DiagonalRotation)
+				{
+					if(AttackRat[Range,x,y] % 3 == 0 || AttackRat[Range,x,y] % 7 == 0 || AttackRat[Range,x,y] % 13 == 0 || AttackRat[Range,x,y] % 19 == 0)
+					{
+						if(SmallestBloodlust(Bloodlust) == Bloodlust[RatID])
+						{
+							GD.Print("FOUND DIAGONAL!");
+							C.PlayerID = RatID;
+							Bloodlust[RatID] = Bloodlust[RatID] + 1;
+							ExitLoop = true;
+						}
+					}
+				}
+			}
+		}
+
+		x = (int)Board.GetCharPos(C.PlayerID).x;
+		y = (int)Board.GetCharPos(C.PlayerID).y;
 
 		string SelectedDirection = "Left";
 
