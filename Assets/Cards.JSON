@@ -276,8 +276,8 @@
         "AbilityList":  [
             {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  [
-            {"Name": "Draw", "Effect": "Sniper:-"},
-            {"Name": "Draw", "Effect": "Support:-"}]
+            {"Name": "Draw", "Effect": "Sniper:"},
+            {"Name": "Draw", "Effect": "Support:"}]
     },
     "Echo":
     {   
