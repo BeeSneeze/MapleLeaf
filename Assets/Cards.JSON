@@ -937,8 +937,8 @@
         "FlavorText":  "Energize your allies!",
         "AbilityList":  [],
         "SecondaryList":  [
-            {"Name":"Draw", "Effect": "Rat:-"},
-            {"Name":"Draw", "Effect": "Rat:-"}]
+            {"Name":"Draw", "Effect": "Rat:"},
+            {"Name":"Draw", "Effect": "Rat:"}]
     },
 
     "Smoke bomb":
@@ -1078,7 +1078,7 @@
         "FlavorText":  "Even rats need a pick-me-up sometimes",
         "AbilityList":  [{"Name":"Strong", "Effect": "1"}],
         "SecondaryList":  [
-            {"Name":"Draw", "Effect": "Rat:-"}]
+            {"Name":"Draw", "Effect": "Rat:"}]
     },
 
     

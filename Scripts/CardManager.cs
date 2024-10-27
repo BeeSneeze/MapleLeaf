@@ -310,7 +310,7 @@ public class CardManager : Node2D
 
 		int TopCard = Deck[0];
 
-		if(CardName != "")
+		if(CardName != "" && AllCardsDict.ContainsKey(CardName))
 		{
 			int index = 0;
 			foreach(int CID in Deck)
