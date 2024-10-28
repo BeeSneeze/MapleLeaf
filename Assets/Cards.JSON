@@ -176,7 +176,7 @@
         "AbilityText": "Area damage",
         "FlavorText":  "A solid, straightforward option",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "3"}],
         "SecondaryList":  []
     },
     "Air strike":
@@ -297,7 +297,7 @@
     {   
         "ID": "110",
         "MatrixName": "Full",
-        "Range": "1",
+        "Range": "2",
         "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",

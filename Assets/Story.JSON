@@ -14,7 +14,7 @@
     },
     "Ending":
     {   
-        "Slides": ["EndingA", "EndingB", "EndingC", "EndingD", "CanadaForever"],
+        "Slides": ["WarOver", "EndingB", "EndingC", "EndingD", "CanadaForever"],
         "Text": [
         "The war was over.", 
         "After the battle of New York City, the rat UN unconditionally surrendered",

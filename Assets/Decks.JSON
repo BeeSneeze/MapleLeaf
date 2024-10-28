@@ -1,5 +1,5 @@
 {
-    "Soldier": ["Delegate", "Walk", "Alpha", "Bravo", "Delta", "Charlie", "Golf", "Alpha", "Bravo"],
+    "Soldier": ["Walk", "Alpha", "Bravo", "Delta", "Charlie", "Golf", "Bravo"],
     "Sniper": ["Jog", "Feint", "Jab", "Snipe", "Jab", "Feint", "Trap", "Garbage"],
     "Support": ["Run", "Binoculars", "Duck!", "Distract", "Jog", "Double Agent", "Checkmate!", "Luck"],
     "Rat": ["Scamper", "Scurry", "The Rat", "The Rat", "Unionize", "Chomp", "Chomp", "Scamper"],
@@ -7,9 +7,9 @@
     "Tutorial": ["Right Click", "Tutorial Rat", "Scamper", "Tutorial Rat", "Bonk", "Tutorial Rat", "Bonk", "Tutorial Rat", "Scamper", "Bonk", "Scamper", "Tutorial Rat", "Tutorial Rat"],
 
     "PoolMove": ["Walk", "Jog", "Run", "Sprint", "Roll"],
-    "PoolSoldier": ["Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],
-    "PoolSniper": ["Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Taunt", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Pin down", "Trap", "Ambush"],
-    "PoolSupport": ["Binoculars", "Trinoculars", "Duck!", "GOOSE!", "Distract", "Diss Track", "Bribe", "Grease", "Double Agent", "Mole", "Checkmate!", "Checkers mate!", "Luck", "F---!"],
+    "PoolSoldier": ["Walk", "Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],
+    "PoolSniper": ["Jog", "Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Taunt", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Pin down", "Trap", "Ambush"],
+    "PoolSupport": ["Run", "Binoculars", "Trinoculars", "Duck!", "GOOSE!", "Distract", "Diss Track", "Bribe", "Grease", "Double Agent", "Mole", "Checkmate!", "Checkers mate!", "Luck", "F---!"],
     
     "PoolRatSpawn": ["The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The Rat", "The President", "The President"],
     

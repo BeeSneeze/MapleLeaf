@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Visuals/StoryBG.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Slides/Election4.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Assets/Visuals/Slides/Election2.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Visuals/Slides/Election3.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Visuals/Slides/Election1.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Visuals/Slides/WarOver.png" type="Texture" id=25]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -51,11 +52,6 @@ animations = [ {
 "loop": true,
 "name": "Elections",
 "speed": 1.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "EndingA",
-"speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -92,6 +88,11 @@ animations = [ {
 "name": "RatsEverywhere",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "WarOver",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "default",
@@ -108,8 +109,7 @@ texture = ExtResource( 1 )
 [node name="Slides" type="AnimatedSprite" parent="."]
 position = Vector2( 960, 330 )
 frames = SubResource( 1 )
-animation = "Elections"
-frame = 2
+animation = "WarOver"
 playing = true
 
 [node name="Label" type="Label" parent="."]
