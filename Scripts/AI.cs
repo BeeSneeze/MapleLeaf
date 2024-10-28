@@ -445,7 +445,6 @@ public class AI : Node2D
 					{	
 						if(SmallestBloodlust(Bloodlust) == Bloodlust[RatID])
 						{
-							GD.Print("FOUND CARDINAL!");
 							C.PlayerID = RatID;
 							Bloodlust[RatID] = Bloodlust[RatID] + 1;
 							ExitLoop = true;
@@ -459,7 +458,6 @@ public class AI : Node2D
 					{
 						if(SmallestBloodlust(Bloodlust) == Bloodlust[RatID])
 						{
-							GD.Print("FOUND DIAGONAL!");
 							C.PlayerID = RatID;
 							Bloodlust[RatID] = Bloodlust[RatID] + 1;
 							ExitLoop = true;

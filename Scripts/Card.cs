@@ -60,8 +60,8 @@ public class Card : Sprite
 		TargetCell = CardInfo.TargetCell;
 		FlavorText = CardInfo.FlavorText;
 		AbilityText = CardInfo.AbilityText;
-		AbilityList = CardInfo.AbilityList;
-		SecondaryList = CardInfo.SecondaryList;
+		AbilityList = new List<Ability>(CardInfo.AbilityList); // Make sure it's a clone, not a reference
+		SecondaryList = new List<Ability>(CardInfo.SecondaryList); // Make sure it's a clone, not a reference
 	}
 
 	private List<Node2D> Keywords = new List<Node2D>();
@@ -98,9 +98,7 @@ public class Card : Sprite
 
 		if(Draws == 1)
 		{
-			Ability A = new Ability();
-			A.Name = "Exhaust";
-			A.Effect = "Forced";
+			
 			bool ShouldAdd = true;
 			bool PresidentFlag = false;
 			foreach(Ability AExist in SecondaryList)
@@ -114,6 +112,8 @@ public class Card : Sprite
 					PresidentFlag = true;
 				}
 			}
+
+
 			if(PresidentFlag)
 			{
 				Ability B = new Ability();
@@ -130,6 +130,10 @@ public class Card : Sprite
 			}
 			if(ShouldAdd)
 			{
+				Ability A = new Ability();
+				A.Name = "Exhaust";
+				A.Effect = "Forced";
+				GD.Print("ADDED EXHAUST");
 				SecondaryList.Add(A);
 			}
 			
