@@ -39,6 +39,14 @@ public class WorldMap : Node2D
 		CBoxA.Pressed = true;
 	}
 
+	public void ResetToStart()
+	{
+		CityList[CurrentIndex].DeactivateCity();
+		CurrentIndex = 2;
+		CityList[CurrentIndex].ActivateCity();
+		GM.Board.LoadStage(CityList[CurrentIndex].CityName);
+	}
+
 	public void NextCity()
 	{
 		if(!FinalCity)

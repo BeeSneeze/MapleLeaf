@@ -494,7 +494,6 @@ public class Board : Node2D
 
 		foreach(char C in Contents)
 		{
-			
 			// We explicitly check for 1's and 0's, as line ends are two or just one character depending on OS
 			switch(C)
 			{

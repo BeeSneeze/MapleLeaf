@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Visuals/GameBG.png" type="Texture" id=1]
 [ext_resource path="res://Themes/ComicCheese.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,9 @@
 [ext_resource path="res://Themes/Credits.tres" type="Theme" id=6]
 [ext_resource path="res://Themes/PauseMenu.tres" type="Theme" id=7]
 [ext_resource path="res://Scripts/BackToMain.cs" type="Script" id=8]
+[ext_resource path="res://Assets/Visuals/CoverRat1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Visuals/CoverRat2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Visuals/Thanksforplaying.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -34,6 +37,22 @@ font_data = ExtResource( 4 )
 [sub_resource type="DynamicFont" id=6]
 size = 50
 font_data = ExtResource( 3 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [node name="Node2D" type="Sprite"]
 position = Vector2( 960, 540 )
@@ -155,5 +174,16 @@ margin_bottom = -384.0
 theme = ExtResource( 7 )
 text = "Back to main menu"
 script = ExtResource( 8 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 639, -25.0001 )
+scale = Vector2( 0.78125, 0.712428 )
+frames = SubResource( 7 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 732, 352 )
+frames = SubResource( 8 )
+playing = true
+flip_h = true
 
 [connection signal="pressed" from="BackToMain" to="BackToMain" method="GoBackToMain"]

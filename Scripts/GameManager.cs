@@ -132,6 +132,7 @@ public class GameManager : Node2D
 		GD.Print("BOSS FIGHT LOADED!!!");
 	}
 
+	/*
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey eventKey)
@@ -147,6 +148,7 @@ public class GameManager : Node2D
 			}
 		}	
 	}
+	*/
 
 	public void PlaySFX(string SFXName)
 	{
@@ -802,7 +804,97 @@ public class GameManager : Node2D
 	public void GameOver()
 	{
 		LevelManager LM = GetParent<LevelManager>();
+		
+		
+		// END
+		SetMode("None");
+		AreYouWinningSon = false;
+
+		// WORLD MAP
+		WorldMap WM = (WorldMap)LM.GetNode("WorldMap");
+		WM.ResetToStart();
+
+		CMSoldier.ResetDeck();
+		CMSniper.ResetDeck();
+		CMSupport.ResetDeck();
+		CMRat.ResetDeck();
+
+		CMRat.Deck = new List<int>();
+		CMRat.TrueDeck = new List<int>();
+		CMRat.Hand = new List<int>();
+		CMRat.Discard = new List<int>();
+
+		foreach(string Cstring in Decks["Rat"])
+		{
+			CMRat.AddCard(Cstring);
+		}
+
+		CMRat.Deck = CMRat.ShufflePile(CMRat.Deck);
+
 		LM.ChangeLevel("GameOver");
+
+
+		CMSoldier.Deck = new List<int>();
+		CMSoldier.TrueDeck = new List<int>();
+		CMSoldier.Hand = new List<int>();
+		CMSoldier.Discard = new List<int>();
+
+		CMSniper.Deck = new List<int>();
+		CMSniper.TrueDeck = new List<int>();
+		CMSniper.Hand = new List<int>();
+		CMSniper.Discard = new List<int>();
+
+		CMSupport.Deck = new List<int>();
+		CMSupport.TrueDeck = new List<int>();
+		CMSupport.Hand = new List<int>();
+		CMSupport.Discard = new List<int>();
+
+
+		string[] CMnames = {"Soldier", "Sniper", "Support", "Tutorial"};
+
+		foreach(string CMName in CMnames)
+		{
+			foreach(string Cstring in Decks[CMName])
+			{
+				switch(CMName)
+				{
+					case "Soldier":
+						CMSoldier.AddCard(Cstring);
+					break;
+					case "Sniper":
+						CMSniper.AddCard(Cstring);
+					break;
+					case "Support":
+						CMSupport.AddCard(Cstring);
+					break;
+				}
+			}
+		}
+
+		if(CMSoldier.Shuffle)
+			CMSoldier.Deck = CMSoldier.ShufflePile(CMSoldier.Deck);
+		if(CMSniper.Shuffle)
+			CMSniper.Deck = CMSniper.ShufflePile(CMSniper.Deck);
+		if(CMSupport.Shuffle)
+			CMSupport.Deck = CMSupport.ShufflePile(CMSupport.Deck);
+
+		CMSniper.RemoveCard("Garbage");
+
+
+		// START
+		TurnNumber = 0;
+		CMSoldier.SettingUp = false;
+		CMSniper.SettingUp = false;
+		CMSupport.SettingUp = false;
+		CMRat.SettingUp = false;
+
+		GD.Print("LEVEL STARTED!");
+		
+		SetMode("Draw");
+		EndTurnButton.Hide();
+		EndDrawButton.Show();
+
+
 	}
 
 	// Returns true if it's reasonable to end the turn here
@@ -827,9 +919,6 @@ public class GameManager : Node2D
 
 	public void CityAttacked(int Damage)
 	{
-		
-		SetHP(LevelHP-1);
-
 		Random rnd = new Random();
 
 		for(int i = 0; i < 2; i++)
@@ -853,13 +942,13 @@ public class GameManager : Node2D
 				break;
 			}
 		}
+
+		SetHP(LevelHP-1);
 	}
 
 	// Visualizes what a card does, but without playing it
 	public void ShowPlay(Card Card)
 	{
-		
-
 
 		if(Card.MatrixName == "Global")
 		{

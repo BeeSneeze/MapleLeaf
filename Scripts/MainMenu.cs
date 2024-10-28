@@ -40,7 +40,16 @@ public class MainMenu : Node2D
 			CountDownTime = 1.0f;
 		}	
 	}
+
+	public void GoToCredits()
+	{
+		LevelManager LM = GetParent<LevelManager>();
+		LM.ChangeLevel("Credits");
+	}
+
 }
+
+
 
 
 

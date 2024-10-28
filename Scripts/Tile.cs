@@ -74,8 +74,8 @@ public class Tile : Node2D
 			else if(Char.ID % 100 == 51) // Cities spawn some rubble
 			{
 				PlayEffect("Explosion");
-				GM.CityAttacked(1);
 				CreateCharacter("Rubble");
+				GM.CityAttacked(1);
 			}
 			else // Everyone else actually dies
 			{
