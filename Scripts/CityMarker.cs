@@ -21,6 +21,7 @@ public class CityMarker : AnimatedSprite
 	public void ActivateCity()
 	{
 		Show();
+		Animation = "Circle";
 		Node2D Flag = GetNode<Node2D>("Flag");
 		Flag.Hide();
 	}

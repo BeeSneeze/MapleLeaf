@@ -3,6 +3,8 @@
     "Sniper": ["Jog", "Feint", "Jab", "Snipe", "Jab", "Feint", "Trap", "Garbage"],
     "Support": ["Run", "Binoculars", "Duck!", "Distract", "Jog", "Double Agent", "Checkmate!", "Luck"],
     "Rat": ["Scamper", "Scurry", "The Rat", "The Rat", "Unionize", "Scamper"],
+
+    "Debug": ["DEBUG AREA DMG", "DEBUG SINGLE DMG", "DEBUG WIN"],
     
     "Tutorial": ["Right Click", "Tutorial Rat", "Scamper", "Tutorial Rat", "Scamper", "Tutorial Rat", "Tutorial Rat", "Scamper", "Scamper", "Tutorial Rat", "Tutorial Rat"],
 

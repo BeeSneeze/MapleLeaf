@@ -41,6 +41,15 @@ public class WorldMap : Node2D
 
 	public void ResetToStart()
 	{
+		for(int i = 1; i < 12; i++)
+		{
+			if(i > 2)
+			{
+				Node2D CChild = (Node2D)GetChild(i);
+				CChild.Hide();
+			}
+		}
+
 		CityList[CurrentIndex].DeactivateCity();
 		CurrentIndex = 2;
 		CityList[CurrentIndex].ActivateCity();

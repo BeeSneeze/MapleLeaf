@@ -139,14 +139,36 @@ public class GameManager : Node2D
 		{
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.G)
 			{
-				CMSupport.AddCard("DEBUG AREA DMG");
-				CMSupport.AddCard("DEBUG SINGLE DMG");
-				CMSupport.AddCard("DEBUG WIN");
-				CMSupport.DrawCard("DEBUG AREA DMG");
-				CMSupport.DrawCard("DEBUG SINGLE DMG");
-				CMSupport.DrawCard("DEBUG WIN");
+				SpawnDebug();
 			}
 		}	
+	}
+	
+
+	public void SpawnDebug()
+	{
+		foreach(string CName in Decks["Debug"])
+		{
+			CMSupport.AddCard(CName);
+			CMSupport.DrawCard(CName);
+		}
+		foreach(string CName in Decks["PoolSoldier"])
+		{
+			CMSoldier.AddCard(CName);
+			CMSoldier.DrawCard(CName);
+		}
+		foreach(string CName in Decks["PoolSniper"])
+		{
+			CMSniper.AddCard(CName);
+			CMSniper.DrawCard(CName);
+		}
+		foreach(string CName in Decks["PoolSupport"])
+		{
+			CMSupport.AddCard(CName);
+			CMSupport.DrawCard(CName);
+		}
+		
+		
 	}
 	
 
