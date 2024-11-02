@@ -132,7 +132,7 @@ public class GameManager : Node2D
 		GD.Print("BOSS FIGHT LOADED!!!");
 	}
 
-	/*
+	
 	public override void _UnhandledInput(InputEvent @event)
 	{
 		if (@event is InputEventKey eventKey)
@@ -148,7 +148,7 @@ public class GameManager : Node2D
 			}
 		}	
 	}
-	*/
+	
 
 	public void PlaySFX(string SFXName)
 	{
@@ -604,6 +604,12 @@ public class GameManager : Node2D
 					foreach(Vector2 Target in Board.TargetList)
 					{
 						Board.AddModifier(Target, "Immovable", int.Parse(A.Effect));
+					}
+				break;
+				case "Movable":
+					foreach(Vector2 Target in Board.TargetList)
+					{
+						Board.AddModifier(Target, "Movable", int.Parse(A.Effect));
 					}
 				break;
 				case "Push":

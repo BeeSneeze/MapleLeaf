@@ -49,12 +49,35 @@ public struct Character
 	public Vector2 QueuedMove; 			// Where is this character about to move?
 	public List<Modifier> ModifierData;	// Contains a list of modifiers and how long they last
 
+	public Character(Character InChar)
+	{
+		HP = InChar.HP;
+		MaxHP = InChar.HP;
+		ID = InChar.ID;
+		Name = InChar.Name;
+		QueuedMove = new Vector2(InChar.QueuedMove);
+		ModifierData = new List<Modifier>(InChar.ModifierData);
+	}
+
 	public void AddModifier(string MName, int MTime = 10000)
 	{
 		Modifier M = new Modifier();
 		M.Name = MName;
 		M.Time = MTime;
 		ModifierData.Add(M);
+	}
+
+	public void RemoveModifier(string MName)
+	{
+		int n = 0;
+		while(n < ModifierData.Count)
+		{
+			if(ModifierData[n].Name == MName)
+			{
+				break;
+			}
+		}
+		ModifierData.RemoveAt(n);
 	}
 
 	public void AdvanceModifiers()

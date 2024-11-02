@@ -48,8 +48,7 @@ public class Tile : Node2D
 		spr.Texture = (Texture)GD.Load("res://Assets/Visuals/Terrain/" + InString + ".png");
 		if(InString == "Mountains")
 		{
-			Char.ID = 50;
-			SetCharacter(Char);
+			CreateCharacter("Mountain");
 		}
 	}
 
@@ -352,6 +351,17 @@ public class Tile : Node2D
 
 	public void AddModifier(string ModName, int ModTime)
 	{
+		if(ModName == "Movable")
+		{
+			if(Char.ContainsModifier("Immovable"))
+			{
+				Char.RemoveModifier("Immovable");
+			}
+			return;
+		}
+
+
+
 		if(!Char.ContainsModifier(ModName) && Char.ID % 100 != 0)
 		{
 			Char.AddModifier(ModName, ModTime);
@@ -408,7 +418,6 @@ public class Tile : Node2D
 			AnimSpr.Playing = true;
 		}
 		
-
 		bool NoModifiers = true;
 		
 		foreach(Modifier M in Char.ModifierData)

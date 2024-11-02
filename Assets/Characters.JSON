@@ -87,7 +87,7 @@
     "City":
     {
         "ID": "51",
-        "MaxHP": "2",
+        "MaxHP": "200",
         "Names":["City"]
     },
     "Rubble":

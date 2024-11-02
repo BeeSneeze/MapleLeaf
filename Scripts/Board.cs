@@ -16,6 +16,7 @@ public class Board : Node2D
 	public List<Arrow> QueuedMoves = new List<Arrow>();
 
 	private int[,] TheoreticalCellID = new int[8,8];
+	private Character[,] TheoreticalCellCharacters = new Character[8,8];
 	private GameManager GM;
 
 	public override void _Ready()
@@ -109,13 +110,19 @@ public class Board : Node2D
 					}
 					if(CID == 50 && Type == "Mountain")
 					{
-						InMat[x,y] = false;
-						PossibleMat[x,y] = true;
+						if(Cell[x,y].Char.ContainsModifier("Immovable"))
+						{
+							InMat[x,y] = false;
+							PossibleMat[x,y] = true;
+						}
 					}
 					if((CID == 51 || CID == 52) && Type == "City")
 					{
-						InMat[x,y] = false;
-						PossibleMat[x,y] = true;
+						if(Cell[x,y].Char.ContainsModifier("Immovable"))
+						{
+							InMat[x,y] = false;
+							PossibleMat[x,y] = true;
+						}
 					}
 					if((CID != 51 && CID != 52) && Type == "Non-City")
 					{
@@ -208,6 +215,19 @@ public class Board : Node2D
 			break;
 			case "Character":
 				Remove(ActionMatrix, PossibleMat, "Mountain");
+				Remove(ActionMatrix, PossibleMat, "Empty");
+			break;
+			case "CharacterNoCity":
+				Remove(ActionMatrix, PossibleMat, "Mountain");
+				Remove(ActionMatrix, PossibleMat, "Empty");
+				if(Card.PlayerID % 100 < 10)
+				{
+					Remove(ActionMatrix, PossibleMat, "City");
+				}
+			break;
+			case "AnyImmovable":
+				Remove(ActionMatrix, PossibleMat, "Rat");
+				Remove(ActionMatrix, PossibleMat, "Friendly");
 				Remove(ActionMatrix, PossibleMat, "Empty");
 			break;
 		}
@@ -337,6 +357,7 @@ public class Board : Node2D
 			for(int y = 0; y < MaxSize; y++)
 			{
 				TheoreticalCellID[x,y] = Cell[x,y].Char.ID;
+				TheoreticalCellCharacters[x,y] = new Character(Cell[x,y].Char);
 			}
 		}
 	}
@@ -415,7 +436,7 @@ public class Board : Node2D
 			return false; // Out of bounds, hit the board border
 		}
 
-		if(TheoreticalCellID[TargetX,TargetY] % 100 > 49)
+		if(TheoreticalCellCharacters[TargetX,TargetY].ContainsModifier("Immovable"))
 		{
 			return false; // Hit an immovable object
 		}

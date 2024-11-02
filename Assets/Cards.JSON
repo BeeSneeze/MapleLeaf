@@ -218,7 +218,7 @@
         "AbilityText": "Area damage",
         "FlavorText":  "Stuns every rat it hits",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}, {"Name":"Stun", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "2"}, {"Name":"Stun", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Charlie":
@@ -373,7 +373,7 @@
         "Range": "4",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Character",
+        "TargetType": "Single","TargetCell": "CharacterNoCity",
         "AbilityText": "Deal damage, Swap place with target",
         "FlavorText":  "Thoroughly confuse the enemy",
         "AbilityList":  [
@@ -388,7 +388,7 @@
         "Range": "5",
         "Uses": "3",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Character",
+        "TargetType": "Single","TargetCell": "CharacterNoCity",
         "AbilityText": "Deal damage, Swap place with target",
         "FlavorText":  "Completely bamboozle the enemy",
         "AbilityList":  [
@@ -403,7 +403,7 @@
         "Range": "2",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Character",
+        "TargetType": "Single","TargetCell": "CharacterNoCity",
         "AbilityText": "Deal damage, push forward",
         "FlavorText": "One-Two!",
         "AbilityList":  [
@@ -418,7 +418,7 @@
         "Range": "1",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Character",
+        "TargetType": "Area","TargetCell": "CharacterNoCity",
         "AbilityText": "Deal damage and push all target squares",
         "FlavorText": "KNOCKOUT!",
         "AbilityList":  [
@@ -452,7 +452,7 @@
         "FlavorText": "A precise shot can mean the difference between a flesh wound and life long injury",
         "AbilityList":  [
             {"Name":"Damage", "Effect": "2"},
-            {"Name":"Stun", "Effect": "2"}],
+            {"Name":"Stun", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Taunt":
@@ -462,7 +462,7 @@
         "Range": "5",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Character",
+        "TargetType": "Single","TargetCell": "CharacterNoCity",
         "AbilityText": "Deal damage, pull enemy closer",
         "FlavorText": "HEY! LOOK AT ME!!",
         "AbilityList":  [
@@ -475,13 +475,12 @@
         "ID": "208",
         "MatrixName": "Line",
         "Range": "7",
-        "Uses": "4",
+        "Uses": "10",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Character",
+        "TargetType": "Single","TargetCell": "CharacterNoCity",
         "AbilityText": "Deal damage, pull enemy closer",
         "FlavorText": "You know I'm right.",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "1"},
             {"Name":"Push", "Effect": "S"}],
         "SecondaryList":  []
     },
@@ -492,7 +491,7 @@
         "Range": "2",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Character",
+        "TargetType": "Single","TargetCell": "CharacterNoCity",
         "AbilityText": "Deal damage, push to the left",
         "FlavorText": "The right tool for the job",
         "AbilityList":  [
@@ -507,7 +506,7 @@
         "Range": "3",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "Character",
+        "TargetType": "Single","TargetCell": "CharacterNoCity",
         "AbilityText": "Deal damage, push to the right, and stun",
         "FlavorText": "Using your dominant hand helps",
         "AbilityList":  [
@@ -637,7 +636,7 @@
         "TargetType": "Single","TargetCell": "EnemyNoCity",
         "AbilityText": "Stun target, create a roll card in hand",
         "FlavorText":  "Woah for real?",
-        "AbilityList":  [{"Name":"Stun", "Effect": "2"}],
+        "AbilityList":  [{"Name":"Stun", "Effect": "1"}],
         "SecondaryList":  [{"Name":"Create", "Effect": "Support:Roll"}]
     },
     "Diss Track":
@@ -650,7 +649,7 @@
         "TargetType": "Area","TargetCell": "EnemyNoCity",
         "AbilityText": "Stun all targets in range",
         "FlavorText":  "Dude will never recover from that burn",
-        "AbilityList":  [{"Name":"Stun", "Effect": "2"}],
+        "AbilityList":  [{"Name":"Stun", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Bribe":
@@ -672,15 +671,14 @@
     {   
         "ID": "308",
         "MatrixName": "Full",
-        "Range": "2",
+        "Range": "3",
         "Uses": "2",
         "Draws": "0",
-        "TargetType": "Single","TargetCell": "EnemyNoCity",
+        "TargetType": "Single","TargetCell": "AnyImmovable",
         "AbilityText": "Make target movable",
         "FlavorText":  "A little bit of love, and a lot of lard",
         "AbilityList":  [
-            {"Name":"Stun", "Effect": "1"},
-            {"Name":"Immovable", "Effect": "1"}],
+            {"Name":"Movable", "Effect": "3"}],
         "SecondaryList":  []
     },
     "Double Agent":
@@ -985,7 +983,7 @@
         "AbilityText":  "",
         "FlavorText":  "Working rats of the world, unite!",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  []
     },
 
@@ -1098,8 +1096,7 @@
         "FlavorText":  "There are no rats in Alberta, so we'll be training with these",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatTutorial"}],
         "SecondaryList":  [
-            {"Name":"Shuffle", "Effect": "Rat:Bonk"},
-            {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
+            {"Name":"Create", "Effect": "Rat:Bonk"}]
     },
     "The Rat":
     {   
@@ -1113,7 +1110,7 @@
         "FlavorText":  "Even the most ordinary rat can overcome extraordinary things!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  [
-            {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
+            {"Name":"Create", "Effect": "Rat:Chomp"}, 
             {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
     },
     "The Swarm":
@@ -1129,8 +1126,7 @@
         "FlavorText":  "With the power of friendship, we can accomplish anything!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNormal"}],
         "SecondaryList":  [
-            {"Name":"Shuffle", "Effect": "Rat:Chomp"}, 
-            {"Name":"Shuffle", "Effect": "Rat:Scamper"}]
+            {"Name":"Create", "Effect": "Rat:Chomp"}]
     },
     "The Spark":
     {   
@@ -1146,7 +1142,7 @@
         "AbilityList":  [
             {"Name":"Spawn", "Effect": "RatSparky"}],
         "SecondaryList":  [
-            {"Name":"Shuffle", "Effect": "Rat:Electrocute"},
+            {"Name":"Create", "Effect": "Rat:Electrocute"},
             {"Name":"Shuffle", "Effect": "Rat:Catalyze"}]
     },
     "The Master":
@@ -1163,7 +1159,7 @@
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatNinja"}],
         "SecondaryList":  [
             {"Name":"Shuffle", "Effect": "Rat:Scram"},
-            {"Name":"Shuffle", "Effect": "Rat:Smoke bomb"}]
+            {"Name":"Create", "Effect": "Rat:Smoke bomb"}]
     },
     "The Menace":
     {   
@@ -1197,7 +1193,7 @@
         "AbilityList":  [
             {"Name":"Spawn", "Effect": "RatLawyer"}],
         "SecondaryList":  [
-            {"Name":"Shuffle", "Effect": "Rat:Plagiarize"},
+            {"Name":"Create", "Effect": "Rat:Plagiarize"},
             {"Name":"Shuffle", "Effect": "Rat:Plagiarize"}]
     },
     "The Chef":
@@ -1214,7 +1210,7 @@
         "AbilityList":  [
             {"Name":"Spawn", "Effect": "RatChef"}],
         "SecondaryList":  [
-            {"Name":"Shuffle", "Effect": "Rat:Cheese"}, 
+            {"Name":"Create", "Effect": "Rat:Cheese"}, 
             {"Name":"Shuffle", "Effect": "Rat:Coffee"}]
     },
     "The President":
@@ -1229,7 +1225,9 @@
         "AbilityText":  "",
         "FlavorText":  "Fight for the freedom of your fellow rat!",
         "AbilityList":  [{"Name":"Spawn", "Effect": "RatBodyGuard"}],
-        "SecondaryList":  [{"Name":"President", "Effect": "-"}]
+        "SecondaryList":  [
+            {"Name":"President", "Effect": "-"},
+            {"Name":"Create", "Effect": "Rat:The Rat"}]
     },
     "Second Term":
     {   
