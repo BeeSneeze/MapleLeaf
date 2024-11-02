@@ -214,6 +214,9 @@ public class Tile : Node2D
 				case "Strong":
 					ModAnim.Animation = "Strong";
 				break;
+				case "Movable":
+					ModAnim.Animation = "Movable";
+				break;
 			}
 		}
 
@@ -357,7 +360,6 @@ public class Tile : Node2D
 			{
 				Char.RemoveModifier("Immovable");
 			}
-			return;
 		}
 
 
