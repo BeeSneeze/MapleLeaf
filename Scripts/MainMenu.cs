@@ -16,7 +16,16 @@ public class MainMenu : Node2D
 	public void StartButton()
 	{
 		LevelManager LM = GetParent<LevelManager>();
-		LM.ChangeLevel("Game");
+		if(LM.GetNode<GameManager>("Game").Turn == "None")
+		{
+			LM.ChangeLevel("WorldMap");
+		}
+		else
+		{
+			LM.ChangeLevel("Game");
+		}
+		Button SButton = GetNode<Button>("Start Button");
+		SButton.Text = "RESUME GAME";
 	}
 
 	public void StartCountDown()

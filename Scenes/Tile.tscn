@@ -296,7 +296,6 @@ valign = 1
 visible = false
 frames = SubResource( 5 )
 animation = "City"
-frame = 1
 playing = true
 
 [node name="HelpArrows" type="AnimatedSprite" parent="."]

@@ -118,7 +118,7 @@ script = ExtResource( 5 )
 position = Vector2( 960, 540 )
 z_index = -100
 frames = SubResource( 3 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -126,7 +126,7 @@ position = Vector2( 960, 540 )
 z_index = -100
 texture = ExtResource( 1 )
 
-[node name="Button" type="Button" parent="."]
+[node name="Start Button" type="Button" parent="."]
 margin_left = 760.0
 margin_top = 480.0
 margin_right = 1160.0
@@ -168,7 +168,6 @@ playing = true
 position = Vector2( 1301, 909 )
 scale = Vector2( 0.95, 0.95 )
 frames = SubResource( 2 )
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( 97, -41 )
@@ -187,7 +186,7 @@ frame = 11
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
-position = Vector2( 846, 540 )
+position = Vector2( 837, 540 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
 animation = "Rat"
@@ -243,7 +242,6 @@ rotation = -0.675442
 scale = Vector2( 0.216908, 0.214572 )
 frames = SubResource( 2 )
 animation = "TreeRat"
-frame = 1
 speed_scale = 0.7
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -285,6 +283,7 @@ scale = Vector2( 0.7, 0.7 )
 z_index = -1
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 playing = true
 offset = Vector2( -111.25, 0 )
 
@@ -293,6 +292,7 @@ position = Vector2( 613, 968 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -302,7 +302,6 @@ position = Vector2( 990, 854 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -313,7 +312,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -324,6 +322,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -384,6 +383,7 @@ position = Vector2( 416, 977 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 playing = true
 offset = Vector2( -111.25, 0 )
 
@@ -392,7 +392,6 @@ position = Vector2( 620, 980 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -423,18 +422,18 @@ text = "Version 1.0"
 position = Vector2( 1621, 409 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 
 [node name="Node2D" parent="." instance=ExtResource( 21 )]
 position = Vector2( 678, 540 )
 scale = Vector2( 0.6, 0.6 )
-frame = 34
+frame = 44
 
 [node name="AnimatedSprite12" type="AnimatedSprite" parent="."]
 position = Vector2( 1815, 990 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite13" type="AnimatedSprite" parent="."]
@@ -458,6 +457,7 @@ position = Vector2( 323, 933 )
 scale = Vector2( 1.9, 1.67143 )
 z_index = -1
 frames = SubResource( 7 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -465,8 +465,9 @@ flip_h = true
 position = Vector2( 151, 958 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 8 )
+frame = 1
 playing = true
 flip_h = true
 
-[connection signal="pressed" from="Button" to="." method="StartButton"]
+[connection signal="pressed" from="Start Button" to="." method="StartButton"]
 [connection signal="pressed" from="Button2" to="." method="GoToCredits"]

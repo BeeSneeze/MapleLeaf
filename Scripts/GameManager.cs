@@ -810,7 +810,9 @@ public class GameManager : Node2D
 	public void GameOver()
 	{
 		LevelManager LM = GetParent<LevelManager>();
-		
+
+		Button MMButton = LM.GetNode("MainMenu").GetNode<Button>("Start Button");
+		MMButton.Text = "START GAME";
 		
 		// END
 		SetMode("None");
