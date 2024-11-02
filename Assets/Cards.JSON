@@ -38,7 +38,7 @@
         "Draws": "0",
         "TargetType": "Single","TargetCell": "Empty",
         "AbilityText":  "",
-        "FlavorText":  "./Project",
+        "FlavorText":  "As fast as possible, as FAR as possible",
         "AbilityList":  [{"Name":"Move", "Effect": "-"}],
         "SecondaryList":  []
     },
