@@ -118,7 +118,7 @@ script = ExtResource( 5 )
 position = Vector2( 960, 540 )
 z_index = -100
 frames = SubResource( 3 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -168,6 +168,7 @@ playing = true
 position = Vector2( 1301, 909 )
 scale = Vector2( 0.95, 0.95 )
 frames = SubResource( 2 )
+frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( 97, -41 )
@@ -181,7 +182,7 @@ playing = true
 position = Vector2( 1731, 669 )
 frames = SubResource( 2 )
 animation = "SupportEdge"
-frame = 5
+frame = 6
 playing = true
 
 [node name="AnimatedSprite7" type="AnimatedSprite" parent="."]
@@ -263,7 +264,6 @@ position = Vector2( 688, 888 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.15
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -284,6 +284,7 @@ scale = Vector2( 0.7, 0.7 )
 z_index = -1
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 playing = true
 offset = Vector2( -111.25, 0 )
 
@@ -292,6 +293,7 @@ position = Vector2( 613, 968 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -301,7 +303,6 @@ position = Vector2( 990, 854 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -312,7 +313,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -323,6 +323,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -344,6 +345,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 2
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 speed_scale = 0.99
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -366,7 +368,6 @@ position = Vector2( 669, 888 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.15
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -386,6 +387,7 @@ position = Vector2( 416, 977 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
+frame = 1
 playing = true
 offset = Vector2( -111.25, 0 )
 
@@ -394,7 +396,6 @@ position = Vector2( 620, 980 )
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 2 )
 animation = "Rat"
-frame = 1
 speed_scale = 1.1
 playing = true
 offset = Vector2( -111.25, 0 )
@@ -431,12 +432,13 @@ playing = true
 [node name="Node2D" parent="." instance=ExtResource( 21 )]
 position = Vector2( 678, 540 )
 scale = Vector2( 0.6, 0.6 )
-frame = 45
+frame = 9
 
 [node name="AnimatedSprite12" type="AnimatedSprite" parent="."]
 position = Vector2( 1815, 990 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 
 [node name="AnimatedSprite13" type="AnimatedSprite" parent="."]
@@ -461,6 +463,7 @@ position = Vector2( 323, 933 )
 scale = Vector2( 1.9, 1.67143 )
 z_index = -1
 frames = SubResource( 7 )
+frame = 1
 playing = true
 flip_h = true
 
@@ -468,6 +471,7 @@ flip_h = true
 position = Vector2( 151, 958 )
 scale = Vector2( 1.2, 1.2 )
 frames = SubResource( 8 )
+frame = 1
 playing = true
 flip_h = true
 
