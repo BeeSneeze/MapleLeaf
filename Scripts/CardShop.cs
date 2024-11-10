@@ -203,6 +203,13 @@ public class CardShop : Node2D
 
 		NewCard.Translate(new Vector2(365,-202));
 		UpdateCardPositions();
+
+		if((NewCard.CardID % 1000) % 2 == 0 && NewCard.CardID % 1000 < 500 && NewCard.CardID % 1000 > 99)
+		{
+			Node2D Upg = NewCard.GetNode<Node2D>("Upgrade");
+			Upg.Show();
+		}
+
 		AddChild(NewCard);
 	}
 
