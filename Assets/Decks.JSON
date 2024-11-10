@@ -12,7 +12,18 @@
     "PoolSoldier": ["Walk", "Alpha", "Air strike", "Bravo", "Bowling", "Charlie", "Crab", "Delta", "Delegate", "Echo", "Elk", "Foxtrot", "Flamenco", "Golf", "Grapeshot"],
     "PoolSniper": ["Jog", "Feint", "Confound", "Jab", "Haymaker", "Snipe", "Debilitate", "Taunt", "Infuriate", "Right Hook", "Left Hook", "Pinpoint", "Pin down", "Trap", "Ambush"],
     "PoolSupport": ["Run", "Binoculars", "Trinoculars", "Duck!", "GOOSE!", "Distract", "Diss Track", "Bribe", "Grease", "Double Agent", "Mole", "Checkmate!", "Checkers mate!", "Luck", "F---!"],
+
+    "BasicSoldier": ["Walk", "Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf"],
+    "BasicSniper": ["Jog", "Feint", "Jab", "Snipe", "Taunt", "Right Hook", "Pinpoint", "Trap"],
+    "BasicSupport": ["Run", "Binoculars", "Duck!", "Distract", "Bribe", "Double Agent", "Checkmate!", "Luck"],
     
+    "UpgradeSoldier": ["Air strike", "Bowling", "Crab", "Delegate", "Elk", "Flamenco", "Grapeshot"],
+    "UpgradeSniper": ["Confound", "Haymaker", "Debilitate", "Infuriate", "Left Hook", "Pin down", "Ambush"],
+    "UpgradeSupport": ["Trinoculars", "GOOSE!", "Diss Track", "Grease", "Mole", "Checkers mate!", "F---!"],
+    
+
+
+
     "PoolRatSpawn": ["The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The Rat", "The President", "The President"],
     
     

@@ -75,20 +75,33 @@ public class CardShop : Node2D
 			IdToNameConvert.Add(int.Parse(Entry.Value.ID), Entry.Key);
 		}
 
-		LoadShop();
-
-		foreach(Card C in HandCards)
-		{
-			C.Clickable = false;
-		}
+		LoadShop();	
 	}
 
 	// Loads new cards from the card pool
 	public void LoadShop()
 	{
-		AddCard(Decks["PoolSoldier"][rnd.Next(0,Decks["PoolSoldier"].Count)]);
-		AddCard(Decks["PoolSniper"][rnd.Next(0,Decks["PoolSniper"].Count)]);
-		AddCard(Decks["PoolSupport"][rnd.Next(0,Decks["PoolSupport"].Count)]);
+		int UpgradePlayer = rnd.Next(3);
+
+		switch(UpgradePlayer)
+		{
+			case 0:
+				AddCard(Decks["UpgradeSoldier"][rnd.Next(0,Decks["UpgradeSoldier"].Count)]);
+				AddCard(Decks["BasicSniper"][rnd.Next(0,Decks["BasicSniper"].Count)]);
+				AddCard(Decks["BasicSupport"][rnd.Next(0,Decks["BasicSupport"].Count)]);
+			break;
+			case 1:
+				AddCard(Decks["BasicSoldier"][rnd.Next(0,Decks["BasicSoldier"].Count)]);
+				AddCard(Decks["UpgradeSniper"][rnd.Next(0,Decks["UpgradeSniper"].Count)]);
+				AddCard(Decks["BasicSupport"][rnd.Next(0,Decks["BasicSupport"].Count)]);
+			break;
+			case 2:
+				AddCard(Decks["BasicSoldier"][rnd.Next(0,Decks["BasicSoldier"].Count)]);
+				AddCard(Decks["BasicSniper"][rnd.Next(0,Decks["BasicSniper"].Count)]);
+				AddCard(Decks["UpgradeSupport"][rnd.Next(0,Decks["UpgradeSupport"].Count)]);
+			break;
+		}
+
 		AddCard(Decks["PoolRatActionA"][rnd.Next(0,Decks["PoolRatActionA"].Count)]);
 		AddCard(Decks["PoolRatActionB"][rnd.Next(0,Decks["PoolRatActionB"].Count)]);
 		WorldMap WM = GetParent<WorldMap>();
@@ -99,6 +112,11 @@ public class CardShop : Node2D
 		DrawCard();
 		DrawCard();
 		DrawCard();
+
+		foreach(Card C in HandCards)
+		{
+			C.Clickable = false;
+		}
 	}
 
 	public void LoadCardEffect(string EffectName, Card InCard)
@@ -407,12 +425,24 @@ public class CardShop : Node2D
 			switch(C.PlayerID)
 			{
 				case 1:
+					if((C.CardID % 1000) % 2 == 0)
+					{
+						GD.Print("UPGRADED CARD SOLDIER!");
+					}
 					GM.CMSoldier.AddCard(C.CardName);
 				break;
 				case 2:
+					if((C.CardID % 1000) % 2 == 0)
+					{
+						GD.Print("UPGRADED CARD SNIPER!");
+					}
 					GM.CMSniper.AddCard(C.CardName);
 				break;
 				case 3:
+					if((C.CardID % 1000) % 2 == 0)
+					{
+						GD.Print("UPGRADED CARD SUPPORT!");
+					}
 					GM.CMSupport.AddCard(C.CardName);
 				break;
 				case 4:

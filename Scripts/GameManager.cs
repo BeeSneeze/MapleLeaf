@@ -139,7 +139,7 @@ public class GameManager : Node2D
 		{
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.G)
 			{
-				//SpawnDebug();
+				SpawnDebug();
 			}
 		}	
 	}
@@ -167,8 +167,6 @@ public class GameManager : Node2D
 			CMSupport.AddCard(CName);
 			CMSupport.DrawCard(CName);
 		}
-		
-		
 	}
 	
 
@@ -931,15 +929,15 @@ public class GameManager : Node2D
 	public bool SanityCheck()
 	{
 		bool OK = true;
-		if(CMSoldier.HandCards.Count > 2)
+		if(CMSoldier.HandCards.Count > 3)
 		{
 			OK = false;
 		}
-		if(CMSniper.HandCards.Count > 2)
+		if(CMSniper.HandCards.Count > 3)
 		{
 			OK = false;
 		}
-		if(CMSupport.HandCards.Count > 2)
+		if(CMSupport.HandCards.Count > 3)
 		{
 			OK = false;
 		}
