@@ -1,5 +1,5 @@
 {
-    "Soldier": ["Walk", "Alpha", "Bravo", "Delta", "Charlie", "Golf", "Bravo"],
+    "Soldier": ["Walk", "Alpha", "Bravo", "Delta", "Charlie", "Golf", "Bravo"], 
     "Sniper": ["Jog", "Feint", "Jab", "Snipe", "Jab", "Feint", "Trap", "Garbage"],
     "Support": ["Run", "Binoculars", "Duck!", "Distract", "Jog", "Double Agent", "Checkmate!", "Luck"],
     "Rat": ["Scamper", "Scurry", "The Rat", "The Rat", "Unionize", "Scamper"],
@@ -20,9 +20,6 @@
     "UpgradeSoldier": ["Air strike", "Bowling", "Crab", "Delegate", "Elk", "Flamenco", "Grapeshot"],
     "UpgradeSniper": ["Confound", "Haymaker", "Debilitate", "Infuriate", "Left Hook", "Pin down", "Ambush"],
     "UpgradeSupport": ["Trinoculars", "GOOSE!", "Diss Track", "Grease", "Mole", "Checkers mate!", "F---!"],
-    
-
-
 
     "PoolRatSpawn": ["The Rat", "The Swarm", "The Spark", "The Master", "The Menace", "The Lawyer", "The Chef", "The Rat", "The President", "The President"],
     

@@ -190,7 +190,7 @@
         "AbilityText": "Area damage",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "5"}],
+            {"Name":"Damage", "Effect": "4"}],
         "SecondaryList":  []
     },
     "Bravo":

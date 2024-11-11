@@ -5,11 +5,15 @@ using Newtonsoft.Json;
 
 public class CardShop : Node2D
 {
+	[Export] public string ShopName;
+
 	private string OwnerName = "Shop";
 
 	public CardShop OtherShop;
 
 	public bool Shuffle = true;
+
+	public static int RandomShopIndex = 0;
 
 	// Cards as card IDs
 	public List<Card> HandCards = new List<Card>();
@@ -34,7 +38,6 @@ public class CardShop : Node2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		
 		CBox = GetNode<CheckBox>("CheckBox");
 
 		if(Name == "ShopB")
@@ -78,27 +81,77 @@ public class CardShop : Node2D
 		LoadShop();	
 	}
 
+	public string FindUpgradeAble(string PlayerName)
+	{
+		int ExaminedIndex = rnd.Next(0,Decks["Upgrade" + PlayerName].Count);
+		int StartIndex = ExaminedIndex;
+		bool Examining = true;
+
+		List<int> CheckDeck = GM.CMSoldier.Deck;
+
+		switch(PlayerName)
+		{
+			case "Soldier":
+				CheckDeck = GM.CMSoldier.Deck;
+			break;
+			case "Sniper":
+				CheckDeck = GM.CMSniper.Deck;
+			break;
+			case "Support":
+				CheckDeck = GM.CMSupport.Deck;
+			break;
+		}
+		
+		string CName = Decks["Upgrade" + PlayerName][ExaminedIndex];
+
+		while(Examining)
+		{
+			CName = Decks["Upgrade" + PlayerName][ExaminedIndex];
+			foreach(int CID in CheckDeck)
+			{
+				if(CID % 1000 + 1 == int.Parse(AllCardsDict[CName].ID))
+				{
+					GD.Print("FOUND UPGRADE for" + IdToNameConvert[CID % 1000]);
+					Examining = false;
+					break;
+				}
+			}
+			ExaminedIndex = (ExaminedIndex + 1) % Decks["Upgrade" + PlayerName].Count;
+			if(StartIndex == ExaminedIndex)
+			{
+				break;
+			}
+		}
+
+		return CName;
+	}
+
 	// Loads new cards from the card pool
 	public void LoadShop()
 	{
-		int UpgradePlayer = rnd.Next(3);
+		int UpgradePlayer = RandomShopIndex;
+
+		if(ShopName == "B")
+		{
+			UpgradePlayer = (UpgradePlayer + rnd.Next(2) + 1) % 3;
+		}
 
 		switch(UpgradePlayer)
 		{
 			case 0:
-				AddCard(Decks["UpgradeSoldier"][rnd.Next(0,Decks["UpgradeSoldier"].Count)]);
+				AddCard(FindUpgradeAble("Soldier"));
 				AddCard(Decks["BasicSniper"][rnd.Next(0,Decks["BasicSniper"].Count)]);
 				AddCard(Decks["BasicSupport"][rnd.Next(0,Decks["BasicSupport"].Count)]);
 			break;
 			case 1:
 				AddCard(Decks["BasicSoldier"][rnd.Next(0,Decks["BasicSoldier"].Count)]);
-				AddCard(Decks["UpgradeSniper"][rnd.Next(0,Decks["UpgradeSniper"].Count)]);
+				AddCard(FindUpgradeAble("Sniper"));
 				AddCard(Decks["BasicSupport"][rnd.Next(0,Decks["BasicSupport"].Count)]);
 			break;
 			case 2:
 				AddCard(Decks["BasicSoldier"][rnd.Next(0,Decks["BasicSoldier"].Count)]);
 				AddCard(Decks["BasicSniper"][rnd.Next(0,Decks["BasicSniper"].Count)]);
-				AddCard(Decks["UpgradeSupport"][rnd.Next(0,Decks["UpgradeSupport"].Count)]);
+				AddCard(FindUpgradeAble("Support"));
 			break;
 		}
 
@@ -207,6 +260,8 @@ public class CardShop : Node2D
 		if((NewCard.CardID % 1000) % 2 == 0 && NewCard.CardID % 1000 < 500 && NewCard.CardID % 1000 > 99)
 		{
 			Node2D Upg = NewCard.GetNode<Node2D>("Upgrade");
+			Label UpgLabel = Upg.GetNode<Label>("Label");
+			UpgLabel.Text = "Upgrade from \n" + IdToNameConvert[NewCard.CardID % 1000 - 1];
 			Upg.Show();
 		}
 
@@ -435,6 +490,7 @@ public class CardShop : Node2D
 					if((C.CardID % 1000) % 2 == 0)
 					{
 						GD.Print("UPGRADED CARD SOLDIER!");
+						GM.CMSoldier.RemoveCard(IdToNameConvert[C.CardID % 1000 - 1]);
 					}
 					GM.CMSoldier.AddCard(C.CardName);
 				break;
@@ -442,6 +498,7 @@ public class CardShop : Node2D
 					if((C.CardID % 1000) % 2 == 0)
 					{
 						GD.Print("UPGRADED CARD SNIPER!");
+						GM.CMSniper.RemoveCard(IdToNameConvert[C.CardID % 1000 - 1]);
 					}
 					GM.CMSniper.AddCard(C.CardName);
 				break;
@@ -449,6 +506,7 @@ public class CardShop : Node2D
 					if((C.CardID % 1000) % 2 == 0)
 					{
 						GD.Print("UPGRADED CARD SUPPORT!");
+						GM.CMSupport.RemoveCard(IdToNameConvert[C.CardID % 1000 - 1]);
 					}
 					GM.CMSupport.AddCard(C.CardName);
 				break;

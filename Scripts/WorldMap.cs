@@ -90,6 +90,10 @@ public class WorldMap : Node2D
 			ShopB.Ratify();
 		}
 
+		Random rnd = new Random();
+
+		CardShop.RandomShopIndex = rnd.Next(3);
+
 		ShopA.ResetShop();
 		ShopB.ResetShop();
 

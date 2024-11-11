@@ -234,17 +234,19 @@ playing = true
 visible = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Upgrade"]
-position = Vector2( 126, -219 )
-scale = Vector2( 0.4425, 0.5325 )
+position = Vector2( 124, -218 )
+scale = Vector2( 0.4425, 0.469375 )
 frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="Upgrade"]
 modulate = Color( 1, 1, 1, 0.941176 )
-margin_left = -126.0
-margin_top = -300.0
-margin_right = 102.0
-margin_bottom = -217.0
+margin_left = -119.0
+margin_top = -310.0
+margin_right = 109.0
+margin_bottom = -227.0
+rect_rotation = 2.0
 theme = SubResource( 7 )
 text = "Upgrade from
 CARDNAME"
