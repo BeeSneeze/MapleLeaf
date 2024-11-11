@@ -136,22 +136,64 @@ public class CardShop : Node2D
 			UpgradePlayer = (UpgradePlayer + rnd.Next(2) + 1) % 3;
 		}
 
+		Random RandPick = new Random();
+
+		int RemovalPick = RandPick.Next(2);
+
 		switch(UpgradePlayer)
 		{
 			case 0:
 				AddCard(FindUpgradeAble("Soldier"));
-				AddCard(Decks["BasicSniper"][rnd.Next(0,Decks["BasicSniper"].Count)]);
-				AddCard(Decks["BasicSupport"][rnd.Next(0,Decks["BasicSupport"].Count)]);
+
+				if(RemovalPick == 1)
+				{
+					AddCard(IdToNameConvert[GM.CMSniper.TrueDeck[rnd.Next(0,GM.CMSniper.TrueDeck.Count)] % 1000], true);
+					AddCard(Decks["BasicSupport"][rnd.Next(0,Decks["BasicSupport"].Count)]);
+				}
+				else
+				{
+					AddCard(Decks["BasicSniper"][rnd.Next(0,Decks["BasicSniper"].Count)]);
+					AddCard(IdToNameConvert[GM.CMSupport.TrueDeck[rnd.Next(0,GM.CMSupport.TrueDeck.Count)] % 1000], true);
+				}
+				
 			break;
 			case 1:
-				AddCard(Decks["BasicSoldier"][rnd.Next(0,Decks["BasicSoldier"].Count)]);
+				
+				if(RemovalPick == 1)
+				{
+					AddCard(IdToNameConvert[GM.CMSoldier.TrueDeck[rnd.Next(0,GM.CMSoldier.TrueDeck.Count)] % 1000], true);
+				}
+				else
+				{
+					AddCard(Decks["BasicSoldier"][rnd.Next(0,Decks["BasicSoldier"].Count)]);
+				}
+
 				AddCard(FindUpgradeAble("Sniper"));
-				AddCard(Decks["BasicSupport"][rnd.Next(0,Decks["BasicSupport"].Count)]);
+
+				if(RemovalPick == 1)
+				{
+					AddCard(Decks["BasicSupport"][rnd.Next(0,Decks["BasicSupport"].Count)]);
+				}
+				else
+				{
+					AddCard(IdToNameConvert[GM.CMSupport.TrueDeck[rnd.Next(0,GM.CMSupport.TrueDeck.Count)] % 1000], true);
+				}
 			break;
 			case 2:
-				AddCard(Decks["BasicSoldier"][rnd.Next(0,Decks["BasicSoldier"].Count)]);
-				AddCard(Decks["BasicSniper"][rnd.Next(0,Decks["BasicSniper"].Count)]);
+				if(RemovalPick == 1)
+				{
+					
+					AddCard(IdToNameConvert[GM.CMSoldier.TrueDeck[rnd.Next(0,GM.CMSoldier.TrueDeck.Count)] % 1000], true);
+					AddCard(Decks["BasicSniper"][rnd.Next(0,Decks["BasicSniper"].Count)]);
+				}
+				else
+				{
+					AddCard(Decks["BasicSoldier"][rnd.Next(0,Decks["BasicSoldier"].Count)]);
+					AddCard(IdToNameConvert[GM.CMSniper.TrueDeck[rnd.Next(0,GM.CMSniper.TrueDeck.Count)] % 1000], true);
+				}
+
 				AddCard(FindUpgradeAble("Support"));
+				
 			break;
 		}
 
@@ -259,10 +301,23 @@ public class CardShop : Node2D
 
 		if((NewCard.CardID % 1000) % 2 == 0 && NewCard.CardID % 1000 < 500 && NewCard.CardID % 1000 > 99)
 		{
+			// UPGRADE OVERLAY
 			Node2D Upg = NewCard.GetNode<Node2D>("Upgrade");
 			Label UpgLabel = Upg.GetNode<Label>("Label");
 			UpgLabel.Text = "Upgrade from \n" + IdToNameConvert[NewCard.CardID % 1000 - 1];
 			Upg.Show();
+		}
+		else if(ActiveCards[InID].DrawCount > 1000)
+		{
+			// REMOVE OVERLAY
+			Node2D RemNode = NewCard.GetNode<Node2D>("Remove");
+			RemNode.Show();
+		}
+		else
+		{
+			// ADD CARD OVERLAY
+			Node2D AddNode = NewCard.GetNode<Node2D>("Add");
+			AddNode.Show();
 		}
 
 		AddChild(NewCard);
@@ -297,13 +352,17 @@ public class CardShop : Node2D
 	}
 
 	// Adds a new card to the deck, by name
-	public void AddCard(string CardName, int RatID = 0)
+	public void AddCard(string CardName, bool Remove = false)
 	{
 		int NewID = GM.NewCardID(int.Parse(AllCardsDict[CardName].ID));
 
 		// Compact card notation
 		CompactCard CC = new CompactCard();
 		CC.DrawCount = 0;
+		if(Remove)
+		{
+			CC.DrawCount = 9000;
+		}
 		CC.ID = NewID;
 		switch(OwnerName)
 		{
@@ -317,15 +376,7 @@ public class CardShop : Node2D
 				CC.OwnerID = 303;
 			break;
 			case "Rat":
-				if(RatID != 0)
-				{
-					CC.OwnerID = RatID;
-				}
-				else
-				{
 					CC.OwnerID = 20; // TEMP ID
-				}
-				
 			break;
 		}
 		
@@ -491,24 +542,51 @@ public class CardShop : Node2D
 					{
 						GD.Print("UPGRADED CARD SOLDIER!");
 						GM.CMSoldier.RemoveCard(IdToNameConvert[C.CardID % 1000 - 1]);
+						GM.CMSoldier.AddCard(C.CardName);
 					}
-					GM.CMSoldier.AddCard(C.CardName);
+					else if(C.GetNode<Node2D>("Remove").Visible)
+					{
+						GM.CMSoldier.RemoveCard(C.CardName);
+					}
+					else
+					{
+						GM.CMSoldier.AddCard(C.CardName);
+					}
+					
 				break;
 				case 2:
 					if((C.CardID % 1000) % 2 == 0)
 					{
 						GD.Print("UPGRADED CARD SNIPER!");
 						GM.CMSniper.RemoveCard(IdToNameConvert[C.CardID % 1000 - 1]);
+						GM.CMSniper.AddCard(C.CardName);
 					}
-					GM.CMSniper.AddCard(C.CardName);
+					else if(C.GetNode<Node2D>("Remove").Visible)
+					{
+						GM.CMSniper.RemoveCard(C.CardName);
+					}
+					else
+					{
+						GM.CMSniper.AddCard(C.CardName);
+					}
+					
 				break;
 				case 3:
 					if((C.CardID % 1000) % 2 == 0)
 					{
 						GD.Print("UPGRADED CARD SUPPORT!");
 						GM.CMSupport.RemoveCard(IdToNameConvert[C.CardID % 1000 - 1]);
+						GM.CMSupport.AddCard(C.CardName);
 					}
-					GM.CMSupport.AddCard(C.CardName);
+					else if(C.GetNode<Node2D>("Remove").Visible)
+					{
+						GM.CMSupport.RemoveCard(C.CardName);
+					}
+					else
+					{
+						GM.CMSupport.AddCard(C.CardName);
+					}
+					
 				break;
 				case 4:
 					GM.CMRat.AddCard(C.CardName);

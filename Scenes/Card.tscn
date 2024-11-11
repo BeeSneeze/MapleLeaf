@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Assets/Visuals/Cards/CardRat.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Visuals/Cards/The Swarm.png" type="Texture" id=2]
@@ -28,6 +28,10 @@
 [ext_resource path="res://Assets/Visuals/Markers/UpgradeArrow3.png" type="Texture" id=26]
 [ext_resource path="res://Assets/Visuals/Markers/UpgradeArrow2.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Visuals/Markers/UpgradeArrow1.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Visuals/Cards/Remove1.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Visuals/Cards/Remove2.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Visuals/Cards/Add2.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Visuals/Cards/Add1.png" type="Texture" id=32]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -115,6 +119,42 @@ font_data = ExtResource( 25 )
 default_font = SubResource( 6 )
 Label/colors/font_color = Color( 0, 0.933333, 1, 1 )
 
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 25 )
+
+[sub_resource type="Theme" id=10]
+default_font = SubResource( 9 )
+Label/colors/font_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 32 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="DynamicFont" id=12]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 25 )
+
+[sub_resource type="Theme" id=13]
+default_font = SubResource( 12 )
+Label/colors/font_color = Color( 0.0509804, 0.886275, 0.027451, 1 )
+
 [node name="Card" type="Sprite"]
 z_index = 100
 texture = ExtResource( 1 )
@@ -124,6 +164,7 @@ script = ExtResource( 4 )
 visible = false
 z_index = -1
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="Picture" type="Sprite" parent="."]
@@ -226,8 +267,10 @@ script = ExtResource( 6 )
 [node name="CornerSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -134, -214 )
 rotation = -0.174533
+z_index = 1
 frames = ExtResource( 24 )
-animation = "None"
+animation = "Support"
+frame = 9
 playing = true
 
 [node name="Upgrade" type="Node2D" parent="."]
@@ -237,7 +280,6 @@ visible = false
 position = Vector2( 124, -218 )
 scale = Vector2( 0.4425, 0.469375 )
 frames = SubResource( 5 )
-frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="Upgrade"]
@@ -250,6 +292,42 @@ rect_rotation = 2.0
 theme = SubResource( 7 )
 text = "Upgrade from
 CARDNAME"
+align = 1
+valign = 1
+
+[node name="Remove" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 0.9, 0.9 )
+frames = SubResource( 8 )
+frame = 1
+playing = true
+
+[node name="Label" type="Label" parent="Remove"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -118.889
+margin_top = -141.111
+margin_right = -221.889
+margin_bottom = -568.111
+theme = SubResource( 10 )
+text = "Remove 
+from deck"
+align = 1
+valign = 1
+
+[node name="Add" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 125, -206 )
+frames = SubResource( 11 )
+playing = true
+
+[node name="Label" type="Label" parent="Add"]
+margin_left = -218.0
+margin_top = 424.0
+margin_right = -26.0
+margin_bottom = 474.0
+theme = SubResource( 13 )
+text = "Add card"
 align = 1
 valign = 1
 
