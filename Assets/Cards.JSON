@@ -176,7 +176,7 @@
         "AbilityText": "Area damage",
         "FlavorText":  "A solid, straightforward option",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "3"}],
+            {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Air strike":
@@ -190,7 +190,7 @@
         "AbilityText": "Area damage",
         "FlavorText":  "",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "4"}],
+            {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Bravo":
@@ -198,7 +198,7 @@
         "ID": "103",
         "MatrixName": "Line",
         "Range": "3",
-        "Uses": "2",
+        "Uses": "1",
         "Draws": "0",
         "TargetType": "Area","TargetCell": "Character",
         "AbilityText": "Area damage",
@@ -242,11 +242,11 @@
         "Range": "2",
         "Uses": "1",
         "Draws": "0",
-        "TargetType": "Area","TargetCell": "Character",
-        "AbilityText": "Area damage",
+        "TargetType": "Area","TargetCell": "EnemyNoCity",
+        "AbilityText": "Area damage, does not do friendly fire",
         "FlavorText":  "The ultimate life form",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "5"}],
+            {"Name":"Damage", "Effect": "2"}],
         "SecondaryList":  []
     },
     "Delta":
@@ -437,7 +437,7 @@
         "AbilityText": "Deal damage",
         "FlavorText": "I once shot a needle in a haystack y'know!",
         "AbilityList":  [
-            {"Name":"Damage", "Effect": "2"}],
+            {"Name":"Damage", "Effect": "1"}],
         "SecondaryList":  []
     },
     "Debilitate":

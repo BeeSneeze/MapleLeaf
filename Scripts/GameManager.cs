@@ -139,7 +139,7 @@ public class GameManager : Node2D
 		{
 			if (eventKey.Pressed && eventKey.Scancode == (int)KeyList.G)
 			{
-				SpawnDebug();
+				//SpawnDebug();
 			}
 		}	
 	}

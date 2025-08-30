@@ -270,7 +270,7 @@ rotation = -0.174533
 z_index = 1
 frames = ExtResource( 24 )
 animation = "Support"
-frame = 9
+frame = 11
 playing = true
 
 [node name="Upgrade" type="Node2D" parent="."]
@@ -280,6 +280,7 @@ visible = false
 position = Vector2( 124, -218 )
 scale = Vector2( 0.4425, 0.469375 )
 frames = SubResource( 5 )
+frame = 2
 playing = true
 
 [node name="Label" type="Label" parent="Upgrade"]
@@ -319,6 +320,7 @@ valign = 1
 visible = false
 position = Vector2( 125, -206 )
 frames = SubResource( 11 )
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="Add"]
